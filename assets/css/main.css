@@ -1,0 +1,2232 @@
+/**
+ * Love Family Theme - Main Stylesheet
+ * Pixel-Matched Implementation for APPROVED-HOMEPAGE-REFERENCE.png
+ */
+
+/* ==========================================================================
+   1. Design Tokens & CSS Custom Properties
+   ========================================================================== */
+:root {
+	--lfa-navy-950: #020b18;
+	--lfa-navy-900: #041530;
+	--lfa-navy-850: #051938;
+	--lfa-navy-800: #071D3E;
+	--lfa-navy-700: #0A2B5E;
+	--lfa-navy-600: #0B4F8A;
+
+	--lfa-crimson: #AE002D;
+	--lfa-crimson-bright: #C00831;
+	--lfa-crimson-dark: #8B0024;
+
+	--lfa-gold: #E5B343;
+	--lfa-gold-light: #F7D57F;
+	--lfa-gold-dark: #C9972E;
+	--lfa-gold-accent: #E5A83B;
+
+	--lfa-white: #FFFFFF;
+	--lfa-neutral-light: #F8F9FA;
+	--lfa-neutral-card: #F4F6F9;
+	--lfa-gray-100: #F1F3F5;
+	--lfa-gray-200: #E5E7EB;
+	--lfa-gray-300: #D1D5DB;
+	--lfa-gray-400: #9CA3AF;
+	--lfa-gray-500: #6B7280;
+	--lfa-gray-600: #4B5563;
+	--lfa-gray-700: #374151;
+	--lfa-gray-800: #1F2937;
+	--lfa-gray-900: #111827;
+
+	--font-serif: 'Playfair Display', Georgia, Cambria, serif;
+	--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	--font-script: 'Caveat', cursive, 'Brush Script MT', sans-serif;
+
+	--max-width: 1200px;
+	--gutter: 24px;
+	--radius-sm: 4px;
+	--radius-md: 6px;
+	--radius-lg: 12px;
+	--radius-xl: 14px;
+	--radius-pill: 9999px;
+
+	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 14px rgba(0, 0, 0, 0.07);
+	--shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+	--shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+	--transition-fast: 0.18s ease;
+	--transition-base: 0.28s ease;
+}
+
+/* ==========================================================================
+   2. Reset & Base Typography
+   ========================================================================== */
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: var(--font-sans);
+	font-size: 16px;
+	line-height: 1.5;
+	color: var(--lfa-gray-800);
+	background-color: var(--lfa-white);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+
+img, svg, picture {
+	display: block;
+	max-width: 100%;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+button {
+	font-family: inherit;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+.screen-reader-text {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+.screen-reader-text:focus {
+	position: fixed !important;
+	top: 10px;
+	left: 10px;
+	width: auto !important;
+	height: auto !important;
+	padding: 12px 20px !important;
+	background: var(--lfa-crimson-bright);
+	color: #fff;
+	z-index: 100000;
+	border-radius: var(--radius-sm);
+	clip: auto !important;
+}
+
+.lfa-container {
+	width: 100%;
+	max-width: var(--max-width);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--gutter);
+	padding-right: var(--gutter);
+}
+
+.site-main {
+	flex: 1 0 auto;
+}
+
+/* ==========================================================================
+   3. Common UI Elements: Headings, Eyebrows, Buttons
+   ========================================================================== */
+.section-eyebrow {
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	margin-bottom: 6px;
+}
+
+.eyebrow-crimson {
+	color: var(--lfa-crimson-bright);
+}
+
+.eyebrow-gold {
+	color: var(--lfa-gold);
+}
+
+.section-heading {
+	font-family: var(--font-serif);
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 1.25;
+	color: var(--lfa-navy-900);
+	letter-spacing: -0.3px;
+}
+
+/* Base Button Styles */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	font-weight: 600;
+	font-size: 13.5px;
+	line-height: 1.2;
+	padding: 10px 22px;
+	border-radius: var(--radius-md);
+	transition: all var(--transition-base);
+	text-align: center;
+	white-space: nowrap;
+}
+
+.btn-crimson {
+	background-color: var(--lfa-crimson-bright);
+	color: var(--lfa-white);
+}
+
+.btn-crimson:hover, .btn-crimson:focus {
+	background-color: var(--lfa-crimson-dark);
+	box-shadow: 0 4px 12px rgba(192, 8, 49, 0.35);
+}
+
+.btn-outline-navy {
+	background-color: transparent;
+	color: var(--lfa-navy-800);
+	border: 1.5px solid var(--lfa-navy-800);
+	padding: 8px 18px;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.btn-outline-navy:hover, .btn-outline-navy:focus {
+	background-color: var(--lfa-navy-800);
+	color: var(--lfa-white);
+}
+
+/* ==========================================================================
+   4. Section 01 — Top Utility Bar
+   ========================================================================== */
+.site-utility-bar {
+	background-color: var(--lfa-navy-800);
+	color: rgba(255, 255, 255, 0.88);
+	font-size: 12px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lfa-utility-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 34px;
+}
+
+.utility-left {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.utility-link, .utility-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: rgba(255, 255, 255, 0.88);
+	font-size: 11.5px;
+}
+
+.utility-icon {
+	display: flex;
+	align-items: center;
+}
+
+.icon-mail {
+	color: var(--lfa-gold-accent);
+}
+
+.icon-pin {
+	color: var(--lfa-gold-accent);
+}
+
+.utility-link:hover {
+	color: var(--lfa-gold);
+}
+
+.utility-right {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.utility-nav {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.utility-nav-link {
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 11.5px;
+	font-weight: 500;
+}
+
+.utility-nav-link:hover {
+	color: var(--lfa-gold);
+}
+
+.utility-divider {
+	color: rgba(255, 255, 255, 0.25);
+	font-size: 11px;
+}
+
+.utility-social {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.utility-social-link {
+	color: rgba(255, 255, 255, 0.85);
+	display: flex;
+	align-items: center;
+	transition: color var(--transition-fast);
+}
+
+.utility-social-link:hover {
+	color: var(--lfa-gold);
+}
+
+.utility-search {
+	display: flex;
+	align-items: center;
+	padding-left: 4px;
+	border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.utility-search-link {
+	color: rgba(255, 255, 255, 0.85);
+	display: flex;
+	align-items: center;
+}
+
+.utility-search-link:hover {
+	color: var(--lfa-gold);
+}
+
+/* ==========================================================================
+   5. Section 02 — Main Header / Navigation
+   ========================================================================== */
+.site-nav-bar {
+	background-color: var(--lfa-white);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	position: relative;
+	border-bottom: 1px solid var(--lfa-gray-100);
+}
+
+.lfa-nav-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 82px;
+}
+
+/* Brand Identity */
+.site-brand {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	text-decoration: none;
+}
+
+.brand-crest {
+	width: 52px;
+	height: 52px;
+	flex-shrink: 0;
+	border-radius: var(--radius-pill);
+	overflow: hidden;
+}
+
+.brand-crest-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.brand-text-group {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.brand-title {
+	font-family: var(--font-sans);
+	font-size: 18px;
+	font-weight: 800;
+	color: var(--lfa-navy-800);
+	letter-spacing: 0.4px;
+	line-height: 1.1;
+}
+
+.brand-zone-badge {
+	display: inline-block;
+	background-color: var(--lfa-crimson-bright);
+	color: var(--lfa-white);
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: 0.5px;
+	padding: 2px 8px;
+	border-radius: var(--radius-pill);
+	margin-top: 2px;
+	margin-bottom: 2px;
+	line-height: 1.2;
+}
+
+.brand-tagline {
+	font-size: 8.5px;
+	font-weight: 600;
+	color: var(--lfa-gray-600);
+	letter-spacing: 0.6px;
+	line-height: 1;
+}
+
+/* Nav Menu */
+.primary-nav-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.nav-menu {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+
+.nav-link {
+	font-size: 13.5px;
+	font-weight: 600;
+	color: var(--lfa-gray-800);
+	padding: 6px 0;
+	position: relative;
+	transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+	color: var(--lfa-crimson-bright);
+}
+
+.current-menu-item .nav-link {
+	color: var(--lfa-crimson-bright);
+}
+
+.current-menu-item .nav-link::after {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background-color: var(--lfa-crimson-bright);
+	border-radius: 2px;
+}
+
+.nav-actions {
+	display: flex;
+	align-items: center;
+	margin-left: 6px;
+}
+
+.btn-login {
+	padding: 7px 22px;
+	font-size: 13px;
+	font-weight: 700;
+	border-radius: var(--radius-md);
+}
+
+.mobile-nav-toggle {
+	display: none;
+	width: 44px;
+	height: 44px;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	color: var(--lfa-navy-800);
+}
+
+.hamburger-icon {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	width: 24px;
+}
+
+.hamburger-icon span {
+	display: block;
+	height: 2.5px;
+	background-color: var(--lfa-navy-800);
+	border-radius: 2px;
+	transition: all var(--transition-fast);
+}
+
+/* ==========================================================================
+   6. Section 03 — Hero Section
+   ========================================================================== */
+.hero-section {
+	position: relative;
+	min-height: 560px;
+	background-color: var(--lfa-navy-900);
+	color: var(--lfa-white);
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.hero-bg-container {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+.hero-bg-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center top;
+}
+
+.hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: 
+		linear-gradient(90deg, rgba(7, 29, 62, 0.96) 0%, rgba(7, 29, 62, 0.88) 38%, rgba(7, 29, 62, 0.45) 65%, rgba(7, 29, 62, 0.15) 100%),
+		linear-gradient(180deg, transparent 70%, rgba(4, 21, 48, 0.88) 100%);
+}
+
+.hero-container {
+	position: relative;
+	z-index: 2;
+	padding-top: 48px;
+	padding-bottom: 56px;
+}
+
+.hero-content {
+	max-width: 620px;
+}
+
+.hero-eyebrow {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	margin-bottom: 12px;
+}
+
+.hero-eyebrow-line {
+	font-size: 12.5px;
+	font-weight: 700;
+	letter-spacing: 1.8px;
+	text-transform: uppercase;
+	color: var(--lfa-gold);
+	line-height: 1.25;
+}
+
+.hero-title {
+	font-family: var(--font-serif);
+	font-size: 42px;
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: -0.4px;
+	display: flex;
+	flex-direction: column;
+}
+
+.hero-title-highlight {
+	color: var(--lfa-gold);
+	font-style: italic;
+	font-weight: 700;
+}
+
+.hero-description {
+	font-size: 14.5px;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.9);
+	margin-top: 16px;
+	margin-bottom: 26px;
+	max-width: 540px;
+}
+
+.hero-cta-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+}
+
+.btn-hero {
+	padding: 10px 18px;
+	font-size: 13px;
+	font-weight: 600;
+	border-radius: var(--radius-md);
+}
+
+.btn-hero-crimson {
+	background-color: var(--lfa-crimson-bright);
+	color: #fff;
+}
+
+.btn-hero-crimson:hover {
+	background-color: var(--lfa-crimson-dark);
+}
+
+.btn-hero-navy {
+	background-color: var(--lfa-navy-600);
+	color: #fff;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-hero-navy:hover {
+	background-color: #073a67;
+}
+
+.btn-hero-gold {
+	background-color: var(--lfa-gold);
+	color: #111;
+	font-weight: 700;
+}
+
+.btn-hero-gold:hover {
+	background-color: var(--lfa-gold-light);
+}
+
+.btn-hero-outline {
+	background-color: rgba(7, 29, 62, 0.6);
+	color: #fff;
+	border: 1.5px solid rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(4px);
+}
+
+.btn-hero-outline:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   7. Section 04 — Core Values (Pillars)
+   ========================================================================== */
+.pillars-section {
+	background-color: var(--lfa-white);
+	padding: 36px 0;
+	border-bottom: 1px solid var(--lfa-gray-100);
+}
+
+.pillars-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0;
+}
+
+.pillar-item {
+	padding: 12px 18px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.pillar-item.has-divider::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 15%;
+	height: 70%;
+	width: 1px;
+	background-color: var(--lfa-gray-200);
+}
+
+.pillar-icon-badge {
+	width: 54px;
+	height: 54px;
+	border-radius: var(--radius-pill);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 14px;
+}
+
+.badge-crimson {
+	background-color: var(--lfa-crimson-bright);
+	color: #fff;
+}
+
+.badge-navy {
+	background-color: var(--lfa-navy-800);
+	color: #fff;
+}
+
+.pillar-title {
+	font-family: var(--font-sans);
+	font-size: 14px;
+	font-weight: 800;
+	letter-spacing: 0.5px;
+	color: var(--lfa-navy-900);
+	margin-bottom: 6px;
+	text-transform: uppercase;
+}
+
+.pillar-desc {
+	font-size: 12.5px;
+	line-height: 1.5;
+	color: var(--lfa-gray-600);
+	max-width: 210px;
+}
+
+/* ==========================================================================
+   8. Section 05 — About Us Section
+   ========================================================================== */
+.about-section {
+	padding: 64px 0;
+	background-color: #FAFBFD;
+}
+
+.about-grid {
+	display: grid;
+	grid-template-columns: 1fr 1.15fr;
+	gap: 40px;
+	align-items: center;
+}
+
+.about-copy-col {
+	max-width: 480px;
+}
+
+.about-heading {
+	margin-top: 4px;
+	margin-bottom: 16px;
+}
+
+.about-text {
+	font-size: 14.5px;
+	line-height: 1.65;
+	color: var(--lfa-gray-600);
+	margin-bottom: 24px;
+}
+
+.about-composition-card {
+	background-color: var(--lfa-white);
+	border: 1px solid var(--lfa-gray-200);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 1.1fr 1fr 1.1fr;
+	align-items: center;
+	box-shadow: var(--shadow-card);
+	min-height: 220px;
+}
+
+.about-comp-image {
+	position: relative;
+	height: 100%;
+	min-height: 220px;
+}
+
+.comp-hands-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.comp-image-fade {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, transparent 70%, rgba(255, 255, 255, 0.8) 100%);
+	pointer-events: none;
+}
+
+.about-comp-values {
+	padding: 20px 14px;
+	text-align: left;
+}
+
+.comp-values-list {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.comp-values-list li {
+	font-family: var(--font-serif);
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--lfa-navy-900);
+	letter-spacing: -0.2px;
+}
+
+.comp-values-bar {
+	width: 32px;
+	height: 3px;
+	background-color: var(--lfa-crimson-bright);
+	border-radius: 2px;
+	margin-top: 8px;
+}
+
+.about-comp-brand {
+	padding: 20px 14px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.comp-brand-crest {
+	width: 60px;
+	height: 60px;
+	margin-bottom: 6px;
+	border-radius: var(--radius-pill);
+	overflow: hidden;
+}
+
+.comp-brand-crest img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.comp-script-text {
+	font-family: var(--font-script);
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--lfa-navy-800);
+	line-height: 1.15;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ==========================================================================
+   9. Section 06 — President's Message
+   ========================================================================== */
+.president-section {
+	position: relative;
+	background-color: var(--lfa-navy-900);
+	color: var(--lfa-white);
+	padding: 72px 0;
+	overflow: hidden;
+}
+
+.president-watermark {
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	color: rgba(255, 255, 255, 0.12);
+}
+
+.president-grid {
+	position: relative;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: 0.85fr 1.35fr;
+	gap: 44px;
+	align-items: center;
+}
+
+.president-photo-frame {
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+	background-color: var(--lfa-navy-800);
+	max-width: 380px;
+}
+
+.president-img {
+	width: 100%;
+	height: 420px;
+	object-fit: cover;
+	object-position: center top;
+	display: block;
+}
+
+.president-heading {
+	color: var(--lfa-white);
+	margin-top: 4px;
+	margin-bottom: 18px;
+}
+
+.president-text {
+	font-size: 14.5px;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.88);
+	margin-bottom: 18px;
+}
+
+.president-gold-divider {
+	width: 50px;
+	height: 2.5px;
+	background-color: var(--lfa-gold);
+	border-radius: 2px;
+	margin-bottom: 20px;
+}
+
+.president-signoff-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.president-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.president-name {
+	font-size: 17px;
+	font-weight: 700;
+	color: var(--lfa-white);
+}
+
+.president-title {
+	font-size: 12.5px;
+	color: var(--lfa-gold);
+}
+
+.btn-president-cta {
+	padding: 9px 22px;
+	font-size: 13px;
+	border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   10. Section 07 — Community Gallery
+   ========================================================================== */
+.gallery-section {
+	padding: 64px 0;
+	background-color: var(--lfa-white);
+}
+
+.gallery-header-row {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 28px;
+	margin-bottom: 30px;
+}
+
+.gallery-heading {
+	margin-top: 4px;
+}
+
+.gallery-header-right {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	max-width: 480px;
+}
+
+.gallery-header-blurb {
+	font-size: 13px;
+	color: var(--lfa-gray-600);
+	line-height: 1.5;
+	text-align: right;
+}
+
+.gallery-grid {
+	display: grid;
+	grid-template-columns: 0.95fr 1.15fr 1.15fr;
+	gap: 20px;
+}
+
+.gallery-card {
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	box-shadow: var(--shadow-card);
+	background-color: var(--lfa-gray-100);
+}
+
+.gallery-card-media {
+	width: 100%;
+	height: 270px;
+	overflow: hidden;
+}
+
+.gallery-card-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.gallery-card-podium .gallery-card-img {
+	object-position: center bottom;
+}
+
+.gallery-card-women .gallery-card-img {
+	object-position: center 25%;
+}
+
+.gallery-card-group .gallery-card-img {
+	object-position: center 25%;
+}
+
+.gallery-card:hover .gallery-card-img {
+	transform: scale(1.03);
+}
+
+/* ==========================================================================
+   11. Section 08 — 2027 Conference Feature
+   ========================================================================== */
+.conference-section {
+	position: relative;
+	background: linear-gradient(90deg, #4f0908 0%, #3e0708 50%, #250305 100%);
+	color: var(--lfa-white);
+	padding: 24px 0 20px;
+	overflow: hidden;
+}
+
+.conference-crowd-overlay {
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at 60% 40%, rgba(229, 179, 67, 0.12) 0%, transparent 60%);
+	pointer-events: none;
+}
+
+.conference-banner {
+	display: grid;
+	grid-template-columns: 0.65fr 1.6fr 1.15fr;
+	align-items: center;
+	gap: 28px;
+}
+
+.conference-leader-col {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.conference-leader-wrap {
+	width: 175px;
+	height: 204px;
+	overflow: visible;
+}
+
+.conference-leader-img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+.conference-info-col {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.conference-badge {
+	display: inline-block;
+	background-color: var(--lfa-gold);
+	color: #111;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.8px;
+	padding: 2.5px 8px;
+	border-radius: var(--radius-sm);
+	align-self: flex-start;
+	margin-bottom: 2px;
+}
+
+.conference-title {
+	font-family: var(--font-sans);
+	font-size: 34px;
+	font-weight: 800;
+	letter-spacing: -0.3px;
+	line-height: 1.1;
+	color: var(--lfa-white);
+}
+
+.conference-theme {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 0.6px;
+	margin-top: 2px;
+}
+
+.theme-label {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.theme-name {
+	color: var(--lfa-gold);
+}
+
+.conference-gold-line {
+	width: 100%;
+	height: 1px;
+	background-color: rgba(229, 179, 67, 0.35);
+	margin: 6px 0 10px;
+}
+
+.conference-meta-row {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.conference-meta-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.conference-meta-divider {
+	width: 1px;
+	height: 28px;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.meta-icon {
+	color: var(--lfa-gold);
+	display: flex;
+	align-items: center;
+}
+
+.meta-text {
+	display: flex;
+	flex-direction: column;
+	line-height: 1.2;
+}
+
+.meta-primary {
+	font-size: 12.5px;
+	font-weight: 700;
+	color: var(--lfa-white);
+}
+
+.meta-sub {
+	font-size: 11px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.conference-action-col {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding-left: 20px;
+	border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.conference-blurb {
+	font-size: 13.5px;
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.conference-btn-row {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.btn-conference {
+	padding: 9px 18px;
+	font-size: 13px;
+	border-radius: var(--radius-md);
+}
+
+.btn-wine-outline {
+	background-color: transparent;
+	color: #fff;
+	border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.btn-wine-outline:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+	border-color: #fff;
+}
+
+/* ==========================================================================
+   12. Section 09 — Membership Benefits
+   ========================================================================== */
+.benefits-section {
+	padding: 64px 0 40px;
+	background-color: var(--lfa-white);
+}
+
+.benefits-header-row {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 28px;
+	margin-bottom: 32px;
+}
+
+.benefits-heading {
+	margin-top: 4px;
+}
+
+.benefits-subtitle {
+	font-size: 13px;
+	color: var(--lfa-gray-600);
+	max-width: 440px;
+	text-align: right;
+	line-height: 1.5;
+}
+
+.benefits-strip-row {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 0;
+	padding: 24px 0;
+	border-top: 1px solid var(--lfa-gray-200);
+	border-bottom: 1px solid var(--lfa-gray-200);
+}
+
+.benefit-strip-item {
+	padding: 12px 14px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.benefit-strip-item.has-divider::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 15%;
+	height: 70%;
+	width: 1px;
+	background-color: var(--lfa-gray-200);
+}
+
+.benefit-icon-wrap {
+	margin-bottom: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+}
+
+.icon-color-crimson {
+	color: var(--lfa-crimson-bright);
+}
+
+.icon-color-navy {
+	color: var(--lfa-navy-800);
+}
+
+.benefit-strip-title {
+	font-family: var(--font-sans);
+	font-size: 12.5px;
+	font-weight: 700;
+	color: var(--lfa-navy-900);
+	line-height: 1.35;
+	text-align: center;
+}
+
+/* ==========================================================================
+   13. Section 10 — Scholarships and Giving
+   ========================================================================== */
+.scholarships-giving-section {
+	padding: 40px 0 64px;
+	background-color: var(--lfa-white);
+}
+
+.dual-feature-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+}
+
+.feature-card {
+	background-color: var(--lfa-neutral-card);
+	border: 1px solid var(--lfa-gray-200);
+	border-radius: var(--radius-xl);
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 1.3fr 1fr;
+	min-height: 240px;
+	box-shadow: var(--shadow-sm);
+}
+
+.feature-card-content {
+	padding: 28px 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.feature-header-group {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-bottom: 10px;
+}
+
+.feature-icon-navy {
+	color: var(--lfa-navy-800);
+}
+
+.feature-icon-crimson {
+	color: var(--lfa-crimson-bright);
+}
+
+.feature-title-wrap {
+	display: flex;
+	flex-direction: column;
+}
+
+.feature-title {
+	font-family: var(--font-sans);
+	font-size: 17px;
+	font-weight: 800;
+	color: var(--lfa-navy-900);
+	letter-spacing: 0.5px;
+	line-height: 1.1;
+}
+
+.feature-subtitle {
+	font-size: 12.5px;
+	font-weight: 600;
+	color: var(--lfa-crimson-bright);
+	margin-top: 2px;
+}
+
+.feature-text {
+	font-size: 13px;
+	line-height: 1.55;
+	color: var(--lfa-gray-600);
+	margin-bottom: 18px;
+}
+
+.feature-card-media {
+	height: 100%;
+}
+
+.feature-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* ==========================================================================
+   14. Section 11 — Alumni Business Directory
+   ========================================================================== */
+.biz-directory-section {
+	padding: 0 0 64px;
+	background-color: var(--lfa-white);
+}
+
+.biz-header-row {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 28px;
+	margin-bottom: 30px;
+}
+
+.biz-heading {
+	margin-top: 4px;
+}
+
+.biz-header-right {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	max-width: 500px;
+}
+
+.biz-header-blurb {
+	font-size: 13px;
+	color: var(--lfa-gray-600);
+	line-height: 1.5;
+	text-align: right;
+}
+
+.biz-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 16px;
+}
+
+.biz-card {
+	background-color: var(--lfa-white);
+	border: 1px solid var(--lfa-gray-200);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	transition: all var(--transition-base);
+	box-shadow: var(--shadow-sm);
+}
+
+.biz-card:hover {
+	transform: translateY(-3px);
+	box-shadow: var(--shadow-md);
+	border-color: var(--lfa-gray-300);
+}
+
+.biz-card-thumb {
+	height: 84px;
+	overflow: hidden;
+	background-color: var(--lfa-gray-100);
+}
+
+.biz-thumb-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.biz-card:hover .biz-thumb-img {
+	transform: scale(1.04);
+}
+
+.biz-card-body {
+	padding: 14px 12px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.biz-card-title {
+	font-family: var(--font-sans);
+	font-size: 13.5px;
+	font-weight: 700;
+	color: var(--lfa-navy-900);
+	margin-bottom: 3px;
+	line-height: 1.25;
+}
+
+.biz-card-sub {
+	font-size: 11.5px;
+	color: var(--lfa-gray-500);
+	line-height: 1.4;
+}
+
+/* ==========================================================================
+   15. Section 12 — Final Call-To-Action Banner
+   ========================================================================== */
+.join-cta-section {
+	position: relative;
+	background-color: var(--lfa-navy-900);
+	color: var(--lfa-white);
+	padding: 48px 0;
+	overflow: hidden;
+}
+
+.join-cta-bg-container {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+.join-cta-bg-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	opacity: 0.9;
+}
+
+.join-cta-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(4, 21, 48, 0.45) 0%, rgba(7, 29, 62, 0.15) 50%, rgba(4, 21, 48, 0.35) 100%);
+	pointer-events: none;
+}
+
+.join-cta-container {
+	position: relative;
+	z-index: 2;
+}
+
+.join-cta-grid {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 28px;
+}
+
+.join-cta-left {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	max-width: 680px;
+}
+
+.join-cta-icon-wrap {
+	color: var(--lfa-white);
+	flex-shrink: 0;
+}
+
+.join-cta-divider {
+	width: 1px;
+	height: 48px;
+	background-color: rgba(255, 255, 255, 0.25);
+	flex-shrink: 0;
+}
+
+.join-eyebrow {
+	display: block;
+	font-size: 11.5px;
+	font-weight: 700;
+	letter-spacing: 1.8px;
+	color: var(--lfa-gold);
+	margin-bottom: 2px;
+}
+
+.join-title {
+	font-family: var(--font-serif);
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--lfa-white);
+	margin-bottom: 4px;
+}
+
+.join-sub {
+	font-size: 13.5px;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.join-cta-right {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-shrink: 0;
+}
+
+.btn-cta-large {
+	padding: 10px 24px;
+	font-size: 13.5px;
+	font-weight: 700;
+	border-radius: var(--radius-md);
+}
+
+.btn-cta-outline {
+	background-color: rgba(255, 255, 255, 0.08);
+	color: var(--lfa-white);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-cta-outline:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   16. Section 13 — Main Footer
+   ========================================================================== */
+.site-footer {
+	background-color: var(--lfa-navy-900);
+	color: var(--lfa-white);
+	padding-top: 56px;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 28px;
+	padding-bottom: 48px;
+}
+
+.footer-col-brand {
+	max-width: 280px;
+}
+
+.footer-brand {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 14px;
+}
+
+.footer-brand-logo {
+	width: 50px;
+	height: 50px;
+	flex-shrink: 0;
+	border-radius: var(--radius-pill);
+	overflow: hidden;
+}
+
+.footer-crest-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.footer-brand-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.footer-brand-title {
+	font-size: 16px;
+	font-weight: 800;
+	color: var(--lfa-white);
+	letter-spacing: 0.4px;
+	line-height: 1.1;
+}
+
+.footer-brand-zone {
+	font-size: 10.5px;
+	font-weight: 700;
+	color: var(--lfa-gold);
+	letter-spacing: 0.6px;
+	margin-top: 2px;
+}
+
+.footer-tagline {
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.7);
+	line-height: 1.5;
+}
+
+.footer-vertical-divider {
+	width: 1px;
+	height: 120px;
+	background-color: rgba(255, 255, 255, 0.12);
+	flex-shrink: 0;
+}
+
+.footer-col-links {
+	flex: 1;
+	max-width: 340px;
+}
+
+.footer-heading {
+	font-family: var(--font-sans);
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--lfa-white);
+	margin-bottom: 14px;
+	letter-spacing: 0.3px;
+}
+
+.footer-links-duo {
+	display: flex;
+	align-items: flex-start;
+	gap: 24px;
+}
+
+.footer-links-sub-divider {
+	width: 1px;
+	height: 90px;
+	background-color: rgba(255, 255, 255, 0.1);
+	flex-shrink: 0;
+}
+
+.footer-links-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.footer-links-list a {
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.75);
+	transition: color var(--transition-fast);
+}
+
+.footer-links-list a:hover {
+	color: var(--lfa-gold);
+}
+
+.footer-col-contact {
+	max-width: 280px;
+}
+
+.footer-contact-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 16px;
+}
+
+.footer-contact-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 12.5px;
+	color: rgba(255, 255, 255, 0.82);
+}
+
+.footer-icon-gold {
+	color: var(--lfa-gold-accent);
+	display: flex;
+	align-items: center;
+}
+
+.footer-contact-item:hover {
+	color: var(--lfa-gold);
+}
+
+.footer-social-links {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.footer-social-btn {
+	width: 32px;
+	height: 32px;
+	border-radius: var(--radius-sm);
+	background-color: rgba(255, 255, 255, 0.08);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	transition: all var(--transition-fast);
+}
+
+.footer-social-btn:hover {
+	background-color: var(--lfa-crimson-bright);
+	color: #fff;
+}
+
+.footer-bottom-bar {
+	padding: 16px 0 24px;
+}
+
+.footer-gold-hr {
+	width: 100%;
+	height: 1px;
+	background-color: rgba(229, 179, 67, 0.4);
+	margin-bottom: 14px;
+}
+
+.legacy-tagline {
+	font-size: 11.5px;
+	font-weight: 700;
+	letter-spacing: 1.8px;
+	color: var(--lfa-gold);
+	text-transform: uppercase;
+	text-align: center;
+}
+
+/* ==========================================================================
+   17. Content & Placeholder Page Styles
+   ========================================================================== */
+.page-hero-banner {
+	background-color: var(--lfa-navy-900);
+	color: var(--lfa-white);
+	padding: 56px 0;
+	text-align: center;
+	border-bottom: 3px solid var(--lfa-crimson-bright);
+}
+
+.page-eyebrow {
+	display: block;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	color: var(--lfa-gold);
+	margin-bottom: 8px;
+}
+
+.page-title {
+	font-family: var(--font-serif);
+	font-size: 38px;
+	font-weight: 700;
+}
+
+.page-content-area {
+	padding: 64px 0;
+	background-color: var(--lfa-neutral-light);
+}
+
+.page-content-card {
+	background: var(--lfa-white);
+	padding: 48px;
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--lfa-gray-200);
+	box-shadow: var(--shadow-sm);
+}
+
+.placeholder-notice {
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.notice-badge {
+	display: inline-block;
+	background-color: rgba(174, 0, 45, 0.1);
+	color: var(--lfa-crimson-bright);
+	font-size: 12px;
+	font-weight: 700;
+	padding: 4px 12px;
+	border-radius: var(--radius-pill);
+	margin-bottom: 16px;
+}
+
+.placeholder-notice h2 {
+	font-family: var(--font-serif);
+	font-size: 26px;
+	color: var(--lfa-navy-900);
+	margin-bottom: 12px;
+}
+
+.placeholder-notice p {
+	font-size: 14.5px;
+	color: var(--lfa-gray-600);
+	line-height: 1.6;
+	margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   18. Responsive Breakpoints
+   ========================================================================== */
+
+/* Laptop / Small Desktop (1024px) */
+@media (max-width: 1024px) {
+	.lfa-nav-inner {
+		height: 76px;
+	}
+
+	.nav-menu {
+		gap: 12px;
+	}
+
+	.nav-link {
+		font-size: 13px;
+	}
+
+	.hero-title {
+		font-size: 36px;
+	}
+
+	.about-grid {
+		gap: 28px;
+	}
+
+	.about-composition-card {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.about-comp-image {
+		grid-column: span 2;
+		height: 170px;
+	}
+
+	.president-grid {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	.president-photo-frame {
+		max-width: 340px;
+		margin: 0 auto;
+	}
+
+	.conference-banner {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+
+	.conference-badge {
+		align-self: center;
+	}
+
+	.conference-theme {
+		justify-content: center;
+	}
+
+	.conference-meta-row {
+		justify-content: center;
+	}
+
+	.conference-action-col {
+		padding-left: 0;
+		border-left: none;
+		align-items: center;
+	}
+
+	.conference-btn-row {
+		justify-content: center;
+	}
+
+	.benefits-strip-row {
+		grid-template-columns: repeat(3, 1fr);
+		row-gap: 20px;
+	}
+
+	.biz-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.footer-grid {
+		flex-wrap: wrap;
+	}
+
+	.footer-vertical-divider {
+		display: none;
+	}
+}
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+	.site-utility-bar {
+		display: none;
+	}
+
+	.mobile-nav-toggle {
+		display: flex;
+	}
+
+	.primary-nav-wrapper {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background-color: var(--lfa-white);
+		flex-direction: column;
+		padding: 24px;
+		gap: 20px;
+		border-top: 1px solid var(--lfa-gray-200);
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+		display: none;
+	}
+
+	.primary-nav-wrapper.is-open {
+		display: flex;
+	}
+
+	.nav-menu {
+		flex-direction: column;
+		width: 100%;
+		gap: 14px;
+	}
+
+	.nav-link {
+		display: block;
+		font-size: 15px;
+		padding: 6px 0;
+	}
+
+	.nav-actions {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	.btn-login {
+		width: 100%;
+	}
+
+	.hero-section {
+		min-height: 520px;
+	}
+
+	.hero-title {
+		font-size: 30px;
+	}
+
+	.hero-cta-grid {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.btn-hero {
+		width: 100%;
+	}
+
+	.pillars-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+
+	.pillar-item.has-divider::after {
+		display: none;
+	}
+
+	.about-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.about-copy-col {
+		max-width: 100%;
+	}
+
+	.gallery-header-row,
+	.benefits-header-row,
+	.biz-header-row {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+	}
+
+	.gallery-header-right,
+	.biz-header-right {
+		width: 100%;
+		max-width: 100%;
+		justify-content: space-between;
+	}
+
+	.gallery-header-blurb,
+	.benefits-subtitle,
+	.biz-header-blurb {
+		text-align: left;
+	}
+
+	.gallery-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.gallery-card-media {
+		height: 220px;
+	}
+
+	.dual-feature-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.feature-card {
+		grid-template-columns: 1fr;
+	}
+
+	.feature-card-media {
+		height: 190px;
+	}
+
+	.biz-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.join-cta-grid {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.join-cta-right {
+		width: 100%;
+		flex-direction: column;
+	}
+
+	.join-cta-right .btn {
+		width: 100%;
+	}
+
+	.footer-grid {
+		flex-direction: column;
+		gap: 32px;
+	}
+}
+
+/* Mobile Small (390px / iPhone) */
+@media (max-width: 480px) {
+	:root {
+		--gutter: 16px;
+	}
+
+	.site-nav-bar {
+		height: 70px;
+	}
+
+	.brand-crest {
+		width: 42px;
+		height: 42px;
+	}
+
+	.brand-title {
+		font-size: 15px;
+	}
+
+	.brand-zone-badge {
+		font-size: 8.5px;
+		padding: 2px 6px;
+	}
+
+	.brand-tagline {
+		font-size: 7.5px;
+		letter-spacing: 0.4px;
+	}
+
+	.hero-container {
+		padding-top: 36px;
+		padding-bottom: 44px;
+	}
+
+	.hero-eyebrow-line {
+		font-size: 11px;
+		letter-spacing: 1.2px;
+	}
+
+	.hero-title {
+		font-size: 27px;
+		line-height: 1.2;
+	}
+
+	.hero-description {
+		font-size: 13.5px;
+		margin-top: 14px;
+		margin-bottom: 22px;
+	}
+
+	.section-heading {
+		font-size: 25px;
+	}
+
+	.pillars-grid {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.pillar-item {
+		padding: 14px 10px;
+	}
+
+	.about-section {
+		padding: 48px 0;
+	}
+
+	.about-composition-card {
+		grid-template-columns: 1fr;
+	}
+
+	.about-comp-image {
+		grid-column: span 1;
+		height: 190px;
+	}
+
+	.about-comp-values {
+		padding: 18px 16px 8px;
+		text-align: center;
+	}
+
+	.comp-values-bar {
+		margin: 8px auto 0;
+	}
+
+	.about-comp-brand {
+		padding: 8px 16px 20px;
+	}
+
+	.comp-script-text {
+		font-size: 19px;
+	}
+
+	.president-section {
+		padding: 48px 0;
+	}
+
+	.president-img {
+		height: 320px;
+	}
+
+	.president-signoff-row {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 14px;
+	}
+
+	.btn-president-cta {
+		width: 100%;
+	}
+
+	.gallery-section,
+	.benefits-section,
+	.scholarships-giving-section,
+	.biz-directory-section {
+		padding-top: 48px;
+		padding-bottom: 48px;
+	}
+
+	.gallery-header-right,
+	.biz-header-right {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.gallery-header-blurb,
+	.biz-header-blurb {
+		text-align: left;
+	}
+
+	.conference-section {
+		padding: 32px 0;
+	}
+
+	.conference-title {
+		font-size: 26px;
+	}
+
+	.conference-theme {
+		font-size: 14px;
+	}
+
+	.conference-meta-row {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.conference-meta-divider {
+		display: none;
+	}
+
+	.conference-btn-row {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.conference-btn-row .btn {
+		width: 100%;
+	}
+
+	.benefits-strip-row {
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: 16px;
+	}
+
+	.benefit-strip-item.has-divider::after {
+		display: none;
+	}
+
+	.feature-card-content {
+		padding: 22px 18px;
+	}
+
+	.biz-grid {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.join-cta-left {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+	}
+
+	.join-cta-divider {
+		display: none;
+	}
+
+	.join-title {
+		font-size: 25px;
+	}
+
+	.legacy-tagline {
+		font-size: 10px;
+		letter-spacing: 0.8px;
+	}
+}
