@@ -17,16 +17,16 @@ $is_home     = is_front_page();
 		<!-- Brand Logo & Identity -->
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-brand" rel="home">
 			<div class="brand-crest">
-				<img src="<?php echo esc_url( lfa_image_url( 'brand-love-family-symbol-original.jpg' ) ); ?>" 
+				<img src="<?php echo esc_url( lfa_image_url( 'brand-logo-source.jpg' ) ); ?>" 
 				     alt="Love Family Alumni Emblem" 
-				     width="54" 
-				     height="54" 
+				     width="58" 
+				     height="58" 
 				     class="brand-crest-img">
 			</div>
 			<div class="brand-text-group">
 				<span class="brand-title">LOVE FAMILY ALUMNI</span>
-				<span class="brand-zone-badge">NORTH AMERICA ZONE</span>
-				<span class="brand-tagline">ONE FAMILY, ACROSS BORDERS, IMPACTING GENERATIONS</span>
+				<span class="brand-zone">NORTH AMERICA ZONE</span>
+				<span class="brand-tagline">ONE FAMILY. ACROSS BORDERS. IMPACTING GENERATIONS.</span>
 			</div>
 		</a>
 

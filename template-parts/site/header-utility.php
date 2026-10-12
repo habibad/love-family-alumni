@@ -40,6 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php echo lfa_icon( 'youtube' ); ?>
 				</a>
 			</div>
+			<span class="utility-divider utility-divider-search" aria-hidden="true">|</span>
 			<div class="utility-search">
 				<a href="<?php echo esc_url( home_url( '/?s=' ) ); ?>" class="utility-search-link" aria-label="Search">
 					<?php echo lfa_icon( 'search' ); ?>
