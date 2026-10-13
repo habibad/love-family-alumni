@@ -45,7 +45,7 @@ $is_home     = is_front_page();
 				<li class="menu-item <?php echo $is_home ? 'current-menu-item' : ''; ?>">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav-link">Home</a>
 				</li>
-				<li class="menu-item">
+				<li class="menu-item <?php echo ( is_page( 'about' ) || is_page_template( 'templates/pages/page-about.php' ) || is_page_template( 'page-about.php' ) ) ? 'current-menu-item' : ''; ?>">
 					<a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="nav-link">About</a>
 				</li>
 				<li class="menu-item">

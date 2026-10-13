@@ -34,6 +34,16 @@ function lfa_enqueue_assets(): void {
 		filemtime( get_template_directory() . '/style.css' )
 	);
 
+	// About Us Page Scoped Stylesheet (Phase 02)
+	if ( is_page( 'about' ) || is_page_template( 'templates/pages/page-about.php' ) || is_page_template( 'page-about.php' ) ) {
+		wp_enqueue_style(
+			'lfa-about-style',
+			get_template_directory_uri() . '/assets/css/about.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/about.css' ) ? filemtime( get_template_directory() . '/assets/css/about.css' ) : '1.0.0'
+		);
+	}
+
 	// Main frontend JavaScript
 	wp_enqueue_script(
 		'lfa-main-js',
