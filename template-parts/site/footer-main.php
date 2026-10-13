@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <footer class="site-footer lfa-site-footer" id="site-footer" role="contentinfo">
-	<div class="footer-content-wrap">
+	<div class="lfa-container footer-content-wrap">
 		<div class="footer-grid">
 			<!-- Col 1: Brand Identity -->
 			<div class="footer-col footer-col-brand">
@@ -109,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 
 	<!-- Bottom Tagline Banner -->
-	<div class="footer-bottom-bar">
+	<div class="lfa-container footer-bottom-bar">
 		<div class="footer-gold-hr" aria-hidden="true"></div>
 		<p class="legacy-tagline">
 			TOGETHER, WE BUILD. TOGETHER, WE RISE. TOGETHER, WE LEAVE A LEGACY.

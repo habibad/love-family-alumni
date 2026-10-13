@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="join-cta-overlay"></div>
 	</div>
 
-	<div class="join-cta-container">
+	<div class="lfa-container join-cta-container">
 		<div class="join-cta-grid">
 			<!-- Left: Community Icon & Pitch -->
 			<div class="join-cta-left">
