@@ -1,0 +1,8 @@
+{
+ "demo_only": true,
+ "profiles": [
+   {"id": "demo-01", "display_name": "Demo Profile 01", "batch": "2005", "profession": "Sample Education", "city": "Sample City", "country": "Sample Country", "avatar": null},
+   {"id": "demo-02", "display_name": "Demo Profile 02", "batch": "2010", "profession": "Sample Technology", "city": "Sample City", "country": "Sample Country", "avatar": null}
+ ],
+ "note": "Use demo values only. No real or fake realistic personal member identities."
+}

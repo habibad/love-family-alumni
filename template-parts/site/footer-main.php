@@ -42,6 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<ul class="footer-links-list">
 						<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">About Us</a></li>
+						<li><a href="<?php echo esc_url( home_url( '/leadership/' ) ); ?>">Leadership</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/membership/' ) ); ?>">Membership</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/events/' ) ); ?>">Events</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/conference/' ) ); ?>">Conference</a></li>

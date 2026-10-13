@@ -1,0 +1,758 @@
+/**
+ * Love Family Alumni - Alumni Directory Stylesheet (Phase 02 / Page 04)
+ * Scoped strictly under .lfa-directory
+ */
+
+/* ==========================================================================
+   00. SCOPED WRAPPER & TOKENS
+   ========================================================================== */
+
+.lfa-directory {
+	color: #1E293B;
+	font-family: var(--font-sans, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+	background-color: #F8FAFC;
+	overflow-x: hidden;
+}
+
+.lfa-directory *,
+.lfa-directory *::before,
+.lfa-directory *::after {
+	box-sizing: border-box;
+}
+
+/* ==========================================================================
+   01. SECTION 01: HERO SECTION
+   ========================================================================== */
+
+.lfa-directory .directory-hero-section {
+	position: relative;
+	width: 100%;
+	min-height: 420px;
+	overflow: hidden;
+	background-color: #07152B;
+	display: flex;
+	align-items: center;
+}
+
+.lfa-directory .directory-hero-bg-wrapper {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.lfa-directory .directory-hero-bg-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 70% 30%;
+	display: block;
+}
+
+.lfa-directory .directory-hero-gradient-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, #07152B 0%, rgba(7, 21, 43, 0.96) 28%, rgba(7, 21, 43, 0.78) 46%, rgba(7, 21, 43, 0.22) 68%, transparent 88%);
+	pointer-events: none;
+}
+
+.lfa-directory .directory-hero-container {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+}
+
+.lfa-directory .directory-hero-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 80px 0 100px 0;
+}
+
+.lfa-directory .directory-hero-content {
+	max-width: 580px;
+	color: #FFFFFF;
+}
+
+.lfa-directory .directory-hero-eyebrow {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--gold, #C69214);
+	margin-bottom: 14px;
+}
+
+.lfa-directory .directory-hero-title {
+	font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+	font-size: 48px;
+	line-height: 1.16;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin: 0 0 18px 0;
+	letter-spacing: -0.5px;
+}
+
+.lfa-directory .directory-hero-description {
+	font-size: 15.5px;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.9);
+	margin: 0;
+	max-width: 530px;
+}
+
+/* ==========================================================================
+   02. SECTION 02: SEARCH & FILTER BAR
+   ========================================================================== */
+
+.lfa-directory .directory-filters-section {
+	position: relative;
+	z-index: 10;
+	margin-top: -46px;
+	margin-bottom: 48px;
+}
+
+.lfa-directory .directory-filter-card {
+	background: #FFFFFF;
+	border-radius: 12px;
+	border: 1px solid #E2E8F0;
+	box-shadow: 0 10px 30px rgba(7, 21, 43, 0.08);
+	padding: 26px 30px 22px 30px;
+	transition: box-shadow 0.25s ease;
+}
+
+.lfa-directory .directory-filter-card:hover {
+	box-shadow: 0 14px 38px rgba(7, 21, 43, 0.11);
+}
+
+/* Row 1: Search Input & Buttons */
+.lfa-directory .filter-primary-row {
+	display: flex;
+	gap: 14px;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.lfa-directory .search-input-group {
+	position: relative;
+	flex: 1;
+}
+
+.lfa-directory .search-icon {
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #64748B;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+}
+
+.lfa-directory .directory-search-control {
+	width: 100%;
+	height: 48px;
+	padding: 0 16px 0 46px;
+	border: 1.5px solid #D0D7DE;
+	border-radius: 8px;
+	font-size: 14.5px;
+	font-family: inherit;
+	color: #1E293B;
+	background-color: #FFFFFF;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lfa-directory .directory-search-control::placeholder {
+	color: #8C9BAB;
+	font-size: 14px;
+}
+
+.lfa-directory .directory-search-control:focus {
+	outline: none;
+	border-color: var(--navy, #0B1D3A);
+	box-shadow: 0 0 0 3px rgba(11, 29, 58, 0.12);
+}
+
+.lfa-directory .filter-actions-group {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+}
+
+.lfa-directory .directory-search-btn {
+	height: 48px;
+	padding: 0 32px;
+	background-color: var(--crimson, #BA002C);
+	color: #FFFFFF !important;
+	border: 1px solid var(--crimson, #BA002C);
+	border-radius: 8px;
+	font-size: 14.5px;
+	font-weight: 600;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: all 0.2s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 3px 10px rgba(186, 0, 44, 0.2);
+}
+
+.lfa-directory .directory-search-btn:hover {
+	background-color: #9c0025;
+	border-color: #9c0025;
+	transform: translateY(-1px);
+	box-shadow: 0 6px 16px rgba(186, 0, 44, 0.3);
+}
+
+.lfa-directory .directory-reset-btn {
+	height: 48px;
+	padding: 0 20px;
+	background-color: #FFFFFF;
+	color: #334155 !important;
+	border: 1.5px solid #D0D7DE;
+	border-radius: 8px;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	white-space: nowrap;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	transition: all 0.2s ease;
+}
+
+.lfa-directory .directory-reset-btn:hover {
+	background-color: #F8FAFC;
+	border-color: #94A3B8;
+	color: #0F172A !important;
+	transform: translateY(-1px);
+}
+
+.lfa-directory .reset-icon {
+	color: #64748B;
+	transition: transform 0.3s ease;
+}
+
+.lfa-directory .directory-reset-btn:hover .reset-icon {
+	color: #0F172A;
+	transform: rotate(-45deg);
+}
+
+/* Row 2: Secondary Dropdown Filters */
+.lfa-directory .filter-dropdowns-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 16px;
+	margin-bottom: 18px;
+}
+
+.lfa-directory .filter-field-group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.lfa-directory .filter-field-label {
+	font-size: 12.5px;
+	font-weight: 700;
+	color: #1E293B;
+	letter-spacing: 0.1px;
+}
+
+.lfa-directory .select-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.lfa-directory .directory-select {
+	width: 100%;
+	height: 42px;
+	appearance: none;
+	-webkit-appearance: none;
+	background-color: #FFFFFF;
+	border: 1.5px solid #D0D7DE;
+	border-radius: 8px;
+	padding: 0 32px 0 12px;
+	font-size: 13.5px;
+	font-weight: 500;
+	color: #334155;
+	cursor: pointer;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.lfa-directory .directory-select:focus {
+	outline: none;
+	border-color: var(--navy, #0B1D3A);
+	box-shadow: 0 0 0 3px rgba(11, 29, 58, 0.1);
+}
+
+.lfa-directory .select-chevron {
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	color: #64748B;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Footnote & Disclaimer */
+.lfa-directory .directory-filter-footnote {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding-top: 14px;
+	border-top: 1px solid #F1F5F9;
+	font-size: 12px;
+	color: #64748B;
+}
+
+.lfa-directory .footnote-badge {
+	display: inline-block;
+	padding: 2px 7px;
+	background: #F1F5F9;
+	color: #475569;
+	font-size: 10px;
+	font-weight: 700;
+	border-radius: 4px;
+	letter-spacing: 0.5px;
+}
+
+.lfa-directory .footnote-text {
+	line-height: 1.4;
+}
+
+/* Screen reader only utility */
+.lfa-directory .screen-reader-text {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0 !important;
+	border: 0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+/* ==========================================================================
+   03. SECTION 03: RESULTS TOOLBAR & PROFILE GRID
+   ========================================================================== */
+
+.lfa-directory .directory-grid-section {
+	padding: 0 0 64px 0;
+}
+
+/* Results Header Toolbar */
+.lfa-directory .directory-results-toolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+	padding: 0 2px;
+}
+
+.lfa-directory .results-count-text {
+	font-size: 15px;
+	color: #475569;
+	font-weight: 500;
+}
+
+.lfa-directory .results-count-text strong {
+	color: #0F172A;
+	font-weight: 700;
+}
+
+.lfa-directory .results-view-toggles {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.lfa-directory .view-toggle-btn {
+	width: 38px;
+	height: 38px;
+	border-radius: 8px;
+	border: 1.5px solid #E2E8F0;
+	background-color: #FFFFFF;
+	color: #64748B;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.lfa-directory .view-toggle-btn:hover {
+	background-color: #F8FAFC;
+	color: #0F172A;
+	border-color: #CBD5E1;
+}
+
+.lfa-directory .view-toggle-btn.active {
+	background-color: var(--navy, #0B1D3A);
+	color: #FFFFFF;
+	border-color: var(--navy, #0B1D3A);
+}
+
+/* 4-Column Profile Grid */
+.lfa-directory .directory-profiles-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+	margin-bottom: 44px;
+}
+
+/* Profile Card */
+.lfa-directory .directory-profile-card {
+	background-color: #FFFFFF;
+	border-radius: 12px;
+	border: 1px solid #E2E8F0;
+	overflow: hidden;
+	box-shadow: 0 4px 14px rgba(7, 21, 43, 0.04);
+	transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+.lfa-directory .directory-profile-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 12px 30px rgba(7, 21, 43, 0.1);
+	border-color: #CBD5E1;
+}
+
+/* Card Media */
+.lfa-directory .profile-media-wrapper {
+	position: relative;
+	width: 100%;
+	height: 168px;
+	overflow: hidden;
+	background-color: #F1F5F9;
+}
+
+.lfa-directory .profile-media-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center top;
+	display: block;
+	transition: transform 0.3s ease;
+}
+
+.lfa-directory .directory-profile-card:hover .profile-media-img {
+	transform: scale(1.03);
+}
+
+.lfa-directory .profile-media-placeholder {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, #0B1D3A 0%, #1E3A8A 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lfa-directory .placeholder-initials {
+	font-size: 38px;
+	font-weight: 700;
+	color: #FFFFFF;
+}
+
+.lfa-directory .profile-batch-badge {
+	position: absolute;
+	bottom: 8px;
+	right: 10px;
+	background: rgba(255, 255, 255, 0.96);
+	backdrop-filter: blur(4px);
+	padding: 3px 8px;
+	border-radius: 6px;
+	font-size: 11.5px;
+	font-weight: 700;
+	color: #1E293B;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+	border: 1px solid rgba(226, 232, 240, 0.8);
+	z-index: 2;
+}
+
+/* Card Body Content */
+.lfa-directory .profile-card-body {
+	padding: 16px 18px 18px 18px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.lfa-directory .profile-name {
+	font-size: 17px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 3px 0;
+	line-height: 1.25;
+}
+
+.lfa-directory .profile-title {
+	font-size: 13px;
+	font-weight: 500;
+	color: #64748B;
+	margin: 0 0 12px 0;
+	line-height: 1.35;
+}
+
+/* Metadata List */
+.lfa-directory .profile-meta-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-bottom: 18px;
+	flex: 1;
+}
+
+.lfa-directory .profile-meta-item {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	font-size: 12.5px;
+	color: #475569;
+}
+
+.lfa-directory .profile-meta-item .meta-icon {
+	color: #64748B;
+	flex-shrink: 0;
+}
+
+.lfa-directory .profile-meta-item .meta-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Card Actions */
+.lfa-directory .profile-card-actions {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	padding-top: 14px;
+	border-top: 1px solid #F1F5F9;
+}
+
+.lfa-directory .card-action-btn {
+	width: 36px;
+	height: 36px;
+	border-radius: 6px;
+	border: 1.5px solid #E2E8F0;
+	background-color: #FFFFFF;
+	color: var(--navy, #0B1D3A);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	text-decoration: none;
+}
+
+.lfa-directory .card-action-btn:hover {
+	background-color: var(--navy, #0B1D3A);
+	color: #FFFFFF !important;
+	border-color: var(--navy, #0B1D3A);
+	transform: translateY(-1px);
+}
+
+/* Empty State */
+.lfa-directory .directory-empty-state {
+	text-align: center;
+	padding: 56px 20px;
+	background-color: #FFFFFF;
+	border-radius: 12px;
+	border: 1px solid #E2E8F0;
+	margin-bottom: 40px;
+}
+
+.lfa-directory .empty-state-icon {
+	color: #94A3B8;
+	margin-bottom: 16px;
+}
+
+.lfa-directory .empty-state-title {
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 8px 0;
+}
+
+.lfa-directory .empty-state-text {
+	font-size: 14.5px;
+	color: #64748B;
+	max-width: 460px;
+	margin: 0 auto 20px auto;
+	line-height: 1.5;
+}
+
+/* Pagination Strip */
+.lfa-directory .directory-pagination-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 16px;
+	margin-bottom: 24px;
+}
+
+.lfa-directory .directory-pagination {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.lfa-directory .pagination-arrow,
+.lfa-directory .pagination-item {
+	width: 38px;
+	height: 38px;
+	border-radius: 6px;
+	border: 1px solid #E2E8F0;
+	background-color: #FFFFFF;
+	color: #334155;
+	font-size: 13.5px;
+	font-weight: 600;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.lfa-directory .pagination-arrow:hover,
+.lfa-directory .pagination-item:hover {
+	background-color: #F8FAFC;
+	border-color: #CBD5E1;
+	color: #0F172A;
+}
+
+.lfa-directory .pagination-active {
+	background-color: var(--crimson, #BA002C) !important;
+	color: #FFFFFF !important;
+	border-color: var(--crimson, #BA002C) !important;
+}
+
+.lfa-directory .pagination-ellipsis {
+	border: none;
+	background: transparent;
+	color: #64748B;
+}
+
+/* ==========================================================================
+   04. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Large Tablets / Small Desktops (<= 1199px) */
+@media screen and (max-width: 1199px) {
+	.lfa-directory .directory-hero-title {
+		font-size: 42px;
+	}
+
+	.lfa-directory .filter-dropdowns-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 14px;
+	}
+}
+
+/* Tablet (<= 991px) */
+@media screen and (max-width: 991px) {
+	.lfa-directory .directory-hero-section {
+		min-height: 380px;
+	}
+
+	.lfa-directory .directory-hero-inner {
+		padding: 64px 0 84px 0;
+	}
+
+	.lfa-directory .directory-hero-title {
+		font-size: 38px;
+	}
+
+	.lfa-directory .directory-filters-section {
+		margin-top: -36px;
+	}
+
+	.lfa-directory .filter-dropdowns-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.lfa-directory .directory-profiles-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+}
+
+/* Mobile (<= 768px) */
+@media screen and (max-width: 768px) {
+	.lfa-directory .directory-hero-gradient-overlay {
+		background: linear-gradient(180deg, rgba(7, 21, 43, 0.95) 0%, rgba(7, 21, 43, 0.85) 60%, rgba(7, 21, 43, 0.95) 100%);
+	}
+
+	.lfa-directory .directory-filter-card {
+		padding: 20px 18px;
+	}
+
+	.lfa-directory .filter-primary-row {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.lfa-directory .search-input-group {
+		width: 100%;
+	}
+
+	.lfa-directory .filter-actions-group {
+		width: 100%;
+	}
+
+	.lfa-directory .directory-search-btn,
+	.lfa-directory .directory-reset-btn {
+		flex: 1;
+		width: 100%;
+	}
+
+	.lfa-directory .filter-dropdowns-grid {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.lfa-directory .directory-profiles-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+
+	.lfa-directory .directory-filter-footnote {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+	}
+}
+
+/* Mobile (<= 640px / 480px / 390px) */
+@media screen and (max-width: 640px) {
+	.lfa-directory .directory-hero-title {
+		font-size: 30px;
+	}
+
+	.lfa-directory .directory-hero-description {
+		font-size: 14px;
+	}
+
+	.lfa-directory .filter-actions-group {
+		flex-direction: column;
+	}
+
+	.lfa-directory .directory-search-btn,
+	.lfa-directory .directory-reset-btn {
+		width: 100%;
+	}
+
+	.lfa-directory .directory-profiles-grid {
+		grid-template-columns: 1fr;
+		gap: 18px;
+	}
+}

@@ -9,8 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$current_url = home_url( add_query_arg( [], $GLOBALS['wp']->request ) );
-$is_home     = is_front_page();
+$is_home              = is_front_page();
+$is_about_active      = is_page( 'about' ) || is_page_template( 'templates/pages/page-about.php' ) || is_page_template( 'page-about.php' );
+$is_leadership_active = is_page( 'leadership' ) || is_page_template( 'templates/pages/page-leadership.php' ) || is_page_template( 'page-leadership.php' );
+$is_membership_active = is_page( 'membership' ) || is_page_template( 'templates/pages/page-membership.php' ) || is_page_template( 'page-membership.php' );
+$is_directory_active  = is_page( 'alumni-directory' ) || is_page( 'directory' ) || is_page_template( 'templates/pages/page-alumni-directory.php' ) || is_page_template( 'page-alumni-directory.php' );
+$is_events_active     = is_page( 'events' ) || is_page_template( 'templates/pages/page-events.php' ) || is_page_template( 'page-events.php' );
+$history_page         = get_page_by_path( 'history' ) ? get_page_by_path( 'history' ) : get_page_by_path( 'our-history' );
+$is_history_active    = $history_page && ( is_page( 'history' ) || is_page( 'our-history' ) );
+$is_about_parent      = $is_about_active || $is_leadership_active || $is_history_active;
 ?>
 <div class="site-nav-bar">
 	<div class="lfa-container lfa-nav-inner">
@@ -45,20 +52,36 @@ $is_home     = is_front_page();
 				<li class="menu-item <?php echo $is_home ? 'current-menu-item' : ''; ?>">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav-link">Home</a>
 				</li>
-				<li class="menu-item <?php echo ( is_page( 'about' ) || is_page_template( 'templates/pages/page-about.php' ) || is_page_template( 'page-about.php' ) ) ? 'current-menu-item' : ''; ?>">
-					<a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="nav-link">About</a>
+				<li class="menu-item menu-item-has-children <?php echo $is_about_parent ? 'current-menu-item current-menu-ancestor' : ''; ?>">
+					<a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+						<span>About</span>
+						<svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+					</a>
+					<ul class="sub-menu" aria-label="About Submenu">
+						<li class="menu-item sub-menu-item <?php echo $is_about_active ? 'current-menu-item' : ''; ?>">
+							<a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="sub-nav-link">About Us</a>
+						</li>
+						<?php if ( $history_page ) : ?>
+							<li class="menu-item sub-menu-item <?php echo $is_history_active ? 'current-menu-item' : ''; ?>">
+								<a href="<?php echo esc_url( get_permalink( $history_page ) ); ?>" class="sub-nav-link">Our History</a>
+							</li>
+						<?php endif; ?>
+						<li class="menu-item sub-menu-item <?php echo $is_leadership_active ? 'current-menu-item' : ''; ?>">
+							<a href="<?php echo esc_url( home_url( '/leadership/' ) ); ?>" class="sub-nav-link">Leadership</a>
+						</li>
+					</ul>
 				</li>
-				<li class="menu-item">
+				<li class="menu-item <?php echo $is_membership_active ? 'current-menu-item' : ''; ?>">
 					<a href="<?php echo esc_url( home_url( '/membership/' ) ); ?>" class="nav-link">Membership</a>
 				</li>
-				<li class="menu-item">
+				<li class="menu-item <?php echo $is_events_active ? 'current-menu-item' : ''; ?>">
 					<a href="<?php echo esc_url( home_url( '/events/' ) ); ?>" class="nav-link">Events</a>
 				</li>
 				<li class="menu-item">
 					<a href="<?php echo esc_url( home_url( '/conference/' ) ); ?>" class="nav-link">Conference</a>
 				</li>
-				<li class="menu-item">
-					<a href="<?php echo esc_url( home_url( '/directory/' ) ); ?>" class="nav-link">Directory</a>
+				<li class="menu-item <?php echo $is_directory_active ? 'current-menu-item' : ''; ?>">
+					<a href="<?php echo esc_url( home_url( '/alumni-directory/' ) ); ?>" class="nav-link">Directory</a>
 				</li>
 				<li class="menu-item">
 					<a href="<?php echo esc_url( home_url( '/scholarships/' ) ); ?>" class="nav-link">Scholarships</a>

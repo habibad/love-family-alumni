@@ -1,0 +1,1670 @@
+/**
+ * Love Family Alumni - Membership Page Stylesheet (Phase 02 / Page 03)
+ * Scoped strictly under .lfa-membership
+ *
+ * Brand Palette:
+ * --navy: #0B1D3A;
+ * --burgundy: #6B0E23;
+ * --gold: #C69214;
+ * --gold-light: #FDF8E8;
+ * --gold-accent: #D4AF37;
+ * --white: #FFFFFF;
+ * --off-white: #F8F9FA;
+ * --slate-dark: #1E293B;
+ * --slate-muted: #64748B;
+ */
+
+/* ==========================================================================
+   00. SCOPED WRAPPER & GLOBAL MEMBERSHIP ATOMS
+   ========================================================================== */
+
+.lfa-membership {
+	color: #1E293B;
+	font-family: var(--font-sans, 'Inter', sans-serif);
+	background-color: #FFFFFF;
+	overflow-x: hidden;
+}
+
+/* Reusable Section Headers */
+.lfa-membership .membership-section-header {
+	max-width: 780px;
+	margin: 0 auto 56px auto;
+}
+
+.lfa-membership .membership-section-header.text-center {
+	text-align: center;
+}
+
+.lfa-membership .membership-eyebrow {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--burgundy, #6B0E23);
+	margin-bottom: 12px;
+}
+
+.lfa-membership .membership-section-title {
+	font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+	font-size: 38px;
+	line-height: 1.25;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 16px 0;
+	letter-spacing: -0.5px;
+}
+
+.lfa-membership .membership-title-divider {
+	width: 56px;
+	height: 3px;
+	background: linear-gradient(90deg, var(--burgundy, #6B0E23) 0%, var(--gold, #C69214) 100%);
+	margin: 0 auto 20px auto;
+	border-radius: 2px;
+}
+
+.lfa-membership .membership-section-lead {
+	font-size: 17px;
+	line-height: 1.65;
+	color: #55657E;
+	margin: 0;
+}
+
+/* Button Variants in Membership Scope */
+.lfa-membership .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	font-size: 15px;
+	font-weight: 600;
+	padding: 14px 28px;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+	cursor: pointer;
+	line-height: 1.2;
+}
+
+.lfa-membership .btn-crimson {
+	background-color: var(--burgundy, #6B0E23);
+	color: #FFFFFF !important;
+	border: 1px solid var(--burgundy, #6B0E23);
+	box-shadow: 0 4px 14px rgba(107, 14, 35, 0.25);
+}
+
+.lfa-membership .btn-crimson:hover {
+	background-color: #520a1a;
+	border-color: #520a1a;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(107, 14, 35, 0.35);
+}
+
+.lfa-membership .btn-outline-navy {
+	background-color: transparent;
+	color: var(--navy, #0B1D3A) !important;
+	border: 1.5px solid var(--navy, #0B1D3A);
+}
+
+.lfa-membership .btn-outline-navy:hover {
+	background-color: var(--navy, #0B1D3A);
+	color: #FFFFFF !important;
+	transform: translateY(-2px);
+}
+
+.lfa-membership .btn-navy {
+	background-color: var(--navy, #0B1D3A);
+	color: #FFFFFF !important;
+	border: 1px solid var(--navy, #0B1D3A);
+}
+
+.lfa-membership .btn-navy:hover {
+	background-color: #12284c;
+	transform: translateY(-2px);
+}
+
+.lfa-membership .btn-outline-gold {
+	background-color: transparent;
+	color: #E5C170 !important;
+	border: 1.5px solid #D4AF37;
+}
+
+.lfa-membership .btn-outline-gold:hover {
+	background-color: #D4AF37;
+	color: var(--navy, #0B1D3A) !important;
+	transform: translateY(-2px);
+}
+
+.lfa-membership .btn-block {
+	width: 100%;
+}
+
+
+/* ==========================================================================
+   01. SECTION 01: HERO (APPROVED FULL-BLEED 5-PERSON LAYOUT)
+   ========================================================================== */
+
+.lfa-membership .membership-hero-section {
+	position: relative;
+	width: 100%;
+	min-height: 515px;
+	overflow: hidden;
+	background-color: #07152B;
+	display: flex;
+	align-items: center;
+}
+
+.lfa-membership .membership-hero-bg-wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 68%;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.lfa-membership .membership-hero-bg-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 0%;
+	display: block;
+}
+
+.lfa-membership .membership-hero-gradient-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, #07152B 0%, rgba(7, 21, 43, 0.7) 12%, rgba(7, 21, 43, 0) 25%);
+	pointer-events: none;
+}
+
+.lfa-membership .membership-hero-container {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+}
+
+.lfa-membership .membership-hero-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	padding: 76px 0 64px 0;
+	min-height: 480px;
+}
+
+/* Left Editorial Content */
+.lfa-membership .membership-hero-content {
+	max-width: 530px;
+	color: #FFFFFF;
+}
+
+.lfa-membership .membership-hero-eyebrow {
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--gold, #C69214);
+	margin-bottom: 14px;
+}
+
+.lfa-membership .membership-hero-title {
+	font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+	font-size: 48px;
+	line-height: 1.14;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin: 0 0 16px 0;
+	letter-spacing: -0.5px;
+}
+
+.lfa-membership .hero-gold-italic {
+	color: var(--gold, #C69214);
+	font-style: italic;
+	font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+}
+
+.lfa-membership .membership-hero-description {
+	font-size: 14.5px;
+	line-height: 1.62;
+	color: rgba(255, 255, 255, 0.9);
+	margin: 0 0 28px 0;
+	max-width: 480px;
+}
+
+.lfa-membership .membership-hero-actions {
+	display: flex;
+	gap: 14px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.lfa-membership .membership-btn-primary {
+	background-color: var(--burgundy, #6B0E23);
+	color: #FFFFFF !important;
+	border: 1px solid var(--burgundy, #6B0E23);
+	font-size: 13.5px;
+	font-weight: 600;
+	padding: 12px 24px;
+	border-radius: 6px;
+	box-shadow: 0 4px 14px rgba(107, 14, 35, 0.35);
+}
+
+.lfa-membership .membership-btn-primary:hover {
+	background-color: #520a1a;
+	border-color: #520a1a;
+	transform: translateY(-2px);
+}
+
+.lfa-membership .membership-btn-secondary {
+	background-color: transparent;
+	color: #FFFFFF !important;
+	border: 1.5px solid rgba(255, 255, 255, 0.75);
+	font-size: 13.5px;
+	font-weight: 600;
+	padding: 12px 24px;
+	border-radius: 6px;
+	backdrop-filter: blur(4px);
+}
+
+.lfa-membership .membership-btn-secondary:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+	border-color: #FFFFFF;
+	color: #FFFFFF !important;
+	transform: translateY(-2px);
+}
+
+/* Far Right: Values Script Stack */
+.lfa-membership .membership-hero-values {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 20px;
+	margin-right: 30px;
+	z-index: 3;
+}
+
+.lfa-membership .hero-values-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.lfa-membership .hero-value-item {
+	font-family: var(--font-script, 'Caveat', cursive);
+	font-size: 32px;
+	font-weight: 700;
+	color: #FFFFFF;
+	line-height: 1.1;
+	text-shadow: 0 2px 8px rgba(7, 21, 43, 0.6);
+	letter-spacing: 0.5px;
+}
+
+.lfa-membership .hero-values-gold-line {
+	width: 44px;
+	height: 3px;
+	background-color: var(--gold, #C69214);
+	margin-top: 8px;
+	border-radius: 2px;
+}
+
+
+/* ==========================================================================
+   02. SECTION 02: BENEFITS (APPROVED 6-IN-A-ROW LAYOUT)
+   ========================================================================== */
+
+.lfa-membership .membership-benefits-section {
+	padding: 68px 0 76px 0;
+	background-color: #FFFFFF;
+}
+
+.lfa-membership .membership-benefits-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 40px;
+	margin-bottom: 40px;
+}
+
+.lfa-membership .benefits-header-left {
+	flex: 0 0 auto;
+	max-width: 580px;
+}
+
+.lfa-membership .benefits-eyebrow {
+	display: block;
+	font-size: 11.5px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	color: var(--burgundy, #6B0E23);
+	margin-bottom: 8px;
+}
+
+.lfa-membership .benefits-section-title {
+	font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+	font-size: 34px;
+	line-height: 1.22;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0;
+	letter-spacing: -0.4px;
+}
+
+.lfa-membership .benefits-header-right {
+	flex: 1 1 auto;
+	max-width: 500px;
+	text-align: right;
+}
+
+.lfa-membership .benefits-header-lead {
+	font-size: 13.5px;
+	line-height: 1.6;
+	color: #64748B;
+	margin: 0;
+}
+
+/* 6 Cards Single Row */
+.lfa-membership .membership-benefits-row {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 16px;
+}
+
+.lfa-membership .membership-benefit-item {
+	background: #FFFFFF;
+	border: 1px solid #ECEFF2;
+	border-radius: 12px;
+	padding: 24px 14px 22px 14px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0 4px 14px rgba(11, 29, 58, 0.03);
+	transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lfa-membership .membership-benefit-item:hover {
+	transform: translateY(-4px);
+	border-color: var(--gold, #C69214);
+	box-shadow: 0 10px 24px rgba(11, 29, 58, 0.08);
+}
+
+.lfa-membership .benefit-circle-icon {
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 16px;
+	color: #FFFFFF;
+	flex-shrink: 0;
+}
+
+.lfa-membership .benefit-circle-icon.icon-crimson {
+	background-color: var(--burgundy, #6B0E23);
+	box-shadow: 0 4px 12px rgba(107, 14, 35, 0.28);
+}
+
+.lfa-membership .benefit-circle-icon.icon-navy {
+	background-color: var(--navy, #0B1D3A);
+	box-shadow: 0 4px 12px rgba(11, 29, 58, 0.28);
+}
+
+.lfa-membership .benefit-item-title {
+	font-size: 13.5px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 8px 0;
+	line-height: 1.35;
+	min-height: 38px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lfa-membership .benefit-item-desc {
+	font-size: 11.5px;
+	line-height: 1.5;
+	color: #64748B;
+	margin: 0;
+}
+
+
+/* ==========================================================================
+   03. SECTION 03: PLANS
+   ========================================================================== */
+
+.lfa-membership .membership-plans-section {
+	padding: 96px 0;
+	background-color: #F8F9FA;
+	border-top: 1px solid #ECEFF2;
+	border-bottom: 1px solid #ECEFF2;
+}
+
+.lfa-membership .membership-plans-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 36px;
+	max-width: 980px;
+	margin: 0 auto 48px auto;
+	align-items: stretch;
+}
+
+.lfa-membership .membership-plan-card {
+	position: relative;
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0;
+	border-radius: 16px;
+	padding: 44px 38px 40px 38px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: 0 4px 18px rgba(11, 29, 58, 0.04);
+	transition: all 0.3s ease;
+}
+
+.lfa-membership .membership-plan-card.plan-featured {
+	border: 2px solid var(--gold, #C69214);
+	box-shadow: 0 12px 36px rgba(198, 146, 20, 0.12);
+}
+
+.lfa-membership .plan-badge-pill {
+	position: absolute;
+	top: -14px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: linear-gradient(90deg, var(--burgundy, #6B0E23) 0%, #87142F 100%);
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	padding: 6px 18px;
+	border-radius: 30px;
+	box-shadow: 0 4px 12px rgba(107, 14, 35, 0.25);
+	white-space: nowrap;
+}
+
+.lfa-membership .plan-header-icon {
+	width: 56px;
+	height: 56px;
+	border-radius: 12px;
+	background: rgba(11, 29, 58, 0.06);
+	color: var(--navy, #0B1D3A);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.lfa-membership .plan-featured .plan-header-icon {
+	background: rgba(198, 146, 20, 0.12);
+	color: var(--burgundy, #6B0E23);
+}
+
+.lfa-membership .plan-name {
+	font-family: var(--font-serif, 'Playfair Display', serif);
+	font-size: 26px;
+	line-height: 1.25;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 10px 0;
+}
+
+.lfa-membership .plan-target {
+	font-size: 14.5px;
+	line-height: 1.6;
+	color: #64748B;
+	margin: 0 0 28px 0;
+	min-height: 46px;
+}
+
+.lfa-membership .plan-pricing-box {
+	background-color: #F8F9FA;
+	border: 1px solid #EAEFF4;
+	border-radius: 12px;
+	padding: 20px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.lfa-membership .plan-featured .plan-pricing-box {
+	background-color: #FDFBF4;
+	border-color: #F3EBD4;
+}
+
+.lfa-membership .plan-price-status {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin-bottom: 6px;
+}
+
+.lfa-membership .price-status-icon {
+	color: var(--gold, #C69214);
+	display: inline-flex;
+}
+
+.lfa-membership .plan-price-text {
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+}
+
+.lfa-membership .plan-cycle-note {
+	display: block;
+	font-size: 12.5px;
+	color: #6B7B94;
+	line-height: 1.5;
+}
+
+.lfa-membership .features-label {
+	display: block;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: var(--navy, #0B1D3A);
+	margin-bottom: 16px;
+}
+
+.lfa-membership .plan-features-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 36px 0;
+}
+
+.lfa-membership .plan-features-list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	font-size: 14.5px;
+	line-height: 1.55;
+	color: #43526A;
+	margin-bottom: 14px;
+}
+
+.lfa-membership .plan-features-list li:last-child {
+	margin-bottom: 0;
+}
+
+.lfa-membership .check-icon {
+	display: inline-flex;
+	color: var(--gold, #C69214);
+	margin-top: 3px;
+	flex-shrink: 0;
+}
+
+.lfa-membership .plan-cta-box {
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+}
+
+.lfa-membership .plan-footnote {
+	font-size: 12px;
+	color: #7A899E;
+	text-align: center;
+	line-height: 1.4;
+}
+
+/* Official Notice Callout */
+.lfa-membership .membership-plans-notice {
+	max-width: 980px;
+	margin: 0 auto;
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0;
+	border-left: 4px solid var(--navy, #0B1D3A);
+	border-radius: 8px;
+	padding: 20px 24px;
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.lfa-membership .membership-plans-notice .notice-icon {
+	color: var(--navy, #0B1D3A);
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+
+.lfa-membership .membership-plans-notice p {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #55657E;
+	margin: 0;
+}
+
+.lfa-membership .membership-plans-notice strong {
+	color: var(--navy, #0B1D3A);
+}
+
+
+/* ==========================================================================
+   04. SECTION 04: HOW MEMBERSHIP WORKS (TIMELINE)
+   ========================================================================== */
+
+.lfa-membership .membership-process-section {
+	padding: 96px 0;
+	background-color: #FFFFFF;
+}
+
+.lfa-membership .membership-steps-timeline {
+	position: relative;
+	margin-bottom: 64px;
+}
+
+.lfa-membership .timeline-connecting-line {
+	position: absolute;
+	top: 50px;
+	left: 5%;
+	right: 5%;
+	height: 2px;
+	background: #E2E8F0;
+	z-index: 0;
+}
+
+.lfa-membership .membership-steps-grid {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 28px;
+}
+
+.lfa-membership .membership-step-card {
+	position: relative;
+	background: #FFFFFF;
+	border: 1px solid #ECEFF2;
+	border-radius: 14px;
+	padding: 32px 24px 28px 24px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 14px rgba(11, 29, 58, 0.02);
+}
+
+.lfa-membership .membership-step-card:hover {
+	transform: translateY(-4px);
+	border-color: #D4AF37;
+	box-shadow: 0 12px 28px rgba(11, 29, 58, 0.08);
+}
+
+.lfa-membership .step-badge-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.lfa-membership .step-number {
+	font-family: var(--font-serif, 'Playfair Display', serif);
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--burgundy, #6B0E23);
+	margin-bottom: 8px;
+	background: #FFFFFF;
+	padding: 2px 10px;
+	border-radius: 20px;
+	border: 1px solid rgba(107, 14, 35, 0.15);
+}
+
+.lfa-membership .step-icon-circle {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, var(--navy, #0B1D3A) 0%, #1A3464 100%);
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 6px 18px rgba(11, 29, 58, 0.18);
+	transition: transform 0.3s ease;
+}
+
+.lfa-membership .membership-step-card:hover .step-icon-circle {
+	transform: scale(1.08);
+	background: linear-gradient(135deg, var(--burgundy, #6B0E23) 0%, #87142F 100%);
+}
+
+.lfa-membership .step-title {
+	font-family: var(--font-serif, 'Playfair Display', serif);
+	font-size: 19px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 10px 0;
+	line-height: 1.3;
+}
+
+.lfa-membership .step-desc {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #5B6D87;
+	margin: 0;
+}
+
+.lfa-membership .step-arrow-indicator {
+	display: none;
+}
+
+/* Process Callout Footer */
+.lfa-membership .membership-process-footer {
+	background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+	border: 1px solid #E2E8F0;
+	border-radius: 12px;
+	padding: 28px 36px;
+}
+
+.lfa-membership .process-footer-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	flex-wrap: wrap;
+}
+
+.lfa-membership .process-footer-title {
+	font-size: 18px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 6px 0;
+}
+
+.lfa-membership .process-footer-desc {
+	font-size: 14px;
+	color: #64748B;
+	margin: 0;
+}
+
+
+/* ==========================================================================
+   05. SECTION 05: DUES & RENEWAL
+   ========================================================================== */
+
+.lfa-membership .membership-dues-section {
+	padding: 96px 0;
+	background-color: #F4F6F9;
+	border-top: 1px solid #ECEFF2;
+	border-bottom: 1px solid #ECEFF2;
+}
+
+.lfa-membership .dues-section-grid {
+	display: grid;
+	grid-template-columns: 1.05fr 0.95fr;
+	gap: 56px;
+	align-items: center;
+}
+
+.lfa-membership .dues-lead-text {
+	font-size: 16.5px;
+	line-height: 1.65;
+	color: #4C5D76;
+	margin: 0 0 32px 0;
+}
+
+.lfa-membership .dues-points-list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.lfa-membership .dues-point-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.lfa-membership .dues-point-icon {
+	width: 40px;
+	height: 40px;
+	border-radius: 10px;
+	background: #FFFFFF;
+	color: var(--gold, #C69214);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 8px rgba(11, 29, 58, 0.06);
+	flex-shrink: 0;
+	border: 1px solid #E2E8F0;
+}
+
+.lfa-membership .dues-point-title {
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 4px 0;
+}
+
+.lfa-membership .dues-point-text p {
+	font-size: 14px;
+	line-height: 1.55;
+	color: #55657E;
+	margin: 0;
+}
+
+/* Dashboard Mock Visual */
+.lfa-membership .dues-mock-card {
+	background: #FFFFFF;
+	border-radius: 16px;
+	border: 1px solid #DFE5EB;
+	box-shadow: 0 16px 40px rgba(11, 29, 58, 0.08);
+	padding: 32px;
+	position: relative;
+}
+
+.lfa-membership .dues-mock-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	background: #F1F5F9;
+	color: #475569;
+	font-size: 11.5px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	padding: 5px 12px;
+	border-radius: 20px;
+	margin-bottom: 24px;
+}
+
+.lfa-membership .tag-dot {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background-color: var(--gold, #C69214);
+}
+
+.lfa-membership .dues-mock-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #EDF2F7;
+	margin-bottom: 20px;
+}
+
+.lfa-membership .mock-user-meta {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.lfa-membership .mock-avatar {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: var(--navy, #0B1D3A);
+	color: #FFFFFF;
+	font-weight: 700;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lfa-membership .mock-user-info {
+	display: flex;
+	flex-direction: column;
+}
+
+.lfa-membership .mock-name {
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+}
+
+.lfa-membership .mock-id {
+	font-size: 12px;
+	color: #718096;
+}
+
+.lfa-membership .mock-status-pill {
+	background: #FEF3C7;
+	color: #92400E;
+	font-size: 12px;
+	font-weight: 600;
+	padding: 4px 12px;
+	border-radius: 12px;
+}
+
+.lfa-membership .dues-mock-summary {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
+	margin-bottom: 24px;
+}
+
+.lfa-membership .mock-stat-box {
+	background: #F8FAFC;
+	border-radius: 8px;
+	padding: 12px;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #EDF2F7;
+}
+
+.lfa-membership .stat-label {
+	font-size: 11px;
+	color: #64748B;
+	text-transform: uppercase;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.lfa-membership .stat-value {
+	font-size: 13.5px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+}
+
+.lfa-membership .stat-value.highlight-gold {
+	color: var(--burgundy, #6B0E23);
+}
+
+.lfa-membership .dues-mock-ledger {
+	border: 1px solid #EDF2F7;
+	border-radius: 10px;
+	margin-bottom: 24px;
+	overflow: hidden;
+}
+
+.lfa-membership .ledger-header {
+	background: #F8FAFC;
+	padding: 10px 16px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+	font-weight: 600;
+	color: #64748B;
+	border-bottom: 1px solid #EDF2F7;
+}
+
+.lfa-membership .ledger-row {
+	padding: 12px 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #F1F5F9;
+}
+
+.lfa-membership .ledger-row:last-child {
+	border-bottom: none;
+}
+
+.lfa-membership .ledger-desc {
+	display: flex;
+	flex-direction: column;
+}
+
+.lfa-membership .ledger-title {
+	font-size: 13.5px;
+	font-weight: 600;
+	color: var(--navy, #0B1D3A);
+}
+
+.lfa-membership .ledger-sub {
+	font-size: 11.5px;
+	color: #718096;
+}
+
+.lfa-membership .ledger-tag {
+	font-size: 11px;
+	font-weight: 600;
+	color: #475569;
+	background: #F1F5F9;
+	padding: 3px 8px;
+	border-radius: 6px;
+}
+
+.lfa-membership .dues-mock-footer {
+	padding-top: 16px;
+	border-top: 1px solid #EDF2F7;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.lfa-membership .payment-method-indicator {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.lfa-membership .card-chip-icon {
+	color: var(--navy, #0B1D3A);
+	display: flex;
+}
+
+.lfa-membership .provider-title {
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	display: block;
+}
+
+.lfa-membership .provider-sub {
+	font-size: 11.5px;
+	color: #718096;
+}
+
+.lfa-membership .demo-watermark-note {
+	font-size: 11px;
+	color: #94A3B8;
+	font-style: italic;
+	text-align: center;
+	margin-top: 4px;
+}
+
+
+/* ==========================================================================
+   06. SECTION 06: PORTAL PREVIEW
+   ========================================================================== */
+
+.lfa-membership .membership-portal-section {
+	padding: 96px 0;
+	background-color: var(--navy, #0B1D3A);
+	color: #FFFFFF;
+	position: relative;
+	overflow: hidden;
+}
+
+.lfa-membership .membership-portal-section .membership-eyebrow {
+	color: var(--gold, #C69214);
+}
+
+.lfa-membership .membership-portal-section .membership-section-title {
+	color: #FFFFFF;
+}
+
+.lfa-membership .membership-portal-section .membership-section-lead {
+	color: #B0C1D9;
+}
+
+.lfa-membership .portal-demo-disclaimer {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	border-radius: 30px;
+	padding: 8px 18px;
+	margin-top: 24px;
+}
+
+.lfa-membership .disclaimer-badge {
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	color: #E5C170;
+	background: rgba(198, 146, 20, 0.2);
+	padding: 3px 8px;
+	border-radius: 12px;
+}
+
+.lfa-membership .disclaimer-note {
+	font-size: 13px;
+	color: #CBD5E1;
+}
+
+.lfa-membership .membership-portal-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+	margin-bottom: 48px;
+}
+
+.lfa-membership .portal-feature-card {
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.09);
+	border-radius: 14px;
+	padding: 28px 24px;
+	display: flex;
+	flex-direction: column;
+	transition: all 0.3s ease;
+}
+
+.lfa-membership .portal-feature-card:hover {
+	background: rgba(255, 255, 255, 0.08);
+	border-color: rgba(212, 175, 55, 0.5);
+	transform: translateY(-4px);
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+}
+
+.lfa-membership .portal-card-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.lfa-membership .portal-icon-wrapper {
+	width: 48px;
+	height: 48px;
+	border-radius: 10px;
+	background: rgba(212, 175, 55, 0.12);
+	color: #E5C170;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.3s ease;
+}
+
+.lfa-membership .portal-feature-card:hover .portal-icon-wrapper {
+	background: #D4AF37;
+	color: var(--navy, #0B1D3A);
+}
+
+.lfa-membership .portal-card-tag {
+	font-size: 11px;
+	color: #94A3B8;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.lfa-membership .portal-feature-title {
+	font-family: var(--font-serif, 'Playfair Display', serif);
+	font-size: 19px;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin: 0 0 10px 0;
+	line-height: 1.3;
+}
+
+.lfa-membership .portal-feature-desc {
+	font-size: 13.5px;
+	line-height: 1.6;
+	color: #94A3B8;
+	margin: 0;
+}
+
+.lfa-membership .portal-card-footer {
+	margin-top: auto;
+	padding-top: 18px;
+	border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.lfa-membership .portal-status-text {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 11.5px;
+	color: #64748B;
+	font-weight: 500;
+}
+
+.lfa-membership .portal-status-dot {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: #38BDF8;
+}
+
+/* Member Login CTA Box */
+.lfa-membership .portal-login-cta {
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 12px;
+	padding: 28px 36px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	flex-wrap: wrap;
+}
+
+.lfa-membership .login-cta-title {
+	font-size: 18px;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin: 0 0 6px 0;
+}
+
+.lfa-membership .login-cta-desc {
+	font-size: 14px;
+	color: #94A3B8;
+	margin: 0;
+}
+
+
+/* ==========================================================================
+   07. SECTION 07: ALUMNI COMMUNITY GALLERY
+   ========================================================================== */
+
+.lfa-membership .membership-community-section {
+	padding: 96px 0;
+	background-color: #FFFFFF;
+}
+
+.lfa-membership .membership-gallery-grid {
+	display: grid;
+	grid-template-columns: 1.25fr 1fr;
+	grid-template-rows: repeat(2, 260px);
+	gap: 24px;
+}
+
+.lfa-membership .membership-gallery-item.item-large {
+	grid-row: span 2;
+}
+
+.lfa-membership .gallery-photo-wrap {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 6px 20px rgba(11, 29, 58, 0.08);
+	background: var(--navy, #0B1D3A);
+}
+
+.lfa-membership .gallery-photo-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.5s ease;
+}
+
+.lfa-membership .gallery-photo-wrap:hover .gallery-photo-img {
+	transform: scale(1.04);
+}
+
+.lfa-membership .gallery-photo-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, transparent 40%, rgba(11, 29, 58, 0.8) 100%);
+	pointer-events: none;
+}
+
+.lfa-membership .gallery-photo-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 20px 24px;
+	z-index: 1;
+	color: #FFFFFF;
+}
+
+.lfa-membership .gallery-tag {
+	display: inline-block;
+	background: rgba(198, 146, 20, 0.85);
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 3px 10px;
+	border-radius: 4px;
+	margin-bottom: 6px;
+}
+
+.lfa-membership .gallery-text {
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.4;
+	margin: 0;
+	color: #F8FAFC;
+}
+
+
+/* ==========================================================================
+   08. SECTION 08: FREQUENTLY ASKED QUESTIONS
+   ========================================================================== */
+
+.lfa-membership .membership-faq-section {
+	padding: 96px 0;
+	background-color: #F8F9FA;
+	border-top: 1px solid #ECEFF2;
+}
+
+.lfa-membership .membership-faq-accordion {
+	max-width: 860px;
+	margin: 0 auto 48px auto;
+}
+
+.lfa-membership .faq-accordion-item {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0;
+	border-radius: 10px;
+	margin-bottom: 14px;
+	transition: all 0.25s ease;
+	overflow: hidden;
+}
+
+.lfa-membership .faq-accordion-item.is-active {
+	border-color: var(--gold, #C69214);
+	box-shadow: 0 6px 20px rgba(11, 29, 58, 0.06);
+}
+
+.lfa-membership .faq-accordion-header {
+	margin: 0;
+	padding: 0;
+}
+
+.lfa-membership .faq-accordion-trigger {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 22px 28px;
+	background: none;
+	border: none;
+	text-align: left;
+	font-family: var(--font-sans, sans-serif);
+	font-size: 17px;
+	font-weight: 600;
+	color: var(--navy, #0B1D3A);
+	cursor: pointer;
+	transition: color 0.2s ease;
+}
+
+.lfa-membership .faq-accordion-trigger:hover {
+	color: var(--burgundy, #6B0E23);
+}
+
+.lfa-membership .faq-trigger-icon {
+	flex-shrink: 0;
+	color: var(--gold, #C69214);
+	display: flex;
+	transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lfa-membership .faq-accordion-item.is-active .faq-trigger-icon {
+	transform: rotate(180deg);
+}
+
+.lfa-membership .faq-accordion-panel {
+	border-top: 1px solid #F1F5F9;
+}
+
+.lfa-membership .faq-panel-content {
+	padding: 0 28px 24px 28px;
+}
+
+.lfa-membership .faq-panel-content p {
+	font-size: 15px;
+	line-height: 1.7;
+	color: #55657E;
+	margin: 0;
+}
+
+/* FAQ Helpbox */
+.lfa-membership .membership-faq-helpbox {
+	max-width: 860px;
+	margin: 0 auto;
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0;
+	border-radius: 12px;
+	padding: 24px 30px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.lfa-membership .helpbox-icon {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: rgba(107, 14, 35, 0.08);
+	color: var(--burgundy, #6B0E23);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.lfa-membership .helpbox-title {
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 4px 0;
+}
+
+.lfa-membership .helpbox-desc {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #64748B;
+	margin: 0;
+}
+
+.lfa-membership .helpbox-desc a {
+	color: var(--burgundy, #6B0E23);
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   09. RESPONSIVE BREAKPOINTS (1440, 1280, 768, 390)
+   ========================================================================== */
+
+/* Tablet & Smaller Desktops (<= 1024px) */
+@media screen and (max-width: 1024px) {
+	.lfa-membership .membership-hero-inner {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-end;
+		padding: 64px 0 48px 0;
+		min-height: 460px;
+		gap: 28px;
+	}
+
+	.lfa-membership .membership-hero-gradient-overlay {
+		background: linear-gradient(90deg, rgba(7, 21, 43, 0.96) 0%, rgba(7, 21, 43, 0.88) 60%, rgba(7, 21, 43, 0.45) 100%);
+	}
+
+	.lfa-membership .membership-hero-values {
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+
+	.lfa-membership .hero-values-stack {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+
+	.lfa-membership .hero-value-item {
+		font-size: 26px;
+	}
+
+	.lfa-membership .hero-values-gold-line {
+		display: none;
+	}
+
+	.lfa-membership .membership-benefits-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 14px;
+	}
+
+	.lfa-membership .benefits-header-right {
+		text-align: left;
+		max-width: 100%;
+	}
+
+	.lfa-membership .membership-benefits-row {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+	}
+
+	.lfa-membership .membership-steps-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+	}
+
+	.lfa-membership .timeline-connecting-line {
+		display: none;
+	}
+
+	.lfa-membership .dues-section-grid {
+		grid-template-columns: 1fr;
+		gap: 48px;
+	}
+
+	.lfa-membership .membership-portal-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.lfa-membership .membership-gallery-grid {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 280px 240px;
+	}
+}
+
+/* Tablet (<= 768px) */
+@media screen and (max-width: 768px) {
+	.lfa-membership .membership-hero-section {
+		min-height: 420px;
+	}
+
+	.lfa-membership .membership-hero-bg-wrapper {
+		width: 100%;
+		left: 0;
+	}
+
+	.lfa-membership .membership-hero-gradient-overlay {
+		background: linear-gradient(180deg, rgba(7, 21, 43, 0.92) 0%, rgba(7, 21, 43, 0.78) 50%, rgba(7, 21, 43, 0.92) 100%);
+	}
+
+	.lfa-membership .membership-hero-title {
+		font-size: 38px;
+	}
+
+	.lfa-membership .membership-section-title {
+		font-size: 30px;
+	}
+
+	.lfa-membership .membership-benefits-section,
+	.lfa-membership .membership-plans-section,
+	.lfa-membership .membership-process-section,
+	.lfa-membership .membership-dues-section,
+	.lfa-membership .membership-portal-section,
+	.lfa-membership .membership-community-section,
+	.lfa-membership .membership-faq-section {
+		padding: 56px 0;
+	}
+
+	.lfa-membership .membership-benefits-row {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 14px;
+	}
+
+	.lfa-membership .membership-steps-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.lfa-membership .membership-plans-grid {
+		grid-template-columns: 1fr;
+		max-width: 520px;
+	}
+
+	.lfa-membership .membership-gallery-grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+	}
+
+	.lfa-membership .membership-gallery-item.item-large {
+		grid-row: auto;
+		height: 280px;
+	}
+
+	.lfa-membership .membership-gallery-item {
+		height: 240px;
+	}
+
+	.lfa-membership .process-footer-inner,
+	.lfa-membership .portal-login-cta,
+	.lfa-membership .membership-faq-helpbox {
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+	}
+
+	.lfa-membership .portal-demo-disclaimer {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+/* Mobile (<= 480px / 390px) */
+@media screen and (max-width: 480px) {
+	.lfa-membership .membership-hero-section {
+		min-height: auto;
+	}
+
+	.lfa-membership .membership-hero-inner {
+		padding: 44px 0 36px 0;
+	}
+
+	.lfa-membership .membership-hero-title {
+		font-size: 32px;
+	}
+
+	.lfa-membership .membership-hero-actions {
+		flex-direction: column;
+	}
+
+	.lfa-membership .membership-hero-actions .btn {
+		width: 100%;
+	}
+
+	.lfa-membership .hero-values-stack {
+		gap: 10px;
+	}
+
+	.lfa-membership .hero-value-item {
+		font-size: 22px;
+	}
+
+	.lfa-membership .benefits-section-title {
+		font-size: 28px;
+	}
+
+	.lfa-membership .membership-benefits-row {
+		grid-template-columns: 1fr;
+		gap: 14px;
+	}
+
+	.lfa-membership .membership-steps-grid,
+	.lfa-membership .membership-portal-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.lfa-membership .membership-benefit-card {
+		padding: 26px 20px;
+	}
+
+	.lfa-membership .membership-plan-card {
+		padding: 32px 22px;
+	}
+
+	.lfa-membership .dues-mock-card {
+		padding: 22px 18px;
+	}
+
+	.lfa-membership .dues-mock-summary {
+		grid-template-columns: 1fr;
+	}
+
+	.lfa-membership .faq-accordion-trigger {
+		padding: 18px 20px;
+		font-size: 15.5px;
+	}
+
+	.lfa-membership .faq-panel-content {
+		padding: 0 20px 20px 20px;
+	}
+}

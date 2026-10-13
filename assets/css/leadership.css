@@ -1,0 +1,884 @@
+/**
+ * Love Family Alumni — Leadership Page Scoped Stylesheet
+ * Phase 02 / Page 02
+ *
+ * Scope: Strictly scoped to .lfa-leadership to ensure no bleed into homepage or About Us page.
+ */
+
+/* ==========================================================================
+   01. GLOBAL PAGE WRAPPER & RESET
+   ========================================================================== */
+.lfa-leadership {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+/* ==========================================================================
+   02. SECTION 01: HERO SECTION
+   ========================================================================== */
+.leadership-hero {
+	position: relative;
+	min-height: 480px;
+	display: flex;
+	align-items: center;
+	background-color: var(--navy-deep, #060F1E);
+	color: #FFFFFF;
+	overflow: hidden;
+	padding: clamp(60px, 7vw, 100px) 0;
+}
+
+.leadership-hero-bg-media {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center right;
+	background-repeat: no-repeat;
+	z-index: 1;
+}
+
+/* Left-to-right gradient overlay: solid/rich navy on left, community group visible on right */
+.leadership-hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		90deg,
+		rgba(6, 15, 30, 0.98) 0%,
+		rgba(10, 25, 47, 0.95) 42%,
+		rgba(10, 25, 47, 0.72) 70%,
+		rgba(10, 25, 47, 0.45) 100%
+	);
+	z-index: 2;
+}
+
+/* Subtle Watermark Emblem in right background */
+.leadership-hero-watermark {
+	position: absolute;
+	right: 4%;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	opacity: 0.12;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.leadership-watermark-svg {
+	width: clamp(260px, 28vw, 420px);
+	height: auto;
+}
+
+/* Hero Content Box */
+.leadership-hero-container {
+	position: relative;
+	z-index: 3;
+	width: 100%;
+}
+
+.leadership-hero-content {
+	max-width: 780px;
+}
+
+/* Breadcrumb Navigation */
+.leadership-breadcrumb {
+	margin-bottom: 1.25rem;
+}
+
+.leadership-breadcrumb .breadcrumb-list {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 0.8125rem;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.leadership-breadcrumb .breadcrumb-item a {
+	color: rgba(255, 255, 255, 0.7);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.leadership-breadcrumb .breadcrumb-item a:hover {
+	color: var(--gold, #DDA83A);
+}
+
+.leadership-breadcrumb .breadcrumb-separator {
+	color: var(--gold, #DDA83A);
+	font-weight: 700;
+	user-select: none;
+}
+
+.leadership-breadcrumb .breadcrumb-item.current {
+	color: var(--gold-light, #F3C96A);
+}
+
+/* Eyebrow Badge */
+.leadership-eyebrow-wrap {
+	margin-bottom: 0.875rem;
+}
+
+.leadership-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--gold, #DDA83A);
+	background: rgba(221, 168, 58, 0.12);
+	border: 1px solid rgba(221, 168, 58, 0.35);
+	padding: 0.35rem 0.85rem;
+	border-radius: 9999px;
+}
+
+/* Hero Title */
+.leadership-hero-title {
+	font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+	font-size: clamp(2.35rem, 4.4vw, 3.75rem);
+	font-weight: 700;
+	line-height: 1.12;
+	color: #FFFFFF;
+	margin: 0 0 1.25rem 0;
+	letter-spacing: -0.015em;
+}
+
+.leadership-hero-title .title-line {
+	display: block;
+}
+
+.leadership-hero-title .title-highlight {
+	color: #FFFFFF;
+}
+
+/* Hero Description */
+.leadership-hero-desc {
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: clamp(1rem, 1.2vw, 1.125rem);
+	font-weight: 400;
+	line-height: 1.68;
+	color: rgba(255, 255, 255, 0.88);
+	margin: 0;
+	max-width: 660px;
+}
+
+
+/* ==========================================================================
+   03. SECTION 02: PRESIDENT INTRODUCTION SECTION
+   ========================================================================== */
+.leadership-president-section {
+	position: relative;
+	background-color: #FFFFFF;
+	padding: clamp(64px, 7vw, 108px) 0;
+	border-bottom: 1px solid rgba(10, 25, 47, 0.08);
+}
+
+.leadership-president-container {
+	position: relative;
+}
+
+/* Two-Column Grid */
+.leadership-president-grid {
+	display: grid;
+	grid-template-columns: minmax(360px, 460px) 1fr;
+	gap: clamp(40px, 5.5vw, 84px);
+	align-items: center;
+}
+
+/* Portrait Media Column */
+.leadership-president-media-col {
+	position: relative;
+}
+
+.leadership-portrait-frame {
+	position: relative;
+	border-radius: 18px;
+	overflow: hidden;
+	box-shadow: 0 24px 50px -10px rgba(10, 25, 47, 0.16), 0 10px 20px -5px rgba(10, 25, 47, 0.08);
+	border: 1px solid rgba(10, 25, 47, 0.08);
+	background: #0A192F;
+}
+
+.leadership-portrait-img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-height: 560px;
+	object-fit: cover;
+	object-position: top center;
+	transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.leadership-portrait-frame:hover .leadership-portrait-img {
+	transform: scale(1.02);
+}
+
+/* Editorial Content Column */
+.leadership-president-content-col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.leadership-president-eyebrow-wrap {
+	margin-bottom: 0.625rem;
+}
+
+.leadership-president-eyebrow {
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--crimson, #BA002C);
+}
+
+.leadership-president-name {
+	font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+	font-size: clamp(2.25rem, 3.6vw, 3.25rem);
+	font-weight: 700;
+	line-height: 1.15;
+	color: var(--navy, #0A192F);
+	margin: 0 0 0.5rem 0;
+	letter-spacing: -0.015em;
+}
+
+.leadership-president-designation {
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: clamp(0.95rem, 1.15vw, 1.125rem);
+	font-weight: 600;
+	color: var(--burgundy, #A3001E);
+	margin-bottom: 1.25rem;
+}
+
+.leadership-president-divider {
+	width: 56px;
+	height: 3px;
+	background: var(--gold, #DDA83A);
+	border-radius: 2px;
+	margin-bottom: 1.5rem;
+}
+
+/* Bio Copy */
+.leadership-president-bio {
+	font-family: var(--font-body, 'Inter', sans-serif);
+	margin-bottom: 2rem;
+}
+
+.leadership-president-bio p {
+	font-size: 1rem;
+	line-height: 1.72;
+	color: #475569;
+	margin: 0 0 1.125rem 0;
+}
+
+.leadership-president-bio p:last-child {
+	margin-bottom: 0;
+}
+
+.leadership-president-bio .bio-lead {
+	font-size: clamp(1.05rem, 1.2vw, 1.15rem);
+	font-weight: 500;
+	line-height: 1.68;
+	color: #1E293B;
+}
+
+/* CTA Action */
+.leadership-president-actions {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+}
+
+.leadership-message-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.625rem;
+	background: var(--burgundy, #A3001E);
+	color: #FFFFFF;
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: 0.9375rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	padding: 0.85rem 1.75rem;
+	border-radius: 8px;
+	text-decoration: none;
+	box-shadow: 0 4px 14px rgba(163, 0, 30, 0.25);
+	transition: all 0.25s ease;
+}
+
+.leadership-message-btn:hover {
+	background: #800018;
+	color: #FFFFFF;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(163, 0, 30, 0.35);
+}
+
+.leadership-message-btn svg {
+	transition: transform 0.25s ease;
+}
+
+.leadership-message-btn:hover svg {
+	transform: translateX(4px);
+}
+
+
+/* ==========================================================================
+   03. LEADERSHIP ROSTER SECTIONS (EXECUTIVE, BOARD, ADVISORY)
+   ========================================================================== */
+.leadership-roster-section {
+	padding: clamp(56px, 6vw, 88px) 0;
+	position: relative;
+}
+
+.leadership-executive-section {
+	background-color: #FFFFFF;
+}
+
+.leadership-board-section {
+	background-color: #F8F9FA;
+	border-top: 1px solid rgba(10, 25, 47, 0.06);
+	border-bottom: 1px solid rgba(10, 25, 47, 0.06);
+}
+
+.leadership-advisory-section {
+	background-color: #FFFFFF;
+}
+
+/* Section Header Typography */
+.leadership-section-header {
+	margin-bottom: clamp(32px, 3.8vw, 48px);
+}
+
+.leadership-section-eyebrow-wrap {
+	margin-bottom: 0.5rem;
+}
+
+.leadership-section-eyebrow {
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--crimson, #BA002C);
+}
+
+.leadership-section-title {
+	font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+	font-size: clamp(1.85rem, 2.7vw, 2.45rem);
+	font-weight: 700;
+	line-height: 1.18;
+	color: var(--navy, #0A192F);
+	margin: 0 0 0.65rem 0;
+	letter-spacing: -0.015em;
+}
+
+.leadership-section-desc {
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: clamp(0.9375rem, 1.05vw, 1.025rem);
+	color: #64748B;
+	line-height: 1.65;
+	max-width: 660px;
+	margin: 0;
+}
+
+/* Grids for Profiles */
+.leadership-roster-grid {
+	display: grid;
+	gap: 20px;
+	width: 100%;
+}
+
+.leadership-roster-grid.grid-cols-5 {
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.leadership-roster-grid.grid-cols-6 {
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	gap: 16px;
+}
+
+/* Leader Profile Card */
+.leader-profile-card {
+	background-color: #FFFFFF;
+	border: 1px solid rgba(10, 25, 47, 0.08);
+	border-radius: 12px;
+	padding: 14px;
+	box-shadow: 0 4px 16px rgba(10, 25, 47, 0.03);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.leader-profile-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 12px 28px rgba(10, 25, 47, 0.09);
+	border-color: rgba(186, 0, 44, 0.25);
+}
+
+/* Media Wrap / Avatar */
+.leader-card-media-wrap {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: #EDF2F7;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.leader-card-portrait {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top center;
+	display: block;
+}
+
+.leader-card-placeholder {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.placeholder-silhouette-svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.leader-card-status-pill {
+	position: absolute;
+	bottom: 8px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgba(10, 25, 47, 0.90);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	color: var(--gold-light, #F3C96A);
+	border: 1px solid rgba(221, 168, 58, 0.4);
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: 0.625rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	padding: 2px 7px;
+	border-radius: 9999px;
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+/* Card Body */
+.leader-card-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding-top: 14px;
+	flex-grow: 1;
+}
+
+.leader-card-name {
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: 0.9375rem;
+	font-weight: 700;
+	line-height: 1.25;
+	color: var(--navy, #0A192F);
+	margin: 0 0 4px 0;
+}
+
+.leader-card-designation {
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	line-height: 1.35;
+	color: #64748B;
+	margin: 0 0 14px 0;
+}
+
+/* Compact Variant for Board Members */
+.leader-profile-card.is-compact {
+	padding: 12px;
+}
+
+.leader-profile-card.is-compact .leader-card-body {
+	padding-top: 12px;
+}
+
+.leader-profile-card.is-compact .leader-card-name {
+	font-size: 0.875rem;
+}
+
+.leader-profile-card.is-compact .leader-card-designation {
+	font-size: 0.775rem;
+	margin-bottom: 12px;
+}
+
+/* Social Actions Row */
+.leader-card-actions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin-top: auto;
+}
+
+.leader-action-btn {
+	width: 32px;
+	height: 32px;
+	border-radius: 6px;
+	background-color: var(--navy, #0A192F);
+	color: #FFFFFF;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.leader-action-btn:hover {
+	background-color: var(--crimson, #BA002C);
+	color: #FFFFFF;
+	transform: translateY(-2px);
+}
+
+.leader-action-btn svg {
+	display: block;
+}
+
+
+/* ==========================================================================
+   04. SECTION 06: JOIN OUR LEADERSHIP COMMUNITY CTA
+   ========================================================================== */
+.leadership-join-cta-section {
+	position: relative;
+	background: linear-gradient(135deg, #780016 0%, #920025 50%, #680012 100%);
+	padding: clamp(48px, 5.2vw, 72px) 0;
+	color: #FFFFFF;
+	overflow: hidden;
+}
+
+.leadership-cta-bg-layer {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	opacity: 0.16;
+	mix-blend-mode: overlay;
+	z-index: 1;
+}
+
+.leadership-cta-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(120, 0, 22, 0.95) 0%, rgba(146, 0, 37, 0.88) 100%);
+}
+
+.leadership-cta-container {
+	position: relative;
+	z-index: 2;
+}
+
+.leadership-cta-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 32px;
+}
+
+.leadership-cta-content-group {
+	display: flex;
+	align-items: center;
+	gap: 28px;
+	flex-grow: 1;
+}
+
+.leadership-cta-icon-wrap {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #FFFFFF;
+}
+
+.leadership-community-icon-svg {
+	width: clamp(48px, 4.5vw, 64px);
+	height: auto;
+}
+
+.leadership-cta-divider {
+	width: 1px;
+	height: 60px;
+	background-color: rgba(255, 255, 255, 0.24);
+	flex-shrink: 0;
+}
+
+.leadership-cta-text-wrap {
+	max-width: 700px;
+}
+
+.leadership-cta-eyebrow {
+	display: block;
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--gold-light, #F3C96A);
+	margin-bottom: 0.25rem;
+}
+
+.leadership-cta-title {
+	font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+	font-size: clamp(1.65rem, 2.5vw, 2.35rem);
+	font-weight: 700;
+	line-height: 1.18;
+	color: #FFFFFF;
+	margin: 0 0 0.35rem 0;
+	letter-spacing: -0.015em;
+}
+
+.leadership-cta-desc {
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: clamp(0.875rem, 1.05vw, 1rem);
+	color: rgba(255, 255, 255, 0.9);
+	line-height: 1.55;
+	margin: 0;
+}
+
+.leadership-cta-action-group {
+	flex-shrink: 0;
+}
+
+.leadership-contact-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #C00831;
+	color: #FFFFFF;
+	font-family: var(--font-body, 'Inter', sans-serif);
+	font-size: 0.9375rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	padding: 0.9rem 2.2rem;
+	border-radius: 8px;
+	text-decoration: none;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+	white-space: nowrap;
+	transition: all 0.25s ease;
+}
+
+.leadership-contact-btn:hover {
+	background-color: #9A0020;
+	color: #FFFFFF;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==========================================================================
+   05. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Large Desktop (>= 1440px) */
+@media (min-width: 1440px) {
+	.leadership-hero {
+		min-height: 500px;
+	}
+	.leadership-portrait-img {
+		max-height: 580px;
+	}
+}
+
+/* Desktop Medium (<= 1280px) */
+@media (max-width: 1280px) {
+	.leadership-president-grid {
+		grid-template-columns: minmax(320px, 400px) 1fr;
+		gap: 3.5rem;
+	}
+
+	.leadership-roster-grid.grid-cols-5 {
+		gap: 16px;
+	}
+
+	.leadership-roster-grid.grid-cols-6 {
+		gap: 12px;
+	}
+
+	.leader-profile-card {
+		padding: 12px;
+	}
+}
+
+/* Tablet Landscape (<= 1024px) */
+@media (max-width: 1024px) {
+	.leadership-roster-grid.grid-cols-5 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 18px;
+	}
+
+	.leadership-roster-grid.grid-cols-6 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 16px;
+	}
+}
+
+/* Tablet (<= 992px) */
+@media (max-width: 992px) {
+	.leadership-hero {
+		min-height: 440px;
+		padding: 60px 0;
+	}
+
+	.leadership-hero-overlay {
+		background: linear-gradient(
+			90deg,
+			rgba(6, 15, 30, 0.98) 0%,
+			rgba(10, 25, 47, 0.94) 50%,
+			rgba(10, 25, 47, 0.78) 100%
+		);
+	}
+
+	.leadership-president-grid {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+
+	.leadership-president-media-col {
+		max-width: 480px;
+		margin: 0 auto;
+	}
+}
+
+/* Tablet Portrait & Mobile (<= 768px) */
+@media (max-width: 768px) {
+	.leadership-hero {
+		min-height: auto;
+		padding: 50px 0 55px 0;
+	}
+
+	.leadership-hero-overlay {
+		background: linear-gradient(
+			180deg,
+			rgba(6, 15, 30, 0.96) 0%,
+			rgba(10, 25, 47, 0.92) 65%,
+			rgba(10, 25, 47, 0.85) 100%
+		);
+	}
+
+	.leadership-hero-watermark {
+		opacity: 0.08;
+		right: -10%;
+	}
+
+	.leadership-president-section {
+		padding: 56px 0;
+	}
+
+	.leadership-president-media-col {
+		max-width: 100%;
+	}
+
+	.leadership-portrait-img {
+		max-height: 480px;
+	}
+
+	.leadership-roster-grid.grid-cols-5,
+	.leadership-roster-grid.grid-cols-6 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px;
+	}
+
+	.leadership-cta-inner {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 24px;
+	}
+
+	.leadership-cta-content-group {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+	}
+
+	.leadership-cta-divider {
+		display: none;
+	}
+
+	.leadership-cta-action-group {
+		width: 100%;
+	}
+
+	.leadership-contact-btn {
+		width: 100%;
+	}
+}
+
+/* Small Mobile (<= 480px / 390px) */
+@media (max-width: 480px) {
+	.leadership-hero {
+		padding: 42px 0 48px 0;
+	}
+
+	.leadership-breadcrumb .breadcrumb-list {
+		font-size: 0.75rem;
+	}
+
+	.leadership-hero-desc {
+		font-size: 0.95rem;
+		line-height: 1.6;
+	}
+
+	.leadership-president-section {
+		padding: 44px 0;
+	}
+
+	.leadership-president-name {
+		font-size: 2rem;
+	}
+
+	.leadership-president-designation {
+		font-size: 0.9375rem;
+	}
+
+	.leadership-president-bio p {
+		font-size: 0.9375rem;
+		line-height: 1.65;
+	}
+
+	.leadership-portrait-img {
+		max-height: 400px;
+	}
+
+	.leadership-message-btn {
+		width: 100%;
+		justify-content: center;
+		padding: 0.85rem 1.25rem;
+	}
+
+	.leadership-roster-grid.grid-cols-5,
+	.leadership-roster-grid.grid-cols-6 {
+		grid-template-columns: 1fr;
+		gap: 14px;
+	}
+
+	.leader-profile-card {
+		max-width: 290px;
+		margin: 0 auto;
+		width: 100%;
+	}
+}
+
