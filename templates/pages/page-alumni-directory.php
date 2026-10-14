@@ -24,11 +24,11 @@ get_header();
 	// Section 03: Alumni Profile Grid
 	get_template_part( 'template-parts/directory/profile-grid' );
 
-	// Section 04: Privacy Notice (Task 03)
-	// get_template_part( 'template-parts/directory/privacy' );
+	// Section 04: Privacy Notice
+	get_template_part( 'template-parts/directory/privacy' );
 
-	// Section 05: Reconnect & Join CTA (Task 03)
-	// get_template_part( 'template-parts/directory/join-cta' );
+	// Section 05: Reconnect & Join CTA
+	get_template_part( 'template-parts/directory/join-cta' );
 	?>
 </div>
 

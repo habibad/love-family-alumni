@@ -65,7 +65,7 @@ function lfa_enqueue_assets(): void {
 	}
 
 	// Alumni Directory Page Scoped Stylesheet & Script (Phase 02 / Page 04)
-	if ( is_page( 'alumni-directory' ) || is_page( 'directory' ) || is_page_template( 'templates/pages/page-alumni-directory.php' ) || is_page_template( 'page-alumni-directory.php' ) ) {
+	if ( is_page( 'alumni-directory' ) || is_page( 'directory' ) || is_page_template( 'templates/pages/page-alumni-directory.php' ) || is_page_template( 'page-alumni-directory.php' ) || is_page_template( 'page-directory.php' ) ) {
 		wp_enqueue_style(
 			'lfa-directory-style',
 			get_template_directory_uri() . '/assets/css/alumni-directory.css',
@@ -96,6 +96,165 @@ function lfa_enqueue_assets(): void {
 			file_exists( get_template_directory() . '/assets/js/events.js' ) ? filemtime( get_template_directory() . '/assets/js/events.js' ) : '1.0.0',
 			true
 		);
+	}
+
+	// Conference 2027 Page Scoped Stylesheet (Task 01 & Complete Frontend)
+	if ( is_page( '2027' ) || is_page( 'conference' ) || is_page_template( 'templates/pages/page-conference-2027.php' ) || is_page_template( 'page-conference-2027.php' ) || is_page_template( 'templates/page-lfa-conference-2027.php' ) ) {
+		wp_enqueue_style(
+			'lfa-conference-2027-style',
+			get_template_directory_uri() . '/assets/css/conference-2027.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/conference-2027.css' ) ? filemtime( get_template_directory() . '/assets/css/conference-2027.css' ) : '1.0.0'
+		);
+		if ( file_exists( get_template_directory() . '/assets/css/conference-2027-phase2.css' ) ) {
+			wp_enqueue_style(
+				'lfa-conference-2027-phase2-style',
+				get_template_directory_uri() . '/assets/css/conference-2027-phase2.css',
+				[ 'lfa-conference-2027-style' ],
+				filemtime( get_template_directory() . '/assets/css/conference-2027-phase2.css' )
+			);
+		}
+	}
+
+	// Business Directory Page Scoped Stylesheet & Script
+	if ( is_page( 'business-directory' ) || is_page_template( 'templates/pages/page-business-directory.php' ) || is_page_template( 'page-business-directory.php' ) ) {
+		wp_enqueue_style(
+			'lfa-business-directory-style',
+			get_template_directory_uri() . '/assets/css/business-directory.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/business-directory.css' ) ? filemtime( get_template_directory() . '/assets/css/business-directory.css' ) : '1.0.0'
+		);
+		wp_enqueue_script(
+			'lfa-business-directory-js',
+			get_template_directory_uri() . '/assets/js/business-directory.js',
+			[ 'lfa-main-js' ],
+			file_exists( get_template_directory() . '/assets/js/business-directory.js' ) ? filemtime( get_template_directory() . '/assets/js/business-directory.js' ) : '1.0.0',
+			true
+		);
+	}
+
+	// News & Announcements Page Scoped Stylesheet & Script
+	if ( is_page( 'news' ) || is_page( 'news-details' ) || is_page_template( 'templates/pages/page-news.php' ) || is_page_template( 'page-news.php' ) || is_page_template( 'templates/pages/page-news-details.php' ) || is_page_template( 'page-news-details.php' ) ) {
+		wp_enqueue_style(
+			'lfa-news-style',
+			get_template_directory_uri() . '/assets/css/news.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/news.css' ) ? filemtime( get_template_directory() . '/assets/css/news.css' ) : '1.0.0'
+		);
+		if ( file_exists( get_template_directory() . '/assets/css/news-task03.css' ) ) {
+			wp_enqueue_style(
+				'lfa-news-task03-style',
+				get_template_directory_uri() . '/assets/css/news-task03.css',
+				[ 'lfa-news-style' ],
+				filemtime( get_template_directory() . '/assets/css/news-task03.css' )
+			);
+		}
+		wp_enqueue_script(
+			'lfa-news-js',
+			get_template_directory_uri() . '/assets/js/news.js',
+			[ 'lfa-main-js' ],
+			file_exists( get_template_directory() . '/assets/js/news.js' ) ? filemtime( get_template_directory() . '/assets/js/news.js' ) : '1.0.0',
+			true
+		);
+		if ( file_exists( get_template_directory() . '/assets/js/news-task03.js' ) ) {
+			wp_enqueue_script(
+				'lfa-news-task03-js',
+				get_template_directory_uri() . '/assets/js/news-task03.js',
+				[ 'lfa-news-js' ],
+				filemtime( get_template_directory() . '/assets/js/news-task03.js' ),
+				true
+			);
+		}
+	}
+
+	// Scholarships Page Scoped Stylesheet & Script (Phase 02 / Task 01 & Task 02)
+	if ( is_page( 'scholarships' ) || is_page_template( 'templates/pages/page-scholarships.php' ) || is_page_template( 'page-scholarships.php' ) ) {
+		wp_enqueue_style(
+			'lfa-scholarships-style',
+			get_template_directory_uri() . '/assets/css/scholarships.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/scholarships.css' ) ? filemtime( get_template_directory() . '/assets/css/scholarships.css' ) : '1.0.0'
+		);
+		if ( file_exists( get_template_directory() . '/assets/css/scholarships-task02.css' ) ) {
+			wp_enqueue_style(
+				'lfa-scholarships-task02-style',
+				get_template_directory_uri() . '/assets/css/scholarships-task02.css',
+				[ 'lfa-scholarships-style' ],
+				filemtime( get_template_directory() . '/assets/css/scholarships-task02.css' )
+			);
+		}
+		if ( file_exists( get_template_directory() . '/assets/css/scholarships-task03.css' ) ) {
+			wp_enqueue_style(
+				'lfa-scholarships-task03-style',
+				get_template_directory_uri() . '/assets/css/scholarships-task03.css',
+				[ 'lfa-scholarships-style', 'lfa-scholarships-task02-style' ],
+				filemtime( get_template_directory() . '/assets/css/scholarships-task03.css' )
+			);
+		}
+		if ( file_exists( get_template_directory() . '/assets/js/scholarships-task02.js' ) ) {
+			wp_enqueue_script(
+				'lfa-scholarships-task02-js',
+				get_template_directory_uri() . '/assets/js/scholarships-task02.js',
+				[ 'lfa-main-js' ],
+				filemtime( get_template_directory() . '/assets/js/scholarships-task02.js' ),
+				true
+			);
+		}
+	}
+
+	// Give / Donations Page Scoped Stylesheet & Script (Task 01)
+	if ( is_page( 'give' ) || is_page_template( 'templates/pages/page-give.php' ) || is_page_template( 'page-give.php' ) ) {
+		wp_enqueue_style(
+			'lfa-give-style',
+			get_template_directory_uri() . '/assets/css/give.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/give.css' ) ? filemtime( get_template_directory() . '/assets/css/give.css' ) : '1.0.0'
+		);
+		wp_enqueue_script(
+			'lfa-give-js',
+			get_template_directory_uri() . '/assets/js/give.js',
+			[ 'lfa-main-js' ],
+			file_exists( get_template_directory() . '/assets/js/give.js' ) ? filemtime( get_template_directory() . '/assets/js/give.js' ) : '1.0.0',
+			true
+		);
+	}
+
+	// Archives & Gallery Page Scoped Stylesheet & Script (Task 01)
+	if ( is_page( 'gallery' ) || is_page_template( 'templates/pages/page-gallery.php' ) || is_page_template( 'page-gallery.php' ) ) {
+		wp_enqueue_style(
+			'lfa-gallery-style',
+			get_template_directory_uri() . '/assets/css/gallery.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/gallery.css' ) ? filemtime( get_template_directory() . '/assets/css/gallery.css' ) : '1.0.0'
+		);
+		if ( file_exists( get_template_directory() . '/assets/js/gallery.js' ) ) {
+			wp_enqueue_script(
+				'lfa-gallery-js',
+				get_template_directory_uri() . '/assets/js/gallery.js',
+				[ 'lfa-main-js' ],
+				filemtime( get_template_directory() . '/assets/js/gallery.js' ),
+				true
+			);
+		}
+	}
+
+	// Contact Us Page Scoped Stylesheet & Script
+	if ( is_page( 'contact' ) || is_page_template( 'templates/pages/page-contact.php' ) || is_page_template( 'page-contact.php' ) ) {
+		wp_enqueue_style(
+			'lfa-contact-style',
+			get_template_directory_uri() . '/assets/css/contact.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/contact.css' ) ? filemtime( get_template_directory() . '/assets/css/contact.css' ) : '1.0.0'
+		);
+		if ( file_exists( get_template_directory() . '/assets/js/contact.js' ) ) {
+			wp_enqueue_script(
+				'lfa-contact-js',
+				get_template_directory_uri() . '/assets/js/contact.js',
+				[ 'lfa-main-js' ],
+				filemtime( get_template_directory() . '/assets/js/contact.js' ),
+				true
+			);
+		}
 	}
 
 	// Main frontend JavaScript

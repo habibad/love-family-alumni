@@ -1,0 +1,929 @@
+/**
+ * Love Family Alumni — Give / Donations Page Stylesheet (Task 01)
+ * Scoped under .lfa-give to prevent cross-page contamination
+ *
+ * Color Palette:
+ * - Primary Navy: #071D3E, #061630
+ * - Crimson Red: #BA002C, #9E0025
+ * - Gold Accent: #E6B34A, #F5D07A
+ * - Neutrals: #FFFFFF, #F8FAFC, #F1F5F9, #E2E8F0, #64748B, #0F172A
+ */
+
+/* ==========================================================================
+   01. Layout & Global Scoped Tokens
+   ========================================================================== */
+.lfa-give {
+	--give-navy: #071D3E;
+	--give-navy-dark: #061630;
+	--give-crimson: #BA002C;
+	--give-crimson-hover: #9E0025;
+	--give-gold: #E6B34A;
+	--give-gold-light: #F5D07A;
+	--give-bg-light: #F8FAFC;
+	--give-border: #E2E8F0;
+	--give-text-dark: #0F172A;
+	--give-text-muted: #64748B;
+	--give-font-serif: 'Playfair Display', Georgia, serif;
+	--give-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+	font-family: var(--give-font-sans);
+	color: var(--give-text-dark);
+	background-color: #FFFFFF;
+	line-height: 1.5;
+	overflow-x: hidden;
+}
+
+.lfa-give * {
+	box-sizing: border-box;
+}
+
+.lfa-give__container {
+	width: 100%;
+	max-width: 1240px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+
+.lfa-give .lfa-gold {
+	color: var(--give-gold) !important;
+}
+
+.lfa-give .text-crimson {
+	color: var(--give-crimson) !important;
+}
+
+/* ==========================================================================
+   02. Section 01 — Hero Section
+   ========================================================================== */
+.lfa-give__hero {
+	position: relative;
+	background-color: var(--give-navy);
+	background-image: var(--hero-bg);
+	background-size: cover;
+	background-position: center right;
+	color: #FFFFFF;
+	padding: 60px 0 32px;
+	min-height: 580px;
+	display: flex;
+	align-items: center;
+}
+
+.lfa-give__hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(7, 29, 62, 0.96) 0%, rgba(7, 29, 62, 0.90) 48%, rgba(7, 29, 62, 0.65) 100%);
+	pointer-events: none;
+}
+
+.lfa-give__hero-inner {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 480px;
+}
+
+.lfa-give__hero-content {
+	max-width: 680px;
+	padding-top: 20px;
+}
+
+/* Breadcrumb */
+.lfa-give__breadcrumbs {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	color: #94A3B8;
+	margin-bottom: 24px;
+}
+
+.lfa-give__breadcrumbs a {
+	color: #CBD5E1;
+	text-decoration: none;
+	transition: color 0.15s ease;
+}
+
+.lfa-give__breadcrumbs a:hover {
+	color: #FFFFFF;
+}
+
+.lfa-give__breadcrumbs .sep {
+	color: #64748B;
+}
+
+.lfa-give__breadcrumbs .current {
+	color: #FFFFFF;
+	font-weight: 500;
+}
+
+/* Eyebrows */
+.lfa-give__eyebrow {
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+	display: inline-block;
+}
+
+.lfa-give__eyebrow--gold {
+	color: var(--give-gold);
+}
+
+.lfa-give__eyebrow--crimson {
+	color: var(--give-crimson);
+}
+
+/* Hero Heading */
+.lfa-give__hero-heading {
+	font-family: var(--give-font-serif);
+	font-size: clamp(2.35rem, 5vw, 3.6rem);
+	line-height: 1.15;
+	font-weight: 700;
+	margin: 0 0 20px;
+	color: #FFFFFF;
+	letter-spacing: -0.01em;
+}
+
+.lfa-give__hero-lead {
+	font-size: clamp(1rem, 1.8vw, 1.125rem);
+	line-height: 1.65;
+	color: #E2E8F0;
+	margin: 0 0 32px;
+	max-width: 580px;
+}
+
+/* Buttons */
+.lfa-give__hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	align-items: center;
+}
+
+.lfa-give .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 13px 26px;
+	font-size: 14px;
+	font-weight: 600;
+	border-radius: 6px;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.lfa-give .btn:active {
+	transform: scale(0.98);
+}
+
+.lfa-give .btn-crimson {
+	background-color: var(--give-crimson);
+	border: 1px solid var(--give-crimson);
+	color: #FFFFFF !important;
+}
+
+.lfa-give .btn-crimson:hover {
+	background-color: var(--give-crimson-hover);
+	border-color: var(--give-crimson-hover);
+	color: #FFFFFF !important;
+}
+
+.lfa-give .btn-outline-white {
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	color: #FFFFFF !important;
+}
+
+.lfa-give .btn-outline-white:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+	border-color: #FFFFFF;
+	color: #FFFFFF !important;
+}
+
+/* Hero Bottom Strip */
+.lfa-give__hero-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+	padding-top: 24px;
+	margin-top: 48px;
+	font-size: 12px;
+	color: #94A3B8;
+}
+
+.lfa-give__hero-notice {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.lfa-give__hero-notice .notice-bullet {
+	color: var(--give-gold);
+	font-size: 14px;
+}
+
+.lfa-give__hero-badge {
+	letter-spacing: 0.1em;
+	font-weight: 600;
+	color: #CBD5E1;
+}
+
+/* ==========================================================================
+   03. Section 02 — Giving Mission
+   ========================================================================== */
+.lfa-give__mission {
+	padding: 84px 0;
+	background-color: #FFFFFF;
+}
+
+.lfa-give__mission-grid {
+	display: grid;
+	grid-template-columns: 420px 1fr;
+	gap: 56px;
+	align-items: flex-start;
+}
+
+.lfa-give__mission-heading {
+	font-family: var(--give-font-serif);
+	font-size: clamp(2rem, 3.5vw, 2.75rem);
+	line-height: 1.2;
+	font-weight: 700;
+	color: var(--give-navy);
+	margin: 0;
+	letter-spacing: -0.01em;
+}
+
+.lfa-give__mission-lead {
+	font-size: clamp(1.05rem, 1.6vw, 1.15rem);
+	line-height: 1.75;
+	color: #334155;
+	margin: 0;
+}
+
+.lfa-give__mission-divider {
+	border: none;
+	border-top: 1px solid var(--give-border);
+	margin: 32px 0 28px;
+}
+
+.lfa-give__mission-pillars {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 36px;
+}
+
+.lfa-give__pillar-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--give-text-dark);
+}
+
+.lfa-give__pillar-item .pillar-num {
+	color: var(--give-crimson);
+	font-weight: 700;
+}
+
+/* ==========================================================================
+   04. Section 03 — Ways to Give Categories (4 Cards)
+   ========================================================================== */
+.lfa-give__categories {
+	padding: 84px 0 96px;
+	background-color: var(--give-bg-light);
+}
+
+.lfa-give__section-header {
+	margin-bottom: 40px;
+}
+
+.lfa-give__header-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.lfa-give__status-pill {
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	color: #64748B;
+	background-color: #FFFFFF;
+	border: 1px solid #CBD5E1;
+	border-radius: 20px;
+	padding: 4px 12px;
+	text-transform: uppercase;
+}
+
+.lfa-give__section-heading {
+	font-family: var(--give-font-serif);
+	font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+	line-height: 1.22;
+	font-weight: 700;
+	color: var(--give-navy);
+	margin: 0 0 10px;
+	letter-spacing: -0.01em;
+}
+
+.lfa-give__section-subtitle {
+	font-size: 15px;
+	color: var(--give-text-muted);
+	margin: 0;
+	max-width: 650px;
+}
+
+/* 4 Cards Grid */
+.lfa-give__categories-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+}
+
+.lfa-give__card {
+	background-color: #FFFFFF;
+	border: 1.5px solid var(--give-border);
+	border-radius: 12px;
+	padding: 28px 22px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	cursor: pointer;
+	position: relative;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+	user-select: none;
+}
+
+.lfa-give__card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.06);
+	border-color: #CBD5E1;
+}
+
+.lfa-give__card.is-active {
+	border-color: var(--give-crimson) !important;
+	box-shadow: 0 12px 28px -6px rgba(186, 0, 44, 0.16), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+}
+
+.lfa-give__card-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.lfa-give__card-icon-wrap {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background-color: #FDF2F4;
+	color: var(--give-crimson);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lfa-give__card.is-active .lfa-give__card-icon-wrap {
+	background-color: var(--give-crimson);
+	color: #FFFFFF;
+}
+
+.lfa-give__card-num {
+	font-size: 13px;
+	font-weight: 700;
+	color: #94A3B8;
+}
+
+.lfa-give__card-title {
+	font-family: var(--give-font-serif);
+	font-size: 1.25rem;
+	line-height: 1.3;
+	font-weight: 700;
+	color: var(--give-navy);
+	margin: 0 0 12px;
+}
+
+.lfa-give__card-desc {
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--give-text-muted);
+	margin: 0 0 24px;
+	flex-grow: 1;
+}
+
+.lfa-give__card-divider {
+	border: none;
+	border-top: 1px solid #F1F5F9;
+	margin: 0 0 16px;
+}
+
+.lfa-give__card-action {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--give-crimson);
+	transition: gap 0.15s ease;
+}
+
+.lfa-give__card:hover .lfa-give__card-action {
+	gap: 9px;
+}
+
+/* ==========================================================================
+   05. Section 04 — Donation Preview (Split Layout)
+   ========================================================================== */
+.lfa-give__preview {
+	padding: 92px 0 104px;
+	background-color: var(--give-navy);
+	color: #FFFFFF;
+	position: relative;
+}
+
+.lfa-give__preview-layout {
+	display: grid;
+	grid-template-columns: 1fr 1.12fr;
+	gap: 64px;
+	align-items: center;
+}
+
+/* Left Column */
+.lfa-give__preview-info {
+	max-width: 520px;
+}
+
+.lfa-give__preview-heading {
+	font-family: var(--give-font-serif);
+	font-size: clamp(2rem, 3.6vw, 2.75rem);
+	line-height: 1.2;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin: 0 0 20px;
+	letter-spacing: -0.01em;
+}
+
+.lfa-give__preview-lead {
+	font-size: 15px;
+	line-height: 1.7;
+	color: #CBD5E1;
+	margin: 0 0 32px;
+}
+
+.lfa-give__preview-divider {
+	border: none;
+	border-top: 1px solid rgba(255, 255, 255, 0.14);
+	margin: 0 0 28px;
+}
+
+.lfa-give__journey-steps {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #94A3B8;
+}
+
+.journey-step {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.journey-step .step-arrow {
+	color: var(--give-gold);
+}
+
+/* Right Column: White Interactive Demo Card */
+.lfa-give__card-preview {
+	background-color: #FFFFFF;
+	border-radius: 14px;
+	padding: 36px 32px;
+	box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.4);
+	color: var(--give-text-dark);
+}
+
+.lfa-give__card-preview-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.lfa-give__card-preview-header .card-eyebrow {
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.1em;
+	color: var(--give-crimson);
+	text-transform: uppercase;
+}
+
+.badge-no-payment {
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+	background-color: #FEE2E2;
+	color: #991B1B;
+	padding: 3px 10px;
+	border-radius: 20px;
+	text-transform: uppercase;
+}
+
+.lfa-give__card-preview-title {
+	font-family: var(--give-font-serif);
+	font-size: 1.65rem;
+	font-weight: 700;
+	color: var(--give-navy);
+	margin: 4px 0 16px;
+}
+
+.lfa-give__card-preview-hr {
+	border: none;
+	border-top: 1px solid #F1F5F9;
+	margin: 0 0 20px;
+}
+
+/* Selected Cause Row */
+.lfa-give__cause-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+.lfa-give__cause-row .cause-label {
+	font-size: 14px;
+	color: var(--give-text-muted);
+}
+
+.lfa-give__cause-row .cause-val {
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--give-navy);
+	background-color: #F8FAFC;
+	border: 1px solid var(--give-border);
+	padding: 6px 14px;
+	border-radius: 6px;
+}
+
+/* Amounts Block */
+.lfa-give__amounts-block {
+	margin-bottom: 22px;
+}
+
+.amounts-label-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.amounts-title {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--give-text-dark);
+}
+
+.amounts-unit {
+	font-size: 12px;
+	color: #94A3B8;
+}
+
+.lfa-give__amount-presets {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+}
+
+.lfa-give__amount-btn {
+	background-color: #FFFFFF;
+	border: 1.5px solid #CBD5E1;
+	border-radius: 6px;
+	padding: 12px 0;
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--give-text-dark);
+	cursor: pointer;
+	transition: all 0.15s ease;
+}
+
+.lfa-give__amount-btn:hover {
+	border-color: var(--give-crimson);
+	color: var(--give-crimson);
+}
+
+.lfa-give__amount-btn.is-active {
+	background-color: var(--give-crimson) !important;
+	border-color: var(--give-crimson) !important;
+	color: #FFFFFF !important;
+	box-shadow: 0 4px 10px rgba(186, 0, 44, 0.2);
+}
+
+/* Custom Amount Block */
+.lfa-give__custom-amount-block {
+	margin-bottom: 24px;
+}
+
+.custom-amount-label {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--give-text-dark);
+	margin-bottom: 8px;
+}
+
+.lfa-give__input-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.lfa-give__input-wrapper .currency-prefix {
+	position: absolute;
+	left: 14px;
+	font-size: 15px;
+	font-weight: 700;
+	color: #64748B;
+	pointer-events: none;
+}
+
+.lfa-give__custom-input {
+	width: 100%;
+	padding: 12px 14px 12px 30px;
+	border: 1.5px solid #CBD5E1;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--give-text-dark);
+	background-color: #FFFFFF;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lfa-give__custom-input:focus {
+	border-color: var(--give-navy);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(7, 29, 62, 0.12);
+}
+
+/* Review CTA Button */
+.lfa-give__btn-submit {
+	width: 100%;
+	padding: 15px 24px;
+	font-size: 15px;
+	font-weight: 700;
+	border-radius: 6px;
+}
+
+/* Safety Notice */
+.lfa-give__safety-notice {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin-top: 20px;
+	padding-top: 18px;
+	border-top: 1px solid #F1F5F9;
+}
+
+.notice-info-icon {
+	color: #64748B;
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+
+.notice-text {
+	font-size: 12px;
+	line-height: 1.55;
+	color: #64748B;
+	margin: 0;
+}
+
+/* ==========================================================================
+   06. Review Demo Modal / Panel (Frontend Only)
+   ========================================================================== */
+.lfa-give__modal {
+	position: fixed;
+	inset: 0;
+	z-index: 99999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.lfa-give__modal[hidden] {
+	display: none !important;
+}
+
+.lfa-give__modal-backdrop {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(7, 29, 62, 0.72);
+	backdrop-filter: blur(4px);
+}
+
+.lfa-give__modal-content {
+	position: relative;
+	z-index: 2;
+	background-color: #FFFFFF;
+	border-radius: 12px;
+	width: 100%;
+	max-width: 480px;
+	padding: 32px;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+	color: var(--give-text-dark);
+	animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+	from {
+		opacity: 0;
+		transform: scale(0.96) translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+.lfa-give__modal-close {
+	position: absolute;
+	top: 16px;
+	right: 18px;
+	font-size: 24px;
+	line-height: 1;
+	background: none;
+	border: none;
+	color: #64748B;
+	cursor: pointer;
+	padding: 4px 8px;
+	border-radius: 4px;
+	transition: color 0.15s ease;
+}
+
+.lfa-give__modal-close:hover {
+	color: var(--give-text-dark);
+}
+
+.lfa-give__modal-header {
+	margin-bottom: 20px;
+}
+
+.lfa-give__modal-title {
+	font-family: var(--give-font-serif);
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--give-navy);
+	margin: 10px 0 6px;
+}
+
+.lfa-give__modal-lead {
+	font-size: 13px;
+	color: var(--give-text-muted);
+	margin: 0;
+}
+
+.lfa-give__modal-body {
+	border-top: 1px solid #F1F5F9;
+	border-bottom: 1px solid #F1F5F9;
+	padding: 18px 0;
+	margin-bottom: 20px;
+}
+
+.summary-line {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 0;
+	font-size: 14px;
+}
+
+.summary-label {
+	color: var(--give-text-muted);
+}
+
+.summary-value {
+	color: var(--give-navy);
+	font-weight: 700;
+}
+
+.summary-tag {
+	font-size: 12px;
+	font-weight: 600;
+	color: #047857;
+	background-color: #D1FAE5;
+	padding: 2px 8px;
+	border-radius: 4px;
+}
+
+.lfa-give__modal-disclaimer {
+	margin-top: 16px;
+	padding: 12px;
+	background-color: #F8FAFC;
+	border-radius: 6px;
+	border-left: 3px solid var(--give-gold);
+}
+
+.lfa-give__modal-disclaimer p {
+	font-size: 12px;
+	line-height: 1.5;
+	color: #475569;
+	margin: 0;
+}
+
+.lfa-give__modal-footer {
+	display: flex;
+	justify-content: flex-end;
+}
+
+/* ==========================================================================
+   07. Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+	.lfa-give__mission-grid {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	.lfa-give__categories-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+
+	.lfa-give__preview-layout {
+		grid-template-columns: 1fr;
+		gap: 48px;
+	}
+
+	.lfa-give__preview-info {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.lfa-give__hero {
+		padding: 48px 0 24px;
+		min-height: auto;
+	}
+
+	.lfa-give__hero-inner {
+		min-height: auto;
+	}
+
+	.lfa-give__hero-heading {
+		font-size: 2.25rem;
+	}
+
+	.lfa-give__hero-bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+		margin-top: 36px;
+	}
+
+	.lfa-give__mission {
+		padding: 60px 0;
+	}
+
+	.lfa-give__categories {
+		padding: 60px 0 72px;
+	}
+
+	.lfa-give__preview {
+		padding: 64px 0 76px;
+	}
+
+	.lfa-give__card-preview {
+		padding: 28px 20px;
+	}
+}
+
+@media (max-width: 640px) {
+	.lfa-give__hero-actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.lfa-give__hero-actions .btn {
+		width: 100%;
+	}
+
+	.lfa-give__categories-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.lfa-give__amount-presets {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

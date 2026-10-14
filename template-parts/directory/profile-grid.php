@@ -20,7 +20,7 @@ $total_count = count( $profiles );
 		<div class="directory-results-toolbar">
 			<div class="results-count-wrapper">
 				<span class="results-count-text">
-					Showing <strong class="results-current-range">1 &ndash; <?php echo esc_html( $total_count ); ?></strong> of <strong class="results-total-count">245</strong> alumni
+					Showing <strong class="results-current-range">1 &ndash; <?php echo esc_html( min( 8, $total_count ) ); ?></strong> of <strong class="results-total-count"><?php echo esc_html( $total_count ); ?></strong> alumni
 				</span>
 			</div>
 
@@ -96,5 +96,75 @@ $total_count = count( $profiles );
 			</nav>
 		</div>
 
+	</div>
+
+	<!-- Alumni Profile Preview Modal -->
+	<div class="directory-profile-modal-backdrop" id="directory-profile-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-profile-name">
+		<div class="directory-profile-modal-card">
+			<button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close profile details">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+
+			<div class="modal-profile-header">
+				<div class="modal-profile-avatar-wrap">
+					<img src="" alt="" class="modal-profile-avatar-img" id="modal-profile-avatar">
+					<div class="modal-profile-avatar-fallback" id="modal-profile-fallback">
+						<span id="modal-profile-initial">A</span>
+					</div>
+					<span class="modal-profile-badge" id="modal-profile-batch">Class of 2005</span>
+				</div>
+
+				<div class="modal-profile-header-info">
+					<h3 class="modal-profile-name" id="modal-profile-name">Alumni Name</h3>
+					<p class="modal-profile-title" id="modal-profile-title">Professional Title</p>
+					<p class="modal-profile-company" id="modal-profile-company">Company</p>
+				</div>
+			</div>
+
+			<div class="modal-profile-body">
+				<div class="modal-meta-grid">
+					<div class="modal-meta-cell">
+						<span class="modal-meta-label">Location</span>
+						<span class="modal-meta-val" id="modal-profile-location">City, Country</span>
+					</div>
+					<div class="modal-meta-cell">
+						<span class="modal-meta-label">Industry</span>
+						<span class="modal-meta-val" id="modal-profile-industry">Industry Sector</span>
+					</div>
+				</div>
+
+				<div class="modal-bio-block">
+					<h4 class="modal-block-title">About</h4>
+					<p class="modal-bio-text" id="modal-profile-bio">Bio description...</p>
+				</div>
+
+				<div class="modal-privacy-notice">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+						<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+					</svg>
+					<span>Demonstration profile preview. Direct member communication requires verified alumni directory credentials.</span>
+				</div>
+			</div>
+
+			<div class="modal-profile-footer">
+				<a href="#" id="modal-profile-email" class="btn btn-crimson modal-action-btn">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+						<polyline points="22,6 12,13 2,6"></polyline>
+					</svg>
+					<span>Send Message</span>
+				</a>
+				<a href="#" id="modal-profile-linkedin" target="_blank" rel="noopener noreferrer" class="btn btn-outline-neutral modal-action-btn">
+					<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.54a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63z"/>
+					</svg>
+					<span>LinkedIn</span>
+				</a>
+			</div>
+		</div>
 	</div>
 </section>

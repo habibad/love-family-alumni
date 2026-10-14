@@ -97,3 +97,33 @@ function lfa_icon( string $name, string $class = '' ): string {
 			return '';
 	}
 }
+
+/**
+ * Handle /alumni-directory/ redirect to /directory/ to prevent 404
+ */
+function lfa_handle_directory_route_alias(): void {
+	if ( ! is_admin() ) {
+		$request_uri = $_SERVER['REQUEST_URI'] ?? '';
+		if ( strpos( $request_uri, '/evans-alop/' ) === 0 ) {
+			wp_safe_redirect( str_replace( '/evans-alop/', '/evans_alop/', $request_uri ), 301 );
+			exit;
+		}
+		if ( is_404() ) {
+			$clean_uri = trim( $request_uri, '/' );
+			if ( preg_match( '#(^|/)alumni-directory/?$#i', $clean_uri ) ) {
+				wp_safe_redirect( home_url( '/directory/' ), 301 );
+				exit;
+			}
+		}
+	}
+}
+add_action( 'template_redirect', 'lfa_handle_directory_route_alias' );
+
+/**
+ * Register rewrite rule for Conference 2027
+ */
+function lfa_conference_rewrite_rules(): void {
+	add_rewrite_rule( '^conference/2027/?$', 'index.php?pagename=conference/2027', 'top' );
+}
+add_action( 'init', 'lfa_conference_rewrite_rules' );
+

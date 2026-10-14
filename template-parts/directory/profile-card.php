@@ -17,7 +17,19 @@ if ( empty( $profile ) ) {
 $avatar_url = ! empty( $profile['avatar'] ) ? lfa_image_url( $profile['avatar'] ) : '';
 ?>
 
-<div class="directory-profile-card" data-id="<?php echo esc_attr( $profile['id'] ); ?>" data-year="<?php echo esc_attr( $profile['batch'] ); ?>" data-profession="<?php echo esc_attr( $profile['title'] ); ?>" data-location="<?php echo esc_attr( $profile['location'] ); ?>" data-country="<?php echo esc_attr( $profile['country'] ?? '' ); ?>">
+<div class="directory-profile-card" 
+     data-id="<?php echo esc_attr( $profile['id'] ); ?>" 
+     data-name="<?php echo esc_attr( $profile['name'] ); ?>"
+     data-year="<?php echo esc_attr( $profile['batch'] ); ?>" 
+     data-profession="<?php echo esc_attr( $profile['title'] ); ?>" 
+     data-company="<?php echo esc_attr( $profile['company'] ?? '' ); ?>"
+     data-location="<?php echo esc_attr( $profile['location'] ); ?>" 
+     data-country="<?php echo esc_attr( $profile['country'] ?? '' ); ?>"
+     data-industry="<?php echo esc_attr( $profile['industry'] ?? '' ); ?>"
+     data-bio="<?php echo esc_attr( $profile['bio'] ?? '' ); ?>"
+     data-avatar="<?php echo esc_url( $avatar_url ); ?>"
+     data-email="<?php echo esc_attr( $profile['email'] ?? '' ); ?>"
+     data-linkedin="<?php echo esc_url( $profile['linkedin'] ?? '' ); ?>">
 	<!-- Card Media & Batch Badge -->
 	<div class="profile-media-wrapper">
 		<?php if ( $avatar_url ) : ?>

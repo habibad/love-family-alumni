@@ -1,0 +1,198 @@
+{
+  "is_demo_dataset": true,
+  "note": "All records entirely synthetic. Never publish as factual alumni news.",
+  "items": [
+    {
+      "id": 1,
+      "slug": "demo-news-01",
+      "title": "[Demo] Welcome to the Alumni Newsroom",
+      "category": "Announcements",
+      "date": "2026-09-02",
+      "excerpt": "Overview of how this future newsroom will share updates and verified community stories.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. Overview of how this future newsroom will share updates and verified community stories.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "announcements"
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "demo-news-02",
+      "title": "[Demo] Community Connections: A Sample Story",
+      "category": "Alumni Stories",
+      "date": "2026-09-03",
+      "excerpt": "Illustrative story layout explaining the impact of connection and fellowship.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. Illustrative story layout explaining the impact of connection and fellowship.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "alumni stories"
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "demo-news-03",
+      "title": "[Demo] Recognizing Alumni Accomplishments",
+      "category": "Achievements & Awards",
+      "date": "2026-09-04",
+      "excerpt": "Preview of a future verified achievements roundup.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. Preview of a future verified achievements roundup.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "achievements & awards"
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "demo-news-04",
+      "title": "[Demo] Professional Milestone Announcements",
+      "category": "Professional Milestones",
+      "date": "2026-09-05",
+      "excerpt": "Demonstration of category presentation for career and professional updates.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. Demonstration of category presentation for career and professional updates.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "professional milestones"
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "demo-news-05",
+      "title": "[Demo] How Scholarship News Will Appear",
+      "category": "Scholarships & Giving",
+      "date": "2026-09-06",
+      "excerpt": "Preview for scholarship announcements and impact reporting.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. Preview for scholarship announcements and impact reporting.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "scholarships & giving"
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "demo-news-06",
+      "title": "[Demo] Conference News and Registration Updates",
+      "category": "Conference Updates",
+      "date": "2026-09-07",
+      "excerpt": "A placeholder for official 2027 conference updates when published.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. A placeholder for official 2027 conference updates when published.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "conference updates"
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "demo-news-07",
+      "title": "[Demo] Celebrating Our Community",
+      "category": "Community Celebrations",
+      "date": "2026-09-08",
+      "excerpt": "Preview section; personal news will require consent before publication.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. Preview section; personal news will require consent before publication.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "community celebrations"
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "demo-news-08",
+      "title": "[Demo] Supporting Our Community in Difficult Times",
+      "category": "Memorial Notices",
+      "date": "2026-09-09",
+      "excerpt": "Respectful category introduction, without disclosing any real individual information.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. Respectful category introduction, without disclosing any real individual information.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "memorial notices"
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "demo-news-09",
+      "title": "[Demo] Alumni Networking Spotlight",
+      "category": "Alumni Stories",
+      "date": "2026-09-10",
+      "excerpt": "A sample recap layout for connection-focused content.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. A sample recap layout for connection-focused content.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "alumni stories"
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "demo-news-10",
+      "title": "[Demo] News from Our Chapters",
+      "category": "Announcements",
+      "date": "2026-09-11",
+      "excerpt": "A layout sample for verified chapter and organizational news.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. A layout sample for verified chapter and organizational news.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "announcements"
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "demo-news-11",
+      "title": "[Demo] Future Awards and Recognition",
+      "category": "Achievements & Awards",
+      "date": "2026-09-12",
+      "excerpt": "An illustrative award announcement card awaiting official content.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. An illustrative award announcement card awaiting official content.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "achievements & awards"
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "demo-news-12",
+      "title": "[Demo] Community Service Spotlight",
+      "category": "Scholarships & Giving",
+      "date": "2026-09-13",
+      "excerpt": "Illustrative format for documenting verified volunteer and giving initiatives.",
+      "body": "This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement. Illustrative format for documenting verified volunteer and giving initiatives.",
+      "image": null,
+      "is_demo": true,
+      "keywords": [
+        "demo",
+        "alumni",
+        "scholarships & giving"
+      ]
+    }
+  ]
+}

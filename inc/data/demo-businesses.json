@@ -1,0 +1,306 @@
+[
+  {
+    "slug": "demo-business-01",
+    "name": "Demo Business 01",
+    "is_demo": true,
+    "category": "Technology & IT",
+    "country": "Canada",
+    "city": "Toronto",
+    "state_or_province": "",
+    "short_description": "Sample technology & it listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 16
+  },
+  {
+    "slug": "demo-business-02",
+    "name": "Demo Business 02",
+    "is_demo": true,
+    "category": "Healthcare & Wellness",
+    "country": "United States",
+    "city": "Chicago",
+    "state_or_province": "",
+    "short_description": "Sample healthcare & wellness listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 15
+  },
+  {
+    "slug": "demo-business-03",
+    "name": "Demo Business 03",
+    "is_demo": true,
+    "category": "Education & Training",
+    "country": "Canada",
+    "city": "Dallas",
+    "state_or_province": "",
+    "short_description": "Sample education & training listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 14
+  },
+  {
+    "slug": "demo-business-04",
+    "name": "Demo Business 04",
+    "is_demo": true,
+    "category": "Real Estate & Construction",
+    "country": "United States",
+    "city": "Vancouver",
+    "state_or_province": "",
+    "short_description": "Sample real estate & construction listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 13
+  },
+  {
+    "slug": "demo-business-05",
+    "name": "Demo Business 05",
+    "is_demo": true,
+    "category": "Finance & Investment",
+    "country": "Canada",
+    "city": "Atlanta",
+    "state_or_province": "",
+    "short_description": "Sample finance & investment listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 12
+  },
+  {
+    "slug": "demo-business-06",
+    "name": "Demo Business 06",
+    "is_demo": true,
+    "category": "Consulting & Professional",
+    "country": "United States",
+    "city": "New York",
+    "state_or_province": "",
+    "short_description": "Sample consulting & professional listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 11
+  },
+  {
+    "slug": "demo-business-07",
+    "name": "Demo Business 07",
+    "is_demo": true,
+    "category": "Retail & E-commerce",
+    "country": "Canada",
+    "city": "Houston",
+    "state_or_province": "",
+    "short_description": "Sample retail & e-commerce listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 10
+  },
+  {
+    "slug": "demo-business-08",
+    "name": "Demo Business 08",
+    "is_demo": true,
+    "category": "Travel & Hospitality",
+    "country": "United States",
+    "city": "Miami",
+    "state_or_province": "",
+    "short_description": "Sample travel & hospitality listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 9
+  },
+  {
+    "slug": "demo-business-09",
+    "name": "Demo Business 09",
+    "is_demo": true,
+    "category": "Technology & IT",
+    "country": "Canada",
+    "city": "Toronto",
+    "state_or_province": "",
+    "short_description": "Sample technology & it listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 8
+  },
+  {
+    "slug": "demo-business-10",
+    "name": "Demo Business 10",
+    "is_demo": true,
+    "category": "Healthcare & Wellness",
+    "country": "United States",
+    "city": "Chicago",
+    "state_or_province": "",
+    "short_description": "Sample healthcare & wellness listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 7
+  },
+  {
+    "slug": "demo-business-11",
+    "name": "Demo Business 11",
+    "is_demo": true,
+    "category": "Education & Training",
+    "country": "Canada",
+    "city": "Dallas",
+    "state_or_province": "",
+    "short_description": "Sample education & training listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 6
+  },
+  {
+    "slug": "demo-business-12",
+    "name": "Demo Business 12",
+    "is_demo": true,
+    "category": "Real Estate & Construction",
+    "country": "United States",
+    "city": "Vancouver",
+    "state_or_province": "",
+    "short_description": "Sample real estate & construction listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 5
+  },
+  {
+    "slug": "demo-business-13",
+    "name": "Demo Business 13",
+    "is_demo": true,
+    "category": "Finance & Investment",
+    "country": "Canada",
+    "city": "Atlanta",
+    "state_or_province": "",
+    "short_description": "Sample finance & investment listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 4
+  },
+  {
+    "slug": "demo-business-14",
+    "name": "Demo Business 14",
+    "is_demo": true,
+    "category": "Consulting & Professional",
+    "country": "United States",
+    "city": "New York",
+    "state_or_province": "",
+    "short_description": "Sample consulting & professional listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 3
+  },
+  {
+    "slug": "demo-business-15",
+    "name": "Demo Business 15",
+    "is_demo": true,
+    "category": "Retail & E-commerce",
+    "country": "Canada",
+    "city": "Houston",
+    "state_or_province": "",
+    "short_description": "Sample retail & e-commerce listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 2
+  },
+  {
+    "slug": "demo-business-16",
+    "name": "Demo Business 16",
+    "is_demo": true,
+    "category": "Travel & Hospitality",
+    "country": "United States",
+    "city": "Miami",
+    "state_or_province": "",
+    "short_description": "Sample travel & hospitality listing for frontend layout and filtering tests.",
+    "services": [
+      "Example service one",
+      "Example service two"
+    ],
+    "owner_display": "Alumni-owned business — unverified demo",
+    "website": null,
+    "contact_email": null,
+    "image": null,
+    "created_order": 1
+  }
+]

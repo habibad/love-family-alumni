@@ -1,0 +1,106 @@
+/* Love Family Alumni Scholarship Page — Task 01 only. Scoped stylesheet. */
+.lfa-scholarships {
+ --lfa-scholarships-navy:#071D3E;
+ --lfa-scholarships-deep:#061630;
+ --lfa-scholarships-red:#BA002C;
+ --lfa-scholarships-gold:#E6B34A;
+ --lfa-scholarships-ink:#0A2446;
+ --lfa-scholarships-muted:#58687A;
+ --lfa-scholarships-line:#E5EAF0;
+ --lfa-scholarships-heading:var(--lfa-heading-font, 'Playfair Display', Georgia, serif);
+ --lfa-scholarships-body:var(--lfa-body-font, 'Inter', system-ui, -apple-system, Arial, sans-serif);
+ font-family:var(--lfa-scholarships-body);
+ color:var(--lfa-scholarships-ink);
+ overflow:clip;
+}
+.lfa-scholarships *, .lfa-scholarships *::before, .lfa-scholarships *::after{box-sizing:border-box}
+.lfa-scholarships__container{width:min(100% - 64px,1240px); margin-inline:auto}
+.lfa-scholarships h1,.lfa-scholarships h2,.lfa-scholarships h3{font-family:var(--lfa-scholarships-heading);letter-spacing:-.032em;margin:0;font-weight:700}
+.lfa-scholarships p{margin:0}
+.lfa-scholarships__hero{min-height:540px;position:relative;isolation:isolate;background:var(--lfa-scholarships-deep);color:#fff;display:flex;align-items:center}
+.lfa-scholarships__hero-media{position:absolute;inset:0;z-index:-2;background:url('../images/scholarships/alumni-group.webp') center 48%/cover no-repeat}
+.lfa-scholarships__hero::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,18,42,.98) 0%,rgba(3,18,42,.97) 29%,rgba(3,18,42,.79) 47%,rgba(3,18,42,.24) 79%,rgba(3,18,42,.12) 100%),linear-gradient(0deg,rgba(5,15,32,.53),rgba(5,15,32,.04) 60%)}
+.lfa-scholarships__hero-inner{display:flex;align-items:center;justify-content:space-between;gap:60px;padding-top:64px;padding-bottom:64px}
+.lfa-scholarships__hero-content{max-width:700px}
+.lfa-scholarships__breadcrumbs{display:flex;align-items:center;gap:13px;color:#DEE7F1;font-size:12px;margin-bottom:42px;letter-spacing:.025em}
+.lfa-scholarships__breadcrumbs a{color:inherit;text-decoration:none}
+.lfa-scholarships__breadcrumbs a:hover,.lfa-scholarships__breadcrumbs a:focus{color:var(--lfa-scholarships-gold)}
+.lfa-scholarships__eyebrow{font-size:12px;letter-spacing:.15em;color:var(--lfa-scholarships-red);font-weight:800;margin:0 0 17px!important}
+.lfa-scholarships__eyebrow--gold{color:var(--lfa-scholarships-gold)}
+.lfa-scholarships__hero h1{font-size:clamp(46px,4.5vw,72px);line-height:1.09;max-width:780px}
+.lfa-scholarships__hero h1 em{color:var(--lfa-scholarships-gold);font-style:italic}
+.lfa-scholarships__hero-content>p{font-size:16px;line-height:1.8;max-width:510px;color:#F3F6FA;margin-top:23px}
+.lfa-scholarships__hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:30px}
+.lfa-scholarships__btn{min-height:48px;padding:12px 24px;border-radius:5px;display:inline-flex;gap:15px;align-items:center;justify-content:center;text-align:center;text-decoration:none;font-size:14px;font-weight:750;transition:transform .2s ease,background-color .2s ease}
+.lfa-scholarships__btn:hover{transform:translateY(-2px)}
+.lfa-scholarships__btn:focus-visible,.lfa-scholarships summary:focus-visible{outline:3px solid var(--lfa-scholarships-gold);outline-offset:3px}
+.lfa-scholarships__btn--primary{background:var(--lfa-scholarships-red);color:#FFF}
+.lfa-scholarships__btn--primary:hover{background:#9f0026;color:#fff}
+.lfa-scholarships__btn--outline{color:#fff;border:1px solid rgba(255,255,255,.8);background:rgba(0,0,0,.05)}
+.lfa-scholarships__btn--outline:hover{background:rgba(255,255,255,.11);color:#fff}
+.lfa-scholarships__hero-quote{align-self:flex-end;border-left:2px solid var(--lfa-scholarships-gold);padding-left:16px;min-width:215px;max-width:260px;margin:0 10px 10px 0;background:rgba(4,17,38,.36);padding-block:12px}
+.lfa-scholarships__hero-quote span{font-size:10px;color:var(--lfa-scholarships-gold);font-weight:850;letter-spacing:.19em;display:block;margin-bottom:8px}
+.lfa-scholarships__hero-quote strong{font:600 21px/1.25 var(--lfa-scholarships-heading)}
+.lfa-scholarships__intro{padding:69px 0 67px;background:#fff}
+.lfa-scholarships__intro-grid{display:grid;grid-template-columns:.92fr 1fr;gap:80px;align-items:center}
+.lfa-scholarships h2{font-size:clamp(32px,3.05vw,48px);line-height:1.18}
+.lfa-scholarships h2 em{color:var(--lfa-scholarships-red);font-style:italic}
+.lfa-scholarships__intro-right>p{font-size:16px;color:#516073;line-height:1.8;max-width:660px}
+.lfa-scholarships__pillars{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.lfa-scholarships__pillars span{background:#F7F1F3;color:#8D1331;font-weight:700;border-radius:100px;padding:9px 15px;font-size:12px}
+.lfa-scholarships__programs{background:#F6F8FB;padding:70px 0 93px}
+.lfa-scholarships__programs-header{display:flex;align-items:end;justify-content:space-between;gap:50px;margin-bottom:23px}
+.lfa-scholarships__programs-header>p{max-width:440px;line-height:1.8;color:#536479;font-size:15px}
+.lfa-scholarships__demo-note{display:block;background:#FFF8E8;border:1px solid #EAD7A9;color:#6E511F;font-size:12px;line-height:1.6;padding:9px 14px;border-radius:6px;margin-bottom:24px}
+.lfa-scholarships__program-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.lfa-scholarships__program{display:flex;flex-direction:column;background:#fff;border:1px solid #E8EBF0;border-radius:13px;padding:27px 27px 20px;box-shadow:0 12px 30px rgba(7,29,62,.055);min-width:0;transition:transform .2s ease,box-shadow .2s ease}
+.lfa-scholarships__program:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(7,29,62,.1)}
+.lfa-scholarships__program-top{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:32px}
+.lfa-scholarships__program-number{background:var(--lfa-scholarships-navy);color:#fff;width:52px;height:52px;display:grid;place-items:center;font:700 26px/1 var(--lfa-scholarships-heading);border-radius:12px}
+.lfa-scholarships__program--crimson .lfa-scholarships__program-number{background:var(--lfa-scholarships-red)}
+.lfa-scholarships__program--gold .lfa-scholarships__program-number{background:var(--lfa-scholarships-gold);color:#061630}
+.lfa-scholarships__demo-badge{border:1px solid #E9C8D0;background:#FFF1F5;color:#A30D35;border-radius:100px;font-size:10px;padding:6px 10px;font-weight:850;letter-spacing:.08em;white-space:nowrap}
+.lfa-scholarships__program-category{color:var(--lfa-scholarships-red);font-size:10px;letter-spacing:.13em;font-weight:800;margin-bottom:11px!important}
+.lfa-scholarships__program h3{font-size:27px;line-height:1.19;margin-bottom:13px}
+.lfa-scholarships__program-description{font-size:14px;line-height:1.65;color:#516174;min-height:75px}
+.lfa-scholarships__program-status{font-size:12px;border-top:1px solid #E7ECF2;padding-top:19px;margin:18px 0 0;color:#6A5760}
+.lfa-scholarships__program-status span{color:#CA8C2B;font-size:10px;margin-right:5px}
+.lfa-scholarships__program-details{margin-top:auto;padding-top:20px}
+.lfa-scholarships__program-details>summary{cursor:pointer;font-size:13px;font-weight:800;color:var(--lfa-scholarships-navy);padding-top:15px;border-top:1px solid #EEF1F5;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.lfa-scholarships__program-details>summary::-webkit-details-marker{display:none}
+.lfa-scholarships__program-details>summary span{color:var(--lfa-scholarships-red)}
+.lfa-scholarships__program-details-content{padding:15px 0 0;font-size:12px;line-height:1.65;color:#536174}
+.lfa-scholarships__program-details-content p + p{margin-top:9px}
+@media (max-width:1100px){
+ .lfa-scholarships__hero-content{max-width:640px}
+ .lfa-scholarships__hero-quote{display:none}
+ .lfa-scholarships__hero::before{background:linear-gradient(90deg,rgba(3,18,42,.98),rgba(3,18,42,.8) 48%,rgba(3,18,42,.27))}
+ .lfa-scholarships__intro-grid{gap:42px}
+ .lfa-scholarships__program h3{font-size:23px}
+}
+@media (max-width:767px){
+ .lfa-scholarships__container{width:min(100% - 36px,560px)}
+ .lfa-scholarships__hero{min-height:590px;align-items:end}
+ .lfa-scholarships__hero-media{background-position:65% center}
+ .lfa-scholarships__hero::before{background:linear-gradient(90deg,rgba(3,18,42,.88),rgba(3,18,42,.38)),linear-gradient(0deg,rgba(3,18,42,1) 1%,rgba(3,18,42,.83) 55%,rgba(3,18,42,.16))}
+ .lfa-scholarships__hero-inner{padding-block:55px 60px}
+ .lfa-scholarships__breadcrumbs{margin-bottom:35px}
+ .lfa-scholarships__hero h1{font-size:clamp(37px,9vw,53px)}
+ .lfa-scholarships__hero-content>p{font-size:14px;line-height:1.72}
+ .lfa-scholarships__hero-actions{gap:10px}
+ .lfa-scholarships__btn{font-size:13px;padding-inline:17px}
+ .lfa-scholarships__intro{padding:55px 0}
+ .lfa-scholarships__intro-grid{grid-template-columns:1fr;gap:18px}
+ .lfa-scholarships h2{font-size:35px}
+ .lfa-scholarships__intro-right>p{font-size:14px}
+ .lfa-scholarships__programs{padding:55px 0}
+ .lfa-scholarships__programs-header{display:block}
+ .lfa-scholarships__programs-header>p{margin-top:17px;font-size:14px}
+ .lfa-scholarships__program-grid{grid-template-columns:1fr;gap:15px}
+ .lfa-scholarships__program-description{min-height:unset}
+}
+@media (min-width:768px) and (max-width:1024px){
+ .lfa-scholarships__container{width:calc(100% - 56px)}
+ .lfa-scholarships__program-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){.lfa-scholarships__btn,.lfa-scholarships__program{transition:none}}

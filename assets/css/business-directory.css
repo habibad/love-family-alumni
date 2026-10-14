@@ -1,0 +1,531 @@
+/**
+ * Business Directory — Scoped Stylesheet
+ *
+ * Scope: Strictly encapsulated under .lfa-business-directory
+ *
+ * @package Love_Family_Theme
+ */
+
+.lfa-business-directory {
+	/* Design System Tokens */
+	--biz-navy: #071B37;
+	--biz-navy-dark: #051329;
+	--biz-crimson: #BA002C;
+	--biz-crimson-hover: #960023;
+	--biz-gold: #E5B343;
+	--biz-gold-dark: #C9962A;
+	--biz-slate-900: #0F172A;
+	--biz-slate-800: #1E293B;
+	--biz-slate-700: #334155;
+	--biz-slate-600: #475569;
+	--biz-slate-500: #64748B;
+	--biz-slate-400: #94A3B8;
+	--biz-slate-200: #E2E8F0;
+	--biz-slate-100: #F1F5F9;
+	--biz-slate-50: #F8FAFC;
+	--biz-white: #FFFFFF;
+
+	background-color: #F8FAFC;
+	color: var(--biz-slate-700);
+	font-family: 'Inter', system-ui, -apple-system, sans-serif;
+	position: relative;
+	min-height: 60vh;
+}
+
+/* -------------------------------------------------------------
+ * 1. Hero Section
+ * ------------------------------------------------------------- */
+.lfa-business-directory .lfa-biz-hero {
+	position: relative;
+	overflow: hidden;
+	background-color: var(--biz-navy-dark);
+	min-height: 420px;
+	display: flex;
+	align-items: center;
+	padding: 70px 0 110px;
+}
+
+.lfa-business-directory .lfa-biz-hero__bg {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center right;
+	background-repeat: no-repeat;
+	opacity: 0.85;
+	z-index: 1;
+}
+
+.lfa-business-directory .lfa-biz-hero__overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		90deg,
+		rgba(5, 19, 41, 0.96) 0%,
+		rgba(7, 27, 55, 0.90) 42%,
+		rgba(7, 27, 55, 0.65) 75%,
+		rgba(7, 27, 55, 0.35) 100%
+	);
+	z-index: 2;
+}
+
+.lfa-business-directory .lfa-biz-hero__container {
+	position: relative;
+	z-index: 3;
+	width: 100%;
+}
+
+.lfa-business-directory .lfa-biz-hero__content {
+	max-width: 640px;
+}
+
+.lfa-business-directory .lfa-biz-hero__eyebrow {
+	display: inline-block;
+	color: var(--biz-gold);
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+}
+
+.lfa-business-directory .lfa-biz-hero__title {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: clamp(34px, 3.6vw, 50px);
+	font-weight: 700;
+	line-height: 1.14;
+	color: var(--biz-white);
+	margin: 0 0 20px;
+	letter-spacing: -0.02em;
+}
+
+.lfa-business-directory .lfa-biz-hero__title-accent {
+	color: var(--biz-white);
+}
+
+.lfa-business-directory .lfa-biz-hero__lead {
+	font-size: clamp(15px, 1.15vw, 17px);
+	line-height: 1.68;
+	color: rgba(255, 255, 255, 0.86);
+	margin: 0;
+	max-width: 580px;
+}
+
+/* -------------------------------------------------------------
+ * 2. Search & Filter Card (Overlaps Hero)
+ * ------------------------------------------------------------- */
+.lfa-business-directory .lfa-biz-search-section {
+	position: relative;
+	z-index: 10;
+	margin-top: -65px;
+	margin-bottom: 20px;
+}
+
+.lfa-business-directory .lfa-biz-search-card {
+	background: var(--biz-white);
+	border-radius: 14px;
+	border: 1px solid rgba(226, 232, 240, 0.9);
+	box-shadow: 0 18px 45px rgba(7, 27, 55, 0.09);
+	padding: 28px 32px 30px;
+}
+
+.lfa-business-directory .lfa-biz-search-form {
+	margin: 0;
+}
+
+/* Top Row: Search Input + Buttons */
+.lfa-business-directory .lfa-biz-search-row--top {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+
+.lfa-business-directory .lfa-biz-search-input-wrap {
+	position: relative;
+	flex: 1;
+}
+
+.lfa-business-directory .lfa-biz-search-icon {
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--biz-slate-400);
+	display: flex;
+	align-items: center;
+	pointer-events: none;
+}
+
+.lfa-business-directory .lfa-biz-search-input {
+	width: 100%;
+	height: 48px;
+	padding: 0 16px 0 46px;
+	font-size: 14.5px;
+	color: var(--biz-slate-800);
+	background-color: var(--biz-slate-50);
+	border: 1px solid var(--biz-slate-200);
+	border-radius: 8px;
+	outline: none;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.lfa-business-directory .lfa-biz-search-input::placeholder {
+	color: var(--biz-slate-400);
+	font-weight: 400;
+}
+
+.lfa-business-directory .lfa-biz-search-input:focus {
+	background-color: var(--biz-white);
+	border-color: var(--biz-crimson);
+	box-shadow: 0 0 0 3px rgba(186, 0, 44, 0.12);
+}
+
+.lfa-business-directory .lfa-biz-search-actions {
+	display: flex;
+	gap: 12px;
+	flex-shrink: 0;
+}
+
+.lfa-business-directory .lfa-biz-btn {
+	height: 48px;
+	border-radius: 8px;
+	font-size: 14px;
+	font-weight: 700;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+	white-space: nowrap;
+}
+
+.lfa-business-directory .lfa-biz-btn--search {
+	background-color: var(--biz-crimson);
+	color: var(--biz-white);
+	border: none;
+	padding: 0 32px;
+	box-shadow: 0 4px 14px rgba(186, 0, 44, 0.25);
+}
+
+.lfa-business-directory .lfa-biz-btn--search:hover {
+	background-color: var(--biz-crimson-hover);
+	transform: translateY(-1px);
+	box-shadow: 0 6px 18px rgba(186, 0, 44, 0.32);
+}
+
+.lfa-business-directory .lfa-biz-btn--reset {
+	background-color: var(--biz-white);
+	color: var(--biz-slate-600);
+	border: 1px solid var(--biz-slate-200);
+	padding: 0 20px;
+}
+
+.lfa-business-directory .lfa-biz-btn--reset:hover {
+	background-color: var(--biz-slate-50);
+	border-color: var(--biz-slate-400);
+	color: var(--biz-slate-800);
+}
+
+.lfa-business-directory .lfa-biz-btn--reset svg {
+	transition: transform 0.3s ease;
+}
+
+.lfa-business-directory .lfa-biz-btn--reset:hover svg {
+	transform: rotate(-90deg);
+}
+
+/* Bottom Row: Filter Dropdowns */
+.lfa-business-directory .lfa-biz-search-row--filters {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px;
+	margin-top: 22px;
+	padding-top: 20px;
+	border-top: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.lfa-business-directory .lfa-biz-filter-group {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.lfa-business-directory .lfa-biz-filter-label {
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--biz-slate-800);
+	margin: 0;
+}
+
+.lfa-business-directory .lfa-biz-select-wrap {
+	position: relative;
+	width: 100%;
+}
+
+.lfa-business-directory .lfa-biz-select {
+	width: 100%;
+	height: 44px;
+	padding: 0 36px 0 14px;
+	font-size: 13.5px;
+	font-weight: 500;
+	color: var(--biz-slate-700);
+	background-color: var(--biz-slate-50);
+	border: 1px solid var(--biz-slate-200);
+	border-radius: 8px;
+	outline: none;
+	appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lfa-business-directory .lfa-biz-select:focus {
+	border-color: var(--biz-crimson);
+	box-shadow: 0 0 0 3px rgba(186, 0, 44, 0.1);
+	background-color: var(--biz-white);
+}
+
+.lfa-business-directory .lfa-biz-select-arrow {
+	position: absolute;
+	right: 14px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	color: var(--biz-slate-400);
+	display: flex;
+	align-items: center;
+}
+
+/* -------------------------------------------------------------
+ * 3. Browse by Category Strip
+ * ------------------------------------------------------------- */
+.lfa-business-directory .lfa-biz-categories-section {
+	padding: 40px 0 65px;
+}
+
+.lfa-business-directory .lfa-biz-categories-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 22px;
+}
+
+.lfa-business-directory .lfa-biz-categories-title {
+	font-size: 22px;
+	font-weight: 800;
+	color: var(--biz-navy);
+	margin: 0;
+	letter-spacing: -0.01em;
+}
+
+.lfa-business-directory .lfa-biz-view-all-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--biz-crimson);
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.lfa-business-directory .lfa-biz-view-all-btn:hover {
+	color: var(--biz-crimson-hover);
+	transform: translateX(3px);
+}
+
+.lfa-business-directory .lfa-biz-categories-grid {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	gap: 14px;
+}
+
+.lfa-business-directory .lfa-biz-cat-card {
+	background: var(--biz-white);
+	border: 1px solid var(--biz-slate-200);
+	border-radius: 12px;
+	padding: 22px 10px 18px;
+	text-align: center;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+	outline: none;
+	box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+	width: 100%;
+}
+
+.lfa-business-directory .lfa-biz-cat-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 12px 24px rgba(7, 27, 55, 0.08);
+	border-color: var(--cat-color, var(--biz-crimson));
+}
+
+.lfa-business-directory .lfa-biz-cat-card.is-active {
+	border-color: var(--cat-color, var(--biz-crimson));
+	box-shadow: 0 0 0 2px var(--cat-color, var(--biz-crimson)), 0 8px 20px rgba(7, 27, 55, 0.08);
+	background-color: var(--biz-white);
+}
+
+.lfa-business-directory .lfa-biz-cat-icon {
+	width: 48px;
+	height: 48px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 12px;
+	color: var(--cat-color, var(--biz-crimson));
+	background-color: var(--biz-slate-50);
+	border: 1px solid rgba(226, 232, 240, 0.6);
+	transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.lfa-business-directory .lfa-biz-cat-card:hover .lfa-biz-cat-icon {
+	transform: scale(1.08);
+	background-color: var(--biz-white);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.lfa-business-directory .lfa-biz-cat-name {
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.32;
+	color: var(--biz-slate-800);
+	text-align: center;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+/* -------------------------------------------------------------
+ * 4. Responsive Breakpoints
+ * ------------------------------------------------------------- */
+@media (max-width: 1200px) {
+	.lfa-business-directory .lfa-biz-categories-grid {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 16px;
+	}
+}
+
+@media (max-width: 991px) {
+	.lfa-business-directory .lfa-biz-hero {
+		padding: 50px 0 90px;
+		min-height: 380px;
+	}
+
+	.lfa-business-directory .lfa-biz-search-row--filters {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+
+	.lfa-business-directory .lfa-biz-search-card {
+		padding: 24px 24px 26px;
+	}
+
+	.lfa-business-directory .lfa-biz-categories-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.lfa-business-directory .lfa-biz-hero {
+		min-height: 340px;
+		padding: 40px 0 80px;
+	}
+
+	.lfa-business-directory .lfa-biz-search-section {
+		margin-top: -50px;
+	}
+
+	.lfa-business-directory .lfa-biz-search-row--top {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.lfa-business-directory .lfa-biz-search-input-wrap {
+		width: 100%;
+	}
+
+	.lfa-business-directory .lfa-biz-search-actions {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+	}
+
+	.lfa-business-directory .lfa-biz-btn {
+		width: 100%;
+	}
+
+	.lfa-business-directory .lfa-biz-categories-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px;
+	}
+
+	.lfa-business-directory .lfa-biz-categories-section {
+		padding: 30px 0 50px;
+	}
+}
+
+@media (max-width: 480px) {
+	.lfa-business-directory .lfa-biz-hero {
+		min-height: 310px;
+		padding: 35px 0 70px;
+	}
+
+	.lfa-business-directory .lfa-biz-hero__title {
+		font-size: 28px;
+		margin-bottom: 14px;
+	}
+
+	.lfa-business-directory .lfa-biz-hero__lead {
+		font-size: 14px;
+		line-height: 1.6;
+	}
+
+	.lfa-business-directory .lfa-biz-search-section {
+		margin-top: -40px;
+	}
+
+	.lfa-business-directory .lfa-biz-search-card {
+		padding: 18px 16px 20px;
+		border-radius: 12px;
+	}
+
+	.lfa-business-directory .lfa-biz-search-row--filters {
+		grid-template-columns: 1fr;
+		gap: 14px;
+		margin-top: 16px;
+		padding-top: 16px;
+	}
+
+	.lfa-business-directory .lfa-biz-search-actions {
+		grid-template-columns: 1fr;
+	}
+
+	.lfa-business-directory .lfa-biz-categories-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+	}
+
+	.lfa-business-directory .lfa-biz-cat-card {
+		padding: 16px 8px 14px;
+	}
+
+	.lfa-business-directory .lfa-biz-cat-name {
+		font-size: 12px;
+	}
+
+	.lfa-business-directory .lfa-biz-cat-icon {
+		width: 42px;
+		height: 42px;
+		margin-bottom: 8px;
+	}
+}

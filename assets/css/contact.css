@@ -1,0 +1,1206 @@
+/**
+ * Love Family Alumni — Contact Us Page Stylesheet
+ * Scoped under .lfa-contact to guarantee zero cross-page interference
+ *
+ * Color Palette:
+ * - Primary Navy: #071D3E, #061630
+ * - Crimson Red: #BA002C, #9E0025
+ * - Warm Gold: #E6B34A, #F5D07A
+ * - Neutrals: #FFFFFF, #F8FAFC, #F1F5F9, #E2E8F0, #CBD5E1, #64748B, #334155, #0F172A
+ */
+
+/* ==========================================================================
+   01. Scoped Tokens & Base Setup
+   ========================================================================== */
+.lfa-contact {
+	--contact-navy: #071D3E;
+	--contact-navy-dark: #061630;
+	--contact-crimson: #BA002C;
+	--contact-crimson-hover: #9E0025;
+	--contact-gold: #E6B34A;
+	--contact-gold-light: #F5D07A;
+	--contact-bg-light: #F8FAFC;
+	--contact-border: #E2E8F0;
+	--contact-border-focus: #071D3E;
+	--contact-text-dark: #0F172A;
+	--contact-text-muted: #64748B;
+	--contact-text-body: #334155;
+	--contact-error: #DC2626;
+	--contact-font-serif: 'Playfair Display', Georgia, serif;
+	--contact-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+	font-family: var(--contact-font-sans);
+	color: var(--contact-text-dark);
+	background-color: #FFFFFF;
+	line-height: 1.5;
+	overflow-x: hidden;
+}
+
+.lfa-contact * {
+	box-sizing: border-box;
+}
+
+.lfa-contact__container {
+	width: 100%;
+	max-width: 1240px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+
+.lfa-contact__container--narrow {
+	max-width: 880px;
+}
+
+.lfa-contact .text-center {
+	text-align: center;
+}
+
+.lfa-contact .lfa-gold {
+	color: var(--contact-gold) !important;
+}
+
+.lfa-contact .text-crimson {
+	color: var(--contact-crimson) !important;
+}
+
+/* ==========================================================================
+   02. Section 01 — Contact Hero
+   ========================================================================== */
+.lfa-contact__hero {
+	position: relative;
+	background-color: var(--contact-navy);
+	background-image: var(--contact-hero-bg);
+	background-size: cover;
+	background-position: center right;
+	color: #FFFFFF;
+	padding: 60px 0 32px;
+	min-height: 560px;
+	display: flex;
+	align-items: center;
+}
+
+.lfa-contact__hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(7, 29, 62, 0.96) 0%, rgba(7, 29, 62, 0.90) 50%, rgba(7, 29, 62, 0.65) 100%);
+	pointer-events: none;
+}
+
+.lfa-contact__hero-inner {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 460px;
+}
+
+.lfa-contact__hero-content {
+	max-width: 660px;
+	padding-top: 20px;
+}
+
+/* Breadcrumbs */
+.lfa-contact__breadcrumbs {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	color: #94A3B8;
+	margin-bottom: 24px;
+}
+
+.lfa-contact__breadcrumbs a {
+	color: #CBD5E1;
+	text-decoration: none;
+	transition: color 0.15s ease;
+}
+
+.lfa-contact__breadcrumbs a:hover {
+	color: #FFFFFF;
+}
+
+.lfa-contact__breadcrumbs .sep {
+	color: #64748B;
+}
+
+.lfa-contact__breadcrumbs .current {
+	color: #FFFFFF;
+	font-weight: 500;
+}
+
+/* Eyebrows */
+.lfa-contact__eyebrow {
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+	display: inline-block;
+}
+
+.lfa-contact__eyebrow--gold {
+	color: var(--contact-gold);
+}
+
+.lfa-contact__eyebrow--crimson {
+	color: var(--contact-crimson);
+}
+
+/* Hero Heading */
+.lfa-contact__hero-heading {
+	font-family: var(--contact-font-serif);
+	font-size: clamp(2.35rem, 5vw, 3.6rem);
+	line-height: 1.15;
+	font-weight: 700;
+	margin: 0 0 20px;
+	color: #FFFFFF;
+	letter-spacing: -0.01em;
+}
+
+.lfa-contact__hero-lead {
+	font-size: clamp(1rem, 1.8vw, 1.125rem);
+	line-height: 1.65;
+	color: #E2E8F0;
+	margin: 0 0 32px;
+	max-width: 580px;
+}
+
+/* Buttons */
+.lfa-contact__hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	align-items: center;
+}
+
+.lfa-contact .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 13px 26px;
+	font-size: 14px;
+	font-weight: 600;
+	border-radius: 6px;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.lfa-contact .btn:active {
+	transform: scale(0.98);
+}
+
+.lfa-contact .btn-crimson {
+	background-color: var(--contact-crimson);
+	border: 1px solid var(--contact-crimson);
+	color: #FFFFFF !important;
+}
+
+.lfa-contact .btn-crimson:hover {
+	background-color: var(--contact-crimson-hover);
+	border-color: var(--contact-crimson-hover);
+	color: #FFFFFF !important;
+}
+
+.lfa-contact .btn-outline-white {
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	color: #FFFFFF !important;
+}
+
+.lfa-contact .btn-outline-white:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+	border-color: #FFFFFF;
+	color: #FFFFFF !important;
+}
+
+.lfa-contact .btn-outline-dark {
+	background-color: #FFFFFF;
+	border: 1.5px solid #CBD5E1;
+	color: var(--contact-text-dark) !important;
+}
+
+.lfa-contact .btn-outline-dark:hover {
+	border-color: var(--contact-navy);
+	background-color: #F8FAFC;
+}
+
+.lfa-contact .btn-white-solid {
+	background-color: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	color: var(--contact-crimson) !important;
+	font-weight: 700;
+}
+
+.lfa-contact .btn-white-solid:hover {
+	background-color: #F8FAFC;
+	color: var(--contact-crimson-hover) !important;
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero Bottom Strip */
+.lfa-contact__hero-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+	padding-top: 24px;
+	margin-top: 48px;
+	font-size: 12px;
+	color: #94A3B8;
+}
+
+.lfa-contact__hero-notice {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.lfa-contact__hero-notice .notice-bullet {
+	color: var(--contact-gold);
+	font-size: 14px;
+}
+
+.lfa-contact__hero-badge {
+	letter-spacing: 0.1em;
+	font-weight: 600;
+	color: #CBD5E1;
+}
+
+/* ==========================================================================
+   03. Section 02 — Quick Contact Information Cards
+   ========================================================================== */
+.lfa-contact__quick-info {
+	padding: 84px 0;
+	background-color: #FFFFFF;
+}
+
+.lfa-contact__section-header {
+	margin-bottom: 48px;
+}
+
+.lfa-contact__section-heading {
+	font-family: var(--contact-font-serif);
+	font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+	line-height: 1.22;
+	font-weight: 700;
+	color: var(--contact-navy);
+	margin: 0 0 12px;
+	letter-spacing: -0.01em;
+}
+
+.lfa-contact__section-lead {
+	font-size: 15px;
+	line-height: 1.65;
+	color: var(--contact-text-muted);
+	margin: 0 auto;
+	max-width: 650px;
+}
+
+.lfa-contact__cards-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 28px;
+}
+
+.lfa-contact__info-card {
+	background-color: #FFFFFF;
+	border: 1.5px solid var(--contact-border);
+	border-radius: 12px;
+	padding: 32px 26px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.lfa-contact__info-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 16px 32px -8px rgba(7, 29, 62, 0.12);
+	border-color: #CBD5E1;
+}
+
+.card-icon-wrap {
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background-color: #FDF2F4;
+	color: var(--contact-crimson);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 22px;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lfa-contact__info-card:hover .card-icon-wrap {
+	background-color: var(--contact-crimson);
+	color: #FFFFFF;
+}
+
+.lfa-contact__info-card .card-title {
+	font-family: var(--contact-font-serif);
+	font-size: 1.25rem;
+	line-height: 1.3;
+	font-weight: 700;
+	color: var(--contact-navy);
+	margin: 0 0 10px;
+}
+
+.lfa-contact__info-card .card-desc {
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--contact-text-muted);
+	margin: 0 0 20px;
+	flex-grow: 1;
+}
+
+.card-social-strip {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.social-pill {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	background-color: #F8FAFC;
+	border: 1px solid var(--contact-border);
+	color: var(--contact-navy);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	transition: all 0.15s ease;
+}
+
+.social-pill:hover {
+	background-color: var(--contact-crimson);
+	border-color: var(--contact-crimson);
+	color: #FFFFFF;
+	transform: translateY(-2px);
+}
+
+.card-divider {
+	border: none;
+	border-top: 1px solid #F1F5F9;
+	margin: 0 0 16px;
+}
+
+.card-action-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--contact-crimson);
+	text-decoration: none;
+	transition: gap 0.15s ease;
+}
+
+.card-action-link:hover {
+	gap: 9px;
+	color: var(--contact-crimson-hover);
+}
+
+/* ==========================================================================
+   04. Section 03 — Main Contact Form (Asymmetric 2-Column)
+   ========================================================================== */
+.lfa-contact__form-section {
+	padding: 88px 0 96px;
+	background-color: var(--contact-bg-light);
+}
+
+.lfa-contact__form-grid {
+	display: grid;
+	grid-template-columns: 420px 1fr;
+	gap: 40px;
+	align-items: stretch;
+}
+
+/* Left Panel: Dark Navy Information & Artwork Card */
+.lfa-contact__form-info-panel {
+	background-color: var(--contact-navy);
+	color: #FFFFFF;
+	border-radius: 14px;
+	padding: 44px 36px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: 0 20px 40px -10px rgba(7, 29, 62, 0.35);
+}
+
+.panel-eyebrow {
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin-bottom: 12px;
+}
+
+.panel-heading {
+	font-family: var(--contact-font-serif);
+	font-size: 1.85rem;
+	line-height: 1.25;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin: 0 0 16px;
+}
+
+.panel-lead {
+	font-size: 14px;
+	line-height: 1.65;
+	color: #CBD5E1;
+	margin: 0 0 28px;
+}
+
+.panel-divider {
+	border: none;
+	border-top: 1px solid rgba(255, 255, 255, 0.14);
+	margin: 0 0 28px;
+}
+
+.panel-details-list {
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+	margin-bottom: 32px;
+}
+
+.detail-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+}
+
+.detail-icon {
+	color: var(--contact-gold);
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+
+.detail-text {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.detail-label {
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #94A3B8;
+}
+
+.detail-link {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 600;
+	transition: color 0.15s ease;
+}
+
+.detail-link:hover {
+	color: var(--contact-gold);
+}
+
+.detail-val {
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+/* Decorative Motto Box */
+.panel-motto-box {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 16px 20px;
+	background-color: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 8px;
+}
+
+.motto-crest {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.motto-crest-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.motto-quote {
+	font-family: var(--contact-font-serif);
+	font-size: 13px;
+	font-style: italic;
+	color: var(--contact-gold-light);
+	line-height: 1.45;
+}
+
+/* Right Panel: Clean White Form Surface */
+.lfa-contact__form-card {
+	background-color: #FFFFFF;
+	border: 1.5px solid var(--contact-border);
+	border-radius: 14px;
+	padding: 40px 36px;
+	box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.05);
+}
+
+.lfa-contact__form-notice {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 16px;
+	background-color: #EFF6FF;
+	border-left: 3px solid #3B82F6;
+	border-radius: 6px;
+	font-size: 13px;
+	color: #1E40AF;
+	margin-bottom: 28px;
+}
+
+.lfa-contact__form-notice .notice-icon {
+	color: #3B82F6;
+	flex-shrink: 0;
+}
+
+.form-row--two-col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+
+.form-group {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.form-label-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 6px;
+}
+
+.form-label {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--contact-text-dark);
+	margin-bottom: 6px;
+}
+
+.form-label .required {
+	color: var(--contact-crimson);
+}
+
+.form-label .optional {
+	font-weight: 400;
+	color: #94A3B8;
+	font-size: 12px;
+}
+
+.char-counter {
+	font-size: 12px;
+	color: #94A3B8;
+}
+
+.form-control {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1.5px solid #CBD5E1;
+	border-radius: 6px;
+	font-size: 14px;
+	font-family: inherit;
+	color: var(--contact-text-dark);
+	background-color: #FFFFFF;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control:focus {
+	border-color: var(--contact-navy);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(7, 29, 62, 0.12);
+}
+
+.form-control.is-invalid {
+	border-color: var(--contact-error) !important;
+	background-color: #FEF2F2;
+}
+
+.form-control.is-invalid:focus {
+	box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+.field-error {
+	display: none;
+	font-size: 12px;
+	font-weight: 500;
+	color: var(--contact-error);
+	margin-top: 5px;
+}
+
+.field-error.is-visible {
+	display: block;
+}
+
+/* Select Chevron Wrap */
+.select-wrapper {
+	position: relative;
+}
+
+.select-wrapper select {
+	appearance: none;
+	padding-right: 36px;
+	cursor: pointer;
+}
+
+.select-chevron {
+	position: absolute;
+	right: 14px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	color: #64748B;
+}
+
+/* Textarea */
+textarea.form-control {
+	resize: vertical;
+	min-height: 120px;
+}
+
+/* Actions Row */
+.form-actions-row {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	margin-top: 28px;
+}
+
+.lfa-contact__btn-submit {
+	padding: 14px 28px;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.lfa-contact__btn-reset {
+	padding: 13px 22px;
+}
+
+/* ==========================================================================
+   05. Section 03 Review Modal Dialog (Frontend Only)
+   ========================================================================== */
+.lfa-contact__modal {
+	position: fixed;
+	inset: 0;
+	z-index: 99999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.lfa-contact__modal[hidden] {
+	display: none !important;
+}
+
+.lfa-contact__modal-backdrop {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(7, 29, 62, 0.72);
+	backdrop-filter: blur(4px);
+}
+
+.lfa-contact__modal-content {
+	position: relative;
+	z-index: 2;
+	background-color: #FFFFFF;
+	border-radius: 12px;
+	width: 100%;
+	max-width: 540px;
+	padding: 36px 32px;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+	color: var(--contact-text-dark);
+	animation: contactModalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+	max-height: 90vh;
+	overflow-y: auto;
+}
+
+@keyframes contactModalPop {
+	from {
+		opacity: 0;
+		transform: scale(0.96) translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+.lfa-contact__modal-close {
+	position: absolute;
+	top: 16px;
+	right: 18px;
+	font-size: 24px;
+	line-height: 1;
+	background: none;
+	border: none;
+	color: #64748B;
+	cursor: pointer;
+	padding: 4px 8px;
+	border-radius: 4px;
+	transition: color 0.15s ease;
+}
+
+.lfa-contact__modal-close:hover {
+	color: var(--contact-text-dark);
+}
+
+.badge-preview-tag {
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	background-color: #FEE2E2;
+	color: #991B1B;
+	padding: 3px 10px;
+	border-radius: 20px;
+	text-transform: uppercase;
+}
+
+.lfa-contact__modal-title {
+	font-family: var(--contact-font-serif);
+	font-size: 1.55rem;
+	font-weight: 700;
+	color: var(--contact-navy);
+	margin: 10px 0 6px;
+}
+
+.lfa-contact__modal-lead {
+	font-size: 13px;
+	color: var(--contact-text-muted);
+	margin: 0;
+}
+
+.lfa-contact__modal-body {
+	border-top: 1px solid #F1F5F9;
+	border-bottom: 1px solid #F1F5F9;
+	padding: 18px 0;
+	margin: 20px 0;
+}
+
+.preview-field-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 7px 0;
+	font-size: 14px;
+}
+
+.preview-field-row--block {
+	flex-direction: column;
+	gap: 6px;
+	margin-top: 6px;
+}
+
+.preview-label {
+	color: var(--contact-text-muted);
+	font-size: 13px;
+	min-width: 110px;
+}
+
+.preview-value {
+	color: var(--contact-navy);
+	text-align: right;
+}
+
+.preview-message-box {
+	width: 100%;
+	background-color: #F8FAFC;
+	border: 1px solid var(--contact-border);
+	border-radius: 6px;
+	padding: 12px 14px;
+	font-size: 13px;
+	line-height: 1.6;
+	color: #334155;
+	max-height: 120px;
+	overflow-y: auto;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.lfa-contact__modal-notice {
+	margin-top: 16px;
+	padding: 12px 14px;
+	background-color: #FFFBEB;
+	border-left: 3px solid var(--contact-gold);
+	border-radius: 6px;
+}
+
+.lfa-contact__modal-notice p {
+	font-size: 12px;
+	line-height: 1.55;
+	color: #92400E;
+	margin: 0;
+}
+
+.lfa-contact__modal-footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+/* ==========================================================================
+   06. Section 04 — Connect With Your Alumni Community
+   ========================================================================== */
+.lfa-contact__community {
+	padding: 88px 0;
+	background-color: #FFFFFF;
+}
+
+.lfa-contact__community-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 28px;
+}
+
+.lfa-contact__comm-card {
+	background-color: #FFFFFF;
+	border: 1.5px solid var(--contact-border);
+	border-radius: 12px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.lfa-contact__comm-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 16px 32px -8px rgba(7, 29, 62, 0.12);
+	border-color: #CBD5E1;
+}
+
+.comm-card-media {
+	height: 180px;
+	background-image: var(--comm-bg);
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	transition: transform 0.4s ease;
+}
+
+.comm-card-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(7, 29, 62, 0.15) 0%, rgba(7, 29, 62, 0.6) 100%);
+}
+
+.comm-card-tag {
+	position: absolute;
+	top: 14px;
+	left: 14px;
+	background-color: rgba(7, 29, 62, 0.88);
+	backdrop-filter: blur(4px);
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	padding: 4px 12px;
+	border-radius: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.comm-card-content {
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.comm-card-title {
+	font-family: var(--contact-font-serif);
+	font-size: 1.25rem;
+	line-height: 1.3;
+	font-weight: 700;
+	color: var(--contact-navy);
+	margin: 0 0 10px;
+}
+
+.comm-card-desc {
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--contact-text-muted);
+	margin: 0 0 20px;
+	flex-grow: 1;
+}
+
+.comm-card-divider {
+	border: none;
+	border-top: 1px solid #F1F5F9;
+	margin: 0 0 16px;
+}
+
+.comm-card-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--contact-crimson);
+	text-decoration: none;
+	transition: gap 0.15s ease;
+}
+
+.comm-card-link:hover {
+	gap: 9px;
+	color: var(--contact-crimson-hover);
+}
+
+/* ==========================================================================
+   07. Section 05 — Contact FAQs
+   ========================================================================== */
+.lfa-contact__faq {
+	padding: 88px 0 96px;
+	background-color: var(--contact-bg-light);
+}
+
+.lfa-contact__accordion-list {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.lfa-contact__faq-item {
+	background-color: #FFFFFF;
+	border: 1.5px solid var(--contact-border);
+	border-radius: 10px;
+	overflow: hidden;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lfa-contact__faq-item[open] {
+	border-color: #CBD5E1;
+	box-shadow: 0 8px 20px -4px rgba(7, 29, 62, 0.06);
+}
+
+.faq-summary {
+	padding: 20px 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+	list-style: none;
+}
+
+.faq-summary::-webkit-details-marker {
+	display: none;
+}
+
+.faq-question {
+	font-family: var(--contact-font-serif);
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: var(--contact-navy);
+	line-height: 1.4;
+	padding-right: 16px;
+}
+
+.faq-chevron {
+	color: var(--contact-crimson);
+	display: flex;
+	align-items: center;
+	transition: transform 0.2s ease;
+	flex-shrink: 0;
+}
+
+.lfa-contact__faq-item[open] .faq-chevron {
+	transform: rotate(180deg);
+}
+
+.faq-answer {
+	padding: 0 24px 22px;
+	font-size: 14px;
+	line-height: 1.7;
+	color: var(--contact-text-body);
+}
+
+.faq-answer p {
+	margin: 0 0 10px;
+}
+
+.faq-link-wrapper {
+	margin: 12px 0 0 !important;
+}
+
+.faq-inline-link {
+	color: var(--contact-crimson);
+	font-weight: 600;
+	text-decoration: none;
+	transition: color 0.15s ease;
+}
+
+.faq-inline-link:hover {
+	color: var(--contact-crimson-hover);
+	text-decoration: underline;
+}
+
+/* ==========================================================================
+   08. Section 06 — Final Contact CTA
+   ========================================================================== */
+.lfa-contact__final-cta {
+	position: relative;
+	background-color: var(--contact-crimson);
+	background-image: var(--cta-bg-img);
+	background-size: cover;
+	background-position: center;
+	padding: 84px 0;
+	color: #FFFFFF;
+}
+
+.lfa-contact__cta-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(135deg, rgba(186, 0, 44, 0.94) 0%, rgba(138, 0, 32, 0.92) 100%);
+	pointer-events: none;
+}
+
+.lfa-contact__cta-content {
+	position: relative;
+	z-index: 2;
+	max-width: 720px;
+	margin: 0 auto;
+}
+
+.lfa-contact__cta-heading {
+	font-family: var(--contact-font-serif);
+	font-size: clamp(2rem, 3.8vw, 2.85rem);
+	line-height: 1.2;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin: 0 0 16px;
+	letter-spacing: -0.01em;
+}
+
+.lfa-contact__cta-lead {
+	font-size: 15px;
+	line-height: 1.65;
+	color: #FFE4E6;
+	margin: 0 0 32px;
+}
+
+.lfa-contact__cta-actions {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   09. Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+	.lfa-contact__form-grid {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	.lfa-contact__cards-grid,
+	.lfa-contact__community-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.lfa-contact__hero {
+		padding: 48px 0 24px;
+		min-height: auto;
+	}
+
+	.lfa-contact__hero-inner {
+		min-height: auto;
+	}
+
+	.lfa-contact__hero-heading {
+		font-size: 2.25rem;
+	}
+
+	.lfa-contact__hero-bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+		margin-top: 36px;
+	}
+
+	.form-row--two-col {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	.lfa-contact__quick-info,
+	.lfa-contact__form-section,
+	.lfa-contact__community,
+	.lfa-contact__faq,
+	.lfa-contact__final-cta {
+		padding: 60px 0;
+	}
+
+	.lfa-contact__form-card {
+		padding: 30px 20px;
+	}
+
+	.lfa-contact__form-info-panel {
+		padding: 32px 24px;
+	}
+}
+
+@media (max-width: 640px) {
+	.lfa-contact__hero-actions,
+	.lfa-contact__cta-actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.lfa-contact__hero-actions .btn,
+	.lfa-contact__cta-actions .btn {
+		width: 100%;
+	}
+
+	.lfa-contact__cards-grid,
+	.lfa-contact__community-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.form-actions-row {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.form-actions-row .btn {
+		width: 100%;
+	}
+
+	.lfa-contact__modal-footer {
+		flex-direction: column;
+	}
+
+	.lfa-contact__modal-footer .btn {
+		width: 100%;
+	}
+}

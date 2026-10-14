@@ -732,7 +732,562 @@
 	}
 }
 
-/* Mobile (<= 640px / 480px / 390px) */
+.lfa-directory .pagination-arrow.disabled {
+	opacity: 0.35;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+/* ==========================================================================
+   04. SECTION 04: PRIVACY NOTICE
+   ========================================================================== */
+
+.lfa-directory .directory-privacy-section {
+	padding: 0 0 44px 0;
+}
+
+.lfa-directory .directory-privacy-card {
+	background-color: #FFFFFF;
+	border-radius: 12px;
+	border: 1px solid #E2E8F0;
+	box-shadow: 0 4px 16px rgba(7, 21, 43, 0.04);
+	padding: 24px 32px;
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.lfa-directory .directory-privacy-icon-wrapper {
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background-color: #EFF6FF;
+	color: #1E40AF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.lfa-directory .directory-privacy-content {
+	flex: 1;
+}
+
+.lfa-directory .directory-privacy-title {
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 6px 0;
+	letter-spacing: -0.2px;
+}
+
+.lfa-directory .directory-privacy-text {
+	font-size: 13.5px;
+	line-height: 1.55;
+	color: #64748B;
+	margin: 0;
+}
+
+.lfa-directory .directory-privacy-btn {
+	padding: 10px 20px;
+	font-size: 13.5px;
+	font-weight: 600;
+	border-radius: 8px;
+	white-space: nowrap;
+	border: 1.5px solid #CBD5E1;
+	color: var(--navy, #0B1D3A);
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.lfa-directory .directory-privacy-btn:hover {
+	border-color: var(--navy, #0B1D3A);
+	background-color: var(--navy, #0B1D3A);
+	color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   05. SECTION 05: RECONNECT & JOIN CTA
+   ========================================================================== */
+
+.lfa-directory .directory-join-cta-section {
+	position: relative;
+	width: 100%;
+	background-color: #680017;
+	overflow: hidden;
+	padding: 56px 0;
+	margin-top: 16px;
+}
+
+.lfa-directory .directory-join-bg-wrapper {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.lfa-directory .directory-join-bg-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	opacity: 0.18;
+	filter: grayscale(40%);
+}
+
+.lfa-directory .directory-join-gradient-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(104, 0, 23, 0.96) 0%, rgba(138, 0, 32, 0.92) 50%, rgba(104, 0, 23, 0.96) 100%);
+}
+
+.lfa-directory .directory-join-container {
+	position: relative;
+	z-index: 2;
+}
+
+.lfa-directory .directory-join-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 40px;
+}
+
+.lfa-directory .directory-join-left {
+	display: flex;
+	align-items: center;
+	gap: 32px;
+	flex: 1;
+}
+
+.lfa-directory .directory-join-icon-wrap {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lfa-directory .directory-join-icon-img {
+	width: 86px;
+	height: auto;
+	display: block;
+	filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
+.lfa-directory .directory-join-eyebrow {
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--gold, #E5B343);
+	margin-bottom: 8px;
+}
+
+.lfa-directory .directory-join-title {
+	font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+	font-size: 32px;
+	line-height: 1.25;
+	font-weight: 700;
+	color: #FFFFFF;
+	margin: 0 0 8px 0;
+	letter-spacing: -0.4px;
+}
+
+.lfa-directory .directory-join-subtitle {
+	font-size: 15px;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.9);
+	margin: 0;
+	max-width: 580px;
+}
+
+.lfa-directory .directory-join-right {
+	flex-shrink: 0;
+}
+
+.lfa-directory .directory-join-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--crimson, #BA002C);
+	color: #FFFFFF !important;
+	border: 1.5px solid rgba(255, 255, 255, 0.3);
+	border-radius: 8px;
+	font-size: 14.5px;
+	font-weight: 700;
+	padding: 14px 28px;
+	text-decoration: none;
+	transition: all 0.25s ease;
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.lfa-directory .directory-join-btn:hover {
+	background-color: #D60032;
+	border-color: #FFFFFF;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   06. ALUMNI PROFILE PREVIEW MODAL
+   ========================================================================== */
+
+.lfa-directory .directory-profile-modal-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 99999;
+	background-color: rgba(7, 21, 43, 0.65);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lfa-directory .directory-profile-modal-backdrop.is-open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.lfa-directory .directory-profile-modal-card {
+	position: relative;
+	width: 100%;
+	max-width: 560px;
+	background-color: #FFFFFF;
+	border-radius: 16px;
+	box-shadow: 0 24px 48px rgba(7, 21, 43, 0.22);
+	overflow: hidden;
+	transform: translateY(18px) scale(0.98);
+	transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+	border: 1px solid #E2E8F0;
+}
+
+.lfa-directory .directory-profile-modal-backdrop.is-open .directory-profile-modal-card {
+	transform: translateY(0) scale(1);
+}
+
+.lfa-directory .modal-close-btn {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	z-index: 10;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border: 1px solid #E2E8F0;
+	background-color: #FFFFFF;
+	color: #64748B;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.lfa-directory .modal-close-btn:hover {
+	background-color: #F1F5F9;
+	color: #0F172A;
+}
+
+.lfa-directory .modal-profile-header {
+	padding: 32px 32px 24px 32px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+	border-bottom: 1px solid #E2E8F0;
+}
+
+.lfa-directory .modal-profile-avatar-wrap {
+	position: relative;
+	flex-shrink: 0;
+}
+
+.lfa-directory .modal-profile-avatar-img {
+	width: 84px;
+	height: 84px;
+	border-radius: 12px;
+	object-fit: cover;
+	display: block;
+	border: 2px solid #FFFFFF;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.lfa-directory .modal-profile-avatar-fallback {
+	width: 84px;
+	height: 84px;
+	border-radius: 12px;
+	background-color: #07244B;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 32px;
+	font-weight: 700;
+}
+
+.lfa-directory .modal-profile-badge {
+	position: absolute;
+	bottom: -8px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #07244B;
+	color: #FFFFFF;
+	font-size: 10.5px;
+	font-weight: 700;
+	padding: 2px 8px;
+	border-radius: 999px;
+	white-space: nowrap;
+	border: 1.5px solid #FFFFFF;
+}
+
+.lfa-directory .modal-profile-header-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.lfa-directory .modal-profile-name {
+	font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+	font-size: 24px;
+	font-weight: 700;
+	color: var(--navy, #0B1D3A);
+	margin: 0 0 4px 0;
+}
+
+.lfa-directory .modal-profile-title {
+	font-size: 14.5px;
+	font-weight: 600;
+	color: var(--crimson, #BA002C);
+	margin: 0 0 4px 0;
+}
+
+.lfa-directory .modal-profile-company {
+	font-size: 13.5px;
+	color: #64748B;
+	margin: 0;
+}
+
+.lfa-directory .modal-profile-body {
+	padding: 24px 32px;
+}
+
+.lfa-directory .modal-meta-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+	margin-bottom: 20px;
+}
+
+.lfa-directory .modal-meta-cell {
+	background-color: #F8FAFC;
+	border: 1px solid #E2E8F0;
+	border-radius: 8px;
+	padding: 10px 14px;
+}
+
+.lfa-directory .modal-meta-label {
+	display: block;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #94A3B8;
+	margin-bottom: 2px;
+}
+
+.lfa-directory .modal-meta-val {
+	display: block;
+	font-size: 13.5px;
+	font-weight: 600;
+	color: #1E293B;
+}
+
+.lfa-directory .modal-bio-block {
+	margin-bottom: 20px;
+}
+
+.lfa-directory .modal-block-title {
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #64748B;
+	margin: 0 0 6px 0;
+}
+
+.lfa-directory .modal-bio-text {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #334155;
+	margin: 0;
+}
+
+.lfa-directory .modal-privacy-notice {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	background-color: #F1F5F9;
+	border-radius: 8px;
+	padding: 12px 14px;
+	font-size: 12px;
+	line-height: 1.45;
+	color: #64748B;
+}
+
+.lfa-directory .modal-privacy-notice svg {
+	flex-shrink: 0;
+	color: #94A3B8;
+	margin-top: 1px;
+}
+
+.lfa-directory .modal-profile-footer {
+	padding: 18px 32px;
+	background-color: #F8FAFC;
+	border-top: 1px solid #E2E8F0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+.lfa-directory .modal-action-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13.5px;
+	font-weight: 600;
+	padding: 9px 18px;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+/* ==========================================================================
+   07. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Large Tablets / Small Desktops (<= 1199px) */
+@media screen and (max-width: 1199px) {
+	.lfa-directory .directory-hero-title {
+		font-size: 42px;
+	}
+
+	.lfa-directory .filter-dropdowns-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 14px;
+	}
+}
+
+/* Tablet (<= 991px) */
+@media screen and (max-width: 991px) {
+	.lfa-directory .directory-hero-section {
+		min-height: 380px;
+	}
+
+	.lfa-directory .directory-hero-inner {
+		padding: 64px 0 84px 0;
+	}
+
+	.lfa-directory .directory-hero-title {
+		font-size: 38px;
+	}
+
+	.lfa-directory .directory-filters-section {
+		margin-top: -36px;
+	}
+
+	.lfa-directory .filter-dropdowns-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.lfa-directory .directory-profiles-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+
+	.lfa-directory .directory-join-inner {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 28px;
+	}
+
+	.lfa-directory .directory-join-right {
+		width: 100%;
+	}
+
+	.lfa-directory .directory-join-btn {
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+/* Mobile (<= 768px) */
+@media screen and (max-width: 768px) {
+	.lfa-directory .filter-primary-row {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.lfa-directory .search-input-group {
+		width: 100%;
+	}
+
+	.lfa-directory .filter-actions-group {
+		width: 100%;
+	}
+
+	.lfa-directory .directory-search-btn,
+	.lfa-directory .directory-reset-btn {
+		flex: 1;
+		width: 100%;
+	}
+
+	.lfa-directory .filter-dropdowns-grid {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.lfa-directory .directory-profiles-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+
+	.lfa-directory .directory-filter-footnote {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+	}
+
+	.lfa-directory .directory-privacy-card {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 18px;
+		padding: 20px;
+	}
+
+	.lfa-directory .directory-privacy-btn {
+		width: 100%;
+		text-align: center;
+	}
+
+	.lfa-directory .directory-join-left {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+	}
+
+	.lfa-directory .directory-join-title {
+		font-size: 26px;
+	}
+}
+
+/* Mobile Small (<= 640px / 480px / 390px) */
 @media screen and (max-width: 640px) {
 	.lfa-directory .directory-hero-title {
 		font-size: 30px;
@@ -754,5 +1309,29 @@
 	.lfa-directory .directory-profiles-grid {
 		grid-template-columns: 1fr;
 		gap: 18px;
+	}
+
+	.lfa-directory .modal-profile-header {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 24px 20px;
+	}
+
+	.lfa-directory .modal-meta-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.lfa-directory .modal-profile-body {
+		padding: 20px;
+	}
+
+	.lfa-directory .modal-profile-footer {
+		padding: 16px 20px;
+		flex-direction: column;
+	}
+
+	.lfa-directory .modal-action-btn {
+		width: 100%;
+		justify-content: center;
 	}
 }

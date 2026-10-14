@@ -1,0 +1,632 @@
+/**
+ * News & Announcements — Task 03 Scoped Stylesheet
+ *
+ * Scopes: .lfa-news-details, .lfa-news-task03-community, .lfa-news-task03-cta, .lfa-news
+ * Design System: Love Family Alumni — North America Zone
+ *
+ * @package Love_Family_Theme
+ */
+
+/* -------------------------------------------------------------
+ * 1. Tokens & Shared Utility Helpers
+ * ------------------------------------------------------------- */
+.lfa-news-details,
+.lfa-news-task03-community,
+.lfa-news-task03-cta {
+	--n3-navy: #071B37;
+	--n3-navy-dark: #051329;
+	--n3-crimson: #BA002C;
+	--n3-crimson-hover: #960023;
+	--n3-gold: #E5B343;
+	--n3-gold-dark: #C9962A;
+	--n3-slate-900: #0F172A;
+	--n3-slate-800: #1E293B;
+	--n3-slate-700: #334155;
+	--n3-slate-600: #475569;
+	--n3-slate-500: #64748B;
+	--n3-slate-400: #94A3B8;
+	--n3-slate-200: #E2E8F0;
+	--n3-slate-100: #F1F5F9;
+	--n3-slate-50: #F8FAFC;
+	--n3-white: #FFFFFF;
+
+	--n3-font-serif: 'Playfair Display', Georgia, serif;
+	--n3-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.lfa-news-task03-container {
+	width: min(100% - 48px, 1240px);
+	margin-inline: auto;
+}
+
+.lfa-news-task03-eyebrow {
+	font-weight: 800;
+	font-size: 12px;
+	line-height: 1.4;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--n3-gold);
+	margin: 0 0 12px;
+	display: inline-block;
+}
+
+.lfa-news-task03-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 24px;
+	border-radius: 8px;
+	background: var(--n3-crimson);
+	color: var(--n3-white) !important;
+	font-weight: 600;
+	font-size: 14px;
+	text-decoration: none !important;
+	white-space: nowrap;
+	transition: all 0.25s ease;
+	border: 1px solid transparent;
+	box-shadow: 0 4px 14px rgba(186, 0, 44, 0.3);
+}
+
+.lfa-news-task03-button:hover,
+.lfa-news-task03-button:focus-visible {
+	background: var(--n3-crimson-hover);
+	transform: translateY(-1px);
+	box-shadow: 0 6px 18px rgba(186, 0, 44, 0.45);
+}
+
+.lfa-news-task03-button--full {
+	width: 100%;
+}
+
+.lfa-news-task03-demo {
+	display: inline-flex;
+	align-items: center;
+	border-radius: 20px;
+	padding: 4px 10px;
+	background: #FEF3C7;
+	color: #92400E;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	border: 1px solid #FDE68A;
+	text-transform: uppercase;
+}
+
+/* -------------------------------------------------------------
+ * 2. Article Detail Hero & Header
+ * ------------------------------------------------------------- */
+.lfa-news-task03-article__hero {
+	background: linear-gradient(110deg, #051329 0%, #071B37 60%, #0A2242 100%);
+	color: var(--n3-white);
+	padding: 65px 0 75px;
+	position: relative;
+}
+
+.lfa-news-task03-breadcrumb {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.7);
+	margin-bottom: 24px;
+	flex-wrap: wrap;
+}
+
+.lfa-news-task03-breadcrumb a {
+	color: rgba(255, 255, 255, 0.85);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.lfa-news-task03-breadcrumb a:hover {
+	color: var(--n3-gold);
+}
+
+.lfa-news-task03-breadcrumb .lfa-news-breadcrumb-separator {
+	color: rgba(255, 255, 255, 0.4);
+}
+
+.lfa-news-task03-breadcrumb .lfa-news-breadcrumb-current {
+	color: var(--n3-gold);
+}
+
+.lfa-news-task03-article__title {
+	font-family: var(--n3-font-serif);
+	font-size: clamp(28px, 3.8vw, 48px);
+	line-height: 1.15;
+	color: var(--n3-white);
+	letter-spacing: -0.02em;
+	margin: 0 0 20px;
+	max-width: 950px;
+}
+
+.lfa-news-task03-meta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 16px;
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.lfa-news-task03-date {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.lfa-news-task03-readtime {
+	position: relative;
+	padding-left: 14px;
+}
+
+.lfa-news-task03-readtime::before {
+	content: "•";
+	position: absolute;
+	left: 0;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+/* -------------------------------------------------------------
+ * 3. Two-Column Article Layout & Sidebar
+ * ------------------------------------------------------------- */
+.lfa-news-task03-article__layout {
+	display: grid;
+	grid-template-columns: minmax(0, 2.1fr) minmax(280px, 1fr);
+	gap: 55px;
+	padding-top: 55px;
+	padding-bottom: 80px;
+	align-items: start;
+	background-color: var(--n3-slate-50);
+}
+
+.lfa-news-task03-article__media {
+	margin-bottom: 34px;
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 10px 30px rgba(7, 27, 55, 0.08);
+	background: var(--n3-navy-dark);
+}
+
+.lfa-news-task03-article__image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.lfa-news-task03-article__image-fallback {
+	min-height: 280px;
+	display: grid;
+	place-items: center;
+	background: radial-gradient(circle at 78% 28%, #1E3A8A, transparent 45%), linear-gradient(120deg, #051329, #071B37);
+	border-radius: 14px;
+	margin-bottom: 34px;
+	color: var(--n3-gold);
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 0.16em;
+	padding: 24px;
+}
+
+.lfa-news-task03-body {
+	font-size: 17px;
+	line-height: 1.85;
+	color: var(--n3-slate-700);
+}
+
+.lfa-news-task03-lead {
+	font-size: 19px;
+	line-height: 1.7;
+	color: var(--n3-navy);
+	font-weight: 500;
+	margin-bottom: 24px;
+}
+
+.lfa-news-task03-body p {
+	margin-bottom: 24px;
+}
+
+.lfa-news-task03-body blockquote {
+	margin: 32px 0;
+	padding: 24px 30px;
+	background-color: var(--n3-white);
+	border-left: 4px solid var(--n3-gold);
+	border-radius: 0 10px 10px 0;
+	font-family: var(--n3-font-serif);
+	font-size: 20px;
+	font-style: italic;
+	line-height: 1.5;
+	color: var(--n3-navy);
+	box-shadow: 0 4px 14px rgba(7, 27, 55, 0.03);
+}
+
+.lfa-news-task03-back-wrap {
+	margin-top: 40px;
+	padding-top: 24px;
+	border-top: 1px solid var(--n3-slate-200);
+}
+
+.lfa-news-task03-back {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--n3-crimson);
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.lfa-news-task03-back:hover {
+	color: var(--n3-crimson-hover);
+	transform: translateX(-3px);
+}
+
+/* Sidebar Card */
+.lfa-news-task03-sidebar__card {
+	padding: 28px 24px;
+	border: 1px solid var(--n3-slate-200);
+	background: var(--n3-white);
+	border-radius: 14px;
+	box-shadow: 0 6px 20px rgba(7, 27, 55, 0.04);
+}
+
+.lfa-news-task03-sidebar__title {
+	font-family: var(--n3-font-serif);
+	color: var(--n3-navy);
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0 0 18px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid var(--n3-slate-100);
+}
+
+.lfa-news-task03-sidebar__item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 14px;
+	font-size: 13px;
+}
+
+.lfa-news-task03-sidebar__label {
+	color: var(--n3-slate-500);
+	font-weight: 500;
+}
+
+.lfa-news-task03-sidebar__value {
+	color: var(--n3-navy);
+	font-weight: 600;
+}
+
+.lfa-news-task03-sidebar__value--pill {
+	background: #EFF6FF;
+	color: var(--n3-navy);
+	padding: 2px 8px;
+	border-radius: 4px;
+	font-size: 11px;
+}
+
+.lfa-news-task03-sidebar__note {
+	color: var(--n3-slate-500);
+	font-size: 12px;
+	line-height: 1.5;
+	margin: 20px 0 22px;
+	padding-top: 14px;
+	border-top: 1px solid var(--n3-slate-100);
+}
+
+/* -------------------------------------------------------------
+ * 4. Related Stories Section
+ * ------------------------------------------------------------- */
+.lfa-news-task03-related {
+	background: var(--n3-white);
+	padding: 70px 0 85px;
+	border-top: 1px solid var(--n3-slate-200);
+}
+
+.lfa-news-task03-related__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 28px;
+	margin-top: 32px;
+}
+
+/* -------------------------------------------------------------
+ * 5. Not Found / 404 State
+ * ------------------------------------------------------------- */
+.lfa-news-details__not-found {
+	padding: 100px 0 120px;
+	min-height: 520px;
+	background: var(--n3-slate-50);
+	display: flex;
+	align-items: center;
+}
+
+.lfa-news-details__not-found-card {
+	max-width: 580px;
+	margin: 0 auto;
+	background: var(--n3-white);
+	border: 1px solid var(--n3-slate-200);
+	border-radius: 16px;
+	padding: 48px 36px;
+	text-align: center;
+	box-shadow: 0 10px 30px rgba(7, 27, 55, 0.05);
+}
+
+.lfa-news-details__not-found h1 {
+	font-family: var(--n3-font-serif);
+	color: var(--n3-navy);
+	font-size: clamp(24px, 3vw, 32px);
+	font-weight: 700;
+	margin: 12px 0 16px;
+}
+
+.lfa-news-details__not-found p {
+	font-size: 15px;
+	color: var(--n3-slate-600);
+	line-height: 1.6;
+	margin: 0 0 28px;
+}
+
+/* -------------------------------------------------------------
+ * 6. Community Updates Section (Task B)
+ * ------------------------------------------------------------- */
+.lfa-news-task03-community {
+	padding: 75px 0 85px;
+	background: var(--n3-white);
+	border-top: 1px solid var(--n3-slate-200);
+}
+
+.lfa-news-task03-community__heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 32px;
+	margin-bottom: 36px;
+}
+
+.lfa-news-task03-community__lead {
+	max-width: 480px;
+	color: var(--n3-slate-600);
+	font-size: 15px;
+	line-height: 1.65;
+	margin: 0;
+}
+
+.lfa-news-task03-community__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 22px;
+}
+
+.lfa-news-task03-community__card {
+	background: var(--n3-slate-50);
+	border: 1px solid var(--n3-slate-200);
+	padding: 26px 22px;
+	border-radius: 14px;
+	display: flex;
+	flex-direction: column;
+	transition: all 0.3s ease;
+}
+
+.lfa-news-task03-community__card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 12px 28px -8px rgba(7, 27, 55, 0.1);
+	border-color: rgba(229, 179, 67, 0.45);
+	background: var(--n3-white);
+}
+
+.lfa-news-task03-community__icon-wrap {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: var(--n3-navy);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 18px;
+	box-shadow: 0 4px 10px rgba(7, 27, 55, 0.15);
+}
+
+.lfa-news-task03-community__icon {
+	color: var(--n3-gold);
+	font-size: 18px;
+	line-height: 1;
+}
+
+.lfa-news-task03-community__card-title {
+	font-family: var(--n3-font-serif);
+	color: var(--n3-navy);
+	font-size: 18px;
+	font-weight: 700;
+	margin: 0 0 10px;
+	line-height: 1.3;
+}
+
+.lfa-news-task03-community__card-title a {
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.lfa-news-task03-community__card-title a:hover {
+	color: var(--n3-crimson);
+}
+
+.lfa-news-task03-community__card-text {
+	color: var(--n3-slate-600);
+	font-size: 13.5px;
+	line-height: 1.6;
+	margin: 0 0 18px;
+}
+
+.lfa-news-task03-community__card-link {
+	margin-top: auto;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12.5px;
+	font-weight: 700;
+	color: var(--n3-navy);
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.lfa-news-task03-community__card:hover .lfa-news-task03-community__card-link {
+	color: var(--n3-crimson);
+	gap: 8px;
+}
+
+.lfa-news-task03-community__footer-note {
+	margin-top: 28px;
+	padding-top: 18px;
+	border-top: 1px solid var(--n3-slate-100);
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 12px;
+	color: var(--n3-slate-500);
+	flex-wrap: wrap;
+}
+
+.lfa-news-task03-community__footer-note p {
+	margin: 0;
+}
+
+/* -------------------------------------------------------------
+ * 7. News CTA Banner (Task C)
+ * ------------------------------------------------------------- */
+.lfa-news-task03-cta {
+	background: linear-gradient(104deg, rgba(54, 5, 18, 0.98) 0%, rgba(130, 7, 33, 0.94) 55%, rgba(186, 0, 44, 0.9) 100%), #7E0B28;
+	padding: 60px 0;
+	color: var(--n3-white);
+	position: relative;
+	overflow: hidden;
+}
+
+.lfa-news-task03-cta__layout {
+	display: grid;
+	grid-template-columns: 70px minmax(0, 1fr) auto;
+	gap: 28px;
+	align-items: center;
+}
+
+.lfa-news-task03-cta__symbol {
+	color: var(--n3-white);
+	border-right: 2px solid var(--n3-gold);
+	padding-right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lfa-news-task03-cta__title {
+	font-family: var(--n3-font-serif);
+	font-size: clamp(24px, 2.5vw, 32px);
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--n3-white);
+	margin: 0 0 8px;
+}
+
+.lfa-news-task03-cta__lead {
+	font-size: 15px;
+	color: rgba(255, 255, 255, 0.88);
+	line-height: 1.6;
+	margin: 0;
+	max-width: 640px;
+}
+
+.lfa-news-task03-cta__buttons {
+	display: flex;
+	gap: 14px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.lfa-news-task03-btn--primary {
+	background-color: var(--n3-navy) !important;
+	color: var(--n3-white) !important;
+	border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.lfa-news-task03-btn--primary:hover {
+	background-color: #0F2D59 !important;
+	border-color: var(--n3-gold) !important;
+}
+
+/* -------------------------------------------------------------
+ * 8. Responsive Adaptations
+ * ------------------------------------------------------------- */
+@media (max-width: 1024px) {
+	.lfa-news-task03-related__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.lfa-news-task03-community__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.lfa-news-task03-cta__layout {
+		grid-template-columns: 60px 1fr;
+	}
+
+	.lfa-news-task03-cta__buttons {
+		grid-column: 2;
+	}
+}
+
+@media (max-width: 860px) {
+	.lfa-news-task03-article__hero {
+		padding: 50px 0 60px;
+	}
+
+	.lfa-news-task03-article__layout {
+		grid-template-columns: 1fr;
+		gap: 40px;
+		padding-top: 40px;
+		padding-bottom: 60px;
+	}
+
+	.lfa-news-task03-community__heading {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+	}
+}
+
+@media (max-width: 640px) {
+	.lfa-news-task03-container {
+		width: min(100% - 32px, 1240px);
+	}
+
+	.lfa-news-task03-article__title {
+		font-size: 24px;
+	}
+
+	.lfa-news-task03-related__grid,
+	.lfa-news-task03-community__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.lfa-news-task03-cta__layout {
+		grid-template-columns: 1fr;
+		gap: 18px;
+	}
+
+	.lfa-news-task03-cta__symbol {
+		display: none;
+	}
+
+	.lfa-news-task03-cta__buttons {
+		grid-column: auto;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.lfa-news-task03-cta__buttons .lfa-news-btn {
+		width: 100%;
+	}
+}

@@ -41,19 +41,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<!-- 4 CTA Buttons Row -->
 			<div class="hero-cta-grid">
-				<a href="<?php echo esc_url( home_url( '/join/' ) ); ?>" class="btn btn-hero btn-hero-crimson">
+				<a href="<?php echo esc_url( home_url( '#' ) ); ?>" class="btn btn-hero btn-hero-crimson">
 					<?php echo lfa_icon( 'users' ); ?>
 					<span>Join Alumni</span>
 				</a>
-				<a href="<?php echo esc_url( home_url( '/pay-dues/' ) ); ?>" class="btn btn-hero btn-hero-navy">
+				<a href="<?php echo esc_url( home_url( '#' ) ); ?>" class="btn btn-hero btn-hero-navy">
 					<?php echo lfa_icon( 'credit-card' ); ?>
 					<span>Pay Dues</span>
 				</a>
-				<a href="<?php echo esc_url( home_url( '/conference/' ) ); ?>" class="btn btn-hero btn-hero-gold">
+				<a href="<?php echo esc_url( home_url( '#' ) ); ?>" class="btn btn-hero btn-hero-gold">
 					<?php echo lfa_icon( 'calendar' ); ?>
 					<span>2027 Conference</span>
 				</a>
-				<a href="<?php echo esc_url( home_url( '/login/' ) ); ?>" class="btn btn-hero btn-hero-outline">
+				<a href="<?php echo esc_url( home_url( '#' ) ); ?>" class="btn btn-hero btn-hero-outline">
 					<?php echo lfa_icon( 'user' ); ?>
 					<span>Member Login</span>
 				</a>

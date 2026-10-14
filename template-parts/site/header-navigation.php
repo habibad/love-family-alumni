@@ -13,9 +13,12 @@ $is_home              = is_front_page();
 $is_about_active      = is_page( 'about' ) || is_page_template( 'templates/pages/page-about.php' ) || is_page_template( 'page-about.php' );
 $is_leadership_active = is_page( 'leadership' ) || is_page_template( 'templates/pages/page-leadership.php' ) || is_page_template( 'page-leadership.php' );
 $is_membership_active = is_page( 'membership' ) || is_page_template( 'templates/pages/page-membership.php' ) || is_page_template( 'page-membership.php' );
-$is_directory_active  = is_page( 'alumni-directory' ) || is_page( 'directory' ) || is_page_template( 'templates/pages/page-alumni-directory.php' ) || is_page_template( 'page-alumni-directory.php' );
+$is_directory_active  = is_page( 'alumni-directory' ) || is_page( 'directory' ) || is_page( 'business-directory' ) || is_page_template( 'templates/pages/page-alumni-directory.php' ) || is_page_template( 'page-alumni-directory.php' ) || is_page_template( 'page-directory.php' ) || is_page_template( 'templates/pages/page-business-directory.php' ) || is_page_template( 'page-business-directory.php' );
 $is_events_active     = is_page( 'events' ) || is_page_template( 'templates/pages/page-events.php' ) || is_page_template( 'page-events.php' );
-$history_page         = get_page_by_path( 'history' ) ? get_page_by_path( 'history' ) : get_page_by_path( 'our-history' );
+$is_conference_active  = is_page( '2027' ) || is_page( 'conference' ) || is_page_template( 'templates/pages/page-conference-2027.php' ) || is_page_template( 'page-conference-2027.php' ) || is_page_template( 'templates/page-lfa-conference-2027.php' );
+$is_scholarships_active = is_page( 'scholarships' ) || is_page_template( 'templates/pages/page-scholarships.php' ) || is_page_template( 'page-scholarships.php' );
+$is_give_active         = is_page( 'give' ) || is_page_template( 'templates/pages/page-give.php' ) || is_page_template( 'page-give.php' );
+$history_page          = get_page_by_path( 'history' ) ? get_page_by_path( 'history' ) : get_page_by_path( 'our-history' );
 $is_history_active    = $history_page && ( is_page( 'history' ) || is_page( 'our-history' ) );
 $is_about_parent      = $is_about_active || $is_leadership_active || $is_history_active;
 ?>
@@ -77,16 +80,16 @@ $is_about_parent      = $is_about_active || $is_leadership_active || $is_history
 				<li class="menu-item <?php echo $is_events_active ? 'current-menu-item' : ''; ?>">
 					<a href="<?php echo esc_url( home_url( '/events/' ) ); ?>" class="nav-link">Events</a>
 				</li>
-				<li class="menu-item">
-					<a href="<?php echo esc_url( home_url( '/conference/' ) ); ?>" class="nav-link">Conference</a>
+				<li class="menu-item <?php echo $is_conference_active ? 'current-menu-item' : ''; ?>">
+					<a href="<?php echo esc_url( home_url( '/conference/2027/' ) ); ?>" class="nav-link">Conference</a>
 				</li>
 				<li class="menu-item <?php echo $is_directory_active ? 'current-menu-item' : ''; ?>">
-					<a href="<?php echo esc_url( home_url( '/alumni-directory/' ) ); ?>" class="nav-link">Directory</a>
+					<a href="<?php echo esc_url( home_url( '/directory/' ) ); ?>" class="nav-link">Directory</a>
 				</li>
-				<li class="menu-item">
+				<li class="menu-item <?php echo $is_scholarships_active ? 'current-menu-item' : ''; ?>">
 					<a href="<?php echo esc_url( home_url( '/scholarships/' ) ); ?>" class="nav-link">Scholarships</a>
 				</li>
-				<li class="menu-item">
+				<li class="menu-item <?php echo $is_give_active ? 'current-menu-item' : ''; ?>">
 					<a href="<?php echo esc_url( home_url( '/give/' ) ); ?>" class="nav-link">Give</a>
 				</li>
 			</ul>

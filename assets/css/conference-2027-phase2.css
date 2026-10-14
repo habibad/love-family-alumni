@@ -1,0 +1,180 @@
+/* Conference 2027 — COMPLETE remaining public frontend sections.
+   Load AFTER existing assets/css/conference-2027.css. Never restyle Task 01 hero/overview.
+   Every declaration is scoped to .lfa-conference. */
+.lfa-conference {
+  --conf2-navy: #071c3b;
+  --conf2-ink: #0a2040;
+  --conf2-red: #c40036;
+  --conf2-burgundy: #4b0717;
+  --conf2-gold: #edb646;
+  --conf2-pale: #f7f8fa;
+  --conf2-muted: #5d6977;
+}
+.lfa-conference .lfa-conf-wrap { width:min(100% - 72px,1320px); margin-inline:auto; }
+.lfa-conference .lfa-conf-section { padding:104px 0; }
+.lfa-conference .lfa-conf-label { color:var(--conf2-red);font:800 12px/1.5 system-ui,-apple-system,sans-serif; letter-spacing:.18em; text-transform:uppercase; margin:0 0 15px; }
+.lfa-conference .lfa-conf-label--gold { color:var(--conf2-gold); }
+.lfa-conference .lfa-conf-section h2,.lfa-conference .lfa-conf-final-cta h2 { color:var(--conf2-ink);font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:-.037em;font-size:clamp(32px,3.05vw,51px);line-height:1.13;margin:0 0 24px; }
+.lfa-conference .lfa-conf-section h2 em,.lfa-conference .lfa-conf-final-cta h2 em {font-style:normal;color:var(--conf2-red)}
+.lfa-conference .lfa-conf-section p {line-height:1.75;}
+.lfa-conference .lfa-conf-section h3 { color:var(--conf2-ink);font-size:clamp(18px,1.5vw,23px);line-height:1.32;margin:0 0 13px; }
+.lfa-conference .lfa-conf-section-head {margin-bottom:42px;}
+.lfa-conference .lfa-conf-section-head h2 {margin-bottom:15px;}
+.lfa-conference .lfa-conf-section-head p:not(.lfa-conf-label) {margin:0;color:var(--conf2-muted);max-width:600px;}
+.lfa-conference .lfa-conf-section-head--center {text-align:center;}
+.lfa-conference .lfa-conf-section-head--center p:not(.lfa-conf-label) {margin:auto;}
+.lfa-conference .lfa-conf-section-head--split {display:flex;justify-content:space-between;align-items:flex-end;gap:48px;}
+.lfa-conference .lfa-conf-section-head--split > p {max-width:390px!important;flex:0 1 390px;}
+.lfa-conference .lfa-conf-lead {color:var(--conf2-ink);font-size:clamp(18px,1.45vw,22px);line-height:1.55!important;font-weight:600;}
+.lfa-conference .lfa-conf-small-note {color:#687483;font-size:13px;line-height:1.55;}
+.lfa-conference .lfa-conf-status {background:#f5e5e9;color:#ab0031;display:inline-flex;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:800;letter-spacing:.015em;}
+.lfa-conference .lfa-conf-status--light {background:rgba(237,182,70,.16);color:var(--conf2-gold);border:1px solid rgba(237,182,70,.4);}
+.lfa-conference .lfa-conf-action {display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:15px;text-decoration:none;border-radius:7px;padding:11px 23px;font-size:14px;font-weight:800;transition:background .2s ease,transform .2s ease,border-color .2s ease;white-space:normal;text-align:center;}
+.lfa-conference .lfa-conf-action:focus-visible{outline:3px solid var(--conf2-gold);outline-offset:3px}
+.lfa-conference .lfa-conf-action:hover{transform:translateY(-2px)}
+.lfa-conference .lfa-conf-action--crimson{background:var(--conf2-red);color:#fff}
+.lfa-conference .lfa-conf-action--crimson:hover{background:#a9002c;color:#fff}
+.lfa-conference .lfa-conf-action--outline{border:1.5px solid rgba(255,255,255,.82);color:#fff;background:transparent}
+.lfa-conference .lfa-conf-action--outline:hover{background:rgba(255,255,255,.12);color:#fff}
+/* About */
+.lfa-conference .lfa-conf-about {background:#fff;}
+.lfa-conference .lfa-conf-about__grid {display:grid;grid-template-columns:1fr 1.03fr;gap:min(7vw,95px);align-items:center;}
+.lfa-conference .lfa-conf-about__copy > p:not(.lfa-conf-label){color:var(--conf2-muted);margin:0 0 20px;}
+.lfa-conference .lfa-conf-about__copy .lfa-conf-lead{color:var(--conf2-ink)!important}
+.lfa-conference .lfa-conf-about__values{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.lfa-conference .lfa-conf-about__values span{border:1px solid #e4e6eb;padding:10px 17px;border-radius:30px;color:var(--conf2-ink);font-weight:700;font-size:12px;background:#fcfcfd}
+.lfa-conference .lfa-conf-about__image{margin:0;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 22px 55px rgba(12,25,47,.13)}
+.lfa-conference .lfa-conf-about__image img{width:100%;height:430px;object-fit:cover;display:block}
+.lfa-conference .lfa-conf-about__image figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(6,19,38,.85));padding:42px 23px 20px;color:white;font-size:12px;font-weight:650}
+/* Expectations */
+.lfa-conference .lfa-conf-expect {background:var(--conf2-pale);}
+.lfa-conference .lfa-conf-expect__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.lfa-conference .lfa-conf-expect__card{background:#fff;border:1px solid #e6e9ed;border-radius:14px;padding:31px 27px 30px;position:relative;min-height:290px;box-shadow:0 13px 27px rgba(11,35,69,.035)}
+.lfa-conference .lfa-conf-expect__number{position:absolute;right:24px;top:22px;font-size:11px;letter-spacing:.1em;font-weight:800;color:#b7c0cb}
+.lfa-conference .lfa-conf-expect__symbol{width:62px;height:62px;display:grid;place-items:center;font-size:31px;line-height:1;border-radius:50%;color:#fff;background:var(--conf2-red);margin-bottom:30px;font-family:Georgia,serif}
+.lfa-conference .lfa-conf-expect__card:nth-child(even) .lfa-conf-expect__symbol{background:var(--conf2-navy)}
+.lfa-conference .lfa-conf-expect__card h3{font-size:21px}
+.lfa-conference .lfa-conf-expect__card p{font-size:14px;margin:0;color:var(--conf2-muted)}
+/* Program */
+.lfa-conference .lfa-conf-program{background:linear-gradient(118deg,#07182e 0%,#0b2545 62%,#300b22 100%);color:#f7faff;}
+.lfa-conference .lfa-conf-program__grid{display:grid;grid-template-columns:.91fr 1fr;gap:10%;align-items:center}
+.lfa-conference .lfa-conf-program h2{color:#fff}
+.lfa-conference .lfa-conf-program h2 em{color:var(--conf2-gold)}
+.lfa-conference .lfa-conf-program__intro > p:not(.lfa-conf-label){color:#dce2ed;margin:0 0 25px;max-width:495px}
+.lfa-conference .lfa-conf-program__panel{border:1px solid rgba(241,194,104,.4);background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.035));border-radius:16px;padding:36px;box-shadow:0 18px 40px rgba(0,0,0,.15);text-align:center;}
+.lfa-conference .lfa-conf-program__panel-top,.lfa-conference .lfa-conf-program__footer{display:flex;justify-content:space-between;gap:16px;text-align:left;color:var(--conf2-gold);font-size:11px;letter-spacing:.13em;font-weight:750}
+.lfa-conference .lfa-conf-program__icon{width:76px;height:76px;display:grid;place-items:center;border:1px solid rgba(237,182,70,.55);color:var(--conf2-gold);font-size:39px;border-radius:50%;margin:28px auto 22px}
+.lfa-conference .lfa-conf-program__panel h3{color:#fff;font:700 26px/1.3 Georgia,serif;margin-bottom:13px}
+.lfa-conference .lfa-conf-program__panel p{max-width:420px;margin:0 auto 35px;color:#dde4ec;font-size:14px}
+.lfa-conference .lfa-conf-program__footer{padding-top:20px;border-top:1px solid rgba(237,182,70,.24)}
+/* Speakers */
+.lfa-conference .lfa-conf-speakers{background:#fff}
+.lfa-conference .lfa-conf-speakers__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.lfa-conference .lfa-conf-speakers__card{border:1px solid #e6e8ed;border-radius:13px;overflow:hidden;background:#fff;box-shadow:0 12px 30px rgba(5,27,52,.045)}
+.lfa-conference .lfa-conf-speakers__avatar{min-height:230px;display:grid;place-items:center;background:radial-gradient(circle at 50% 38%,#e9edf2 0 14%,#dce4ec 14% 28%,#e9edf2 28% 100%);}
+.lfa-conference .lfa-conf-speakers__avatar span{display:grid;place-items:center;background:var(--conf2-navy);width:90px;height:90px;border-radius:50%;color:var(--conf2-gold);font-size:38px}
+.lfa-conference .lfa-conf-speakers__card-body{padding:25px}
+.lfa-conference .lfa-conf-speakers__pill{color:var(--conf2-red);font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.09em;display:block;margin-bottom:14px}
+.lfa-conference .lfa-conf-speakers__card-body p{margin:0;color:var(--conf2-muted);font-size:14px}
+.lfa-conference .lfa-conf-speakers > .lfa-conf-wrap > .lfa-conf-small-note{margin-top:25px}
+/* Registration */
+.lfa-conference .lfa-conf-registration{background:var(--conf2-pale)}
+.lfa-conference .lfa-conf-registration__grid{display:grid;grid-template-columns:.95fr 1fr;gap:8%;align-items:center}
+.lfa-conference .lfa-conf-registration__info>p:not(.lfa-conf-label){color:var(--conf2-muted);max-width:520px}
+.lfa-conference .lfa-conf-registration__steps{margin-top:32px;display:grid;gap:0}
+.lfa-conference .lfa-conf-registration__steps>div{display:flex;align-items:center;gap:18px;border-top:1px solid #e1e5ea;padding:16px 0;color:var(--conf2-ink);font-size:14px;font-weight:650}
+.lfa-conference .lfa-conf-registration__steps strong{color:var(--conf2-red);font-size:15px}
+.lfa-conference .lfa-conf-registration__panel{background:#fff;border:1px solid #e1e5ed;border-radius:14px;padding:32px;box-shadow:0 23px 65px rgba(8,28,54,.075)}
+.lfa-conference .lfa-conf-registration__panel-head{display:flex;justify-content:space-between;gap:14px;align-items:center;font-weight:850;color:var(--conf2-ink);font-size:12px;letter-spacing:.08em;margin-bottom:25px}
+.lfa-conference .lfa-conf-registration__panel h3{font-family:Georgia,serif;font-size:28px;margin-bottom:10px}
+.lfa-conference .lfa-conf-registration__panel > p{color:var(--conf2-muted);font-size:14px;margin:0 0 24px}
+.lfa-conference .lfa-conf-registration__fieldset{border:0;margin:0;padding:0;display:grid;gap:17px}
+.lfa-conference .lfa-conf-registration__fieldset label{color:var(--conf2-ink);font-weight:750;font-size:13px;display:grid;gap:7px}
+.lfa-conference .lfa-conf-registration__fieldset input,.lfa-conference .lfa-conf-registration__fieldset select{border:1px solid #dae0e8;background:#f7f8fa;border-radius:6px;min-height:47px;padding:10px 14px;color:#7e8897;width:100%;font:inherit;font-weight:400}
+.lfa-conference .lfa-conf-registration__fieldset button{background:#bac1c9;color:#263448;border:0;border-radius:7px;font-weight:750;padding:15px;cursor:not-allowed;opacity:1;margin-top:4px}
+.lfa-conference .lfa-conf-registration__panel .lfa-conf-small-note{margin:15px 0 0;font-size:12px}
+/* Sponsor */
+.lfa-conference .lfa-conf-sponsor{background:#fff}
+.lfa-conference .lfa-conf-sponsor__grid{display:grid;grid-template-columns:.87fr 1.08fr;gap:9%;align-items:center}
+.lfa-conference .lfa-conf-sponsor__art{background:radial-gradient(circle at 50% 48%,#aa1d39 0,#630e22 48%,#330915 100%);min-height:380px;border-radius:17px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--conf2-gold);box-shadow:0 21px 49px rgba(48,5,18,.12);position:relative;overflow:hidden}
+.lfa-conference .lfa-conf-sponsor__art::before{content:"";position:absolute;inset:24px;border:1px solid rgba(237,182,70,.55);border-radius:10px;pointer-events:none}
+.lfa-conference .lfa-conf-sponsor__small{font-size:12px;font-weight:750;letter-spacing:.22em}
+.lfa-conference .lfa-conf-sponsor__heart{font-size:70px;line-height:1}
+.lfa-conference .lfa-conf-sponsor__year{font:750 80px/1 Georgia,serif}
+.lfa-conference .lfa-conf-sponsor__foot{font-size:11px;letter-spacing:.16em;text-align:center}
+.lfa-conference .lfa-conf-sponsor__content p:not(.lfa-conf-label){color:var(--conf2-muted)}
+.lfa-conference .lfa-conf-sponsor__content .lfa-conf-action{margin-top:18px}
+/* Accommodation */
+.lfa-conference .lfa-conf-accommodation{background:var(--conf2-pale)}
+.lfa-conference .lfa-conf-accommodation__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.lfa-conference .lfa-conf-accommodation__card{background:#fff;border:1px solid #e6e9ee;border-radius:13px;padding:32px;min-height:240px}
+.lfa-conference .lfa-conf-accommodation__card>span{width:51px;height:51px;display:grid;place-items:center;background:#f9e9ed;color:var(--conf2-red);border-radius:12px;margin-bottom:20px;font-size:28px}
+.lfa-conference .lfa-conf-accommodation__card p{margin:0 0 16px;color:var(--conf2-muted);font-size:14px}
+.lfa-conference .lfa-conf-accommodation__card small{color:var(--conf2-red);font-size:12px;font-weight:750}
+/* Memories */
+.lfa-conference .lfa-conf-memories{background:#fff}
+.lfa-conference .lfa-conf-memories__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.lfa-conference .lfa-conf-memories__item{margin:0;position:relative;overflow:hidden;border-radius:12px;background:#0b1930;min-height:300px}
+.lfa-conference .lfa-conf-memories__item img{width:100%;height:350px;display:block;object-fit:cover;transition:transform .4s ease}
+.lfa-conference .lfa-conf-memories__item:hover img{transform:scale(1.04)}
+.lfa-conference .lfa-conf-memories__item figcaption{position:absolute;left:0;right:0;bottom:0;padding:50px 23px 23px;background:linear-gradient(transparent,rgba(4,14,31,.93));display:grid;gap:5px;color:#fff}
+.lfa-conference .lfa-conf-memories__item figcaption span{font-size:11px;color:var(--conf2-gold);text-transform:uppercase;letter-spacing:.12em;font-weight:850}
+.lfa-conference .lfa-conf-memories__item figcaption strong{font:700 21px/1.3 Georgia,serif}
+/* FAQ */
+.lfa-conference .lfa-conf-faq{background:var(--conf2-pale)}
+.lfa-conference .lfa-conf-faq__grid{display:grid;grid-template-columns:.65fr 1fr;gap:10%;align-items:start}
+.lfa-conference .lfa-conf-faq__intro>p:not(.lfa-conf-label){color:var(--conf2-muted)}
+.lfa-conference .lfa-conf-faq__list{display:grid;gap:10px}
+.lfa-conference .lfa-conf-faq__item{border:1px solid #e1e5ec;border-radius:9px;background:#fff;overflow:hidden}
+.lfa-conference .lfa-conf-faq__item summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;font-weight:750;color:var(--conf2-ink);padding:18px 21px;font-size:15px;list-style:none;}
+.lfa-conference .lfa-conf-faq__item summary::-webkit-details-marker{display:none}
+.lfa-conference .lfa-conf-faq__item summary:focus-visible{outline:3px solid var(--conf2-gold);outline-offset:-3px}
+.lfa-conference .lfa-conf-faq__plus{flex:0 0 22px;text-align:center;font-size:22px;color:var(--conf2-red);font-weight:450}
+.lfa-conference .lfa-conf-faq__item[open] .lfa-conf-faq__plus{transform:rotate(45deg)}
+.lfa-conference .lfa-conf-faq__item>p{border-top:1px solid #edf0f4;color:var(--conf2-muted);padding:14px 21px 19px;margin:0;font-size:14px}
+/* CTA */
+.lfa-conference .lfa-conf-final-cta{background:linear-gradient(110deg,rgba(40,5,15,.96),rgba(103,8,26,.96)),radial-gradient(circle at 72% 50%,#aa3348,#270c1a);color:#fff;padding:62px 0;border-top:2px solid #7b1630}
+.lfa-conference .lfa-conf-final-cta__inner{display:flex;justify-content:space-between;align-items:center;gap:40px}
+.lfa-conference .lfa-conf-final-cta h2{color:#fff;margin:0 0 10px;font-size:clamp(30px,3vw,47px)}
+.lfa-conference .lfa-conf-final-cta h2 em{color:var(--conf2-gold)}
+.lfa-conference .lfa-conf-final-cta p:not(.lfa-conf-label){margin:0;font-size:15px;color:#e8dfe3}
+.lfa-conference .lfa-conf-final-cta__actions{display:flex;gap:13px;flex-wrap:wrap;flex-shrink:0}
+/* Responsive */
+@media (max-width:1100px){
+.lfa-conference .lfa-conf-section{padding:80px 0}
+.lfa-conference .lfa-conf-about__grid,.lfa-conference .lfa-conf-registration__grid,.lfa-conference .lfa-conf-sponsor__grid{gap:5%}
+.lfa-conference .lfa-conf-expect__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lfa-conference .lfa-conf-expect__card{min-height:260px}
+.lfa-conference .lfa-conf-memories__item img{height:285px}
+.lfa-conference .lfa-conf-final-cta__inner{align-items:flex-start;flex-direction:column}
+}
+@media (max-width:800px){
+.lfa-conference .lfa-conf-section{padding:68px 0}
+.lfa-conference .lfa-conf-wrap{width:min(100% - 42px,1320px)}
+.lfa-conference .lfa-conf-about__grid,.lfa-conference .lfa-conf-program__grid,.lfa-conference .lfa-conf-registration__grid,.lfa-conference .lfa-conf-sponsor__grid,.lfa-conference .lfa-conf-faq__grid{grid-template-columns:1fr;gap:35px}
+.lfa-conference .lfa-conf-speakers__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lfa-conference .lfa-conf-accommodation__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lfa-conference .lfa-conf-memories__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lfa-conference .lfa-conf-memories__item:last-child{grid-column:span 2}
+.lfa-conference .lfa-conf-section-head--split{display:block}
+.lfa-conference .lfa-conf-section-head--split>p{max-width:100%!important;margin-top:13px!important}
+.lfa-conference .lfa-conf-about__image img{height:350px}
+}
+@media (max-width:520px){
+.lfa-conference .lfa-conf-section{padding:55px 0}
+.lfa-conference .lfa-conf-wrap{width:min(100% - 34px,1320px)}
+.lfa-conference .lfa-conf-section h2{font-size:clamp(30px,9vw,39px)}
+.lfa-conference .lfa-conf-expect__grid,.lfa-conference .lfa-conf-speakers__grid,.lfa-conference .lfa-conf-accommodation__grid,.lfa-conference .lfa-conf-memories__grid{grid-template-columns:1fr}
+.lfa-conference .lfa-conf-expect__card{min-height:auto}
+.lfa-conference .lfa-conf-memories__item:last-child{grid-column:auto}
+.lfa-conference .lfa-conf-about__image img{height:265px}
+.lfa-conference .lfa-conf-program__panel{padding:25px 19px}
+.lfa-conference .lfa-conf-registration__panel{padding:22px}
+.lfa-conference .lfa-conf-registration__panel-head{align-items:flex-start;flex-direction:column}
+.lfa-conference .lfa-conf-sponsor__art{min-height:310px}
+.lfa-conference .lfa-conf-memories__item img{height:270px}
+.lfa-conference .lfa-conf-final-cta__actions{flex-direction:column;width:100%}
+.lfa-conference .lfa-conf-final-cta__actions a{width:100%}
+.lfa-conference .lfa-conf-faq__item summary{font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){.lfa-conference .lfa-conf-memories__item img,.lfa-conference .lfa-conf-action{transition:none!important;transform:none!important}}
