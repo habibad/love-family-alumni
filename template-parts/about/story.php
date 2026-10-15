@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="story-callout-text">
 							<h4 class="callout-title">The Global Fraternity vs. The North America Zone</h4>
 							<p>
-								<strong>Love Family Alumni (Global)</strong> represents the overarching worldwide alumni movement encompassing all graduating classes from the University of Benin and associated global chapters.
+								<strong>The Love Family Alumni (Global)</strong> represents the overarching worldwide alumni movement encompassing all graduating classes from the University of Benin and associated global chapters.
 							</p>
 							<p>
 								The <strong>North America Zone</strong> operates as a chartered regional entity specifically established to serve alumni residing across the United States and Canada—addressing the unique professional, personal, and cultural needs of our diaspora community while actively supporting the global mission.
@@ -83,7 +83,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						We were not just classmates on a campus; we were nurtured in a sacred culture of family that has defied distance, oceans, and time.
 					</blockquote>
 					<div class="quote-author">
-						<span class="author-name">Love Family Alumni Heritage</span>
+						<span class="author-name">The Love Family Alumni Heritage</span>
 						<span class="author-sub">University of Benin Alumni Tradition</span>
 					</div>
 				</div>

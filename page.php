@@ -14,7 +14,7 @@ get_header();
 
 <div class="page-hero-banner">
 	<div class="lfa-container">
-		<span class="page-eyebrow">LOVE FAMILY ALUMNI • NORTH AMERICA</span>
+		<span class="page-eyebrow">The LOVE FAMILY ALUMNI • NORTH AMERICA</span>
 		<h1 class="page-title"><?php the_title(); ?></h1>
 	</div>
 </div>

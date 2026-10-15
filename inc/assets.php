@@ -257,6 +257,42 @@ function lfa_enqueue_assets(): void {
 		}
 	}
 
+	// Member Portal & Authentication (Phase 02 · Task 01: Login, Registration, Forgot Password)
+	if ( is_page( 'member-login' ) || is_page( 'member-register' ) || is_page( 'forgot-password' ) || is_page( 'login' ) || is_page_template( 'templates/pages/page-member-login.php' ) || is_page_template( 'page-member-login.php' ) || is_page_template( 'templates/pages/page-member-register.php' ) || is_page_template( 'page-member-register.php' ) || is_page_template( 'templates/pages/page-forgot-password.php' ) || is_page_template( 'page-forgot-password.php' ) || is_page_template( 'page-login.php' ) ) {
+		wp_enqueue_style(
+			'lfa-member-auth-style',
+			get_template_directory_uri() . '/assets/css/member-auth.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/member-auth.css' ) ? filemtime( get_template_directory() . '/assets/css/member-auth.css' ) : '1.0.0'
+		);
+		if ( file_exists( get_template_directory() . '/assets/js/member-auth.js' ) ) {
+			wp_enqueue_script(
+				'lfa-member-auth-js',
+				get_template_directory_uri() . '/assets/js/member-auth.js',
+				[ 'lfa-main-js' ],
+				filemtime( get_template_directory() . '/assets/js/member-auth.js' ),
+				true
+			);
+		}
+	}
+
+	// Member Dashboard (Phase 02 · Task 02: Static Frontend Demo)
+	if ( is_page( 'member-dashboard' ) || is_page_template( 'templates/pages/page-member-dashboard.php' ) || is_page_template( 'page-member-dashboard.php' ) ) {
+		wp_enqueue_style(
+			'lfa-member-dashboard-style',
+			get_template_directory_uri() . '/assets/css/member-dashboard.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/member-dashboard.css' ) ? filemtime( get_template_directory() . '/assets/css/member-dashboard.css' ) : '1.0.0'
+		);
+		wp_enqueue_script(
+			'lfa-member-dashboard-js',
+			get_template_directory_uri() . '/assets/js/member-dashboard.js',
+			[ 'lfa-main-js' ],
+			file_exists( get_template_directory() . '/assets/js/member-dashboard.js' ) ? filemtime( get_template_directory() . '/assets/js/member-dashboard.js' ) : '1.0.0',
+			true
+		);
+	}
+
 	// Main frontend JavaScript
 	wp_enqueue_script(
 		'lfa-main-js',

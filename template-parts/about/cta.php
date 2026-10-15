@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<section class="about-cta-section" id="join-family-cta" aria-label="Join Love Family Alumni">
+<section class="about-cta-section" id="join-family-cta" aria-label="Join The Love Family Alumni">
 	<!-- Atmospheric Skyline Background Layer -->
 	<div class="about-cta-bg-layer" aria-hidden="true">
 		<img src="<?php echo esc_url( lfa_image_url( 'cta-skyline-bg.jpg' ) ); ?>" 

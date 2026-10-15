@@ -40,7 +40,7 @@ return [
 		'eyebrow'     => 'WHY WE GIVE',
 		'heading_1'   => 'More Than Giving.',
 		'heading_2'   => 'Growing Together.',
-		'description' => 'Love Family Alumni brings people together around connection, service and a shared sense of purpose. This giving page will help members understand future opportunities to contribute once official programs are confirmed.',
+		'description' => 'The Love Family Alumni brings people together around connection, service and a shared sense of purpose. This giving page will help members understand future opportunities to contribute once official programs are confirmed.',
 		'pillars'     => [
 			[
 				'number' => '01',

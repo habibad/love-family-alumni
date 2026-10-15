@@ -21,7 +21,7 @@ $emblem     = lfa_image_url( 'original-love-family-logo.jpg' );
 			
 			<!-- Left: Hero Content -->
 			<div class="lfa-conf-hero__content">
-				<p class="lfa-conf-hero__eyebrow">LOVE FAMILY ALUMNI <span class="sep">&mdash;</span> NORTH AMERICA ZONE</p>
+				<p class="lfa-conf-hero__eyebrow">The LOVE FAMILY ALUMNI <span class="sep">&mdash;</span> NORTH AMERICA ZONE</p>
 				<p class="lfa-conf-hero__year">2027 CONFERENCE</p>
 				<h1 id="lfa-conf-title" class="lfa-conf-hero__title">THY KINGDOM <em>COME</em></h1>
 				<p class="lfa-conf-hero__verse">Matthew 6:10</p>

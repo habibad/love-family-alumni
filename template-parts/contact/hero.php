@@ -67,7 +67,7 @@ $image_url = lfa_image_url( $hero_data['cover_image'] ?? 'original-alumni-commun
 				<span><?php echo esc_html( $hero_data['status_badge'] ?? 'OFFICIAL COMMUNICATIONS · NORTH AMERICA ZONE' ); ?></span>
 			</div>
 			<div class="lfa-contact__hero-badge">
-				LOVE FAMILY ALUMNI &middot; ESTABLISHED FELLOWSHIP
+				THE LOVE FAMILY ALUMNI &middot; ESTABLISHED FELLOWSHIP
 			</div>
 		</div>
 	</div>

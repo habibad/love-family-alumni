@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 					<h3 class="history-title">Inauguration of the North America Zone</h3>
 					<p class="history-text">
-						Recognizing the growing population of Love Family alumni across US states and Canadian provinces, visionary leaders convened to transition from ad-hoc meetups to a formalized zonal governance structure. The North America Zone was established with recognized bylaws, an Executive Council, and alignment with the Global Alumni body.
+						Recognizing the growing population of The Love Family alumni across US states and Canadian provinces, visionary leaders convened to transition from ad-hoc meetups to a formalized zonal governance structure. The North America Zone was established with recognized bylaws, an Executive Council, and alignment with the Global Alumni body.
 					</p>
 					<div class="history-highlight-pills">
 						<span class="history-pill">✓ Zonal Executive Committee Inaugurated</span>

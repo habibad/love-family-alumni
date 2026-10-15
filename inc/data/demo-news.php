@@ -60,7 +60,7 @@ function lfa_get_featured_news(): array {
 		'category'    => 'Announcements',
 		'date'        => '2026-09-02',
 		'excerpt'     => 'Overview of how this future newsroom will share updates, community milestones and verified alumni stories.',
-		'body'        => 'This is a synthetic preview article for layout testing only. It is not an official Love Family Alumni announcement.',
+		'body'        => 'This is a synthetic preview article for layout testing only. It is not an official The Love Family Alumni announcement.',
 		'image'       => null,
 		'is_demo'     => true,
 	];

@@ -12,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="site-utility-bar">
 	<div class="lfa-container lfa-utility-inner">
 		<div class="utility-left">
-			<a href="mailto:lovefamilyalumni.na@gmail.com" class="utility-link" aria-label="Email Love Family Alumni">
+			<a href="mailto:thelovefamilyalumni.na@gmail.com" class="utility-link" aria-label="Email The Love Family Alumni">
 				<span class="utility-icon icon-mail"><?php echo lfa_icon( 'mail' ); ?></span>
-				<span>lovefamilyalumni.na@gmail.com</span>
+				<span>thelovefamilyalumni.na@gmail.com</span>
 			</a>
 			<span class="utility-item">
 				<span class="utility-icon icon-pin"><?php echo lfa_icon( 'map-pin' ); ?></span>

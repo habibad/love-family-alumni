@@ -28,13 +28,13 @@ $is_about_parent      = $is_about_active || $is_leadership_active || $is_history
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-brand" rel="home">
 			<div class="brand-crest">
 				<img src="<?php echo esc_url( lfa_image_url( 'brand-logo-source.jpg' ) ); ?>" 
-				     alt="Love Family Alumni Emblem" 
+				     alt="The Love Family Alumni Emblem" 
 				     width="58" 
 				     height="58" 
 				     class="brand-crest-img">
 			</div>
 			<div class="brand-text-group">
-				<span class="brand-title">LOVE FAMILY ALUMNI</span>
+				<span class="brand-title">THE LOVE FAMILY ALUMNI</span>
 				<span class="brand-zone">NORTH AMERICA ZONE</span>
 				<span class="brand-tagline">ONE FAMILY. ACROSS BORDERS. IMPACTING GENERATIONS.</span>
 			</div>
@@ -95,7 +95,7 @@ $is_about_parent      = $is_about_active || $is_leadership_active || $is_history
 			</ul>
 
 			<div class="nav-actions">
-				<a href="<?php echo esc_url( home_url( '/login/' ) ); ?>" class="btn btn-crimson btn-login">
+				<a href="<?php echo esc_url( home_url( '/member-login/' ) ); ?>" class="btn btn-crimson btn-login">
 					Login
 				</a>
 			</div>

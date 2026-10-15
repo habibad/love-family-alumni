@@ -25,8 +25,8 @@ $highlight_items = [
 		'title'       => 'Continental Fellowship Assembly',
 		'date'        => 'Historical Assembly',
 		'location'    => 'North America Chapter',
-		'caption'     => 'A vibrant gathering of Love Family alumni celebrating enduring faith, family bonds, and institutional milestones.',
-		'alt'         => 'Large group gathering of Love Family alumni commemorating shared fellowship',
+		'caption'     => 'A vibrant gathering of The Love Family alumni celebrating enduring faith, family bonds, and institutional milestones.',
+		'alt'         => 'Large group gathering of The Love Family alumni commemorating shared fellowship',
 	],
 	[
 		'image'       => 'GALLERY_APPROVED_GROUP_WOMEN.jpg',
@@ -34,7 +34,7 @@ $highlight_items = [
 		'title'       => 'Women Alumni Fellowship Gathering',
 		'date'        => 'Regional Fellowship',
 		'location'    => 'Atlanta, GA',
-		'caption'     => 'An uplifting evening of sisterhood, mutual encouragement, and spiritual reflection among Love Family alumnae.',
+		'caption'     => 'An uplifting evening of sisterhood, mutual encouragement, and spiritual reflection among The Love Family alumnae.',
 		'alt'         => 'Love Family women alumni fellowship dinner gathering',
 	],
 ];

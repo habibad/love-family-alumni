@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="about-hero-content-col">
 				<div class="about-hero-eyebrow-wrap">
 					<span class="about-hero-badge-dot" aria-hidden="true"></span>
-					<span class="about-hero-eyebrow">ABOUT LOVE FAMILY ALUMNI</span>
+					<span class="about-hero-eyebrow">ABOUT THE LOVE FAMILY ALUMNI</span>
 				</div>
 
 				<h1 class="about-hero-title">
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</h1>
 
 				<p class="about-hero-lead">
-					Founded on an enduring foundation of Christian fellowship, mutual love, and academic excellence at the University of Benin, Love Family Alumni has grown into an influential global network.
+					Founded on an enduring foundation of Christian fellowship, mutual love, and academic excellence at the University of Benin, The Love Family Alumni has grown into an influential global network.
 				</p>
 
 				<p class="about-hero-desc">

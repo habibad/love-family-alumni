@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="comm-photo-item photo-span-wide">
 				<div class="comm-photo-card">
 					<img src="<?php echo esc_url( lfa_image_url( 'alumni-group-wide.jpg' ) ); ?>" 
-					     alt="Love Family Alumni continental reunion gathering" 
+					     alt="The Love Family Alumni continental reunion gathering" 
 					     class="comm-img" 
 					     loading="lazy">
 					<div class="comm-photo-overlay">
@@ -41,12 +41,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="comm-photo-item photo-portrait">
 				<div class="comm-photo-card">
 					<img src="<?php echo esc_url( lfa_image_url( 'women-alumni-group.jpg' ) ); ?>" 
-					     alt="Women of Love Family Alumni in fellowship" 
+					     alt="Women of The Love Family Alumni in fellowship" 
 					     class="comm-img" 
 					     loading="lazy">
 					<div class="comm-photo-overlay">
 						<span class="comm-badge">SISTERHOOD</span>
-						<h3 class="comm-photo-title">Women of Love Family Alumni</h3>
+						<h3 class="comm-photo-title">Women of The Love Family Alumni</h3>
 						<p class="comm-photo-desc">Celebrating faith, mutual support, and leadership across careers and homes.</p>
 					</div>
 				</div>

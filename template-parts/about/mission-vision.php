@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<div class="mv-card-body">
 					<p class="mv-lead-text">
-						To foster an enduring, faith-anchored community of Love Family alumni in North America that nurtures genuine fellowship, empowers members through professional collaboration, and mobilizes collective resources to uplift communities and future generations.
+						To foster an enduring, faith-anchored community of The Love Family alumni in North America that nurtures genuine fellowship, empowers members through professional collaboration, and mobilizes collective resources to uplift communities and future generations.
 					</p>
 
 					<div class="mv-pillars-list">
@@ -105,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="mv-pillar-item">
 							<span class="pillar-bullet" aria-hidden="true">★</span>
 							<div class="pillar-content">
-								<strong>Global Leadership Benchmark:</strong> Serving as a beacon of excellence and unity within the broader worldwide Love Family Alumni movement.
+								<strong>Global Leadership Benchmark:</strong> Serving as a beacon of excellence and unity within the broader worldwide The Love Family Alumni movement.
 							</div>
 						</div>
 					</div>

@@ -26,7 +26,7 @@ $image_url = lfa_image_url( 'original-alumni-community-group.jpg' );
 
 			<!-- Eyebrow -->
 			<div class="lfa-give__eyebrow lfa-give__eyebrow--gold">
-				<?php echo esc_html( $hero_data['eyebrow'] ?? 'GIVE & SUPPORT —— LOVE FAMILY ALUMNI' ); ?>
+				<?php echo esc_html( $hero_data['eyebrow'] ?? 'GIVE & SUPPORT —— THE LOVE FAMILY ALUMNI' ); ?>
 			</div>
 
 			<!-- Main Heading -->

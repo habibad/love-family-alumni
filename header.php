@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php wp_body_open(); ?>
 
 <a class="skip-link screen-reader-text" href="#main-content">
-	<?php esc_html_e( 'Skip to content', 'love-family-theme' ); ?>
+	<?php esc_html_e( 'Skip to content', 'The love-family-theme' ); ?>
 </a>
 
 <header class="site-header" role="banner">

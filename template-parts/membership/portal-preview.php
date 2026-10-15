@@ -91,7 +91,7 @@ $portal_features = function_exists( 'lfa_get_portal_preview_features' ) ? lfa_ge
 				<p class="login-cta-desc">Direct account authentication will open following the completion of backend security audits.</p>
 			</div>
 			<div class="portal-login-cta-action">
-				<a href="<?php echo esc_url( home_url( '/login/' ) ); ?>" class="btn btn-outline-gold">
+				<a href="<?php echo esc_url( home_url( '/member-login/' ) ); ?>" class="btn btn-outline-gold">
 					<span>Member Login Information</span>
 				</a>
 			</div>

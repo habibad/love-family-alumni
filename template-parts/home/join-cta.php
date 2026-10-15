@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<section class="join-cta-section lfa-final-cta" id="join-alumni-cta" aria-label="Join Love Family Alumni">
+<section class="join-cta-section lfa-final-cta" id="join-alumni-cta" aria-label="Join TheLove Family Alumni">
 	<div class="join-cta-bg-container">
 		<img src="<?php echo esc_url( lfa_image_url( 'cta-skyline-bg.jpg' ) ); ?>" 
 		     alt="" 

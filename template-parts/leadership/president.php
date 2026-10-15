@@ -36,7 +36,7 @@ $president_portrait = lfa_image_url( 'original-president-portrait.jpg' );
 				<h2 class="leadership-president-name">Dr. Evans Akpo</h2>
 				
 				<div class="leadership-president-designation">
-					<span>President, Love Family Alumni – North America Zone</span>
+					<span>President, The Love Family Alumni – North America Zone</span>
 				</div>
 
 				<div class="leadership-president-divider" aria-hidden="true"></div>

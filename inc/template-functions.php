@@ -104,10 +104,6 @@ function lfa_icon( string $name, string $class = '' ): string {
 function lfa_handle_directory_route_alias(): void {
 	if ( ! is_admin() ) {
 		$request_uri = $_SERVER['REQUEST_URI'] ?? '';
-		if ( strpos( $request_uri, '/evans-alop/' ) === 0 ) {
-			wp_safe_redirect( str_replace( '/evans-alop/', '/evans_alop/', $request_uri ), 301 );
-			exit;
-		}
 		if ( is_404() ) {
 			$clean_uri = trim( $request_uri, '/' );
 			if ( preg_match( '#(^|/)alumni-directory/?$#i', $clean_uri ) ) {
@@ -126,4 +122,37 @@ function lfa_conference_rewrite_rules(): void {
 	add_rewrite_rule( '^conference/2027/?$', 'index.php?pagename=conference/2027', 'top' );
 }
 add_action( 'init', 'lfa_conference_rewrite_rules' );
+
+/**
+ * Retrieve Member Auth Configuration & Demo Data
+ *
+ * @return array
+ */
+function lfa_get_member_auth_data(): array {
+	static $data = null;
+	if ( null === $data ) {
+		$file = get_template_directory() . '/inc/data/demo-member-auth.php';
+		$data = file_exists( $file ) ? require $file : [];
+	}
+	return $data;
+}
+
+/**
+ * Handle Auth Route Aliases (/login/ -> /member-login/, /join/ -> /member-register/)
+ */
+function lfa_handle_auth_route_aliases(): void {
+	if ( ! is_admin() ) {
+		$request_uri = trim( $_SERVER['REQUEST_URI'] ?? '', '/' );
+		if ( preg_match( '#(^|/)login/?$#i', $request_uri ) ) {
+			wp_safe_redirect( home_url( '/member-login/' ), 301 );
+			exit;
+		}
+		if ( preg_match( '#(^|/)join/?$#i', $request_uri ) ) {
+			wp_safe_redirect( home_url( '/member-register/' ), 301 );
+			exit;
+		}
+	}
+}
+add_action( 'template_redirect', 'lfa_handle_auth_route_aliases' );
+
 

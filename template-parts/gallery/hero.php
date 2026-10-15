@@ -67,7 +67,7 @@ $image_url = lfa_image_url( $hero_data['cover_image'] ?? 'original-alumni-group.
 				<span><?php echo wp_kses_post( $hero_data['status_pill'] ?? 'HISTORICAL ARCHIVE &amp; COMMUNITY GALLERY' ); ?></span>
 			</div>
 			<div class="lfa-gallery__hero-badge">
-				LOVE FAMILY ALUMNI &middot; NORTH AMERICA ZONE
+				THE LOVE FAMILY ALUMNI &middot; NORTH AMERICA ZONE
 			</div>
 		</div>
 	</div>

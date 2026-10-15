@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="president-photo-col">
 				<div class="president-photo-frame">
 					<img src="<?php echo esc_url( lfa_image_url( 'president-portrait-office-chair.png' ) ); ?>" 
-					     alt="Dr. Evans Akpo - President, Love Family Alumni North America Zone" 
+					     alt="Dr. Evans Akpo - President, The Love Family Alumni North America Zone" 
 					     loading="lazy" 
 					     class="president-img">
 				</div>
@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<span class="president-heading-line">Through People</span>
 				</h2>
 				<p class="president-text">
-					Welcome to the Love Family Alumni – North America Zone. Our strength lies in our people — a community connected by love, driven by purpose, and committed to leaving a lasting legacy. Let us continue to support one another, create opportunities, and make a meaningful impact together.
+					Welcome to The Love Family Alumni – North America Zone. Our strength lies in our people — a community connected by love, driven by purpose, and committed to leaving a lasting legacy. Let us continue to support one another, create opportunities, and make a meaningful impact together.
 				</p>
 				<div class="president-gold-divider" aria-hidden="true"></div>
 				
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="president-signoff-row">
 					<div class="president-signoff">
 						<span class="president-name">Dr. Evans Akpo</span>
-						<span class="president-title">President, Love Family Alumni – North America Zone</span>
+						<span class="president-title">President, The Love Family Alumni – North America Zone</span>
 					</div>
 					<div class="president-cta-wrap">
 						<a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn president-btn">

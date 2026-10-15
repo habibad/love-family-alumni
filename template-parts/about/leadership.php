@@ -19,14 +19,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="portrait-corner-gold top-left" aria-hidden="true"></div>
 						<div class="portrait-corner-gold bottom-right" aria-hidden="true"></div>
 						<img src="<?php echo esc_url( lfa_image_url( 'president-portrait-office-chair.png' ) ); ?>" 
-						     alt="Dr. Evans Akpo — Zonal President, Love Family Alumni North America Zone" 
+						     alt="Dr. Evans Akpo — Zonal President, The Love Family Alumni North America Zone" 
 						     class="leadership-president-img" 
 						     loading="lazy">
 					</div>
 					<div class="leadership-nameplate">
 						<h3 class="nameplate-name">Dr. Evans Akpo</h3>
 						<span class="nameplate-title">Zonal President</span>
-						<span class="nameplate-zone">Love Family Alumni — North America Zone</span>
+						<span class="nameplate-zone">The Love Family Alumni — North America Zone</span>
 					</div>
 				</div>
 
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</h2>
 
 					<p class="leadership-lead-text">
-						The leadership of Love Family Alumni – North America Zone is grounded in the foundational biblical tenet that true leadership is servant stewardship.
+						The leadership of The Love Family Alumni – North America Zone is grounded in the foundational biblical tenet that true leadership is servant stewardship.
 					</p>
 
 					<p class="leadership-body-text">

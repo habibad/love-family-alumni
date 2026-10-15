@@ -22,7 +22,7 @@ $hero_bg = get_theme_file_uri( '/assets/images/business-hero-bg.jpg' );
 				<span class="lfa-biz-hero__title-accent">Stronger Together.</span>
 			</h1>
 			<p class="lfa-biz-hero__lead">
-				Discover and support businesses owned or managed by Love Family alumni. Let's build opportunities, create partnerships, and strengthen our global network.
+				Discover and support businesses owned or managed by The Love Family alumni. Let's build opportunities, create partnerships, and strengthen our global network.
 			</p>
 		</div>
 	</div>

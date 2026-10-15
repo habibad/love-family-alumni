@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						     class="footer-crest-img">
 					</div>
 					<div class="footer-brand-info">
-						<div class="footer-brand-title">LOVE FAMILY ALUMNI</div>
+						<div class="footer-brand-title">The LOVE FAMILY ALUMNI</div>
 						<div class="footer-brand-zone">NORTH AMERICA ZONE</div>
 						<p class="footer-tagline">
 							One family, Across borders.<br>
