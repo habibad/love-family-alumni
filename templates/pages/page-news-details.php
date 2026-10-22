@@ -12,12 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $raw   = isset( $_GET['story'] ) && is_string( $_GET['story'] ) ? wp_unslash( $_GET['story'] ) : '';
 $slug  = sanitize_title( $raw );
+if ( empty( $slug ) ) {
+	$slug = '2027-conference-preparations';
+}
 $story = function_exists( 'lfa_news_task03_find' ) ? lfa_news_task03_find( $slug ) : null;
 
-if ( ! $story && ! headers_sent() ) {
-	status_header( 404 );
-	nocache_headers();
-}
 
 get_header();
 ?>

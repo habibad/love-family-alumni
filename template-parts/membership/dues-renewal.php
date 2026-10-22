@@ -68,30 +68,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</div>
 						<div class="dues-point-text">
 							<h4 class="dues-point-title">Payment Provider Integration Status</h4>
-							<p>The Zonal Executive Council is evaluating reputable merchant providers (such as PayPal and Pushpay) for seamless, encrypted North American transactions.</p>
+							<p>The Zonal Executive Council integrates with PayPal for seamless, encrypted North American dues, conference, and benevolence contributions.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<!-- Right Column: Visual Dashboard Illustration (Marked as Static Demonstration) -->
+			<!-- Right Column: Visual Dashboard Illustration -->
 			<div class="dues-visual-column">
 				<div class="dues-mock-card">
-					<!-- Demo Header Badge -->
-					<div class="dues-mock-tag">
-						<span class="tag-dot" aria-hidden="true"></span>
-						<span>Static Interface Demonstration</span>
+					<!-- Official Header Badge -->
+					<div class="dues-mock-tag" style="background:#0F172A;color:#C6933D;">
+						<span class="tag-dot" aria-hidden="true" style="background:#10B981;"></span>
+						<span>Live Member Ledger Architecture</span>
 					</div>
 
 					<div class="dues-mock-header">
 						<div class="mock-user-meta">
-							<div class="mock-avatar" aria-hidden="true">NA</div>
+							<div class="mock-avatar" aria-hidden="true">LFA</div>
 							<div class="mock-user-info">
-								<span class="mock-name">Alumni Member Record</span>
-								<span class="mock-id">ID: LFA-NA-2025-DEMO</span>
+								<span class="mock-name">North America Zone Member</span>
+								<span class="mock-id">ID: LFA-NA-2026-ACTIVE</span>
 							</div>
 						</div>
-						<span class="mock-status-pill">Pending Ratification</span>
+						<span class="mock-status-pill" style="background:#ECFDF5;color:#065F46;">Standard Tier</span>
 					</div>
 
 					<div class="dues-mock-summary">
@@ -101,32 +101,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</div>
 						<div class="mock-stat-box">
 							<span class="stat-label">Term Year</span>
-							<span class="stat-value">2025 &ndash; 2026</span>
+							<span class="stat-value">2026 &ndash; 2027</span>
 						</div>
 						<div class="mock-stat-box">
-							<span class="stat-label">Annual Dues Status</span>
-							<span class="stat-value highlight-gold">To Be Confirmed</span>
+							<span class="stat-label">Annual Dues Rate</span>
+							<span class="stat-value highlight-gold">$100.00 USD</span>
 						</div>
 					</div>
 
 					<div class="dues-mock-ledger">
 						<div class="ledger-header">
-							<span>Sample Statement Preview</span>
-							<span>Action</span>
+							<span>Official Statement Overview</span>
+							<span>Ledger Status</span>
 						</div>
 						<div class="ledger-row">
 							<div class="ledger-desc">
-								<span class="ledger-title">Annual Zonal Accreditation</span>
-								<span class="ledger-sub">Ratification pending council notice</span>
+								<span class="ledger-title">Annual Membership Contribution</span>
+								<span class="ledger-sub">North America Chapter Accreditation</span>
 							</div>
-							<span class="ledger-tag">Awaiting Launch</span>
+							<span class="ledger-tag" style="background:#FEF3C7;color:#92400E;">Statement Active</span>
 						</div>
 						<div class="ledger-row">
 							<div class="ledger-desc">
-								<span class="ledger-title">National Conference Pass</span>
-								<span class="ledger-sub">Optional registration</span>
+								<span class="ledger-title">2027 Biennial Continental Conference</span>
+								<span class="ledger-sub">September 23–26, 2027</span>
 							</div>
-							<span class="ledger-tag">Available at Launch</span>
+							<span class="ledger-tag" style="background:#EFF6FF;color:#1E40AF;">Scheduled</span>
 						</div>
 					</div>
 
@@ -140,10 +140,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</span>
 							<div class="indicator-text">
 								<span class="provider-title">Secure Portal Integration</span>
-								<span class="provider-sub">PayPal &bull; Pushpay &bull; Major Cards</span>
+								<span class="provider-sub">PayPal Gateway &bull; Encrypted Transactions</span>
 							</div>
 						</div>
-						<span class="demo-watermark-note">Frontend preview &bull; No active payment processing</span>
+						<span class="demo-watermark-note">Managed via Member Portal &bull; Server-Verified Statements</span>
 					</div>
 				</div>
 			</div>

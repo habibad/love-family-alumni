@@ -104,7 +104,7 @@ return [
 			'Partnerships & Collaboration',
 			'Other',
 		],
-		'notice' => 'This is a frontend preview. Messages are not being sent yet.',
+		'notice' => 'Official communications channel. Inquiries are securely delivered to the Love Family Alumni leadership.',
 	],
 
 	// Section 04: Connect With Your Alumni Community

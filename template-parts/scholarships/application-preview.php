@@ -19,27 +19,37 @@ $programs = isset( $args['programs'] ) && is_array( $args['programs'] ) ? $args[
 				<p class="lfa-scholarships__eyebrow">EXPLORE THE EXPERIENCE</p>
 				<h2 id="lfa-scholarships-application-heading">Application <em>Preview.</em></h2>
 			</div>
-			<span class="lfa-scholarships__application-status"><span aria-hidden="true">&bull;</span> APPLICATIONS NOT OPEN</span>
+			<?php
+			$dashboard_scholarship_url = is_user_logged_in() 
+			    ? home_url('/member-dashboard/#scholarships') 
+			    : home_url('/member-login/?redirect_to=' . urlencode(home_url('/member-dashboard/#scholarships')));
+			?>
+			<span class="lfa-scholarships__application-status" style="background:#dcfce7;color:#166534;border:1px solid #bbf7d0;"><span aria-hidden="true">&bull;</span> PORTAL APPLICATIONS ACTIVE</span>
 		</div>
 		<div class="lfa-scholarships__application-shell">
 			<aside class="lfa-scholarships__application-aside" aria-label="Scholarship application preview guidance">
 				<span class="lfa-scholarships__application-aside-kicker">THE NEXT GENERATION</span>
 				<h3>Every opportunity begins with a possibility.</h3>
-				<p>This interactive form demonstrates how a future scholarship application could feel. All programs and fields are illustrative.</p>
+				<p>Review the application format below or submit your active application package directly through the Member Portal.</p>
 				<div class="lfa-scholarships__application-aside-divider"></div>
-				<div class="lfa-scholarships__application-aside-point"><span>01</span> Personal information</div>
-				<div class="lfa-scholarships__application-aside-point"><span>02</span> Education and program</div>
-				<div class="lfa-scholarships__application-aside-point"><span>03</span> Personal statement preview</div>
-				<div class="lfa-scholarships__application-aside-warning" role="note">
-					<strong>Preview only.</strong> Applications have not opened. Please use fictional details for testing. Nothing is submitted, saved, emailed, or uploaded.
+				<div class="lfa-scholarships__application-aside-point"><span>01</span> Personal &amp; Academic information</div>
+				<div class="lfa-scholarships__application-aside-point"><span>02</span> Education credentials &amp; transcripts</div>
+				<div class="lfa-scholarships__application-aside-point"><span>03</span> Personal leadership statement</div>
+				<div class="lfa-scholarships__application-aside-warning" role="note" style="background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;padding:14px;border-radius:8px;margin-top:20px;">
+					<strong>Official Submissions:</strong> Enrolled students and alumni scholars may manage drafts, transcripts, and recommendation requests via the Member Portal.
+					<div style="margin-top:12px;">
+						<a href="<?php echo esc_url($dashboard_scholarship_url); ?>" style="display:inline-block;padding:9px 18px;font-size:13px;text-decoration:none;border-radius:5px;color:#fff;background:#ab1640;font-weight:700;">
+							<?php echo is_user_logged_in() ? 'Open Portal Application &rarr;' : 'Sign In to Apply &rarr;'; ?>
+						</a>
+					</div>
 				</div>
 			</aside>
 			<div class="lfa-scholarships__application-body">
 				<div class="lfa-scholarships__application-form-title">
 					<div>
-						<span class="lfa-scholarships__application-tag">INTERACTIVE DEMO FORM</span>
-						<h3>Tell us about your goals</h3>
-						<p>Sample fields for frontend review. This is not a real scholarship application.</p>
+						<span class="lfa-scholarships__application-tag">PRE-APPLICATION WORKSHEET</span>
+						<h3>Tell us about your academic goals</h3>
+						<p>Review required application criteria and draft your submission points before official portal lodgement.</p>
 					</div>
 				</div>
 				<form class="lfa-scholarships__application-form" id="lfa-scholarships-demo-form" novalidate>

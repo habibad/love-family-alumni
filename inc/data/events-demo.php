@@ -19,6 +19,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function lfa_get_event_categories(): array {
+	$cats = [ 'all' => 'All Events' ];
+	if ( class_exists( 'LFA_Events' ) && taxonomy_exists( LFA_Events::TAXONOMY ) ) {
+		$terms = get_terms( [ 'taxonomy' => LFA_Events::TAXONOMY, 'hide_empty' => false ] );
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+			foreach ( $terms as $t ) {
+				$cats[ $t->slug ] = $t->name;
+			}
+			return $cats;
+		}
+	}
 	return [
 		'all'        => 'All Events',
 		'conference' => 'Conferences',
@@ -35,6 +45,12 @@ function lfa_get_event_categories(): array {
  * @return array
  */
 function lfa_get_events_list(): array {
+	if ( class_exists( 'LFA_Events' ) ) {
+		$res = LFA_Events::get_events( [ 'per_page' => 50, 'period' => 'all' ] );
+		if ( ! empty( $res['items'] ) ) {
+			return $res['items'];
+		}
+	}
 	return [
 		[
 			'id'          => 'event-01',
@@ -42,14 +58,14 @@ function lfa_get_events_list(): array {
 			'category'    => 'conference',
 			'category_label' => 'Conference',
 			'period'      => 'upcoming',
-			'status_badge'=> 'Upcoming · Date Pending',
-			'date_label'  => 'Year 2027 (Date TBA)',
+			'status_badge'=> 'September 16&ndash;19, 2027',
+			'date_label'  => 'September 16&ndash;19, 2027',
 			'theme'       => 'THY KINGDOM COME — Matthew 6:10',
-			'location'    => 'North America Zone (Venue TBA)',
+			'location'    => 'North America Zone (Keynote: Dr. Uche Igbokwe, U.K.)',
 			'summary'     => 'The flagship continental gathering uniting The Love Family Alumni for fellowship, inspirational sessions, leadership renewal, and strategic community impact.',
 			'image'       => 'conference-cinematic-bg.jpg',
-			'action_label'=> 'View Conference Details',
-			'action_url'  => home_url( '/conference/' ),
+			'action_label'=> 'View 2027 Conference',
+			'action_url'  => home_url( '/conference/2027/' ),
 			'is_featured' => true,
 		],
 		[

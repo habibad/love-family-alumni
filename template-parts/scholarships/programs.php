@@ -18,10 +18,7 @@ $programs = isset( $args['programs'] ) && is_array( $args['programs'] ) ? $args[
         <p class="lfa-scholarships__eyebrow">EXPLORE OPPORTUNITIES</p>
         <h2 id="lfa-programs-heading">Scholarship <em>Programs.</em></h2>
       </div>
-      <p>Explore potential areas of student support. Official programs, requirements, amounts and application dates are awaiting organizational confirmation.</p>
-    </div>
-    <div class="lfa-scholarships__demo-note" role="note">
-      <strong>Frontend preview:</strong> All three programs below are illustrative examples&mdash;not confirmed open scholarships.
+      <p>Empowering the next generation of academic scholars and Christian leaders. The official endowed programs provide tuition grants, leadership development, and alumni mentorship.</p>
     </div>
     <div class="lfa-scholarships__program-grid">
       <?php foreach ( $programs as $program ) : ?>

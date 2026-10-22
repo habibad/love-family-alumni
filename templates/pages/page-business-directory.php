@@ -23,6 +23,9 @@ get_header();
 
 	// Task 01: Browse by Category Strip
 	get_template_part( 'template-parts/business-directory/categories' );
+
+	// Phase 06: Approved Listings Grid & Detail Modal
+	get_template_part( 'template-parts/business-directory/grid' );
 	?>
 </div>
 

@@ -30,7 +30,8 @@ get_header();
 	get_template_part( 'template-parts/conference/speakers' );
 
 	// Task C: Registration Preview, Sponsorship & Accommodation
-	get_template_part( 'template-parts/conference/registration-preview' );
+	$conf_2027 = class_exists('LFA_Conference') ? LFA_Conference::get_conference_by_id(1) : null;
+	get_template_part( 'template-parts/conference/registration-preview', null, [ 'conference' => $conf_2027 ] );
 	get_template_part( 'template-parts/conference/sponsorship' );
 	get_template_part( 'template-parts/conference/accommodation' );
 

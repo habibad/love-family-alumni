@@ -14,7 +14,7 @@ if ( empty( $profile ) ) {
 	return;
 }
 
-$avatar_url = ! empty( $profile['avatar'] ) ? lfa_image_url( $profile['avatar'] ) : '';
+$avatar_url = ! empty( $profile['avatar'] ) ? $profile['avatar'] : '';
 ?>
 
 <div class="directory-profile-card" 
@@ -28,7 +28,6 @@ $avatar_url = ! empty( $profile['avatar'] ) ? lfa_image_url( $profile['avatar'] 
      data-industry="<?php echo esc_attr( $profile['industry'] ?? '' ); ?>"
      data-bio="<?php echo esc_attr( $profile['bio'] ?? '' ); ?>"
      data-avatar="<?php echo esc_url( $avatar_url ); ?>"
-     data-email="<?php echo esc_attr( $profile['email'] ?? '' ); ?>"
      data-linkedin="<?php echo esc_url( $profile['linkedin'] ?? '' ); ?>">
 	<!-- Card Media & Batch Badge -->
 	<div class="profile-media-wrapper">
@@ -72,12 +71,14 @@ $avatar_url = ! empty( $profile['avatar'] ) ? lfa_image_url( $profile['avatar'] 
 
 		<!-- Card Social & Preview Actions -->
 		<div class="profile-card-actions">
-			<a href="<?php echo esc_url( $profile['email'] ); ?>" class="card-action-btn" title="Contact <?php echo esc_attr( $profile['name'] ); ?>" aria-label="Send email">
+			<?php if ( ! empty( $profile['email'] ) ) : ?>
+			<a href="<?php echo esc_url( 'mailto:' . $profile['email'] ); ?>" class="card-action-btn" title="Contact <?php echo esc_attr( $profile['name'] ); ?>" aria-label="Send email">
 				<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
 					<polyline points="22,6 12,13 2,6"></polyline>
 				</svg>
 			</a>
+			<?php endif; ?>
 
 			<a href="<?php echo esc_url( $profile['linkedin'] ); ?>" target="_blank" rel="noopener noreferrer" class="card-action-btn" title="LinkedIn Profile" aria-label="LinkedIn">
 				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

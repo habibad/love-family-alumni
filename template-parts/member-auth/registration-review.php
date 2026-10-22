@@ -149,33 +149,30 @@ $brand     = $auth_data['brand'];
 		</div>
 	</div>
 
-	<!-- Strict Static Demonstration Notice Banner -->
-	<div class="auth-demo-banner banner-prominent" role="alert">
+	<!-- Membership Registration & Verification Notice -->
+	<div class="auth-demo-banner banner-prominent" role="status">
 		<div class="demo-banner-icon icon-prominent" aria-hidden="true">
 			<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-				<line x1="12" y1="9" x2="12" y2="13"></line>
-				<line x1="12" y1="17" x2="12.01" y2="17"></line>
+				<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
 			</svg>
 		</div>
 		<div class="demo-banner-text">
-			<strong class="banner-strong-title">Important Notice — Static Demonstration Preview</strong>
+			<strong class="banner-strong-title">Official Membership Verification Process</strong>
 			<p class="banner-body-text">
-				This is a frontend demonstration. Your registration has not been submitted or saved. No user account is created, no database records are modified, and no confirmation emails or payment charges occur during this phase.
+				Upon submission, your account will be created in pending status. You will receive an email verification link. Following email confirmation, zonal administrators will review and approve your membership. No membership dues are charged at this step.
 			</p>
 		</div>
 	</div>
 
-	<!-- Consent and Placeholder Terms Checkbox -->
+	<!-- Consent and Terms Checkbox -->
 	<div class="consent-block" id="group-reg-consent">
 		<label class="lfa-custom-checkbox" for="reg_consent">
-			<input type="checkbox" id="reg_consent" name="consent" value="1" required aria-required="true">
+			<input type="checkbox" id="reg_consent" name="accept_privacy" value="1" required aria-required="true">
 			<span class="checkbox-indicator" aria-hidden="true">
 				<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
 			</span>
 			<span class="checkbox-label-text">
-				I confirm that the information entered above is accurate and express my interest in joining the Love Family Alumni Association (North America Zone).
-				<small class="consent-disclaimer">(Placeholder terms &amp; conditions notice for frontend review purposes)</small>
+				I agree to submit my details for Love Family Alumni membership review and acknowledge the site's published privacy notice.
 			</span>
 		</label>
 		<span class="form-error-msg" id="reg_consent_error" role="alert"></span>
@@ -190,8 +187,8 @@ $brand     = $auth_data['brand'];
 			</svg>
 			<span>Back to Membership</span>
 		</button>
-		<button type="button" class="btn btn-crimson btn-reg-submit" id="btn-reg-preview-submit">
-			<span>Review Registration Preview</span>
+		<button type="submit" class="btn btn-crimson btn-reg-submit" id="btn-reg-preview-submit">
+			<span>Submit Membership Registration</span>
 			<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 				<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
 				<polyline points="22 4 12 14.01 9 11.01"></polyline>

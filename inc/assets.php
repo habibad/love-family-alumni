@@ -34,6 +34,22 @@ function lfa_enqueue_assets(): void {
 		filemtime( get_template_directory() . '/style.css' )
 	);
 
+	// Public Header Profile Dropdown (Phase 07)
+	wp_enqueue_style(
+		'lfa-profile-dropdown-style',
+		get_template_directory_uri() . '/assets/css/profile-dropdown.css',
+		[ 'lfa-main-style' ],
+		file_exists( get_template_directory() . '/assets/css/profile-dropdown.css' ) ? filemtime( get_template_directory() . '/assets/css/profile-dropdown.css' ) : '1.0.0'
+	);
+	wp_enqueue_script(
+		'lfa-profile-dropdown-js',
+		get_template_directory_uri() . '/assets/js/profile-dropdown.js',
+		[],
+		file_exists( get_template_directory() . '/assets/js/profile-dropdown.js' ) ? filemtime( get_template_directory() . '/assets/js/profile-dropdown.js' ) : '1.0.0',
+		true
+	);
+
+
 	// About Us Page Scoped Stylesheet (Phase 02)
 	if ( is_page( 'about' ) || is_page_template( 'templates/pages/page-about.php' ) || is_page_template( 'page-about.php' ) ) {
 		wp_enqueue_style(
@@ -99,7 +115,7 @@ function lfa_enqueue_assets(): void {
 	}
 
 	// Conference 2027 Page Scoped Stylesheet (Task 01 & Complete Frontend)
-	if ( is_page( '2027' ) || is_page( 'conference' ) || is_page_template( 'templates/pages/page-conference-2027.php' ) || is_page_template( 'page-conference-2027.php' ) || is_page_template( 'templates/page-lfa-conference-2027.php' ) ) {
+	if ( is_page( '2027' ) || is_page( 'conference' ) || is_page_template( 'templates/pages/page-conference-2027.php' ) || is_page_template( 'page-conference-2027.php' ) || is_page_template( 'page-conference.php' ) || is_page_template( 'templates/page-lfa-conference-2027.php' ) ) {
 		wp_enqueue_style(
 			'lfa-conference-2027-style',
 			get_template_directory_uri() . '/assets/css/conference-2027.css',
@@ -217,6 +233,15 @@ function lfa_enqueue_assets(): void {
 			file_exists( get_template_directory() . '/assets/js/give.js' ) ? filemtime( get_template_directory() . '/assets/js/give.js' ) : '1.0.0',
 			true
 		);
+		wp_localize_script(
+			'lfa-give-js',
+			'lfaCore',
+			[
+				'restUrl' => esc_url_raw( rest_url() ),
+				'nonce'   => wp_create_nonce( 'wp_rest' ),
+				'homeUrl' => esc_url_raw( home_url( '/' ) ),
+			]
+		);
 	}
 
 	// Archives & Gallery Page Scoped Stylesheet & Script (Task 01)
@@ -254,11 +279,35 @@ function lfa_enqueue_assets(): void {
 				filemtime( get_template_directory() . '/assets/js/contact.js' ),
 				true
 			);
+			wp_localize_script(
+				'lfa-contact-js',
+				'lfaContactData',
+				[
+					'ajaxUrl' => esc_url_raw( admin_url( 'admin-ajax.php' ) ),
+					'nonce'   => wp_create_nonce( 'lfa_contact_submit' ),
+				]
+			);
 		}
 	}
 
+	// Legal & Governance Pages (Privacy Policy, Terms of Use, Accessibility Statement)
+	if ( is_page( [ 'privacy-policy', 'terms-of-use', 'accessibility' ] ) || is_page_template( 'templates/pages/page-privacy-policy.php' ) || is_page_template( 'templates/pages/page-terms-of-use.php' ) || is_page_template( 'templates/pages/page-accessibility.php' ) ) {
+		wp_enqueue_style(
+			'lfa-legal-style',
+			get_template_directory_uri() . '/assets/css/legal.css',
+			[ 'lfa-main-style' ],
+			file_exists( get_template_directory() . '/assets/css/legal.css' ) ? filemtime( get_template_directory() . '/assets/css/legal.css' ) : '1.0.0'
+		);
+	}
+
 	// Member Portal & Authentication (Phase 02 · Task 01: Login, Registration, Forgot Password)
-	if ( is_page( 'member-login' ) || is_page( 'member-register' ) || is_page( 'forgot-password' ) || is_page( 'login' ) || is_page_template( 'templates/pages/page-member-login.php' ) || is_page_template( 'page-member-login.php' ) || is_page_template( 'templates/pages/page-member-register.php' ) || is_page_template( 'page-member-register.php' ) || is_page_template( 'templates/pages/page-forgot-password.php' ) || is_page_template( 'page-forgot-password.php' ) || is_page_template( 'page-login.php' ) ) {
+	$req_path = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+	$path_segments = explode( '/', $req_path );
+	$current_slug = end( $path_segments );
+
+	$is_auth_screen = is_page( 'member-login' ) || is_page( 'member-register' ) || is_page( 'forgot-password' ) || is_page( 'login' ) || is_page_template( 'templates/pages/page-member-login.php' ) || is_page_template( 'page-member-login.php' ) || is_page_template( 'templates/pages/page-member-register.php' ) || is_page_template( 'page-member-register.php' ) || is_page_template( 'templates/pages/page-forgot-password.php' ) || is_page_template( 'page-forgot-password.php' ) || is_page_template( 'page-login.php' ) || in_array( $current_slug, [ 'member-login', 'member-register', 'forgot-password', 'login' ], true );
+
+	if ( $is_auth_screen ) {
 		wp_enqueue_style(
 			'lfa-member-auth-style',
 			get_template_directory_uri() . '/assets/css/member-auth.css',
@@ -276,24 +325,57 @@ function lfa_enqueue_assets(): void {
 		}
 	}
 
-	// Member Dashboard (Phase 02 · Task 02: Static Frontend Demo)
-	if ( is_page( 'member-dashboard' ) || is_page_template( 'templates/pages/page-member-dashboard.php' ) || is_page_template( 'page-member-dashboard.php' ) ) {
+	// Member Dashboard (Premium Redesign: Dedicated Application Shell)
+	$is_dashboard_screen = is_page( 'member-dashboard' ) || is_page_template( 'templates/pages/page-member-dashboard.php' ) || is_page_template( 'page-member-dashboard.php' ) || 'member-dashboard' === $current_slug;
+
+	if ( $is_dashboard_screen ) {
+		// Dequeue public chrome styles and former dashboard assets to guarantee isolated standalone app shell
+		wp_dequeue_style( 'lfa-member-dashboard-style' );
+		wp_dequeue_script( 'lfa-member-dashboard-js' );
+		wp_dequeue_style( 'lfa-main-style' );
+		wp_dequeue_style( 'lfa-theme-style' );
+
+		// Enqueue Premium Portal Styles & Script
 		wp_enqueue_style(
-			'lfa-member-dashboard-style',
-			get_template_directory_uri() . '/assets/css/member-dashboard.css',
-			[ 'lfa-main-style' ],
-			file_exists( get_template_directory() . '/assets/css/member-dashboard.css' ) ? filemtime( get_template_directory() . '/assets/css/member-dashboard.css' ) : '1.0.0'
+			'lfa-dashboard-premium',
+			get_template_directory_uri() . '/assets/css/member-dashboard-premium.css',
+			[],
+			file_exists( get_template_directory() . '/assets/css/member-dashboard-premium.css' ) ? filemtime( get_template_directory() . '/assets/css/member-dashboard-premium.css' ) : '2.0.0'
 		);
 		wp_enqueue_script(
-			'lfa-member-dashboard-js',
-			get_template_directory_uri() . '/assets/js/member-dashboard.js',
-			[ 'lfa-main-js' ],
-			file_exists( get_template_directory() . '/assets/js/member-dashboard.js' ) ? filemtime( get_template_directory() . '/assets/js/member-dashboard.js' ) : '1.0.0',
+			'lfa-dashboard-premium',
+			get_template_directory_uri() . '/assets/js/member-dashboard-premium.js',
+			[],
+			file_exists( get_template_directory() . '/assets/js/member-dashboard-premium.js' ) ? filemtime( get_template_directory() . '/assets/js/member-dashboard-premium.js' ) : '2.0.0',
 			true
 		);
+		return;
 	}
 
-	// Main frontend JavaScript
+	// Admin Portal (Standalone Application Shell)
+	$is_admin_screen = is_page( 'admin-portal' ) || is_page_template( 'templates/pages/page-admin-portal.php' ) || is_page_template( 'page-admin-portal.php' ) || 'admin-portal' === $current_slug;
+
+	if ( $is_admin_screen ) {
+		wp_dequeue_style( 'lfa-main-style' );
+		wp_dequeue_style( 'lfa-theme-style' );
+
+		wp_enqueue_style(
+			'lfa-admin-portal',
+			get_template_directory_uri() . '/assets/css/admin-portal.css',
+			[],
+			file_exists( get_template_directory() . '/assets/css/admin-portal.css' ) ? filemtime( get_template_directory() . '/assets/css/admin-portal.css' ) : '1.0.0'
+		);
+		wp_enqueue_script(
+			'lfa-admin-portal',
+			get_template_directory_uri() . '/assets/js/admin-portal.js',
+			[],
+			file_exists( get_template_directory() . '/assets/js/admin-portal.js' ) ? filemtime( get_template_directory() . '/assets/js/admin-portal.js' ) : '1.0.0',
+			true
+		);
+		return;
+	}
+
+	// Main frontend JavaScript (Public website only)
 	wp_enqueue_script(
 		'lfa-main-js',
 		get_template_directory_uri() . '/assets/js/main.js',

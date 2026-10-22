@@ -61,3 +61,64 @@ function lfa_theme_setup(): void {
 	add_image_size( 'lfa-card', 400, 260, true );
 }
 add_action( 'after_setup_theme', 'lfa_theme_setup' );
+
+/**
+ * Ensure essential theme pages (Member Auth & Dashboard) exist in WordPress
+ */
+function lfa_ensure_essential_pages(): void {
+	// Guard against repetitive database operations on every request
+	static $checked = false;
+	if ( $checked ) {
+		return;
+	}
+	$checked = true;
+
+	$pages = [
+		'member-login'     => [
+			'title'    => 'Member Login',
+			'template' => 'page-member-login.php',
+		],
+		'member-register'  => [
+			'title'    => 'Member Registration',
+			'template' => 'page-member-register.php',
+		],
+		'member-dashboard' => [
+			'title'    => 'Member Dashboard',
+			'template' => 'page-member-dashboard.php',
+		],
+		'forgot-password'  => [
+			'title'    => 'Forgot Password',
+			'template' => 'page-forgot-password.php',
+		],
+	];
+
+	$needs_flush = false;
+
+	foreach ( $pages as $slug => $info ) {
+		$page = get_page_by_path( $slug );
+		if ( ! $page ) {
+			$page_id = wp_insert_post( [
+				'post_title'   => $info['title'],
+				'post_name'    => $slug,
+				'post_status'  => 'publish',
+				'post_type'    => 'page',
+				'post_content' => '',
+			] );
+			if ( ! is_wp_error( $page_id ) ) {
+				update_post_meta( $page_id, '_wp_page_template', $info['template'] );
+				$needs_flush = true;
+			}
+		} else {
+			$current_template = get_post_meta( $page->ID, '_wp_page_template', true );
+			if ( empty( $current_template ) || 'default' === $current_template ) {
+				update_post_meta( $page->ID, '_wp_page_template', $info['template'] );
+			}
+		}
+	}
+
+	if ( $needs_flush ) {
+		flush_rewrite_rules( false );
+	}
+}
+add_action( 'after_switch_theme', 'lfa_ensure_essential_pages' );
+add_action( 'init', 'lfa_ensure_essential_pages', 20 );

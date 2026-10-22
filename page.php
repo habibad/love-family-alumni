@@ -30,12 +30,15 @@ get_header();
 						the_content();
 					else :
 						?>
-						<div class="placeholder-notice">
-							<div class="notice-badge">Phase 01 Frontend Scaffold</div>
-							<h2><?php the_title(); ?> — Scheduled for Phase 02</h2>
-							<p>This page route is registered and ready. Full mock UI and interactive components for this screen will be implemented during Phase 02 (All Public Pages Static UI) in accordance with the project roadmap.</p>
-							<div class="notice-actions">
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn-crimson">Return to Homepage</a>
+						<div class="lfa-generic-page-card" style="text-align: center; padding: 48px 20px; max-width: 680px; margin: 0 auto;">
+							<span class="lfa-pill" style="display: inline-block; padding: 6px 16px; background: rgba(198,147,61,0.15); color: #92400E; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 999px; margin-bottom: 16px;">
+								Community Notice
+							</span>
+							<h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.2rem; color: #0A203A; margin: 0 0 14px; font-weight: 800;"><?php the_title(); ?></h2>
+							<p style="color: #64748B; font-size: 1.05rem; line-height: 1.65; margin: 0 0 28px;">Official content for this section is being maintained by the Secretariat. You may explore our flagship 2027 Conference, upcoming events, or return to the homepage.</p>
+							<div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+								<a href="<?php echo esc_url( home_url( '/conference/2027/' ) ); ?>" class="btn btn-crimson">View 2027 Conference</a>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn" style="background: #0A203A; color: #FFFFFF; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600;">Return to Homepage</a>
 							</div>
 						</div>
 						<?php

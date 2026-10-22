@@ -90,8 +90,16 @@ $inquiry_types = $form_data['inquiry_types'] ?? [];
 
 			<!-- Right Panel: Clean White Form Surface -->
 			<div class="lfa-contact__form-card">
-				<form id="lfa-contact-form" class="lfa-contact__form" novalidate aria-label="Alumni Contact Form">
-					
+				<!-- Live submission status box -->
+				<div id="contact-status-box" class="lfa-contact__status-box" style="display:none;margin-bottom:1.25rem;padding:1rem 1.25rem;border-radius:8px;font-size:0.95rem;line-height:1.5;" role="status" aria-live="polite"></div>
+
+				<form id="lfa-contact-form" class="lfa-contact__form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" novalidate aria-label="Alumni Contact Form">
+					<input type="hidden" name="action" value="lfa_contact_submit">
+					<?php wp_nonce_field( 'lfa_contact_submit', 'lfa_contact_nonce' ); ?>
+					<div style="position:absolute;left:-10000px;" aria-hidden="true">
+						<label>Leave empty: <input type="text" name="lfa_contact_hp" tabindex="-1" autocomplete="off"></label>
+					</div>
+
 					<!-- Form Header Notice -->
 					<div class="lfa-contact__form-notice" role="note">
 						<svg class="notice-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -100,7 +108,7 @@ $inquiry_types = $form_data['inquiry_types'] ?? [];
 							<line x1="12" y1="8" x2="12.01" y2="8"></line>
 						</svg>
 						<span class="notice-text">
-							<?php echo esc_html( $form_data['notice'] ?? 'This is a frontend preview. Messages are not being sent yet.' ); ?>
+							<?php echo esc_html( $form_data['notice'] ?? 'Official communications channel. Inquiries are securely delivered to the Love Family Alumni leadership.' ); ?>
 						</span>
 					</div>
 
@@ -217,10 +225,10 @@ $inquiry_types = $form_data['inquiry_types'] ?? [];
 					<!-- Form Actions -->
 					<div class="form-actions-row">
 						<button type="submit" id="contact-submit-btn" class="btn btn-crimson lfa-contact__btn-submit">
-							<span>Review Message (Preview)</span>
+							<span>Send Message</span>
 							<svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-								<line x1="5" y1="12" x2="19" y2="12"></line>
-								<polyline points="12 5 19 12 12 19"></polyline>
+								<line x1="22" y1="2" x2="11" y2="13"></line>
+								<polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
 							</svg>
 						</button>
 
@@ -236,16 +244,16 @@ $inquiry_types = $form_data['inquiry_types'] ?? [];
 
 	</div>
 
-	<!-- Browser-based Small Review Modal / Panel (Frontend Only) -->
+	<!-- Review & Confirmation Modal -->
 	<div id="contact-review-modal" class="lfa-contact__modal" role="dialog" aria-modal="true" aria-labelledby="modal-contact-title" hidden>
 		<div class="lfa-contact__modal-backdrop" id="contact-modal-backdrop"></div>
 		<div class="lfa-contact__modal-content">
 			<button type="button" class="lfa-contact__modal-close" id="contact-modal-close-x" aria-label="Close message preview">&times;</button>
 			
 			<div class="lfa-contact__modal-header">
-				<span class="badge-preview-tag">FRONTEND PREVIEW ONLY</span>
+				<span class="badge-preview-tag" style="background:#0F172A;color:#C6933D;font-weight:700;">OFFICIAL INQUIRY</span>
 				<h3 id="modal-contact-title" class="lfa-contact__modal-title">Review Message Details</h3>
-				<p class="lfa-contact__modal-lead">Review your message before simulated submission. Zero data has been sent.</p>
+				<p class="lfa-contact__modal-lead">Confirm your details before transmission to the alumni secretariat.</p>
 			</div>
 
 			<div class="lfa-contact__modal-body">
@@ -275,7 +283,7 @@ $inquiry_types = $form_data['inquiry_types'] ?? [];
 				</div>
 
 				<div class="lfa-contact__modal-notice">
-					<p><strong>Notice:</strong> This is a static frontend demonstration. No email has been sent, no server connection was initiated, and no database records were saved. Official messaging will be activated in the next development phase.</p>
+					<p><strong>Official Transmission:</strong> Your inquiry will be securely transmitted to the Love Family Alumni executive secretariat and an audit confirmation will be recorded.</p>
 				</div>
 			</div>
 
@@ -283,8 +291,8 @@ $inquiry_types = $form_data['inquiry_types'] ?? [];
 				<button type="button" class="btn btn-outline-dark" id="contact-modal-edit-btn">
 					&larr; Edit Details
 				</button>
-				<button type="button" class="btn btn-crimson" id="contact-modal-done-btn">
-					Close Preview
+				<button type="button" class="btn btn-crimson" id="contact-modal-confirm-send-btn">
+					<span>Confirm &amp; Send Message &rarr;</span>
 				</button>
 			</div>
 		</div>

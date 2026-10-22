@@ -41,26 +41,31 @@ $forgot    = $auth_data['forgot_password'];
 			<p class="recovery-lead"><?php echo esc_html( $forgot['supporting_text'] ); ?></p>
 		</div>
 
-		<!-- Demonstration Disclaimer Box (Explicit that no email is sent) -->
+		<!-- Secure Password Recovery Notice -->
 		<div class="auth-demo-banner" role="status">
 			<div class="demo-banner-icon" aria-hidden="true">
 				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<circle cx="12" cy="12" r="10"></circle>
-					<line x1="12" y1="8" x2="12" y2="12"></line>
-					<line x1="12" y1="16" x2="12.01" y2="16"></line>
+					<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
 				</svg>
 			</div>
 			<div class="demo-banner-text">
-				<strong>Notice: Static Demonstration Mode</strong>
-				<span><?php echo esc_html( $forgot['disclaimer'] ); ?></span>
+				<strong>Official Account Recovery</strong>
+				<span>Enter your registered email address. A secure, single-use password reset link will be sent to your inbox.</span>
 			</div>
 		</div>
 
-		<!-- Interactive Alert Box (JS injected) -->
+		<!-- Interactive Alert Box -->
 		<div id="forgot-alert-box" class="auth-alert-box" aria-live="polite" style="display: none;"></div>
+		<?php
+		if ( class_exists( 'LFA_Core' ) ) {
+			echo LFA_Core::notice_html();
+		}
+		?>
 
 		<!-- Interactive Password Recovery Form -->
-		<form id="lfa-forgot-form" class="lfa-auth-form" method="post" action="#" novalidate>
+		<form id="lfa-forgot-form" class="lfa-auth-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" novalidate>
+			<input type="hidden" name="action" value="lfa_forgot_password">
+			<?php wp_nonce_field( 'lfa_forgot_password', 'lfa_forgot_nonce' ); ?>
 			<div class="form-group" id="group-forgot-email">
 				<label for="forgot_email" class="form-label">
 					<span>Registered Email Address</span>
@@ -85,7 +90,7 @@ $forgot    = $auth_data['forgot_password'];
 
 			<div class="auth-action-group">
 				<button type="submit" class="btn btn-crimson btn-block" id="btn-forgot-submit">
-					<span>Verify Email &amp; Preview Recovery</span>
+					<span>Send Password Reset Link</span>
 					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<line x1="5" y1="12" x2="19" y2="12"></line>
 						<polyline points="12 5 19 12 12 19"></polyline>

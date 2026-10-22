@@ -59,12 +59,17 @@ $categories = [
 		'icon'  => '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"></path></svg>',
 	],
 ];
+$viewer_id = get_current_user_id();
+$access_state = class_exists( 'LFA_Payment_Entitlements' ) 
+	? LFA_Payment_Entitlements::get_directory_access_state( $viewer_id ) 
+	: [ 'can_access' => false ];
+$is_locked = ! $access_state['can_access'];
 ?>
-<section class="lfa-biz-categories-section" aria-labelledby="lfa-biz-cat-title">
+<section class="lfa-biz-categories-section <?php echo $is_locked ? 'lfa-filters-disabled' : ''; ?>" aria-labelledby="lfa-biz-cat-title" <?php echo $is_locked ? 'aria-disabled="true"' : ''; ?>>
 	<div class="lfa-container">
 		<div class="lfa-biz-categories-header">
 			<h2 id="lfa-biz-cat-title" class="lfa-biz-categories-title">Browse by Category</h2>
-			<button type="button" id="lfa-biz-view-all-cats" class="lfa-biz-view-all-btn">
+			<button type="button" id="lfa-biz-view-all-cats" class="lfa-biz-view-all-btn" <?php echo $is_locked ? 'disabled' : ''; ?>>
 				View All Categories <span aria-hidden="true">→</span>
 			</button>
 		</div>
@@ -75,7 +80,8 @@ $categories = [
 				        class="lfa-biz-cat-card" 
 				        data-category="<?php echo esc_attr( $cat['slug'] ); ?>"
 				        style="--cat-color: <?php echo esc_attr( $cat['color'] ); ?>;"
-				        role="listitem">
+				        role="listitem"
+				        <?php echo $is_locked ? 'disabled' : ''; ?>>
 					<div class="lfa-biz-cat-icon" aria-hidden="true">
 						<?php echo $cat['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>

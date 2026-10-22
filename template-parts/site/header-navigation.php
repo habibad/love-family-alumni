@@ -81,10 +81,21 @@ $is_about_parent      = $is_about_active || $is_leadership_active || $is_history
 					<a href="<?php echo esc_url( home_url( '/events/' ) ); ?>" class="nav-link">Events</a>
 				</li>
 				<li class="menu-item <?php echo $is_conference_active ? 'current-menu-item' : ''; ?>">
-					<a href="<?php echo esc_url( home_url( '/conference/2027/' ) ); ?>" class="nav-link">Conference</a>
+					<a href="<?php echo esc_url( home_url( '/conference/' ) ); ?>" class="nav-link">Conference</a>
 				</li>
-				<li class="menu-item <?php echo $is_directory_active ? 'current-menu-item' : ''; ?>">
-					<a href="<?php echo esc_url( home_url( '/directory/' ) ); ?>" class="nav-link">Directory</a>
+				<li class="menu-item menu-item-has-children <?php echo $is_directory_active ? 'current-menu-item current-menu-ancestor' : ''; ?>">
+					<a href="<?php echo esc_url( home_url( '/alumni-directory/' ) ); ?>" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+						<span>Directory</span>
+						<svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+					</a>
+					<ul class="sub-menu" aria-label="Directory Submenu">
+						<li class="menu-item sub-menu-item">
+							<a href="<?php echo esc_url( home_url( '/alumni-directory/' ) ); ?>" class="sub-nav-link">Alumni Directory</a>
+						</li>
+						<li class="menu-item sub-menu-item">
+							<a href="<?php echo esc_url( home_url( '/business-directory/' ) ); ?>" class="sub-nav-link">Business Directory</a>
+						</li>
+					</ul>
 				</li>
 				<li class="menu-item <?php echo $is_scholarships_active ? 'current-menu-item' : ''; ?>">
 					<a href="<?php echo esc_url( home_url( '/scholarships/' ) ); ?>" class="nav-link">Scholarships</a>
@@ -94,11 +105,8 @@ $is_about_parent      = $is_about_active || $is_leadership_active || $is_history
 				</li>
 			</ul>
 
-			<div class="nav-actions">
-				<a href="<?php echo esc_url( home_url( '/member-login/' ) ); ?>" class="btn btn-crimson btn-login">
-					Login
-				</a>
-			</div>
+			<?php get_template_part( 'template-parts/site/header-account-nav' ); ?>
 		</nav>
+
 	</div>
 </div>

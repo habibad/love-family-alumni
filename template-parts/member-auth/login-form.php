@@ -122,26 +122,36 @@ $login     = $auth_data['login'];
 				<p class="auth-form-subtitle"><?php echo esc_html( $login['form']['subtitle'] ); ?></p>
 			</div>
 
-			<!-- Explicit Static Demonstration Banner -->
+			<!-- Official Portal Sign In Notice -->
 			<div class="auth-demo-banner" role="status">
 				<div class="demo-banner-icon" aria-hidden="true">
 					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<circle cx="12" cy="12" r="10"></circle>
-						<line x1="12" y1="8" x2="12" y2="12"></line>
-						<line x1="12" y1="16" x2="12.01" y2="16"></line>
+						<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
 					</svg>
 				</div>
 				<div class="demo-banner-text">
-					<strong>Static Frontend Demonstration</strong>
-					<span>Form inputs are validated in-browser. Backend authentication will be enabled in Phase 02. No credentials are stored.</span>
+					<strong>Secure Member Authentication</strong>
+					<span>Access is restricted to email-verified and administrator-approved Love Family Alumni accounts.</span>
 				</div>
 			</div>
 
-			<!-- Form Feedback Toast / Alert Container (JS injected) -->
+			<!-- Form Feedback Toast / Alert Container -->
 			<div id="login-alert-box" class="auth-alert-box" aria-live="polite" style="display: none;"></div>
+			<?php
+			if ( class_exists( 'LFA_Core' ) ) {
+				echo LFA_Core::notice_html();
+			}
+			?>
 
 			<!-- Interactive Login Form -->
-			<form id="lfa-login-form" class="lfa-auth-form" method="post" action="#" novalidate>
+			<form id="lfa-login-form" class="lfa-auth-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" novalidate>
+				<input type="hidden" name="action" value="lfa_member_login">
+				<?php wp_nonce_field( 'lfa_member_login', 'lfa_login_nonce' ); ?>
+				<?php
+				$redirect_to = isset( $_REQUEST['redirect_to'] ) ? esc_url_raw( wp_unslash( $_REQUEST['redirect_to'] ) ) : '';
+				if ( ! empty( $redirect_to ) ) : ?>
+					<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>">
+				<?php endif; ?>
 				<!-- Email Address Field -->
 				<div class="form-group" id="group-login-email">
 					<label for="login_email" class="form-label">
@@ -205,7 +215,7 @@ $login     = $auth_data['login'];
 					<span class="form-error-msg" id="login_password_error" role="alert"></span>
 				</div>
 
-				<!-- Remember Me Checkbox (Visual Preview Only) -->
+				<!-- Remember Me Checkbox -->
 				<div class="form-row-remember">
 					<label class="lfa-custom-checkbox" for="login_remember">
 						<input type="checkbox" id="login_remember" name="remember" value="1">
@@ -214,7 +224,6 @@ $login     = $auth_data['login'];
 						</span>
 						<span class="checkbox-label-text">
 							Remember me on this browser
-							<small class="checkbox-hint">(Visual preview only)</small>
 						</span>
 					</label>
 				</div>
@@ -228,50 +237,8 @@ $login     = $auth_data['login'];
 							<polyline points="12 5 19 12 12 19"></polyline>
 						</svg>
 					</button>
-
-					<button type="button" class="btn btn-outline-navy btn-block btn-demo-dashboard" id="btn-demo-dashboard">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<rect x="3" y="3" width="7" height="7"></rect>
-							<rect x="14" y="3" width="7" height="7"></rect>
-							<rect x="14" y="14" width="7" height="7"></rect>
-							<rect x="3" y="14" width="7" height="7"></rect>
-						</svg>
-						<span>View Demo Dashboard (Preview Only)</span>
-					</button>
 				</div>
 			</form>
-
-			<!-- Demo Dashboard Explanation Modal / Popup -->
-			<div id="demo-dashboard-modal" class="auth-modal-backdrop" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-dash-title">
-				<div class="auth-modal-card">
-					<button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">&times;</button>
-					<div class="modal-icon-badge" aria-hidden="true">
-						<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-					</div>
-					<h3 id="modal-dash-title" class="modal-title">Member Dashboard Overview</h3>
-					<p class="modal-desc">
-						In accordance with the project roadmap, the <strong>Member Dashboard (Task 02)</strong> will provide personalized access to Alumni IDs, Annual Dues receipts ($100 requirement), 2027 Conference registrations, and Business listings.
-					</p>
-					<div class="modal-meta-box">
-						<div class="meta-row">
-							<span class="meta-label">Current Phase:</span>
-							<span class="meta-value">Phase 02 · Task 01 (Authentication Frontend Only)</span>
-						</div>
-						<div class="meta-row">
-							<span class="meta-label">Next Phase:</span>
-							<span class="meta-value">Member Dashboard (Overview, Alumni ID, Dues Reminder)</span>
-						</div>
-					</div>
-					<div class="modal-actions">
-						<a href="<?php echo esc_url( home_url( '/member-dashboard/' ) ); ?>" class="btn btn-crimson btn-block">
-							<span>Enter Demo Member Dashboard &rarr;</span>
-						</a>
-						<button type="button" class="btn btn-outline-navy btn-block" id="modal-dismiss-btn">
-							Dismiss Preview
-						</button>
-					</div>
-				</div>
-			</div>
 
 			<!-- Switch to Registration Link -->
 			<div class="auth-card-footer">

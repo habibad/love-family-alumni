@@ -45,16 +45,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<li><a href="<?php echo esc_url( home_url( '/leadership/' ) ); ?>">Leadership</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/membership/' ) ); ?>">Membership</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/events/' ) ); ?>">Events</a></li>
-						<li><a href="<?php echo esc_url( home_url( '/conference/' ) ); ?>">Conference</a></li>
+						<li><a href="<?php echo esc_url( home_url( '/conference/2027/' ) ); ?>">2027 Conference</a></li>
 					</ul>
 
 					<div class="footer-links-sub-divider" aria-hidden="true"></div>
 
 					<ul class="footer-links-list">
-						<li><a href="<?php echo esc_url( home_url( '/directory/' ) ); ?>">Directory</a></li>
+						<li><a href="<?php echo esc_url( home_url( '/alumni-directory/' ) ); ?>">Alumni Directory</a></li>
+						<li><a href="<?php echo esc_url( home_url( '/business-directory/' ) ); ?>">Business Directory</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/scholarships/' ) ); ?>">Scholarships</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/give/' ) ); ?>">Give</a></li>
-						<li><a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>">Gallery</a></li>
+						<li><a href="<?php echo esc_url( home_url( '/news/' ) ); ?>">News</a></li>
+						<li><a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>">Gallery &amp; Archives</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></li>
 					</ul>
 				</div>
@@ -109,11 +111,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 
-	<!-- Bottom Tagline Banner -->
+	<!-- Bottom Tagline & Legal Bar -->
 	<div class="lfa-container footer-bottom-bar">
 		<div class="footer-gold-hr" aria-hidden="true"></div>
 		<p class="legacy-tagline">
 			TOGETHER, WE BUILD. TOGETHER, WE RISE. TOGETHER, WE LEAVE A LEGACY.
 		</p>
+		<div class="footer-legal-row">
+			<div class="footer-copy">
+				&copy; <?php echo esc_html( date( 'Y' ) ); ?> The Love Family Alumni &mdash; North America Zone. All rights reserved.
+			</div>
+			<nav class="footer-legal-nav" aria-label="Legal and Portal Navigation">
+				<a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a>
+				<span class="footer-legal-sep">|</span>
+				<a href="<?php echo esc_url( home_url( '/terms-of-use/' ) ); ?>">Terms of Use</a>
+				<span class="footer-legal-sep">|</span>
+				<a href="<?php echo esc_url( home_url( '/accessibility/' ) ); ?>">Accessibility</a>
+				<span class="footer-legal-sep">|</span>
+				<a href="<?php echo esc_url( home_url( '/member-dashboard/' ) ); ?>" class="footer-portal-link">Member Portal</a>
+				<span class="footer-legal-sep">|</span>
+				<a href="<?php echo esc_url( home_url( '/admin-portal/' ) ); ?>" class="footer-portal-link">Admin Portal</a>
+			</nav>
+		</div>
 	</div>
 </footer>

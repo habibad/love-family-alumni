@@ -50,7 +50,8 @@ $gallery_items = [
 					<div class="gallery-card-media">
 						<img src="<?php echo esc_url( lfa_image_url( $item['image'] ) ); ?>" 
 						     alt="<?php echo esc_attr( $item['alt'] ); ?>" 
-						     loading="lazy" 
+						     loading="eager" 
+						     decoding="async"
 						     class="gallery-card-img">
 					</div>
 				</div>

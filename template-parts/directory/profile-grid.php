@@ -9,18 +9,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$profiles = lfa_get_demo_alumni_profiles();
-$total_count = count( $profiles );
+$viewer_id = get_current_user_id();
+$access_state = class_exists( 'LFA_Payment_Entitlements' ) 
+	? LFA_Payment_Entitlements::get_directory_access_state( $viewer_id ) 
+	: [ 'can_access' => false, 'state' => 'guest' ];
+
+if ( ! $access_state['can_access'] ) :
+?>
+<section class="directory-grid-section" id="directory-profiles" aria-label="Alumni Profiles">
+	<div class="lfa-container">
+		<?php get_template_part( 'template-parts/directory/locked-preview', null, [ 'type' => 'alumni' ] ); ?>
+	</div>
+</section>
+<?php
+	return;
+endif;
+
+// Authorized Paid Members & Staff View: Query Real Directory Records
+if ( class_exists( 'LFA_Alumni_Directory' ) ) {
+	$dir_res = LFA_Alumni_Directory::get_profiles( [ 'per_page' => 50 ], $viewer_id );
+	$profiles = $dir_res['profiles'];
+	$total_count = $dir_res['total'];
+} else {
+	$profiles = [];
+	$total_count = 0;
+}
 ?>
 
 <section class="directory-grid-section" id="directory-profiles" aria-label="Alumni Profiles">
 	<div class="lfa-container">
-		
 		<!-- Results Toolbar: Counter & View Mode Toggles -->
 		<div class="directory-results-toolbar">
 			<div class="results-count-wrapper">
 				<span class="results-count-text">
-					Showing <strong class="results-current-range">1 &ndash; <?php echo esc_html( min( 8, $total_count ) ); ?></strong> of <strong class="results-total-count"><?php echo esc_html( $total_count ); ?></strong> alumni
+					Showing <strong class="results-current-range"><?php echo $total_count > 0 ? '1 &ndash; ' . esc_html( min( 8, $total_count ) ) : '0'; ?></strong> of <strong class="results-total-count"><?php echo esc_html( $total_count ); ?></strong> alumni
 				</span>
 			</div>
 
@@ -59,8 +81,8 @@ $total_count = count( $profiles );
 			<?php endforeach; ?>
 		</div>
 
-		<!-- Empty State (Shown via JS when no matches found) -->
-		<div class="directory-empty-state" id="directory-empty-state" style="display: none;">
+		<!-- Empty State (Shown when no matches found) -->
+		<div class="directory-empty-state" id="directory-empty-state" style="<?php echo $total_count === 0 ? 'display:block;' : 'display:none;'; ?>">
 			<div class="empty-state-icon">
 				<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 					<circle cx="11" cy="11" r="8"></circle>
@@ -110,7 +132,7 @@ $total_count = count( $profiles );
 
 			<div class="modal-profile-header">
 				<div class="modal-profile-avatar-wrap">
-					<img src="" alt="" class="modal-profile-avatar-img" id="modal-profile-avatar">
+					<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Profile avatar" class="modal-profile-avatar-img" id="modal-profile-avatar" style="display: none;">
 					<div class="modal-profile-avatar-fallback" id="modal-profile-fallback">
 						<span id="modal-profile-initial">A</span>
 					</div>
@@ -146,19 +168,19 @@ $total_count = count( $profiles );
 						<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
 						<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
 					</svg>
-					<span>Demonstration profile preview. Direct member communication requires verified alumni directory credentials.</span>
+					<span>Direct member communication requires verified alumni directory credentials.</span>
 				</div>
 			</div>
 
 			<div class="modal-profile-footer">
-				<a href="#" id="modal-profile-email" class="btn btn-crimson modal-action-btn">
+				<a href="mailto:lovefamilyalumni.na@gmail.com" id="modal-profile-email" class="btn btn-crimson modal-action-btn">
 					<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
 						<polyline points="22,6 12,13 2,6"></polyline>
 					</svg>
 					<span>Send Message</span>
 				</a>
-				<a href="#" id="modal-profile-linkedin" target="_blank" rel="noopener noreferrer" class="btn btn-outline-neutral modal-action-btn">
+				<a href="https://linkedin.com" id="modal-profile-linkedin" target="_blank" rel="noopener noreferrer" class="btn btn-outline-neutral modal-action-btn">
 					<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 						<path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.54a1.63 1.63 0 0 0-1.63 1.63c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63z"/>
 					</svg>

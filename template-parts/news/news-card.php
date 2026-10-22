@@ -22,10 +22,11 @@ $display_title = str_replace( '[Demo] ', '', $raw_title );
 $category  = $story['category'] ?? 'General';
 $raw_date  = $story['date'] ?? '2026-09-01';
 $formatted_date = date_i18n( 'F j, Y', strtotime( $raw_date ) );
-$excerpt   = $story['excerpt'] ?? '';
+$excerpt   = $story['excerpt'] ?? ( $story['summary'] ?? '' );
 $keywords  = isset( $story['keywords'] ) && is_array( $story['keywords'] ) ? implode( ',', $story['keywords'] ) : '';
-$image_url = function_exists( 'lfa_get_demo_news_image' ) ? lfa_get_demo_news_image( $slug ) : get_theme_file_uri( '/assets/images/original-alumni-group.jpg' );
-$story_url = home_url( '/news-details/?story=' . urlencode( $slug ) );
+$is_real   = ! empty( $story['id'] ) && empty( $story['is_demo'] );
+$image_url = ! empty( $story['image_url'] ) ? $story['image_url'] : ( function_exists( 'lfa_get_demo_news_image' ) ? lfa_get_demo_news_image( $slug ) : get_theme_file_uri( '/assets/images/original-alumni-group.jpg' ) );
+$story_url = ! empty( $story['permalink'] ) ? $story['permalink'] : home_url( '/news-details/?story=' . urlencode( $slug ) );
 ?>
 
 <article class="lfa-news-card" 
@@ -48,7 +49,9 @@ $story_url = home_url( '/news-details/?story=' . urlencode( $slug ) );
 			     width="400" 
 			     height="250">
 		</a>
-		<span class="lfa-news-card__demo-tag" title="Synthetic preview content for frontend layout verification">DEMO</span>
+		<?php if ( ! $is_real ) : ?>
+			<span class="lfa-news-card__demo-tag" title="Synthetic preview content for frontend layout verification">DEMO</span>
+		<?php endif; ?>
 	</div>
 
 	<!-- Content Body -->

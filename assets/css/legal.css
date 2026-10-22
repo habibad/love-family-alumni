@@ -1,0 +1,169 @@
+/**
+ * Love Family Alumni — Legal & Governance Stylesheet
+ * Scoped styles for Privacy Policy, Terms of Use, and Accessibility Statement
+ *
+ * @package Love_Family_Theme
+ */
+
+.lfa-legal-page {
+	background-color: #F8FAFC;
+	min-height: 80vh;
+}
+
+/* Legal Hero Banner */
+.lfa-legal-hero {
+	background: linear-gradient(135deg, #0A203A 0%, #153258 100%);
+	color: #FFFFFF;
+	padding: 72px 0 54px;
+	text-align: center;
+	position: relative;
+	border-bottom: 2px solid #C6933D;
+}
+
+.lfa-legal-hero .lfa-pill {
+	display: inline-block;
+	padding: 6px 16px;
+	background: rgba(198, 147, 61, 0.2);
+	color: #E5C170;
+	font-size: 0.8rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border-radius: 999px;
+	margin-bottom: 16px;
+	border: 1px solid rgba(198, 147, 61, 0.35);
+}
+
+.lfa-legal-title {
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: clamp(2.2rem, 4vw, 3.2rem);
+	font-weight: 800;
+	margin: 0 0 14px;
+	letter-spacing: -0.02em;
+	color: #FFFFFF;
+}
+
+.lfa-legal-subtitle {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	font-size: 1.1rem;
+	color: #CBD5E1;
+	max-width: 700px;
+	margin: 0 auto 12px;
+	line-height: 1.6;
+}
+
+.lfa-legal-effective {
+	font-size: 0.85rem;
+	color: #94A3B8;
+	margin-top: 14px;
+}
+
+/* Legal Content Body */
+.lfa-legal-container {
+	max-width: 920px;
+	margin: 48px auto 88px;
+	padding: 0 24px;
+}
+
+.lfa-legal-card {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0;
+	border-radius: 14px;
+	padding: 52px;
+	box-shadow: 0 4px 20px rgba(10, 32, 58, 0.04);
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	line-height: 1.75;
+	color: #334155;
+}
+
+.lfa-legal-notice {
+	background: #FFFBEB;
+	border-left: 4px solid #C6933D;
+	padding: 16px 22px;
+	border-radius: 6px;
+	margin-bottom: 36px;
+	font-size: 0.95rem;
+	color: #92400E;
+	line-height: 1.6;
+}
+
+.lfa-legal-card h2 {
+	color: #0A203A;
+	font-size: 1.45rem;
+	font-weight: 800;
+	margin-top: 36px;
+	margin-bottom: 14px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #F1F5F9;
+	letter-spacing: -0.01em;
+}
+
+.lfa-legal-card h2:first-of-type {
+	margin-top: 10px;
+}
+
+.lfa-legal-card p {
+	margin: 0 0 16px;
+	font-size: 1rem;
+}
+
+.lfa-legal-card ul {
+	padding-left: 24px;
+	margin: 0 0 24px;
+}
+
+.lfa-legal-card li {
+	margin-bottom: 10px;
+	font-size: 0.98rem;
+}
+
+.lfa-legal-card li strong {
+	color: #0A203A;
+}
+
+.lfa-legal-contact-box {
+	background: #F8FAFC;
+	border: 1px solid #E2E8F0;
+	border-radius: 10px;
+	padding: 22px 28px;
+	margin-top: 18px;
+	line-height: 1.6;
+}
+
+.lfa-legal-contact-box strong {
+	color: #0A203A;
+	font-size: 1.05rem;
+}
+
+.lfa-legal-card a {
+	color: #AB1640;
+	text-decoration: underline;
+	font-weight: 600;
+	transition: color 0.15s ease;
+}
+
+.lfa-legal-card a:hover {
+	color: #8E1133;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.lfa-legal-hero {
+		padding: 52px 0 40px;
+	}
+
+	.lfa-legal-card {
+		padding: 28px 20px;
+		border-radius: 10px;
+	}
+
+	.lfa-legal-container {
+		margin: 28px auto 60px;
+		padding: 0 16px;
+	}
+
+	.lfa-legal-card h2 {
+		font-size: 1.25rem;
+		margin-top: 28px;
+	}
+}

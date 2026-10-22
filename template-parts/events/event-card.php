@@ -14,7 +14,8 @@ if ( empty( $event ) ) {
 	return;
 }
 
-$event_img_url = ! empty( $event['image'] ) ? lfa_image_url( $event['image'] ) : '';
+$event_img_url = ! empty( $event['image_url'] ) ? $event['image_url'] : ( ! empty( $event['image'] ) ? lfa_image_url( $event['image'] ) : '' );
+$event_img_alt = ! empty( $event['image_alt'] ) ? $event['image_alt'] : ( $event['title'] ?? 'Event Image' );
 ?>
 
 <div class="event-card" 
@@ -27,7 +28,7 @@ $event_img_url = ! empty( $event['image'] ) ? lfa_image_url( $event['image'] ) :
 	<div class="event-card-media-wrap">
 		<?php if ( $event_img_url ) : ?>
 			<img src="<?php echo esc_url( $event_img_url ); ?>" 
-			     alt="<?php echo esc_attr( $event['title'] ); ?>" 
+			     alt="<?php echo esc_attr( $event_img_alt ); ?>" 
 			     class="event-card-img" 
 			     loading="eager" 
 			     decoding="async">

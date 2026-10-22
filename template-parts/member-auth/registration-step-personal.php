@@ -160,8 +160,9 @@ $countries = $auth_data['registration']['countries'];
 				       id="reg_password" 
 				       name="password" 
 				       class="form-control" 
-				       placeholder="Minimum 8 characters" 
+				       placeholder="Minimum 12 characters" 
 				       autocomplete="new-password" 
+				       minlength="12"
 				       required 
 				       aria-required="true"
 				       aria-describedby="reg_password_error">
@@ -183,7 +184,7 @@ $countries = $auth_data['registration']['countries'];
 			<div class="password-meter-wrap" aria-hidden="true">
 				<div class="password-meter-bar" id="reg-password-meter"></div>
 			</div>
-			<span class="password-hint-text">Minimum 8 characters with letters &amp; numbers</span>
+			<span class="password-hint-text">Minimum 12 characters with letters &amp; numbers</span>
 			<span class="form-error-msg" id="reg_password_error" role="alert"></span>
 		</div>
 
@@ -203,6 +204,7 @@ $countries = $auth_data['registration']['countries'];
 				       class="form-control" 
 				       placeholder="Repeat your password" 
 				       autocomplete="new-password" 
+				       minlength="12"
 				       required 
 				       aria-required="true"
 				       aria-describedby="reg_confirmpassword_error">

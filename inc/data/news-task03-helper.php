@@ -14,11 +14,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! function_exists( 'lfa_news_task03_records' ) ) {
 	/**
-	 * Retrieve the canonical 12 demo news records.
+	 * Retrieve published news records from real DB or fallback fixtures.
 	 *
 	 * @return array
 	 */
 	function lfa_news_task03_records(): array {
+		if ( class_exists( 'LFA_News' ) ) {
+			$res = LFA_News::get_news( [ 'per_page' => 50 ] );
+			if ( ! empty( $res['items'] ) ) {
+				return $res['items'];
+			}
+		}
+
 		if ( function_exists( 'lfa_get_demo_news' ) ) {
 			$records = lfa_get_demo_news();
 			if ( is_array( $records ) ) {
@@ -59,12 +66,31 @@ if ( ! function_exists( 'lfa_news_task03_find' ) ) {
 			return null;
 		}
 
+		if ( class_exists( 'LFA_News' ) ) {
+			$story = LFA_News::get_story_by_slug( $clean_slug );
+			if ( $story ) {
+				return $story;
+			}
+		}
+
 		foreach ( lfa_news_task03_records() as $story ) {
 			if ( ! is_array( $story ) ) {
 				continue;
 			}
 			if ( isset( $story['slug'] ) && sanitize_title( (string) $story['slug'] ) === $clean_slug ) {
 				return $story;
+			}
+		}
+
+		if ( function_exists( 'lfa_get_demo_news' ) ) {
+			$demo_records = lfa_get_demo_news();
+			if ( is_array( $demo_records ) ) {
+				$demo_items = isset( $demo_records['items'] ) && is_array( $demo_records['items'] ) ? $demo_records['items'] : $demo_records;
+				foreach ( $demo_items as $story ) {
+					if ( is_array( $story ) && isset( $story['slug'] ) && sanitize_title( (string) $story['slug'] ) === $clean_slug ) {
+						return $story;
+					}
+				}
 			}
 		}
 
@@ -82,6 +108,13 @@ if ( ! function_exists( 'lfa_news_task03_related' ) ) {
 	 * @return array
 	 */
 	function lfa_news_task03_related( array $current, int $limit = 3 ): array {
+		if ( class_exists( 'LFA_News' ) && ! empty( $current['id'] ) ) {
+			$related = LFA_News::get_related_stories( (int) $current['id'], $current['category'] ?? '', $limit );
+			if ( ! empty( $related ) ) {
+				return $related;
+			}
+		}
+
 		$current_slug = $current['slug'] ?? '';
 		$current_cat  = $current['category'] ?? '';
 

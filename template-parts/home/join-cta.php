@@ -42,9 +42,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<!-- Right: Action Buttons -->
 			<div class="join-cta-right">
-				<a href="<?php echo esc_url( home_url( '/join/' ) ); ?>" class="btn btn-join-now">
-					Join Now
-				</a>
+				<?php if ( is_user_logged_in() ) :
+					$dash_url = class_exists( 'LFA_Auth' ) ? LFA_Auth::get_user_dashboard_url() : home_url( '/member-dashboard/' );
+					$is_admin = current_user_can( 'manage_options' ) || current_user_can( 'lfa_view_admin_portal' );
+				?>
+					<a href="<?php echo esc_url( $dash_url ); ?>" class="btn btn-join-now">
+						<?php echo $is_admin ? 'Admin Portal &rarr;' : 'My Dashboard &rarr;'; ?>
+					</a>
+				<?php else : ?>
+					<a href="<?php echo esc_url( home_url( '/member-register/' ) ); ?>" class="btn btn-join-now">
+						Join Now
+					</a>
+				<?php endif; ?>
 				<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-join-contact">
 					Contact Us
 				</a>

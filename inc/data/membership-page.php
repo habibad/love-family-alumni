@@ -70,14 +70,29 @@ function lfa_get_membership_benefits(): array {
  * @return array<int, array<string, mixed>>
  */
 function lfa_get_membership_plans(): array {
+	$ind_price = '$100.00 USD';
+	$couple_price = 'Rate Under Executive Review';
+	$couple_cycle = 'Governed by Zonal Executive Policy (Contact Secretariat)';
+
+	if ( class_exists( 'LFA_Membership' ) ) {
+		$policy = LFA_Membership::get_policy();
+		if ( ! empty( $policy['individual_base_cents'] ) ) {
+			$ind_price = '$' . number_format( (float) $policy['individual_base_cents'] / 100, 2 ) . ' USD';
+		}
+		if ( ! empty( $policy['couple_base_cents'] ) ) {
+			$couple_price = '$' . number_format( (float) $policy['couple_base_cents'] / 100, 2 ) . ' USD';
+			$couple_cycle = 'Annual Household Contribution';
+		}
+	}
+
 	return [
 		[
 			'id'          => 'individual',
 			'name'        => 'Individual Membership',
 			'badge'       => 'Standard Plan',
 			'target'      => 'For a single eligible alumni member residing across the United States or Canada.',
-			'price'       => 'Membership fee to be confirmed',
-			'cycle'       => 'Official contribution rate to be announced by Zonal Secretariat',
+			'price'       => $ind_price,
+			'cycle'       => 'Annual Contribution / Calendar Year',
 			'features'    => [
 				'Full access to the verified North America Zone Alumni Directory',
 				'Eligibility for regional chapter gatherings and annual national conference',
@@ -85,7 +100,7 @@ function lfa_get_membership_plans(): array {
 				'Voting participation in Zonal assembly meetings and committee elections',
 				'Personalized digital Alumni Credential & verification badge',
 			],
-			'cta_text'    => 'Register as Individual',
+			'cta_text'    => is_user_logged_in() ? 'View Membership Standing' : 'Register as Individual',
 			'is_featured' => false,
 		],
 		[
@@ -93,8 +108,8 @@ function lfa_get_membership_plans(): array {
 			'name'        => 'Couple Membership',
 			'badge'       => 'Family & Couple',
 			'target'      => 'For eligible alumni couples participating in an approved zonal joint arrangement.',
-			'price'       => 'Membership fee to be confirmed',
-			'cycle'       => 'Combined household rate to be announced by Zonal Secretariat',
+			'price'       => $couple_price,
+			'cycle'       => $couple_cycle,
 			'features'    => [
 				'Dual alumni directory profiles linked under one household account',
 				'Coordinated registration for national conferences, banquets & retreats',
@@ -102,7 +117,7 @@ function lfa_get_membership_plans(): array {
 				'Dual voting rights for both alumni spouses in zonal general assemblies',
 				'Priority family seating and recognition at continental reunions',
 			],
-			'cta_text'    => 'Register as Couple',
+			'cta_text'    => is_user_logged_in() ? 'View Membership Standing' : 'Register as Couple',
 			'is_featured' => true,
 		],
 	];

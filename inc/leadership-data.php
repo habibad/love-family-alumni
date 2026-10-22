@@ -19,6 +19,51 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array<int, array<string, mixed>>
  */
 function lfa_get_leadership_roster( string $group ): array {
+	if ( class_exists( 'LFA_Leadership' ) ) {
+		$filter = [];
+		if ( 'executive' === $group ) {
+			$filter['committee'] = 'Executive Council';
+		} elseif ( 'board' === $group ) {
+			$filter['committee'] = 'Board of Trustees';
+		} elseif ( 'advisory' === $group ) {
+			$filter['committee'] = 'Advisory Council';
+		}
+		$db_officers = LFA_Leadership::get_officers( $filter );
+		if ( ! empty( $db_officers ) ) {
+			$roster = [];
+			foreach ( $db_officers as $officer ) {
+				$name_parts = explode( ' ', trim( (string) $officer['name'] ) );
+				$initials = '';
+				foreach ( $name_parts as $part ) {
+					if ( ! empty( $part ) && ctype_alpha( $part[0] ) ) {
+						$initials .= strtoupper( $part[0] );
+					}
+				}
+				$initials = substr( $initials, 0, 2 ) ?: 'LF';
+
+				$term_label = (int) $officer['term_start_year'];
+				if ( ! empty( $officer['term_end_year'] ) ) {
+					$term_label .= '–' . (int) $officer['term_end_year'];
+				} elseif ( ! empty( $officer['is_current'] ) ) {
+					$term_label .= '–Present';
+				}
+
+				$roster[] = [
+					'id'           => 'officer-' . $officer['id'],
+					'name'         => $officer['name'],
+					'position'     => $officer['title'],
+					'status'       => ! empty( $officer['is_current'] ) ? 'active' : 'historical',
+					'status_label' => $term_label,
+					'initials'     => $initials,
+					'email'        => 'mailto:lovefamilyalumni.na@gmail.com?subject=' . rawurlencode( 'Inquiry: ' . $officer['title'] ),
+					'linkedin'     => 'https://www.linkedin.com',
+					'photo'        => ! empty( $officer['photo_url'] ) ? $officer['photo_url'] : null,
+				];
+			}
+			return $roster;
+		}
+	}
+
 	switch ( $group ) {
 		case 'executive':
 			return [

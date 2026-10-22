@@ -12,7 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$all_news = function_exists( 'lfa_get_demo_news' ) ? lfa_get_demo_news() : [];
+$all_news = [];
+if ( class_exists( 'LFA_News' ) ) {
+	$news_data = LFA_News::get_news( [ 'status' => 'publish', 'per_page' => 12 ] );
+	$all_news  = $news_data['items'] ?? [];
+}
+if ( empty( $all_news ) && function_exists( 'lfa_get_demo_news' ) ) {
+	$all_news = lfa_get_demo_news();
+}
 ?>
 <section class="lfa-news-grid-section" id="news-grid-section" aria-labelledby="lfa-news-grid-title">
 	<div class="lfa-container">

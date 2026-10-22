@@ -100,7 +100,6 @@
 		}
 
 		loginForm.addEventListener('submit', function (e) {
-			e.preventDefault();
 			let isValid = true;
 			clearFieldError(emailInput, emailError);
 			clearFieldError(passwordInput, passwordError);
@@ -128,25 +127,16 @@
 			}
 
 			if (!isValid) {
+				e.preventDefault();
 				const firstError = $('.input-error', loginForm);
 				if (firstError) firstError.focus();
 				return;
 			}
 
-			// Valid demonstration response (NO credentials sent over network)
-			if (alertBox) {
-				alertBox.className = 'auth-alert-box alert-info';
-				alertBox.innerHTML = `
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<circle cx="12" cy="12" r="10"></circle>
-						<line x1="12" y1="16" x2="12" y2="12"></line>
-						<line x1="12" y1="8" x2="12.01" y2="8"></line>
-					</svg>
-					<div>
-						<strong>Frontend Preview Validated:</strong> Format verified successfully. Live authentication and user session creation will be connected during backend integration.
-					</div>
-				`;
-				alertBox.style.display = 'flex';
+			const submitBtn = $('#btn-login-submit');
+			if (submitBtn) {
+				submitBtn.disabled = true;
+				submitBtn.innerHTML = '<span>Signing In...</span>';
 			}
 		});
 
@@ -328,8 +318,8 @@
 				}
 
 				// Password
-				if (!passInput.value || passInput.value.length < 8) {
-					setFieldError(passInput, passError, 'Password must be at least 8 characters.');
+				if (!passInput.value || passInput.value.length < 12) {
+					setFieldError(passInput, passError, 'Password must be at least 12 characters.');
 					isStepValid = false;
 				} else {
 					clearFieldError(passInput, passError);
@@ -615,9 +605,12 @@
 
 		if (submitPreviewBtn) {
 			submitPreviewBtn.addEventListener('click', function (e) {
-				e.preventDefault();
-				if (validateStep(4)) {
-					openSuccessModal();
+				if (!validateStep(4)) {
+					e.preventDefault();
+				} else {
+					submitPreviewBtn.disabled = true;
+					submitPreviewBtn.innerHTML = '<span>Submitting Registration...</span>';
+					regForm.submit();
 				}
 			});
 		}
@@ -648,7 +641,6 @@
 		}
 
 		forgotForm.addEventListener('submit', function (e) {
-			e.preventDefault();
 			clearFieldError(emailInput, emailError);
 
 			if (alertBox) {
@@ -658,31 +650,23 @@
 
 			const emailVal = emailInput ? emailInput.value.trim() : '';
 			if (!emailVal) {
+				e.preventDefault();
 				setFieldError(emailInput, emailError, 'Please enter your registered alumni email address.');
 				if (emailInput) emailInput.focus();
 				return;
 			}
 
 			if (!isValidEmail(emailVal)) {
+				e.preventDefault();
 				setFieldError(emailInput, emailError, 'Please enter a valid email address.');
 				if (emailInput) emailInput.focus();
 				return;
 			}
 
-			// Explicit demonstration message (NO fake email sent confirmation)
-			if (alertBox) {
-				alertBox.className = 'auth-alert-box alert-info';
-				alertBox.innerHTML = `
-					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<circle cx="12" cy="12" r="10"></circle>
-						<line x1="12" y1="16" x2="12" y2="12"></line>
-						<line x1="12" y1="8" x2="12.01" y2="8"></line>
-					</svg>
-					<div>
-						<strong>Demonstration Preview Mode:</strong> The email format for <em>${escapeHtml(emailVal)}</em> was validated in-browser. Automated password reset links and security tokens will become operational during backend integration. No external email was dispatched.
-					</div>
-				`;
-				alertBox.style.display = 'flex';
+			const submitBtn = $('#btn-forgot-submit');
+			if (submitBtn) {
+				submitBtn.disabled = true;
+				submitBtn.innerHTML = '<span>Sending Request...</span>';
 			}
 		});
 	}

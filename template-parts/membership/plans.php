@@ -82,8 +82,11 @@ $plans = function_exists( 'lfa_get_membership_plans' ) ? lfa_get_membership_plan
 					</div>
 
 					<div class="plan-cta-box">
-						<a href="#how-it-works" class="btn <?php echo ! empty( $plan['is_featured'] ) ? 'btn-crimson' : 'btn-outline-navy'; ?> btn-block plan-action-btn">
-							<span><?php echo esc_html( $plan['cta_text'] ); ?></span>
+						<?php
+						$cta_url = is_user_logged_in() ? home_url( '/member-dashboard/#dues' ) : home_url( '/member-register/?type=' . urlencode( $plan['id'] ) );
+						?>
+						<a href="<?php echo esc_url( $cta_url ); ?>" class="btn <?php echo ! empty( $plan['is_featured'] ) ? 'btn-crimson' : 'btn-outline-navy'; ?> btn-block plan-action-btn">
+							<span><?php echo esc_html( $plan['cta_text'] ); ?> &rarr;</span>
 						</a>
 						<span class="plan-footnote">No initial payment required during preliminary registration review.</span>
 					</div>

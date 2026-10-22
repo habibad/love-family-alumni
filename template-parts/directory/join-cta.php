@@ -48,8 +48,8 @@ $cta_icon_img = lfa_image_url( 'cta-community-icon.png' );
 
 			<!-- Right: Action Button -->
 			<div class="directory-join-right">
-				<a href="<?php echo esc_url( home_url( '/join/' ) ); ?>" class="btn directory-join-btn">
-					Join or Update Profile
+				<a href="<?php echo esc_url( is_user_logged_in() ? home_url( '/member-dashboard/#profile' ) : home_url( '/join/' ) ); ?>" class="btn directory-join-btn">
+					<?php echo is_user_logged_in() ? 'Update Your Profile' : 'Join or Update Profile'; ?>
 				</a>
 			</div>
 

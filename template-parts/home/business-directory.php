@@ -60,7 +60,8 @@ $business_categories = [
 					<div class="biz-card-thumb">
 						<img src="<?php echo esc_url( lfa_image_url( $cat['image'] ) ); ?>" 
 						     alt="<?php echo esc_attr( $cat['title'] ); ?>" 
-						     loading="lazy" 
+						     loading="eager" 
+						     decoding="async"
 						     class="biz-thumb-img">
 					</div>
 					<div class="biz-card-body">

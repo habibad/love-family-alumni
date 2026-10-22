@@ -8,6 +8,23 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+$conf = class_exists( 'LFA_Conference' ) ? LFA_Conference::get_conference_by_id( 1 ) : null;
+$year  = '2027';
+$theme = 'Thy Kingdom Come';
+$dates = 'September 16–19, 2027';
+$venue = 'North America Zone (Host City TBA)';
+
+if ( $conf ) {
+	$theme = $conf->theme ?: $theme;
+	$venue = $conf->location_summary ?: $venue;
+	if ( ! empty( $conf->starts_at ) ) {
+		$start_ts = strtotime( $conf->starts_at );
+		$end_ts   = ! empty( $conf->ends_at ) ? strtotime( $conf->ends_at ) : $start_ts;
+		$year     = date( 'Y', $start_ts );
+		$dates    = date_i18n( 'F j', $start_ts ) . '–' . date_i18n( 'j, Y', $end_ts );
+	}
+}
 ?>
 
 <section id="conference-details" class="lfa-conf-overview" aria-labelledby="lfa-conf-overview-title">
@@ -30,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</svg>
 					</div>
 					<span class="lfa-conf-fact__label">Year</span>
-					<strong class="lfa-conf-fact__val">2027</strong>
+					<strong class="lfa-conf-fact__val"><?php echo esc_html( $year ); ?></strong>
 				</div>
 
 				<div class="lfa-conf-fact">
@@ -40,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</svg>
 					</div>
 					<span class="lfa-conf-fact__label">Theme</span>
-					<strong class="lfa-conf-fact__val">Thy Kingdom Come</strong>
+					<strong class="lfa-conf-fact__val"><?php echo esc_html( $theme ); ?></strong>
 				</div>
 
 				<div class="lfa-conf-fact">
@@ -51,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</svg>
 					</div>
 					<span class="lfa-conf-fact__label">Date</span>
-					<strong class="lfa-conf-fact__val">To Be Announced</strong>
+					<strong class="lfa-conf-fact__val"><?php echo esc_html( $dates ); ?></strong>
 				</div>
 
 				<div class="lfa-conf-fact">
@@ -62,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</svg>
 					</div>
 					<span class="lfa-conf-fact__label">Venue</span>
-					<strong class="lfa-conf-fact__val">To Be Announced</strong>
+					<strong class="lfa-conf-fact__val"><?php echo esc_html( $venue ); ?></strong>
 				</div>
 			</div>
 

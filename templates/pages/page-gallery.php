@@ -14,6 +14,17 @@ get_header();
 
 // Centralized static data repository
 $gallery_data = require get_theme_file_path( 'inc/data/demo-gallery.php' );
+$req_album = isset( $_GET['album'] ) ? sanitize_title( wp_unslash( $_GET['album'] ) ) : '';
+
+if ( ! empty( $req_album ) ) {
+	?>
+	<div id="primary" class="lfa-gallery lfa-gallery-album-view" aria-label="Love Family Alumni Album View">
+		<?php get_template_part( 'template-parts/gallery/album-detail', null, [ 'album_slug' => $req_album ] ); ?>
+	</div>
+	<?php
+	get_footer();
+	return;
+}
 ?>
 
 <div id="primary" class="lfa-gallery" aria-label="Love Family Alumni Archives and Photo Gallery">
@@ -26,6 +37,12 @@ $gallery_data = require get_theme_file_path( 'inc/data/demo-gallery.php' );
 
 	// Task 01: Featured Collections (3 Album Cards)
 	get_template_part( 'template-parts/gallery/featured-albums', null, [ 'data' => $gallery_data ] );
+
+	// Historical Timeline (Verified Milestones 2021, 2024, 2025, 2026, 2027)
+	get_template_part( 'template-parts/gallery/historical-timeline', null, [ 'data' => $gallery_data ] );
+
+	// Multimedia & Document Archives (Videos, Documents, Publications)
+	get_template_part( 'template-parts/gallery/media-archives', null, [ 'data' => $gallery_data ] );
 	?>
 </div>
 

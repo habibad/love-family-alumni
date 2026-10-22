@@ -112,8 +112,18 @@ $steps        = $registration['steps'];
 				<div class="register-form-card">
 					<!-- In-browser Alert / Message Box -->
 					<div id="register-alert-box" class="auth-alert-box" aria-live="polite" style="display: none;"></div>
+					<?php
+					if ( class_exists( 'LFA_Core' ) ) {
+						echo LFA_Core::notice_html();
+					}
+					?>
 
-					<form id="lfa-registration-form" class="lfa-auth-form" method="post" action="#" novalidate>
+					<form id="lfa-registration-form" class="lfa-auth-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" novalidate>
+						<input type="hidden" name="action" value="lfa_register_member">
+						<?php wp_nonce_field( 'lfa_register_member', 'lfa_registration_nonce' ); ?>
+						<div style="position:absolute;left:-10000px" aria-hidden="true">
+							<label>Leave this field empty<input type="text" name="lfa_website" tabindex="-1" autocomplete="off"></label>
+						</div>
 						<?php
 						// Step 01: Personal Details
 						get_template_part( 'template-parts/member-auth/registration-step-personal' );

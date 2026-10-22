@@ -8,11 +8,16 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+$viewer_id = get_current_user_id();
+$access_state = class_exists( 'LFA_Payment_Entitlements' ) 
+	? LFA_Payment_Entitlements::get_directory_access_state( $viewer_id ) 
+	: [ 'can_access' => false ];
+$is_locked = ! $access_state['can_access'];
 ?>
 <section class="lfa-biz-search-section" aria-label="Business Search and Filters">
 	<div class="lfa-container">
 		<div class="lfa-biz-search-card">
-			<form id="lfa-biz-filter-form" class="lfa-biz-search-form" onsubmit="return false;">
+			<form id="lfa-biz-filter-form" class="lfa-biz-search-form <?php echo $is_locked ? 'lfa-filters-disabled' : ''; ?>" onsubmit="return false;" <?php echo $is_locked ? 'aria-disabled="true"' : ''; ?>>
 				<!-- Top Row: Keyword Search + Buttons -->
 				<div class="lfa-biz-search-row lfa-biz-search-row--top">
 					<div class="lfa-biz-search-input-wrap">
@@ -25,15 +30,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<input type="text" 
 						       id="lfa-biz-search-input" 
 						       class="lfa-biz-search-input" 
-						       placeholder="Search business name, category, service or location..." 
+						       placeholder="<?php echo $is_locked ? 'Search unlocked for active, paid alumni members...' : 'Search business name, category, service or location...'; ?>" 
 						       aria-label="Search business name, category, service or location"
-						       autocomplete="off">
+						       autocomplete="off"
+						       <?php echo $is_locked ? 'disabled title="Search unlocked for active paid members"' : ''; ?>>
 					</div>
 					<div class="lfa-biz-search-actions">
-						<button type="button" id="lfa-biz-search-btn" class="lfa-biz-btn lfa-biz-btn--search">
+						<button type="button" id="lfa-biz-search-btn" class="lfa-biz-btn lfa-biz-btn--search" <?php echo $is_locked ? 'disabled' : ''; ?>>
 							Search
 						</button>
-						<button type="button" id="lfa-biz-reset-btn" class="lfa-biz-btn lfa-biz-btn--reset">
+						<button type="button" id="lfa-biz-reset-btn" class="lfa-biz-btn lfa-biz-btn--reset" <?php echo $is_locked ? 'disabled' : ''; ?>>
 							<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 								<polyline points="23 4 23 10 17 10"></polyline>
 								<polyline points="1 20 1 14 7 14"></polyline>
@@ -50,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="lfa-biz-filter-group">
 						<label for="lfa-biz-filter-category" class="lfa-biz-filter-label">Business Category</label>
 						<div class="lfa-biz-select-wrap">
-							<select id="lfa-biz-filter-category" class="lfa-biz-select">
+							<select id="lfa-biz-filter-category" class="lfa-biz-select" <?php echo $is_locked ? 'disabled' : ''; ?>>
 								<option value="">All Categories</option>
 								<option value="Technology & IT">Technology & IT</option>
 								<option value="Healthcare & Wellness">Healthcare & Wellness</option>
@@ -71,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="lfa-biz-filter-group">
 						<label for="lfa-biz-filter-country" class="lfa-biz-filter-label">Country</label>
 						<div class="lfa-biz-select-wrap">
-							<select id="lfa-biz-filter-country" class="lfa-biz-select">
+							<select id="lfa-biz-filter-country" class="lfa-biz-select" <?php echo $is_locked ? 'disabled' : ''; ?>>
 								<option value="">All Countries</option>
 								<option value="United States">United States</option>
 								<option value="Canada">Canada</option>
@@ -86,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="lfa-biz-filter-group">
 						<label for="lfa-biz-filter-city" class="lfa-biz-filter-label">City / State</label>
 						<div class="lfa-biz-select-wrap">
-							<select id="lfa-biz-filter-city" class="lfa-biz-select">
+							<select id="lfa-biz-filter-city" class="lfa-biz-select" <?php echo $is_locked ? 'disabled' : ''; ?>>
 								<option value="">All Locations</option>
 								<option value="Atlanta">Atlanta</option>
 								<option value="Chicago">Chicago</option>
@@ -108,7 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="lfa-biz-filter-group">
 						<label for="lfa-biz-filter-sort" class="lfa-biz-filter-label">Sort By</label>
 						<div class="lfa-biz-select-wrap">
-							<select id="lfa-biz-filter-sort" class="lfa-biz-select">
+							<select id="lfa-biz-filter-sort" class="lfa-biz-select" <?php echo $is_locked ? 'disabled' : ''; ?>>
 								<option value="recent">Recently Added</option>
 								<option value="az">Name: A to Z</option>
 								<option value="za">Name: Z to A</option>

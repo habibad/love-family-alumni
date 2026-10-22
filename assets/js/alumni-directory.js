@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	const directoryWrapper = document.querySelector('.lfa-directory');
 	if (!directoryWrapper) return;
 
+	if (document.querySelector('.lfa-directory-locked-container')) {
+		return;
+	}
+
 	// Filter Form Controls
 	const filterForm    = document.getElementById('alumni-directory-filter-form');
 	const searchInput   = document.getElementById('directory-search-input');

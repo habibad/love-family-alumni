@@ -642,3 +642,245 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+/* ==========================================================================
+   06. Media Archives & Accessible Preview Modal
+   ========================================================================== */
+.lfa-media-archives-section {
+	padding: 88px 0;
+	background: #F8FAFC;
+	border-top: 1px solid #E2E8F0;
+}
+
+.lfa-archive-column {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0;
+	border-radius: 14px;
+	padding: 28px;
+	box-shadow: 0 4px 16px rgba(10, 32, 58, 0.04);
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.lfa-archive-column:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 24px rgba(10, 32, 58, 0.08);
+	border-color: #CBD5E1;
+}
+
+.lfa-archive-card {
+	background: #F8FAFC;
+	border: 1px solid #E2E8F0;
+	border-radius: 10px;
+	padding: 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	transition: all 0.2s ease;
+}
+
+.lfa-archive-card:hover {
+	background: #FFFFFF;
+	border-color: #C6933D;
+	box-shadow: 0 4px 12px rgba(198, 147, 61, 0.08);
+}
+
+.lfa-archive-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 14px;
+	font-size: 0.8rem;
+	font-weight: 700;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	text-decoration: none;
+}
+
+.lfa-archive-btn--crimson {
+	background: #AB1640;
+	color: #FFFFFF !important;
+}
+
+.lfa-archive-btn--crimson:hover {
+	background: #8E1133;
+	transform: translateX(2px);
+}
+
+.lfa-archive-btn--navy {
+	background: #0A203A;
+	color: #FFFFFF !important;
+}
+
+.lfa-archive-btn--navy:hover {
+	background: #153258;
+	transform: translateX(2px);
+}
+
+.lfa-archive-btn--blue {
+	background: #1E40AF;
+	color: #FFFFFF !important;
+}
+
+.lfa-archive-btn--blue:hover {
+	background: #1E3A8A;
+	transform: translateX(2px);
+}
+
+/* Modal Overlay & Card */
+.lfa-media-modal-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(10, 32, 58, 0.75);
+	backdrop-filter: blur(6px);
+	z-index: 99999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.25s ease;
+}
+
+.lfa-media-modal-backdrop.is-open {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.lfa-media-modal {
+	background: #FFFFFF;
+	border-radius: 16px;
+	width: 100%;
+	max-width: 720px;
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	box-shadow: 0 24px 60px rgba(10, 32, 58, 0.35);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transform: scale(0.95);
+	transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lfa-media-modal-backdrop.is-open .lfa-media-modal {
+	transform: scale(1);
+}
+
+.lfa-media-modal-header {
+	background: #0A203A;
+	color: #FFFFFF;
+	padding: 20px 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid #C6933D;
+}
+
+.lfa-media-modal-body {
+	padding: 24px;
+	overflow-y: auto;
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: #334155;
+	line-height: 1.6;
+}
+
+.lfa-media-modal-footer {
+	padding: 16px 24px;
+	background: #F8FAFC;
+	border-top: 1px solid #E2E8F0;
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+.lfa-media-close-btn {
+	background: rgba(255, 255, 255, 0.15);
+	border: none;
+	color: #FFFFFF;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.25rem;
+	cursor: pointer;
+	transition: background 0.2s ease;
+}
+
+.lfa-media-close-btn:hover {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+/* Player / Reader Previews */
+.lfa-sim-player {
+	background: #061630;
+	border-radius: 12px;
+	aspect-ratio: 16 / 9;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	color: #FFFFFF;
+	box-shadow: inset 0 0 40px rgba(0,0,0,0.6);
+	margin-bottom: 20px;
+}
+
+.lfa-sim-doc {
+	background: #F8FAFC;
+	border: 1px solid #CBD5E1;
+	border-radius: 8px;
+	padding: 24px;
+	min-height: 240px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   07. Album Detail & Accessible Photo Lightbox (Task 04)
+   ========================================================================== */
+.lfa-photo-card:hover .lfa-photo-card__media img {
+	transform: scale(1.04);
+}
+
+.lfa-photo-card:hover {
+	box-shadow: 0 10px 25px rgba(10, 32, 58, 0.08);
+	border-color: #CBD5E1;
+}
+
+.lfa-open-lightbox-btn:focus-visible,
+.lfa-tl-filter-btn:focus-visible,
+#lightbox-close-btn:focus-visible,
+#lightbox-prev-btn:focus-visible,
+#lightbox-next-btn:focus-visible {
+	outline: 2px solid #E5C170;
+	outline-offset: 2px;
+}
+
+#lightbox-prev-btn:hover,
+#lightbox-next-btn:hover {
+	background: rgba(171, 22, 64, 0.9) !important;
+}
+
+@media (max-width: 768px) {
+	.lfa-album-header {
+		padding: 24px 18px !important;
+	}
+	.lfa-album-header h1 {
+		font-size: 1.8rem !important;
+	}
+	.lfa-lightbox-container {
+		max-height: 95vh !important;
+	}
+}
+
+

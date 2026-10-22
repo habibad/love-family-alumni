@@ -1,0 +1,247 @@
+/* Love Family Alumni — Public Header Profile Dropdown (Phase 07) */
+.lfa-profile-menu-root {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-family: inherit;
+    z-index: 1000;
+}
+
+.lfa-profile-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #d5dfea;
+    border-radius: 999px;
+    padding: 4px 14px 4px 4px;
+    min-height: 40px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: #071d3e;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(7, 29, 62, 0.05);
+}
+
+.lfa-profile-trigger:hover,
+.lfa-profile-trigger[aria-expanded="true"] {
+    border-color: #0d284e;
+    background: #f8fafc;
+    box-shadow: 0 2px 8px rgba(7, 29, 62, 0.09);
+}
+
+.lfa-profile-trigger:focus-visible {
+    outline: 2px solid #c6953d;
+    outline-offset: 2px;
+}
+
+.lfa-profile-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    color: #0f274a;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.lfa-profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lfa-profile-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0a2540;
+}
+
+.lfa-profile-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    color: #64748b;
+    transition: transform 0.2s ease;
+    margin-left: 2px;
+}
+
+.lfa-profile-trigger[aria-expanded="true"] .lfa-profile-chevron {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Popover */
+.lfa-profile-popover {
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 10050;
+    width: 280px;
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 16px 36px -4px rgba(15, 39, 74, 0.16), 0 4px 12px rgba(15, 39, 74, 0.06);
+    padding: 8px;
+    transform-origin: top right;
+    animation: lfaPopoverFadeIn 0.15s ease-out;
+}
+
+.lfa-profile-popover[hidden] {
+    display: none !important;
+}
+
+@keyframes lfaPopoverFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* User Card in Dropdown */
+.lfa-profile-user-card {
+    padding: 12px 14px 14px 14px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.lfa-profile-user-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+}
+
+.lfa-profile-user-email {
+    font-size: 12px;
+    color: #64748b;
+    word-break: break-all;
+    line-height: 1.3;
+}
+
+.lfa-profile-role-badge {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: #e9f6ef;
+    color: #167a4a;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.lfa-profile-role-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #167a4a;
+}
+
+/* Menu Links */
+.lfa-profile-menu-list {
+    display: flex;
+    flex-direction: column;
+    padding: 6px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.lfa-profile-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: #334155;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    line-height: 1.2;
+}
+
+.lfa-profile-item:hover,
+.lfa-profile-item:focus-visible {
+    background: #f8fafc;
+    color: #0f172a;
+    outline: none;
+}
+
+.lfa-profile-item .lfa-item-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lfa-profile-item:hover .lfa-item-icon {
+    color: #0f274a;
+}
+
+.lfa-profile-divider {
+    height: 1px;
+    background: #f1f5f9;
+    margin: 4px 6px;
+}
+
+/* Logout Item */
+.lfa-profile-item-logout {
+    color: #dc2626 !important;
+    font-weight: 600;
+}
+
+.lfa-profile-item-logout .lfa-item-icon {
+    color: #dc2626 !important;
+}
+
+.lfa-profile-item-logout:hover,
+.lfa-profile-item-logout:focus-visible {
+    background: #fef2f2 !important;
+    color: #b91c1c !important;
+}
+
+/* Tablet & Mobile Adjustments (768px & 390px) */
+@media (max-width: 768px) {
+    .lfa-profile-popover {
+        right: 0;
+        width: 290px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lfa-profile-popover {
+        right: -8px;
+        width: min(290px, calc(100vw - 20px));
+        max-height: 70vh;
+    }
+    .lfa-profile-trigger {
+        padding: 3px 10px 3px 3px;
+        font-size: 13px;
+    }
+}

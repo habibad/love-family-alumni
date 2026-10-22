@@ -20,11 +20,11 @@ $portal_features = function_exists( 'lfa_get_portal_preview_features' ) ? lfa_ge
 			<h2 class="membership-section-title">The Member Portal Experience</h2>
 			<div class="membership-title-divider" aria-hidden="true"></div>
 			<p class="membership-section-lead">
-				When fully launched, the Love Family North America digital portal will serve as your centralized hub for credentials, conference registration, networking, and diaspora engagement.
+				The Love Family North America Member Portal serves as your authenticated dashboard for credentials, conference registration, networking, welfare support, and diaspora engagement.
 			</p>
 			<div class="portal-demo-disclaimer">
-				<span class="disclaimer-badge">STATIC ARCHITECTURE PREVIEW</span>
-				<span class="disclaimer-note">The features below showcase the planned member dashboard modules currently in frontend development.</span>
+				<span class="disclaimer-badge" style="background:#0F172A;color:#C6933D;font-weight:700;">AUTHENTICATED APPLICATION</span>
+				<span class="disclaimer-note">All modules below are connected to your authoritative alumni profile and database ledgers.</span>
 			</div>
 		</div>
 
@@ -66,7 +66,7 @@ $portal_features = function_exists( 'lfa_get_portal_preview_features' ) ? lfa_ge
 							}
 							?>
 						</div>
-						<span class="portal-card-tag">Planned Module</span>
+						<span class="portal-card-tag">Portal Service</span>
 					</div>
 
 					<div class="portal-card-body">
@@ -76,8 +76,8 @@ $portal_features = function_exists( 'lfa_get_portal_preview_features' ) ? lfa_ge
 
 					<div class="portal-card-footer">
 						<span class="portal-status-text">
-							<span class="portal-status-dot" aria-hidden="true"></span>
-							In Phase Development
+							<span class="portal-status-dot" aria-hidden="true" style="background:#10B981;"></span>
+							Active Portal Service
 						</span>
 					</div>
 				</div>
@@ -88,12 +88,18 @@ $portal_features = function_exists( 'lfa_get_portal_preview_features' ) ? lfa_ge
 		<div class="portal-login-cta">
 			<div class="portal-login-cta-content">
 				<h4 class="login-cta-title">Already registered as an Alumni Member?</h4>
-				<p class="login-cta-desc">Direct account authentication will open following the completion of backend security audits.</p>
+				<p class="login-cta-desc">Access your dedicated member dashboard, annual dues statements, conference registrations, and alumni profile.</p>
 			</div>
 			<div class="portal-login-cta-action">
-				<a href="<?php echo esc_url( home_url( '/member-login/' ) ); ?>" class="btn btn-outline-gold">
-					<span>Member Login Information</span>
-				</a>
+				<?php if ( is_user_logged_in() ) : ?>
+					<a href="<?php echo esc_url( home_url( '/member-dashboard/' ) ); ?>" class="btn btn-crimson">
+						<span>Open Member Dashboard &rarr;</span>
+					</a>
+				<?php else : ?>
+					<a href="<?php echo esc_url( home_url( '/member-login/' ) ); ?>" class="btn btn-outline-gold">
+						<span>Member Sign In &rarr;</span>
+					</a>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

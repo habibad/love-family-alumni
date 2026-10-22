@@ -30,8 +30,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	const modal = document.getElementById( 'contact-review-modal' );
 	const modalBackdrop = document.getElementById( 'contact-modal-backdrop' );
 	const modalCloseX = document.getElementById( 'contact-modal-close-x' );
-	const modalDoneBtn = document.getElementById( 'contact-modal-done-btn' );
+	const modalConfirmSendBtn = document.getElementById( 'contact-modal-confirm-send-btn' );
 	const modalEditBtn = document.getElementById( 'contact-modal-edit-btn' );
+	const statusBox = document.getElementById( 'contact-status-box' );
 
 	// Modal Value Display Elements
 	const modalValName = document.getElementById( 'modal-val-name' );
@@ -182,7 +183,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		if ( ! modal ) return;
 		modal.removeAttribute( 'hidden' );
 		document.body.style.overflow = 'hidden';
-		if ( modalDoneBtn ) modalDoneBtn.focus();
+		if ( modalConfirmSendBtn ) modalConfirmSendBtn.focus();
 	}
 
 	function closeModal() {
@@ -192,13 +193,65 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	}
 
 	if ( modalCloseX ) modalCloseX.addEventListener( 'click', closeModal );
-	if ( modalDoneBtn ) modalDoneBtn.addEventListener( 'click', closeModal );
 	if ( modalBackdrop ) modalBackdrop.addEventListener( 'click', closeModal );
 
 	if ( modalEditBtn ) {
 		modalEditBtn.addEventListener( 'click', function () {
 			closeModal();
 			if ( inputName ) inputName.focus();
+		} );
+	}
+
+	if ( modalConfirmSendBtn ) {
+		modalConfirmSendBtn.addEventListener( 'click', function () {
+			modalConfirmSendBtn.disabled = true;
+			const origHtml = modalConfirmSendBtn.innerHTML;
+			modalConfirmSendBtn.innerHTML = '<span>Transmitting message...</span>';
+
+			const formData = new FormData( form );
+			formData.append( 'action', 'lfa_contact_submit' );
+			if ( window.lfaContactData && window.lfaContactData.nonce ) {
+				formData.set( 'lfa_contact_nonce', window.lfaContactData.nonce );
+			}
+
+			const targetUrl = ( window.lfaContactData && window.lfaContactData.ajaxUrl ) ? window.lfaContactData.ajaxUrl : form.action;
+
+			fetch( targetUrl, {
+				method: 'POST',
+				body: formData,
+			} )
+			.then( function ( res ) { return res.json(); } )
+			.then( function ( data ) {
+				closeModal();
+				modalConfirmSendBtn.disabled = false;
+				modalConfirmSendBtn.innerHTML = origHtml;
+
+				if ( data.success ) {
+					form.reset();
+					if ( charCurrent ) charCurrent.textContent = '0';
+					if ( statusBox ) {
+						statusBox.style.display = 'block';
+						statusBox.innerHTML = '<div style="background:#ECFDF5;border:1px solid #10B981;color:#065F46;border-radius:8px;padding:1.25rem;"><h4 style="margin:0 0 0.5rem;font-size:1.1rem;color:#047857;font-weight:700;">Message Successfully Delivered</h4><p style="margin:0;">' + ( data.data && data.data.message ? data.data.message : 'Thank you! Your message has been sent successfully.' ) + '</p></div>';
+						statusBox.scrollIntoView( { behavior: 'smooth', block: 'center' } );
+					}
+				} else {
+					if ( statusBox ) {
+						statusBox.style.display = 'block';
+						statusBox.innerHTML = '<div style="background:#FEF2F2;border:1px solid #EF4444;color:#991B1B;border-radius:8px;padding:1.25rem;"><h4 style="margin:0 0 0.5rem;font-size:1.1rem;color:#B91C1C;font-weight:700;">Submission Notice</h4><p style="margin:0;">' + ( data.data && data.data.message ? data.data.message : 'Unable to transmit message. Please try again.' ) + '</p></div>';
+						statusBox.scrollIntoView( { behavior: 'smooth', block: 'center' } );
+					}
+				}
+			} )
+			.catch( function () {
+				closeModal();
+				modalConfirmSendBtn.disabled = false;
+				modalConfirmSendBtn.innerHTML = origHtml;
+				if ( statusBox ) {
+					statusBox.style.display = 'block';
+					statusBox.innerHTML = '<div style="background:#FEF2F2;border:1px solid #EF4444;color:#991B1B;border-radius:8px;padding:1.25rem;"><h4 style="margin:0 0 0.5rem;font-size:1.1rem;color:#B91C1C;font-weight:700;">Connection Error</h4><p style="margin:0;">Could not reach the server. Please check your internet connection or email us directly.</p></div>';
+					statusBox.scrollIntoView( { behavior: 'smooth', block: 'center' } );
+				}
+			} );
 		} );
 	}
 
