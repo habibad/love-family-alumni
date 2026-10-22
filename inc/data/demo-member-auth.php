@@ -83,8 +83,8 @@ return [
 			3 => [
 				'id'    => 'membership',
 				'num'   => '03',
-				'title' => 'Membership Selection',
-				'desc'  => 'Annual membership package and directory privacy',
+				'title' => 'Privacy & Preferences',
+				'desc'  => 'Directory privacy and account preferences',
 			],
 			4 => [
 				'id'    => 'review',

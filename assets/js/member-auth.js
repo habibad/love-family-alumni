@@ -461,13 +461,13 @@
 				if (sumRowIntro) sumRowIntro.style.display = 'none';
 			}
 
-			// Section 3: Membership & Privacy
+			// Section 3: Account & Privacy
 			const sumTier = $('#sum-tier');
 			const sumDues = $('#sum-dues');
 			const sumRowSpouse = $('#sum-row-spouse');
 
-			if (sumTier) sumTier.textContent = 'Annual Membership ($100/year)';
-			if (sumDues) sumDues.textContent = '$100.00 USD / Year (Payable upon administrator account approval)';
+			if (sumTier) sumTier.textContent = 'Free General User Account';
+			if (sumDues) sumDues.textContent = 'Optional ($100/yr upgrade available post-registration)';
 			if (sumRowSpouse) sumRowSpouse.style.display = 'none';
 
 			// Privacy

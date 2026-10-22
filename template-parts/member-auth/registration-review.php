@@ -114,14 +114,14 @@ $brand     = $auth_data['brand'];
 			</div>
 		</div>
 
-		<!-- Section 3: Membership Category & Privacy Summary -->
+		<!-- Section 3: Account Type & Privacy Summary -->
 		<div class="summary-section-card" id="summary-card-membership">
 			<div class="summary-card-header">
 				<div class="summary-title-group">
 					<span class="summary-num">03</span>
-					<h4 class="summary-heading">Membership &amp; Directory Privacy</h4>
+					<h4 class="summary-heading">Account &amp; Directory Privacy</h4>
 				</div>
-				<button type="button" class="btn-review-edit" data-target-step="3" aria-label="Edit Membership & Privacy">
+				<button type="button" class="btn-review-edit" data-target-step="3" aria-label="Edit Account & Privacy">
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
 					<span>Edit</span>
 				</button>
@@ -129,12 +129,12 @@ $brand     = $auth_data['brand'];
 			<div class="summary-card-body">
 				<dl class="summary-dl">
 					<div class="summary-row">
-						<dt>Membership Package:</dt>
-						<dd id="sum-tier" class="highlight-val">Annual Membership ($100/year)</dd>
+						<dt>Account Type:</dt>
+						<dd id="sum-tier" class="highlight-val">Free General User Account</dd>
 					</div>
 					<div class="summary-row">
-						<dt>Dues Schedule:</dt>
-						<dd id="sum-dues">$100.00 USD / Year (Payable upon administrator account approval)</dd>
+						<dt>Paid Membership:</dt>
+						<dd id="sum-dues">Optional ($100/yr upgrade available post-registration)</dd>
 					</div>
 					<div class="summary-row">
 						<dt>Directory Privacy:</dt>
@@ -145,7 +145,7 @@ $brand     = $auth_data['brand'];
 		</div>
 	</div>
 
-	<!-- Membership Registration & Verification Notice -->
+	<!-- Account Registration & Verification Notice -->
 	<div class="auth-demo-banner banner-prominent" role="status">
 		<div class="demo-banner-icon icon-prominent" aria-hidden="true">
 			<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -153,9 +153,9 @@ $brand     = $auth_data['brand'];
 			</svg>
 		</div>
 		<div class="demo-banner-text">
-			<strong class="banner-strong-title">Official Membership Verification Process</strong>
+			<strong class="banner-strong-title">General User Account Verification</strong>
 			<p class="banner-body-text">
-				Upon submission, your account will be created in pending status. You will receive an email verification link. Following email confirmation, zonal administrators will review and approve your membership. No membership dues are charged at this step.
+				Upon submission, your free general account will be created. A verification link will be sent to your email. Following email verification, you can immediately log in to your General User Dashboard. No payment or dues are charged for account creation.
 			</p>
 		</div>
 	</div>

@@ -19,8 +19,8 @@ $affiliations    = $auth_data['registration']['affiliations'];
 	<div class="step-header">
 		<div class="step-header-main">
 			<span class="step-badge">STEP 03 OF 04</span>
-			<h2 class="step-title">Membership Package &amp; Privacy</h2>
-			<p class="step-desc">Your membership includes full access to the Alumni Directory, Business Directory, and Zonal Conference eligibility for $100/year.</p>
+			<h2 class="step-title">Account Preferences &amp; Privacy</h2>
+			<p class="step-desc">Configure your directory visibility and privacy options. Free General User registration allows immediate account creation; paid membership ($100/yr) can be upgraded from the Membership page.</p>
 		</div>
 		<div class="step-header-meta" aria-hidden="true">
 			<span class="meta-pill">
@@ -34,61 +34,21 @@ $affiliations    = $auth_data['registration']['affiliations'];
 		</div>
 	</div>
 
-	<!-- Membership Package Card (Single Package) -->
+	<!-- Account Tier Notice: Free General User Account -->
 	<div class="form-group mb-6" id="group-reg-tier">
-		<label class="form-label mb-3">
-			<span>Membership Package</span>
-		</label>
-
-		<div class="membership-tier-cards-grid" style="grid-template-columns: 1fr;">
-			<!-- Annual Membership -->
-			<label class="tier-selection-card selected" for="tier_individual" id="card-tier-individual" style="cursor: default;">
-				<input type="radio" 
-				       name="membership_tier" 
-				       id="tier_individual" 
-				       value="individual" 
-				       checked 
-				       class="tier-radio-input"
-				       style="display:none;">
-				<div class="tier-card-inner">
-					<div class="tier-card-header">
-						<div class="tier-badge-pill">Annual Membership &mdash; $100/year</div>
-						<div class="tier-radio-check" aria-hidden="true" style="background:#137333;border-color:#137333;">
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-						</div>
-					</div>
-					<h4 class="tier-title">Annual Membership</h4>
-					<p class="tier-target">Official membership for Love Family / UNIBEN alumni in North America.</p>
-					
-					<div class="tier-dues-box">
-						<span class="dues-amount">$100 / Year</span>
-						<span class="dues-schedule">One Year Validity from Payment</span>
-					</div>
-
-					<p class="tier-note-disclaimer">
-						Annual membership dues ($100.00 USD). Dues are payable after administrator account verification and approval.
+		<input type="hidden" name="membership_tier" id="tier_general" value="general">
+		<input type="hidden" name="membership_type" value="general">
+		<div style="background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #0f2942;border-radius:8px;padding:16px 20px;">
+			<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+				<div>
+					<span style="font-size:11px;font-weight:700;color:#0f2942;letter-spacing:0.5px;text-transform:uppercase;">Account Type</span>
+					<h4 style="margin:2px 0 4px 0;font-size:16px;color:#0f172a;font-weight:700;">Free General User Account</h4>
+					<p style="margin:0;font-size:13px;color:#64748b;line-height:1.4;">
+						Registration creates a free general user account. Paid membership ($100/year) is purchased separately from the Membership page.
 					</p>
-
-					<ul class="tier-benefits-list">
-						<li>
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-							<span>Official digital Alumni ID verification</span>
-						</li>
-						<li>
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-							<span>Full North America Alumni Directory access</span>
-						</li>
-						<li>
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-							<span>North America Business Directory access &amp; listings</span>
-						</li>
-						<li>
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-							<span>Eligibility for North America Zonal Conference registration</span>
-						</li>
-					</ul>
 				</div>
-			</label>
+				<span class="badge" style="background:#e0f2fe;color:#0369a1;font-weight:700;padding:4px 10px;border-radius:20px;font-size:12px;">NO PAYMENT REQUIRED</span>
+			</div>
 		</div>
 	</div>
 

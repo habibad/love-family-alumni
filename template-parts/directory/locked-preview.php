@@ -37,10 +37,11 @@ if (empty($current_url)) {
     $current_url = $type === 'business' ? home_url('/business-directory/') : home_url('/alumni-directory/');
 }
 
-$login_url    = home_url('/member-login/?redirect_to=' . urlencode($current_url));
-$register_url = home_url('/member-register/');
-$dash_url     = home_url('/member-dashboard/');
-$dues_url     = home_url('/member-dashboard/#dues');
+$login_url      = home_url('/member-login/?redirect_to=' . urlencode($current_url));
+$register_url   = home_url('/member-register/');
+$dash_url       = home_url('/member-dashboard/');
+$dues_url       = home_url('/member-dashboard/#dues');
+$membership_url = home_url('/membership/');
 
 // Prompt-specified Copy
 if ($type === 'business') {
@@ -112,6 +113,9 @@ if ($type === 'business') {
                 </div>
                 <p class="lfa-lock-subtext">Your alumnus verification request is currently under review by our executive committee. You will be notified once approved.</p>
                 <div class="lfa-btn-subgroup">
+                    <a href="<?php echo esc_url($membership_url); ?>" class="lfa-btn-primary" id="lfa-btn-view-membership">
+                        <span>Unlock Directory &mdash; Become a Member</span>
+                    </a>
                     <a href="<?php echo esc_url($dash_url); ?>" class="lfa-btn-secondary" id="lfa-btn-my-dashboard">
                         <span>Go to Member Dashboard &rarr;</span>
                     </a>
@@ -124,8 +128,8 @@ if ($type === 'business') {
                     <strong>Membership Expired</strong>
                 </div>
                 <p class="lfa-lock-subtext">Your annual membership dues have lapsed. Renew your $100 annual membership to restore full directory access and community privileges.</p>
-                <a href="<?php echo esc_url($dues_url); ?>" class="lfa-btn-primary" id="lfa-btn-renew-membership">
-                    <span>Renew Membership ($100/yr)</span>
+                <a href="<?php echo esc_url($membership_url); ?>" class="lfa-btn-primary" id="lfa-btn-renew-membership">
+                    <span>Renew Membership to Restore Access ($100/yr)</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <polyline points="23 4 23 10 17 10"></polyline>
                         <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
@@ -136,9 +140,9 @@ if ($type === 'business') {
                 </a>
 
             <?php else : ?>
-                <!-- State 5: Logged In — Approved but Unpaid ($100 Annual Dues Required) -->
-                <a href="<?php echo esc_url($dues_url); ?>" class="lfa-btn-primary" id="lfa-btn-pay-dues">
-                    <span>Pay $100 Annual Dues</span>
+                <!-- State 5: Logged In General User / Approved but Unpaid -->
+                <a href="<?php echo esc_url($membership_url); ?>" class="lfa-btn-primary" id="lfa-btn-pay-dues">
+                    <span>Unlock Directory &mdash; Become a Member</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                         <line x1="1" y1="10" x2="23" y2="10"></line>

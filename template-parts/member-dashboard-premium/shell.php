@@ -13,6 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! is_user_logged_in() ) {
+	wp_safe_redirect( home_url( '/member-login/?redirect_to=' . urlencode( home_url( '/member-dashboard/' ) ) ) );
+	exit;
+}
+
 $current_user = wp_get_current_user();
 $uid = $current_user ? (int) $current_user->ID : 0;
 
@@ -98,6 +103,15 @@ foreach ( $lfa_invoices as $inv ) {
     if ( $inv->status === 'unpaid' ) {
         $active_unpaid_inv = $inv;
         break;
+    }
+}
+
+// If user is approved alumnus and unpaid, but no unpaid invoice exists yet, generate/retrieve the $100 dues invoice
+if ( ! $active_unpaid_inv && $is_approved && ! $is_full_member && class_exists( 'LFA_Membership' ) && $uid > 0 ) {
+    $purchase_res = LFA_Membership::purchase_membership( $uid );
+    if ( ! empty( $purchase_res['success'] ) && ! empty( $purchase_res['invoice'] ) ) {
+        $active_unpaid_inv = $purchase_res['invoice'];
+        $lfa_invoices = LFA_Membership::get_invoices_for_user( $uid );
     }
 }
 
@@ -259,20 +273,35 @@ if ( $site_logo_id ) {
             </div>
           </div>
         </div>
-      <?php elseif ( $is_approved && ! $is_full_member ) : ?>
-        <div class="lfa-unpaid-alert" style="background:#fffbeb;border:1px solid #fde68a;border-left:5px solid #d97706;border-radius:10px;padding:20px 24px;margin-bottom:24px;box-shadow:0 2px 4px rgba(0,0,0,0.02);">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-            <div style="display:flex;align-items:flex-start;gap:14px;max-width:760px;">
-              <span style="font-size:24px;line-height:1;margin-top:2px;">⚠️</span>
-              <div>
-                <h3 style="margin:0 0 6px 0;font-size:16px;color:#92400e;font-weight:700;letter-spacing:-0.2px;">Membership Payment Required &mdash; Annual Dues ($100.00 USD)</h3>
-                <p style="margin:0 0 8px 0;font-size:14px;color:#78350f;line-height:1.5;">Your alumni account has been approved by the Administrator. However, in accordance with the <strong>North America Zone Membership Access Policy</strong>, access to member benefits (including private Alumni Directory records, business registrations, scholarships, and members-only conference tickets) requires settled annual Membership dues.</p>
-                <span style="display:inline-block;font-size:12px;font-weight:600;color:#92400e;background:#fef3c7;padding:3px 8px;border-radius:4px;border:1px solid #fde68a;">Action Required: Complete your $100 annual dues invoice to immediately unlock all member privileges.</span>
+      <?php elseif ( ! $is_full_member ) : ?>
+        <div class="lfa-general-welcome-card" style="background:#f8fafc;border:1px solid #e2e8f0;border-left:5px solid #0F2942;border-radius:12px;padding:24px 28px;margin-bottom:28px;box-shadow:0 4px 12px rgba(15,41,66,0.04);">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+            <div style="max-width:720px;">
+              <div style="display:inline-flex;align-items:center;gap:6px;background:#e0f2fe;color:#0369a1;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:10px;">
+                <span>FREE GENERAL USER ACCOUNT</span>
+              </div>
+              <h2 style="margin:0 0 8px 0;font-size:22px;color:#0F2942;font-weight:800;letter-spacing:-0.3px;">Welcome to Love Family Alumni</h2>
+              <p style="margin:0 0 16px 0;font-size:15px;color:#334155;line-height:1.6;">
+                Your account has been created successfully. Become an active member to unlock our alumni directory, business network, conference registration and other member-exclusive benefits.
+              </p>
+              <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;">
+                <a href="<?php echo esc_url( home_url( '/membership/' ) ); ?>" class="button-dark" style="background:#AB1640;border-color:#8e1235;color:#fff;padding:12px 24px;font-size:14px;font-weight:700;text-decoration:none;border-radius:6px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 2px 6px rgba(171,22,64,0.25);">
+                  <span>Become a Member &mdash; $100/year</span> &rarr;
+                </a>
+                <a href="<?php echo esc_url( home_url( '/membership/#membership-benefits' ) ); ?>" class="button-outline" style="padding:12px 20px;font-size:14px;font-weight:600;text-decoration:none;border-radius:6px;display:inline-flex;align-items:center;gap:8px;">
+                  Explore Membership Benefits
+                </a>
               </div>
             </div>
-            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
-              <button class="button-dark" type="button" data-go="dues" style="background:#d97706;border-color:#b45309;padding:10px 20px;font-size:14px;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(217,119,6,0.2);">Pay Annual Dues Now &rarr;</button>
-              <span style="font-size:11px;color:#92400e;">Instant automatic unlocking upon payment</span>
+            <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px;min-width:240px;box-shadow:0 2px 4px rgba(0,0,0,0.02);">
+              <span style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.5px;">Annual Membership</span>
+              <div style="font-size:24px;font-weight:800;color:#0F2942;margin:4px 0;">$100.00 <span style="font-size:13px;font-weight:500;color:#64748b;">/ year</span></div>
+              <ul style="margin:8px 0 0 0;padding:0;list-style:none;font-size:12px;color:#475569;display:flex;flex-direction:column;gap:6px;">
+                <li>✓ Full Alumni Directory</li>
+                <li>✓ Business Directory &amp; Listings</li>
+                <li>✓ Zonal Conference Registration</li>
+                <li>✓ 1-Year UTC Entitlement</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -281,13 +310,31 @@ if ( $site_logo_id ) {
       <div class="kpi-grid">
         <article class="metric">
           <div class="metric-head"><span>Account Standing</span><span class="metric-icon wine" data-icon="shield"></span></div>
-          <div class="metric-main"><?php echo esc_html( ucfirst( $account_status ) ); ?></div>
-          <div class="metric-foot"><span class="small-pill" style="background:#e6f4ea;color:#137333;">APPROVED</span> <span>Verified alumni member</span></div>
+          <div class="metric-main">
+            <?php 
+            if ( $is_full_member ) {
+                echo 'Active Member';
+            } elseif ( $dues_standing === 'expired' ) {
+                echo 'Expired Member';
+            } else {
+                echo 'General User';
+            }
+            ?>
+          </div>
+          <div class="metric-foot">
+            <?php if ( $is_full_member ) : ?>
+              <span class="small-pill" style="background:#e6f4ea;color:#137333;">ACTIVE</span> <span>Verified alumni member</span>
+            <?php elseif ( $is_approved ) : ?>
+              <span class="small-pill" style="background:#e0f2fe;color:#0369a1;">ALUMNI APPROVED</span> <span>General account</span>
+            <?php else : ?>
+              <span class="small-pill soft">GENERAL ACCOUNT</span> <span>Alumni review pending</span>
+            <?php endif; ?>
+          </div>
         </article>
         <article class="metric">
           <div class="metric-head"><span>Alumni ID</span><span class="metric-icon blue" data-icon="badge"></span></div>
           <div class="metric-main" style="font-size:1.15rem;"><?php echo esc_html( $alumni_id ); ?></div>
-          <div class="metric-foot"><span class="small-pill soft">ASSIGNED</span> <span>North America Zone ID</span></div>
+          <div class="metric-foot"><span class="small-pill soft"><?php echo !empty($alumni_id) && $alumni_id !== 'Pending Assignment' ? 'ASSIGNED' : 'PENDING'; ?></span> <span>North America Zone ID</span></div>
         </article>
         <article class="metric">
           <div class="metric-head"><span>Membership &amp; Dues</span><span class="metric-icon gold" data-icon="wallet"></span></div>
@@ -298,7 +345,7 @@ if ( $site_logo_id ) {
             } elseif ( $dues_standing === 'expired' ) {
                 echo 'Expired';
             } else {
-                echo 'Unpaid';
+                echo 'Not Activated';
             }
             ?>
           </div>
@@ -310,8 +357,7 @@ if ( $site_logo_id ) {
               <span class="small-pill soft" style="background:#fee2e2;color:#991b1b;font-weight:700;">RENEWAL REQUIRED</span>
               <span><?php echo !empty($ends_at) ? 'Expired on ' . esc_html( wp_date( get_option('date_format'), strtotime($ends_at) ) ) : 'Expired'; ?></span>
             <?php else : ?>
-              <span class="small-pill soft" style="background:#fee2e2;color:#991b1b;font-weight:700;">$100.00 DUE</span>
-              <span><?php echo $stripe_ready ? 'Stripe Test Ready' : ( $paypal_ready ? 'PayPal Sandbox' : 'Gateway Pending' ); ?></span>
+              <a href="<?php echo esc_url( home_url( '/membership/' ) ); ?>" style="color:#0369a1;text-decoration:none;font-weight:700;font-size:11px;">$100/YR UPGRADE &rarr;</a>
             <?php endif; ?>
           </div>
         </article>
@@ -324,7 +370,7 @@ if ( $site_logo_id ) {
             <?php elseif ( $dues_standing === 'expired' ) : ?>
               <span class="small-pill soft" style="background:#fee2e2;color:#991b1b;font-weight:700;">RENEWAL REQ.</span><span>Sept 16&ndash;19, 2027</span>
             <?php else : ?>
-              <span class="small-pill soft" style="background:#fef3c7;color:#92400e;font-weight:700;">DUES REQUIRED</span><span>Sept 16&ndash;19, 2027</span>
+              <span class="small-pill soft" style="background:#fef3c7;color:#92400e;font-weight:700;">MEMBERSHIP REQ.</span><span>Sept 16&ndash;19, 2027</span>
             <?php endif; ?>
           </div>
         </article>
