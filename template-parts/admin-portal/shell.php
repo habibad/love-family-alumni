@@ -391,7 +391,7 @@ $paypal_settings_cap = current_user_can( 'lfa_manage_paypal_settings' ) || $is_a
 					<div class="panel-header-block">
 						<div>
 							<h2 id="heading-members" class="panel-title">Alumni Membership Management</h2>
-							<p class="panel-subtitle">Review alumni registrations, individual/couple status, directory privacy preferences, and active good standing.</p>
+							<p class="panel-subtitle">Review alumni registrations, membership standing, directory privacy preferences, and annual dues.</p>
 						</div>
 						<div class="panel-actions">
 							<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin:0;">
@@ -1075,8 +1075,7 @@ $paypal_settings_cap = current_user_can( 'lfa_manage_paypal_settings' ) || $is_a
 							<div class="geo-stat-row"><span>Total Registered Alumni</span><strong><?php echo (int) $member_analytics['total_registered']; ?></strong></div>
 							<div class="geo-stat-row"><span>Approved Members</span><strong><?php echo (int) $member_analytics['approved']; ?></strong></div>
 							<div class="geo-stat-row"><span>Pending Verifications</span><strong><?php echo (int) $member_analytics['pending']; ?></strong></div>
-							<div class="geo-stat-row"><span>Individual Category</span><strong><?php echo (int) $member_analytics['individual']; ?></strong></div>
-							<div class="geo-stat-row"><span>Couple Category</span><strong><?php echo (int) $member_analytics['couple']; ?></strong></div>
+							<div class="geo-stat-row"><span>Annual Membership ($100/yr)</span><strong><?php echo (int) ( $member_analytics['individual'] + ( $member_analytics['couple'] ?? 0 ) ); ?></strong></div>
 						</div>
 
 						<div class="admin-card">

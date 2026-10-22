@@ -172,7 +172,7 @@ $stripe_test_enabled = class_exists( 'LFA_Gateway_Settings' ) && LFA_Gateway_Set
 							       class="lfa-give__custom-input" 
 							       style="width: 100%; border-radius: 6px; padding: 8px 12px;"
 							       value="<?php echo esc_attr( $prefill_name ); ?>" 
-							       placeholder="Your full name or couple name"
+							       placeholder="Your full name"
 							       required>
 						</div>
 

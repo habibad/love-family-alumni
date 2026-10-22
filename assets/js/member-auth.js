@@ -230,28 +230,7 @@
 			});
 		}
 
-		// Conditional Couple Membership Handler
-		const tierRadios = $$('input[name="membership_tier"]');
-		const spouseSection = $('#spouse-details-section');
-		const spouseNameInput = $('#reg_spouse_name');
-		const spouseNameError = $('#reg_spouse_name_error');
-
-		function updateSpouseVisibility() {
-			const selectedTier = $('input[name="membership_tier"]:checked');
-			const isCouple = selectedTier && selectedTier.value === 'couple';
-
-			if (spouseSection) {
-				spouseSection.style.display = isCouple ? 'block' : 'none';
-			}
-			if (!isCouple && spouseNameInput) {
-				clearFieldError(spouseNameInput, spouseNameError);
-			}
-		}
-
-		tierRadios.forEach((radio) => {
-			radio.addEventListener('change', updateSpouseVisibility);
-		});
-		updateSpouseVisibility();
+		// Single Membership package (No couple tier)
 
 		// Step Validation Functions
 		function validateStep(stepNum) {
@@ -356,16 +335,7 @@
 					clearFieldError(profInput, profError);
 				}
 			} else if (stepNum === 3) {
-				// Step 3: Membership Category & Spouse validation
-				const selectedTier = $('input[name="membership_tier"]:checked');
-				if (selectedTier && selectedTier.value === 'couple') {
-					if (!spouseNameInput.value.trim()) {
-						setFieldError(spouseNameInput, spouseNameError, 'Please provide your spouse or partner\'s full name.');
-						isStepValid = false;
-					} else {
-						clearFieldError(spouseNameInput, spouseNameError);
-					}
-				}
+				// Step 3: Single Annual Membership ($100/yr) - no extra validation required
 			} else if (stepNum === 4) {
 				// Step 4: Consent Checkbox
 				const consentCheckbox = $('#reg_consent');
@@ -492,31 +462,13 @@
 			}
 
 			// Section 3: Membership & Privacy
-			const selectedTier = $('input[name="membership_tier"]:checked');
-			const isCouple = selectedTier && selectedTier.value === 'couple';
 			const sumTier = $('#sum-tier');
-			const sumSpouse = $('#sum-spouse');
-			const sumRowSpouse = $('#sum-row-spouse');
 			const sumDues = $('#sum-dues');
+			const sumRowSpouse = $('#sum-row-spouse');
 
-			if (sumTier) sumTier.textContent = isCouple ? 'Couple Membership' : 'Individual Membership';
-
-			if (isCouple) {
-				const spName = $('#reg_spouse_name') ? $('#reg_spouse_name').value.trim() : '';
-				const spEmail = $('#reg_spouse_email') ? $('#reg_spouse_email').value.trim() : '';
-				const spAffil = $('#reg_spouse_affiliation') ? $('#reg_spouse_affiliation').value : '';
-				
-				let spouseDetails = spName;
-				if (spAffil) spouseDetails += ` (${spAffil})`;
-				if (spEmail) spouseDetails += ` · ${spEmail}`;
-
-				if (sumSpouse) sumSpouse.textContent = spouseDetails || 'None provided';
-				if (sumRowSpouse) sumRowSpouse.style.display = 'flex';
-				if (sumDues) sumDues.textContent = 'Couple dues schedule pending Zonal Executive Council ratification (No payment charged today)';
-			} else {
-				if (sumRowSpouse) sumRowSpouse.style.display = 'none';
-				if (sumDues) sumDues.textContent = '$100 Annual Dues requirement (No payment charged during preview)';
-			}
+			if (sumTier) sumTier.textContent = 'Annual Membership ($100/year)';
+			if (sumDues) sumDues.textContent = '$100.00 USD / Year (Payable upon administrator account approval)';
+			if (sumRowSpouse) sumRowSpouse.style.display = 'none';
 
 			// Privacy
 			const privacyOpt = $('input[name="directory_privacy"]:checked');
@@ -737,20 +689,6 @@
 			if (employerInput && !employerInput.value) employerInput.value = 'Memorial Hermann Health System';
 			if (bizInput && params.get('biz') === '1') bizInput.checked = true;
 			if (introInput && !introInput.value) introInput.value = 'Grateful for fellowship roots in Benin City. Passionate about diaspora healthcare initiatives and youth mentoring.';
-
-			if (params.get('tier') === 'couple') {
-				const coupleRadio = $('#tier_couple');
-				if (coupleRadio) {
-					coupleRadio.checked = true;
-					coupleRadio.dispatchEvent(new Event('change'));
-				}
-				const spName = $('#reg_spouse_name');
-				const spEmail = $('#reg_spouse_email');
-				const spAffil = $('#reg_spouse_affiliation');
-				if (spName && !spName.value) spName.value = 'Mrs. Grace Osagie';
-				if (spEmail && !spEmail.value) spEmail.value = 'grace.osagie@example.com';
-				if (spAffil && !spAffil.value) spAffil.value = 'Also Love Family / UNIBEN Alumnus/Alumna';
-			}
 
 			if (params.get('privacy')) {
 				const pRadio = $(`#privacy_${params.get('privacy')}`);

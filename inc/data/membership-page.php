@@ -70,54 +70,32 @@ function lfa_get_membership_benefits(): array {
  * @return array<int, array<string, mixed>>
  */
 function lfa_get_membership_plans(): array {
-	$ind_price = '$100.00 USD';
-	$couple_price = 'Rate Under Executive Review';
-	$couple_cycle = 'Governed by Zonal Executive Policy (Contact Secretariat)';
+	$price = '$100.00 USD';
 
 	if ( class_exists( 'LFA_Membership' ) ) {
 		$policy = LFA_Membership::get_policy();
 		if ( ! empty( $policy['individual_base_cents'] ) ) {
-			$ind_price = '$' . number_format( (float) $policy['individual_base_cents'] / 100, 2 ) . ' USD';
-		}
-		if ( ! empty( $policy['couple_base_cents'] ) ) {
-			$couple_price = '$' . number_format( (float) $policy['couple_base_cents'] / 100, 2 ) . ' USD';
-			$couple_cycle = 'Annual Household Contribution';
+			$price = '$' . number_format( (float) $policy['individual_base_cents'] / 100, 2 ) . ' USD';
 		}
 	}
 
 	return [
 		[
-			'id'          => 'individual',
-			'name'        => 'Individual Membership',
-			'badge'       => 'Standard Plan',
-			'target'      => 'For a single eligible alumni member residing across the United States or Canada.',
-			'price'       => $ind_price,
-			'cycle'       => 'Annual Contribution / Calendar Year',
+			'id'          => 'membership',
+			'name'        => 'Annual Membership',
+			'badge'       => 'Official Membership',
+			'target'      => 'For verified Love Family / UNIBEN alumni residing across North America.',
+			'price'       => $price,
+			'cycle'       => 'Annual Contribution / One Year Validity ($100/yr)',
 			'features'    => [
 				'Full access to the verified North America Zone Alumni Directory',
-				'Eligibility for regional chapter gatherings and annual national conference',
+				'Exclusive access to the North America Business Directory',
+				'Eligibility for North America Zonal Conference registration',
 				'Direct inclusion in diaspora welfare, benevolence, and prayer chains',
 				'Voting participation in Zonal assembly meetings and committee elections',
 				'Personalized digital Alumni Credential & verification badge',
 			],
-			'cta_text'    => is_user_logged_in() ? 'View Membership Standing' : 'Register as Individual',
-			'is_featured' => false,
-		],
-		[
-			'id'          => 'couple',
-			'name'        => 'Couple Membership',
-			'badge'       => 'Family & Couple',
-			'target'      => 'For eligible alumni couples participating in an approved zonal joint arrangement.',
-			'price'       => $couple_price,
-			'cycle'       => $couple_cycle,
-			'features'    => [
-				'Dual alumni directory profiles linked under one household account',
-				'Coordinated registration for national conferences, banquets & retreats',
-				'Combined family inclusion in emergency welfare & care support funds',
-				'Dual voting rights for both alumni spouses in zonal general assemblies',
-				'Priority family seating and recognition at continental reunions',
-			],
-			'cta_text'    => is_user_logged_in() ? 'View Membership Standing' : 'Register as Couple',
+			'cta_text'    => is_user_logged_in() ? 'View Membership Standing' : 'Join as Member',
 			'is_featured' => true,
 		],
 	];
@@ -227,8 +205,8 @@ function lfa_get_membership_faqs(): array {
 			'a' => 'You begin by completing the initial registration form with your graduation background and current North American residence. The Zonal Secretariat verifies alumni records before accreditation is completed.',
 		],
 		[
-			'q' => 'What is the difference between Individual and Couple membership?',
-			'a' => 'Individual membership covers a single graduate of Love Family / University of Benin residing in the United States or Canada. Couple membership is designed for households where both spouses are alumni, providing coordinated registration, dual directory listings, and combined family fellowship benefits.',
+			'q' => 'What is the membership dues structure and validity?',
+			'a' => 'Love Family Alumni offers a single, unified annual membership at $100.00 USD per year. Full membership access is valid for exactly one calendar year starting from the moment your annual dues payment is verified, and automatically expires after one year until renewed.',
 		],
 		[
 			'q' => 'How can I pay membership dues?',

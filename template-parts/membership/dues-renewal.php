@@ -31,8 +31,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</svg>
 						</div>
 						<div class="dues-point-text">
-							<h4 class="dues-point-title">Individual vs. Couple Contributions</h4>
-							<p>Separate, transparent rates will be published for single alumni and alumni households, with couple accounts enjoying consolidated administration.</p>
+							<h4 class="dues-point-title">Annual Membership &mdash; $100/year</h4>
+							<p>A single, transparent annual dues rate of $100.00 USD gives you one full calendar year of verified membership privileges and member portal benefits.</p>
 						</div>
 					</div>
 

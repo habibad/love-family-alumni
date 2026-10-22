@@ -96,9 +96,9 @@ $c    = $data['conference'];
     </div>
   </div>
   <div class="lfa-dashboard__card">
-    <h3>Individual & Couple Memberships</h3>
-    <p class="lfa-dashboard__muted">This preview shows an illustrative Individual membership. Couple membership support is included in the future membership management requirements; spouse/partner records and pricing must follow approved policies.</p>
-    <div class="lfa-dashboard__preview-note">Membership verification, renewals and changes require backend integration. This UI does not create or modify membership records.</div>
+    <h3>Annual Membership</h3>
+    <p class="lfa-dashboard__muted">Love Family Alumni provides a single, unified annual membership ($100/year) granting full directory access, business listings, and conference eligibility.</p>
+    <div class="lfa-dashboard__preview-note">Membership status and dues are verified server-side with authoritative 1-year calendar lifecycle.</div>
     <button type="button" class="lfa-dashboard__btn lfa-dashboard__btn--red" data-go="dues">View Dues & Receipts →</button>
   </div>
 </section>

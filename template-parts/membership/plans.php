@@ -16,35 +16,27 @@ $plans = function_exists( 'lfa_get_membership_plans' ) ? lfa_get_membership_plan
 	<div class="lfa-container">
 		<!-- Section Header -->
 		<div class="membership-section-header text-center">
-			<span class="membership-eyebrow">CHOOSE YOUR CATEGORY</span>
-			<h2 class="membership-section-title">Membership Categories</h2>
+			<span class="membership-eyebrow">ANNUAL DUES &amp; PRIVILEGES</span>
+			<h2 class="membership-section-title">Annual Membership</h2>
 			<div class="membership-title-divider" aria-hidden="true"></div>
 			<p class="membership-section-lead">
-				Designed for graduates of Love Family / UNIBEN living across the United States and Canada. Choose the category that reflects your household fellowship.
+				Designed for graduates of Love Family / UNIBEN living across the United States and Canada. One unified annual membership package supporting fellowship, community initiatives, and member resources.
 			</p>
 		</div>
 
 		<!-- Plans Comparison Grid -->
-		<div class="membership-plans-grid">
+		<div class="membership-plans-grid" style="display:flex;justify-content:center;max-width:540px;margin:0 auto;">
 			<?php foreach ( $plans as $plan ) : ?>
-				<div class="membership-plan-card <?php echo ! empty( $plan['is_featured'] ) ? 'plan-featured' : ''; ?>" id="plan-<?php echo esc_attr( $plan['id'] ); ?>">
-					<?php if ( ! empty( $plan['is_featured'] ) ) : ?>
-						<div class="plan-badge-pill" aria-label="Featured category">
-							<span>Recommended for Alumni Couples</span>
-						</div>
-					<?php endif; ?>
+				<div class="membership-plan-card plan-featured" id="plan-<?php echo esc_attr( $plan['id'] ); ?>" style="width:100%;">
+					<div class="plan-badge-pill" aria-label="Official package">
+						<span>Annual Membership &mdash; $100/year</span>
+					</div>
 
 					<div class="plan-card-top">
 						<div class="plan-header-icon" aria-hidden="true">
-							<?php if ( 'couple' === $plan['id'] ) : ?>
-								<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-								</svg>
-							<?php else : ?>
-								<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-								</svg>
-							<?php endif; ?>
+							<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+							</svg>
 						</div>
 
 						<h3 class="plan-name"><?php echo esc_html( $plan['name'] ); ?></h3>

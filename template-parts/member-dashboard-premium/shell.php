@@ -26,11 +26,17 @@ $ln_initial = !empty( $last_name ) ? strtoupper( substr( $last_name, 0, 1 ) ) : 
 $initials   = $fn_initial . $ln_initial;
 
 $alumni_id       = get_user_meta( $uid, 'lfa_alumni_id', true ) ?: 'Pending Assignment';
-$membership_type = ucfirst( (string) get_user_meta( $uid, 'lfa_membership_type', true ) ?: 'Individual' );
+$membership_type = 'Membership';
 $account_status  = (string) get_user_meta( $uid, 'lfa_account_status', true ) ?: 'approved';
-$dues_status     = (string) get_user_meta( $uid, 'lfa_dues_status', true ) ?: 'unpaid';
-$is_full_member  = class_exists( 'LFA_Payment_Entitlements' ) ? LFA_Payment_Entitlements::is_full_member( $uid, true ) : false;
 $is_approved     = ( $account_status === 'approved' || (int) get_user_meta( $uid, 'lfa_account_approved', true ) === 1 );
+
+// Authoritative dues standing with real-time expiration sync and calendar-year dates
+$dues_info       = class_exists( 'LFA_Payment_Entitlements' ) ? LFA_Payment_Entitlements::get_dues_standing( $uid, true ) : [];
+$dues_standing   = $dues_info['standing'] ?? 'unpaid';
+$dues_status     = $dues_standing;
+$is_full_member  = class_exists( 'LFA_Payment_Entitlements' ) ? LFA_Payment_Entitlements::is_full_member( $uid, true ) : false;
+$starts_at       = $dues_info['starts_at'] ?? null;
+$ends_at         = $dues_info['ends_at'] ?? null;
 
 $phone           = (string) get_user_meta( $uid, 'lfa_phone', true );
 $city            = (string) get_user_meta( $uid, 'lfa_city', true );
@@ -72,12 +78,8 @@ if ( ! empty( $incoming_session ) && class_exists( 'LFA_Payment_Reconciliation' 
 $lfa_membership  = class_exists( 'LFA_Membership' ) ? LFA_Membership::get_membership_by_user( $uid ) : null;
 $lfa_invoices    = class_exists( 'LFA_Membership' ) ? LFA_Membership::get_invoices_for_user( $uid ) : [];
 $lfa_policy      = class_exists( 'LFA_Membership' ) ? LFA_Membership::get_policy() : [];
-$is_couple       = strtolower( $membership_type ) === 'couple';
-$couple_unconfigured = $is_couple && empty( $lfa_policy['couple_base_cents'] );
-
-if ( $lfa_membership && !empty( $lfa_membership->status ) ) {
-    $dues_status = (string) $lfa_membership->status;
-}
+$is_couple           = false;
+$couple_unconfigured = false;
 
 $paypal_enabled   = class_exists( 'LFA_PayPal_Settings' ) && LFA_PayPal_Settings::is_payments_enabled();
 $paypal_client_id = class_exists( 'LFA_PayPal_Settings' ) ? LFA_PayPal_Settings::get_client_id() : '';
@@ -240,14 +242,31 @@ if ( $site_logo_id ) {
         <button class="button-outline" type="button" data-go="profile"><span data-icon="user"></span> View my profile <span class="arrow">↗</span></button>
       </div>
 
-      <?php if ( $is_approved && ! $is_full_member ) : ?>
+      <?php if ( $dues_standing === 'expired' ) : ?>
+        <div class="lfa-expired-alert" style="background:#fef2f2;border:1px solid #fecaca;border-left:5px solid #dc2626;border-radius:10px;padding:20px 24px;margin-bottom:24px;box-shadow:0 2px 4px rgba(0,0,0,0.02);">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+            <div style="display:flex;align-items:flex-start;gap:14px;max-width:760px;">
+              <span style="font-size:24px;line-height:1;margin-top:2px;">⚠️</span>
+              <div>
+                <h3 style="margin:0 0 6px 0;font-size:16px;color:#991b1b;font-weight:700;letter-spacing:-0.2px;">Your Membership Has Expired</h3>
+                <p style="margin:0 0 8px 0;font-size:14px;color:#7f1d1d;line-height:1.5;">Your annual Love Family Alumni membership has expired<?php echo !empty($ends_at) ? ' on <strong>' . esc_html( wp_date( get_option( 'date_format' ), strtotime( $ends_at ) ) ) . '</strong>' : ''; ?>. Renew your $100 annual dues to restore access to member-exclusive features.</p>
+                <span style="display:inline-block;font-size:12px;font-weight:600;color:#991b1b;background:#fee2e2;padding:3px 8px;border-radius:4px;border:1px solid #fecaca;">Action Required: Renew your $100 annual dues for a new 1-year entitlement.</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+              <button class="button-dark lfa-renew-trigger-btn" type="button" data-go="dues" style="background:#dc2626;border-color:#b91c1c;padding:10px 20px;font-size:14px;font-weight:700;white-space:nowrap;box-shadow:0 2px 4px rgba(220,38,38,0.2);">Renew Membership &mdash; $100 &rarr;</button>
+              <span style="font-size:11px;color:#991b1b;">Instant access restoration upon payment</span>
+            </div>
+          </div>
+        </div>
+      <?php elseif ( $is_approved && ! $is_full_member ) : ?>
         <div class="lfa-unpaid-alert" style="background:#fffbeb;border:1px solid #fde68a;border-left:5px solid #d97706;border-radius:10px;padding:20px 24px;margin-bottom:24px;box-shadow:0 2px 4px rgba(0,0,0,0.02);">
           <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;">
             <div style="display:flex;align-items:flex-start;gap:14px;max-width:760px;">
               <span style="font-size:24px;line-height:1;margin-top:2px;">⚠️</span>
               <div>
-                <h3 style="margin:0 0 6px 0;font-size:16px;color:#92400e;font-weight:700;letter-spacing:-0.2px;">Limited Dashboard Access &mdash; Annual Membership Dues Pending ($100.00 USD)</h3>
-                <p style="margin:0 0 8px 0;font-size:14px;color:#78350f;line-height:1.5;">Your alumni account has been approved by the Administrator. However, in accordance with the <strong>North America Zone Membership Access Policy</strong>, access to member benefits (including private Alumni Directory records, business registrations, scholarships, and members-only conference tickets) requires settled annual Individual Membership dues.</p>
+                <h3 style="margin:0 0 6px 0;font-size:16px;color:#92400e;font-weight:700;letter-spacing:-0.2px;">Membership Payment Required &mdash; Annual Dues ($100.00 USD)</h3>
+                <p style="margin:0 0 8px 0;font-size:14px;color:#78350f;line-height:1.5;">Your alumni account has been approved by the Administrator. However, in accordance with the <strong>North America Zone Membership Access Policy</strong>, access to member benefits (including private Alumni Directory records, business registrations, scholarships, and members-only conference tickets) requires settled annual Membership dues.</p>
                 <span style="display:inline-block;font-size:12px;font-weight:600;color:#92400e;background:#fef3c7;padding:3px 8px;border-radius:4px;border:1px solid #fde68a;">Action Required: Complete your $100 annual dues invoice to immediately unlock all member privileges.</span>
               </div>
             </div>
@@ -271,22 +290,43 @@ if ( $site_logo_id ) {
           <div class="metric-foot"><span class="small-pill soft">ASSIGNED</span> <span>North America Zone ID</span></div>
         </article>
         <article class="metric">
-          <div class="metric-head"><span>Annual Dues</span><span class="metric-icon gold" data-icon="wallet"></span></div>
-          <div class="metric-main"><?php echo esc_html( ucfirst( $dues_status ) ); ?></div>
+          <div class="metric-head"><span>Membership &amp; Dues</span><span class="metric-icon gold" data-icon="wallet"></span></div>
+          <div class="metric-main">
+            <?php 
+            if ( $dues_standing === 'current' ) {
+                echo 'Active';
+            } elseif ( $dues_standing === 'expired' ) {
+                echo 'Expired';
+            } else {
+                echo 'Unpaid';
+            }
+            ?>
+          </div>
           <div class="metric-foot">
-            <?php if ( $dues_status === 'current' || $dues_status === 'paid' ) : ?>
-              <span class="small-pill" style="background:#e6f4ea;color:#137333;font-weight:700;"><?php echo $is_test_paid ? 'TEST PAID' : 'GOOD STANDING'; ?></span> <span><?php echo $is_test_paid ? 'Staging Active 2026/27' : 'Current through 2027'; ?></span>
-            <?php elseif ( $couple_unconfigured ) : ?>
-              <span class="small-pill soft" style="background:#fee2e2;color:#991b1b;">POLICY PENDING</span><span>Couple rate unconfirmed</span>
+            <?php if ( $dues_standing === 'current' ) : ?>
+              <span class="small-pill" style="background:#e6f4ea;color:#137333;font-weight:700;"><?php echo $is_test_paid ? 'TEST PAID' : 'ACTIVE ($100)'; ?></span> 
+              <span><?php echo !empty($ends_at) ? 'Expires: ' . esc_html( wp_date( get_option('date_format'), strtotime($ends_at) ) ) : '1-Year Entitlement'; ?></span>
+            <?php elseif ( $dues_standing === 'expired' ) : ?>
+              <span class="small-pill soft" style="background:#fee2e2;color:#991b1b;font-weight:700;">RENEWAL REQUIRED</span>
+              <span><?php echo !empty($ends_at) ? 'Expired on ' . esc_html( wp_date( get_option('date_format'), strtotime($ends_at) ) ) : 'Expired'; ?></span>
             <?php else : ?>
-              <span class="small-pill soft" style="background:#fee2e2;color:#991b1b;">$100.00 DUE</span><span><?php echo $stripe_ready ? 'Stripe Test Ready' : ( $paypal_ready ? 'PayPal Sandbox' : 'Gateway Pending' ); ?></span>
+              <span class="small-pill soft" style="background:#fee2e2;color:#991b1b;font-weight:700;">$100.00 DUE</span>
+              <span><?php echo $stripe_ready ? 'Stripe Test Ready' : ( $paypal_ready ? 'PayPal Sandbox' : 'Gateway Pending' ); ?></span>
             <?php endif; ?>
           </div>
         </article>
         <article class="metric">
-          <div class="metric-head"><span>Next Conference</span><span class="metric-icon purple" data-icon="calendar"></span></div>
+          <div class="metric-head"><span>Conference Eligibility</span><span class="metric-icon purple" data-icon="calendar"></span></div>
           <div class="metric-main">2027</div>
-          <div class="metric-foot"><span class="small-pill soft">UPCOMING</span><span>Sept 16&ndash;19, 2027</span></div>
+          <div class="metric-foot">
+            <?php if ( $dues_standing === 'current' ) : ?>
+              <span class="small-pill" style="background:#e6f4ea;color:#137333;font-weight:700;">ELIGIBLE</span><span>Sept 16&ndash;19, 2027</span>
+            <?php elseif ( $dues_standing === 'expired' ) : ?>
+              <span class="small-pill soft" style="background:#fee2e2;color:#991b1b;font-weight:700;">RENEWAL REQ.</span><span>Sept 16&ndash;19, 2027</span>
+            <?php else : ?>
+              <span class="small-pill soft" style="background:#fef3c7;color:#92400e;font-weight:700;">DUES REQUIRED</span><span>Sept 16&ndash;19, 2027</span>
+            <?php endif; ?>
+          </div>
         </article>
       </div>
       <div class="completion-card">
@@ -570,16 +610,26 @@ if ( $site_logo_id ) {
       <div class="sub-intro">
         <span class="overline">FINANCIAL OVERVIEW</span>
         <h1>Dues &amp; receipts</h1>
-        <p>Annual membership dues are fixed at <strong>$100.00 USD</strong> for Individual membership. Payments are securely processed via PayPal with server-side capture verification.</p>
+        <p>Annual membership dues are fixed at <strong>$100.00 USD / year</strong> for official Alumni Membership. Payments are securely processed via Stripe Test and PayPal.</p>
       </div>
 
-      <?php if ( $couple_unconfigured ) : ?>
-        <div class="notice-block" style="border-left:4px solid #dba617;background:#fff8e5;color:#855a00;">
-          <strong>Couple Membership Policy Notice:</strong> Couple membership dues pricing is currently awaiting administrator policy confirmation per client contract. Invoices for couple accounts will be issued once the approved couple rate is configured by zonal administrators.
-        </div>
-      <?php else : ?>
-        <div class="notice-block">
-          <strong>Membership Standing:</strong> Account Status: <strong>Approved</strong> &middot; Dues Status: <strong><?php echo esc_html( ucfirst( $dues_status ) ); ?></strong> ($100.00 annual requirement). Payments are securely settled via server-verified PayPal checkout. Genuine receipts are available immediately upon payment completion.
+      <div class="notice-block">
+        <strong>Membership Standing:</strong> Account Status: <strong>Approved</strong> &middot; Membership: <strong><?php echo $dues_standing === 'current' ? '<span style="color:#166534;">Active</span>' : ( $dues_standing === 'expired' ? '<span style="color:#991b1b;">Expired (Renewal Required)</span>' : '<span style="color:#d97706;">Payment Required</span>' ); ?></strong> &middot; Annual Dues: <strong>$100.00 USD</strong>
+        <?php if ( !empty($starts_at) ) : ?>
+          &middot; Member Since: <strong><?php echo esc_html( wp_date( get_option( 'date_format' ), strtotime( $starts_at ) ) ); ?></strong>
+        <?php endif; ?>
+        <?php if ( !empty($ends_at) ) : ?>
+          &middot; <?php echo $dues_standing === 'expired' ? 'Expired on' : 'Expires'; ?>: <strong><?php echo esc_html( wp_date( get_option( 'date_format' ), strtotime( $ends_at ) ) ); ?></strong>
+        <?php endif; ?>
+      </div>
+
+      <?php if ( $dues_standing === 'expired' && ! $active_unpaid_inv ) : ?>
+        <div style="background:#fef2f2;border:1px solid #fecaca;border-left:5px solid #dc2626;border-radius:10px;padding:24px;margin-bottom:24px;">
+          <h3 style="margin:0 0 8px 0;font-size:18px;color:#991b1b;font-weight:700;">Your Membership Has Expired</h3>
+          <p style="margin:0 0 16px 0;font-size:14px;color:#7f1d1d;line-height:1.6;">Your annual Love Family Alumni membership has expired. Renew your $100 annual dues to restore access to member-exclusive features.</p>
+          <button type="button" class="button-dark lfa-renew-trigger-btn" style="background:#dc2626;border-color:#b91c1c;padding:12px 24px;font-size:15px;font-weight:700;">
+            Renew Membership &mdash; $100 &rarr;
+          </button>
         </div>
       <?php endif; ?>
 
@@ -813,10 +863,18 @@ if ( $site_logo_id ) {
         <?php else : ?>
           <div style="text-align:center;padding:32px 20px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;">
             <p style="font-size:15px;color:#334155;margin:0 0 14px 0;">You do not have any registered passes for the 2027 Conference yet.</p>
-            <?php if ( $conf_open ) : ?>
-              <a href="<?php echo esc_url( home_url( '/conference/2027/#conference-registration' ) ); ?>" class="button-dark" style="display:inline-block;">Register for Conference &rarr;</a>
+            <?php if ( $dues_standing === 'current' ) : ?>
+              <?php if ( $conf_open ) : ?>
+                <a href="<?php echo esc_url( home_url( '/conference/2027/#conference-registration' ) ); ?>" class="button-dark" style="display:inline-block;">Register for Conference &rarr;</a>
+              <?php else : ?>
+                <span class="small-pill soft" style="background:#f1f5f9;color:#64748b;font-weight:600;">Registration Opening Soon &mdash; Sept 16&ndash;19, 2027</span>
+              <?php endif; ?>
+            <?php elseif ( $dues_standing === 'expired' ) : ?>
+              <p style="color:#991b1b;font-size:13px;margin-bottom:12px;font-weight:600;">Membership expired. Renew your annual dues to register for conferences.</p>
+              <button type="button" class="button-dark lfa-renew-trigger-btn" data-go="dues" style="background:#dc2626;border-color:#b91c1c;">Renew Membership to Register &rarr;</button>
             <?php else : ?>
-              <span class="small-pill soft" style="background:#f1f5f9;color:#64748b;font-weight:600;">Registration Opening Soon &mdash; Sept 16&ndash;19, 2027</span>
+              <p style="color:#92400e;font-size:13px;margin-bottom:12px;font-weight:600;">Active membership dues required to register for conferences.</p>
+              <button type="button" class="button-dark" data-go="dues" style="background:#d97706;border-color:#b45309;">Activate Membership to Register &rarr;</button>
             <?php endif; ?>
           </div>
         <?php endif; ?>
@@ -1845,6 +1903,40 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+
+  // 1b. Membership Renewal Trigger
+  var renewBtns = document.querySelectorAll('.lfa-renew-trigger-btn');
+  renewBtns.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Generating Renewal Invoice...';
+      fetch(restBase + '/payments/renew-membership', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-WP-Nonce': restNonce
+        }
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.success) {
+          window.location.hash = 'dues';
+          window.location.reload();
+        } else {
+          btn.disabled = false;
+          btn.textContent = origText;
+          alert(data.error || 'Failed to generate renewal invoice.');
+        }
+      })
+      .catch(function(err) {
+        btn.disabled = false;
+        btn.textContent = origText;
+        alert('Network error connecting to renewal service.');
+      });
+    });
+  });
 
   // 2. Stripe Checkout for Conference Passes
   var confBtns = document.querySelectorAll('.lfa-conf-checkout-btn');

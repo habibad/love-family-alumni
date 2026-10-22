@@ -35,7 +35,7 @@ get_header();
 			<p>By accessing or using the website of The Love Family Alumni — North America Zone ("LFA", "we", "us", or "our"), including the Member Dashboard, Business Directory, and community platforms, you agree to comply with and be bound by these Terms of Use.</p>
 
 			<h2>2. Membership Eligibility &amp; Annual Dues</h2>
-			<p>Membership is open to verified alumni and associates of the Love Family fellowship. Regular members maintain good standing through the annual contribution of membership dues ($100 per member or couple), which directly funds community initiatives, alumni coordination, and fellowship programs.</p>
+			<p>Membership is open to verified alumni and associates of the Love Family fellowship. Regular members maintain good standing through the annual contribution of membership dues ($100 per member annually), which directly funds community initiatives, alumni coordination, and fellowship programs.</p>
 
 			<h2>3. Community Code of Conduct &amp; Directory Usage</h2>
 			<p>The Love Family Alumni network is founded on Christian love, mutual respect, professional integrity, and fellowship. When utilizing the Alumni Directory, Business Directory, or discussion channels:</p>

@@ -19,8 +19,8 @@ $affiliations    = $auth_data['registration']['affiliations'];
 	<div class="step-header">
 		<div class="step-header-main">
 			<span class="step-badge">STEP 03 OF 04</span>
-			<h2 class="step-title">Select Membership Category &amp; Privacy</h2>
-			<p class="step-desc">Select whether your membership represents an individual alumnus or an alumni couple, and establish your directory visibility.</p>
+			<h2 class="step-title">Membership Package &amp; Privacy</h2>
+			<p class="step-desc">Your membership includes full access to the Alumni Directory, Business Directory, and Zonal Conference eligibility for $100/year.</p>
 		</div>
 		<div class="step-header-meta" aria-hidden="true">
 			<span class="meta-pill">
@@ -34,160 +34,61 @@ $affiliations    = $auth_data['registration']['affiliations'];
 		</div>
 	</div>
 
-	<!-- Membership Category Selection Cards -->
+	<!-- Membership Package Card (Single Package) -->
 	<div class="form-group mb-6" id="group-reg-tier">
 		<label class="form-label mb-3">
-			<span>Choose Membership Category</span>
-			<span class="required-mark" aria-hidden="true">*</span>
+			<span>Membership Package</span>
 		</label>
 
-		<div class="membership-tier-cards-grid">
-			<!-- Individual Membership -->
-			<label class="tier-selection-card" for="tier_individual" id="card-tier-individual">
+		<div class="membership-tier-cards-grid" style="grid-template-columns: 1fr;">
+			<!-- Annual Membership -->
+			<label class="tier-selection-card selected" for="tier_individual" id="card-tier-individual" style="cursor: default;">
 				<input type="radio" 
 				       name="membership_tier" 
 				       id="tier_individual" 
 				       value="individual" 
 				       checked 
-				       class="tier-radio-input">
+				       class="tier-radio-input"
+				       style="display:none;">
 				<div class="tier-card-inner">
 					<div class="tier-card-header">
-						<div class="tier-badge-pill"><?php echo esc_html( $tiers['individual']['badge'] ); ?></div>
-						<div class="tier-radio-check" aria-hidden="true">
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+						<div class="tier-badge-pill">Annual Membership &mdash; $100/year</div>
+						<div class="tier-radio-check" aria-hidden="true" style="background:#137333;border-color:#137333;">
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
 						</div>
 					</div>
-					<h4 class="tier-title"><?php echo esc_html( $tiers['individual']['name'] ); ?></h4>
-					<p class="tier-target"><?php echo esc_html( $tiers['individual']['target'] ); ?></p>
+					<h4 class="tier-title">Annual Membership</h4>
+					<p class="tier-target">Official membership for Love Family / UNIBEN alumni in North America.</p>
 					
 					<div class="tier-dues-box">
-						<span class="dues-amount"><?php echo esc_html( $tiers['individual']['dues_summary'] ); ?></span>
-						<span class="dues-schedule">Standard Annual Dues</span>
+						<span class="dues-amount">$100 / Year</span>
+						<span class="dues-schedule">One Year Validity from Payment</span>
 					</div>
 
 					<p class="tier-note-disclaimer">
-						<?php echo esc_html( $tiers['individual']['dues_note'] ); ?>
+						Annual membership dues ($100.00 USD). Dues are payable after administrator account verification and approval.
 					</p>
 
 					<ul class="tier-benefits-list">
-						<?php foreach ( $tiers['individual']['features'] as $f ) : ?>
-							<li>
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-								<span><?php echo esc_html( $f ); ?></span>
-							</li>
-						<?php endforeach; ?>
+						<li>
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+							<span>Official digital Alumni ID verification</span>
+						</li>
+						<li>
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+							<span>Full North America Alumni Directory access</span>
+						</li>
+						<li>
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+							<span>North America Business Directory access &amp; listings</span>
+						</li>
+						<li>
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+							<span>Eligibility for North America Zonal Conference registration</span>
+						</li>
 					</ul>
 				</div>
 			</label>
-
-			<!-- Couple Membership -->
-			<label class="tier-selection-card" for="tier_couple" id="card-tier-couple">
-				<input type="radio" 
-				       name="membership_tier" 
-				       id="tier_couple" 
-				       value="couple" 
-				       class="tier-radio-input">
-				<div class="tier-card-inner">
-					<div class="tier-card-header">
-						<div class="tier-badge-pill gold-badge"><?php echo esc_html( $tiers['couple']['badge'] ); ?></div>
-						<div class="tier-radio-check" aria-hidden="true">
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-						</div>
-					</div>
-					<h4 class="tier-title"><?php echo esc_html( $tiers['couple']['name'] ); ?></h4>
-					<p class="tier-target"><?php echo esc_html( $tiers['couple']['target'] ); ?></p>
-					
-					<div class="tier-dues-box">
-						<span class="dues-amount pending-dues"><?php echo esc_html( $tiers['couple']['dues_summary'] ); ?></span>
-						<span class="dues-schedule">Zonal Executive Ratification</span>
-					</div>
-
-					<p class="tier-note-disclaimer">
-						<?php echo esc_html( $tiers['couple']['dues_note'] ); ?>
-					</p>
-
-					<ul class="tier-benefits-list">
-						<?php foreach ( $tiers['couple']['features'] as $f ) : ?>
-							<li>
-								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-								<span><?php echo esc_html( $f ); ?></span>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-			</label>
-		</div>
-	</div>
-
-	<!-- Conditional Spouse / Household Information (Revealed when Couple is chosen) -->
-	<div class="conditional-spouse-block" id="spouse-details-section" style="display: none;" aria-live="polite">
-		<div class="spouse-block-header">
-			<div class="spouse-icon-wrap" aria-hidden="true">
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-					<path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-				</svg>
-			</div>
-			<div class="spouse-header-text">
-				<h4 class="spouse-block-title">Spouse / Partner Alumni Details</h4>
-				<p class="spouse-block-subtitle">Because you selected Couple Membership, please provide your spouse or partner's details for joint alumni records.</p>
-			</div>
-		</div>
-
-		<div class="form-grid-two">
-			<!-- Spouse Full Name -->
-			<div class="form-group" id="group-reg-spouse-name">
-				<label for="reg_spouse_name" class="form-label">
-					<span>Spouse Full Name</span>
-					<span class="required-mark" aria-hidden="true">*</span>
-				</label>
-				<div class="input-with-icon">
-					<span class="input-icon" aria-hidden="true">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-					</span>
-					<input type="text" 
-					       id="reg_spouse_name" 
-					       name="spouse_name" 
-					       class="form-control" 
-					       placeholder="e.g. Mrs. Grace Osagie" 
-					       aria-describedby="reg_spouse_name_error">
-				</div>
-				<span class="form-error-msg" id="reg_spouse_name_error" role="alert"></span>
-			</div>
-
-			<!-- Spouse Email -->
-			<div class="form-group" id="group-reg-spouse-email">
-				<label for="reg_spouse_email" class="form-label">
-					<span>Spouse Email Address</span>
-					<span class="optional-label">(Optional)</span>
-				</label>
-				<div class="input-with-icon">
-					<span class="input-icon" aria-hidden="true">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-					</span>
-					<input type="email" 
-					       id="reg_spouse_email" 
-					       name="spouse_email" 
-					       class="form-control" 
-					       placeholder="spouse@example.com">
-				</div>
-			</div>
-
-			<!-- Spouse Alumni Connection -->
-			<div class="form-group col-span-2" id="group-reg-spouse-affiliation">
-				<label for="reg_spouse_affiliation" class="form-label">
-					<span>Spouse Alumni Connection</span>
-				</label>
-				<div class="select-with-icon">
-					<span class="input-icon" aria-hidden="true">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-					</span>
-					<select id="reg_spouse_affiliation" name="spouse_affiliation" class="form-control">
-						<option value="Also Love Family / UNIBEN Alumnus/Alumna">Also Love Family / UNIBEN Alumnus / Alumna</option>
-						<option value="Associate / Partner Household Member">Associate / Partner Household Member</option>
-						<option value="Other Fellowship Affiliation">Other Fellowship Affiliation</option>
-					</select>
-				</div>
-			</div>
 		</div>
 	</div>
 

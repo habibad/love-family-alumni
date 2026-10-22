@@ -41,7 +41,7 @@ get_header();
 				<li><strong>Identity &amp; Contact Details:</strong> Full name, email address, telephone number, residential address (city, state, country), and profile photograph.</li>
 				<li><strong>Alumni Affiliation:</strong> UNIBEN attendance details, graduation year, chapter connection, and Love Family campus fellowship memories.</li>
 				<li><strong>Professional Information:</strong> Profession, industry, company or business name, areas of professional expertise, and business website.</li>
-				<li><strong>Membership &amp; Dues Records:</strong> Membership tier (Individual or Couple), payment receipts, transaction history, and dues status.</li>
+				<li><strong>Membership &amp; Dues Records:</strong> Membership status, payment receipts, transaction history, annual dues standing, and period validity.</li>
 				<li><strong>Privacy Preferences:</strong> Explicit visibility choices for directory listings (Public, Members Only, or Completely Private).</li>
 			</ul>
 

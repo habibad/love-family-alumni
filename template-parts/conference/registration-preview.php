@@ -59,20 +59,25 @@ $gateway_enabled = class_exists('LFA_PayPal_Settings') && LFA_PayPal_Settings::i
         <?php endif; ?>
       </div>
 
-      <?php if ($is_open && $has_tickets) : ?>
-        <?php if (!$is_logged_in && !$guest_allowed) :
-          $login_url = add_query_arg('redirect_to', urlencode($detail_url), home_url('/member-login/'));
-        ?>
-          <h3>Alumni Member Registration</h3>
-          <p>Registration is currently reserved for verified and approved alumni members. Please sign in to your account to enroll.</p>
-          <div style="margin-top:20px;">
-            <a href="<?php echo esc_url($login_url); ?>" class="lfa-conf-btn lfa-conf-btn--crimson" style="display:inline-flex;padding:12px 24px;border-radius:6px;font-weight:700;text-decoration:none;background:#ab1640;color:#fff;">Sign In to Register &rarr;</a>
-          </div>
-        <?php elseif ($is_logged_in && !$is_approved) : ?>
-          <h3>Account Verification Required</h3>
-          <p>Your alumni membership application is currently undergoing administrator verification. You will be able to register once your account is approved.</p>
-          <div style="margin-top:16px;">
-            <a href="<?php echo esc_url(home_url('/member-dashboard/')); ?>" class="button-outline">Return to Dashboard</a>
+      <?php if ($is_open && $has_tickets) : 
+        $eligibility = class_exists('LFA_Payment_Entitlements') 
+            ? LFA_Payment_Entitlements::get_conference_eligibility_state($current_uid)
+            : ['eligible' => false, 'state' => 'guest', 'title' => 'Membership Required', 'message' => 'Conference registration is available exclusively to active Love Family Alumni members.', 'primary_cta' => ['label' => 'Member Login', 'url' => home_url('/member-login/')], 'secondary_cta' => ['label' => 'Become a Member', 'url' => home_url('/membership/')]];
+      ?>
+        <?php if (empty($eligibility['eligible'])) : ?>
+          <h3><?php echo esc_html($eligibility['title']); ?></h3>
+          <p style="color:#475569;font-size:15px;line-height:1.6;margin-top:8px;"><?php echo esc_html($eligibility['message']); ?></p>
+          <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+            <?php if (!empty($eligibility['primary_cta'])) : ?>
+              <a href="<?php echo esc_url($eligibility['primary_cta']['url']); ?>" class="lfa-conf-btn lfa-conf-btn--crimson" style="display:inline-flex;padding:12px 24px;border-radius:6px;font-weight:700;text-decoration:none;background:#ab1640;color:#fff;">
+                <?php echo esc_html($eligibility['primary_cta']['label']); ?> &rarr;
+              </a>
+            <?php endif; ?>
+            <?php if (!empty($eligibility['secondary_cta'])) : ?>
+              <a href="<?php echo esc_url($eligibility['secondary_cta']['url']); ?>" style="display:inline-flex;padding:12px 24px;border-radius:6px;font-weight:700;text-decoration:none;background:#f8fafc;color:#0f2942;border:1px solid #cbd5e1;">
+                <?php echo esc_html($eligibility['secondary_cta']['label']); ?>
+              </a>
+            <?php endif; ?>
           </div>
         <?php else : ?>
           <h3>Register for <?php echo esc_html($conf->title); ?></h3>

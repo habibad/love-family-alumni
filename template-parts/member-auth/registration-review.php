@@ -129,16 +129,12 @@ $brand     = $auth_data['brand'];
 			<div class="summary-card-body">
 				<dl class="summary-dl">
 					<div class="summary-row">
-						<dt>Selected Category:</dt>
-						<dd id="sum-tier" class="highlight-val">Individual Membership</dd>
-					</div>
-					<div class="summary-row" id="sum-row-spouse" style="display: none;">
-						<dt>Spouse Details:</dt>
-						<dd id="sum-spouse">None</dd>
+						<dt>Membership Package:</dt>
+						<dd id="sum-tier" class="highlight-val">Annual Membership ($100/year)</dd>
 					</div>
 					<div class="summary-row">
 						<dt>Dues Schedule:</dt>
-						<dd id="sum-dues">$100 Annual Dues requirement (No payment charged during preview)</dd>
+						<dd id="sum-dues">$100.00 USD / Year (Payable upon administrator account approval)</dd>
 					</div>
 					<div class="summary-row">
 						<dt>Directory Privacy:</dt>
